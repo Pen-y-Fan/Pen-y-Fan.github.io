@@ -144,6 +144,12 @@
         
         <a href="/categories/Markdown/Node/">Node</a>
       
+        
+          /
+        
+        
+        <a href="/categories/Markdown/Node/Hexo/">Hexo</a>
+      
       </span>
       
       
@@ -160,6 +166,24 @@
         
         
         <a href="/tags/static-site/">static-site</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/GitHub/">GitHub</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/Git/">Git</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/Resource/">Resource</a>
       
       </span>
       
@@ -186,7 +210,7 @@
 <p>I configured the <strong>theme/random/_config.yml</strong> as instructed and ran the commands to generate <strong>tags</strong> and <strong>categories</strong>, modifying the <strong>index.md</strong> of each as required.</p>
 <h2 id="Testing"><a href="#Testing" class="headerlink" title="Testing"></a>Testing</h2><p>It was now time to test! The created site comes with a <strong>Hello world</strong> blog. The website can be spun up locally using <code>hexo server</code>. This generates a local server running on post 4000 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a>. Clicking the linking launches Google Chrome, and the website was brought to life.</p>
 <h2 id="Deploying"><a href="#Deploying" class="headerlink" title="Deploying"></a>Deploying</h2><p>The documentation for deploying <a href="https://hexo.io/docs/github-pages" target="_blank" rel="noopener">Hexo to Github pages</a> include signing up for <strong>Travis CI</strong>, I don’t have an account and thought of a slightly different way to do this using windows batch script, </p>
-<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br><span class="line">xcopy .\public\*.* ..\Pen-y-Fan.github.io\ /s /d /y</span><br><span class="line">cd ..\Pen-y-Fan.github.io\</span><br><span class="line">git status</span><br><span class="line">git add .</span><br><span class="line">git commit -m 'Site updated..'</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br><span class="line">xcopy .\public\*.* ..\Pen-y-Fan.github.io\ /s /d /y</span><br><span class="line">cd ..\Pen-y-Fan.github.io\</span><br><span class="line">git status</span><br><span class="line">git add .</span><br><span class="line">git commit -m "Added first blog"</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
 
 <p>Explanation:</p>
 <ol>
@@ -238,6 +262,12 @@
 <h2 id="Delete-Hello-World"><a href="#Delete-Hello-World" class="headerlink" title="Delete Hello World"></a>Delete Hello World</h2><p>Time to delete the <strong>Hello World</strong> boilerplate blog, created when the site was initiated.</p>
 <p>Expand <strong>source_posts</strong> delete <strong>hello-world.md</strong></p>
 <h2 id="Time-to-Go-Live"><a href="#Time-to-Go-Live" class="headerlink" title="Time to Go Live"></a>Time to Go Live</h2><p>The website can be generated and deployed again.</p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>The criteria:</p>
+<ul>
+<li>Setup a free GitHub pages site</li>
+<li>Allow markdown files to be used to create the blogs</li>
+</ul>
+<p>Both criteria have been met. Overall I’m happy with the result, <strong><em>all</em></strong> I need to do now is add more content. I have a lot of content already written in Markdown, I need to copy it in and add <strong>Front-matter</strong> to the beginning of the Markdown, enter a created data, Hexo will take care of the blog.  </p>
 
   </article>
   <div class="random-toc-area">
@@ -245,7 +275,7 @@
   <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
   <div class="random-toc">
     <h2>Table of Content</h2>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Research"><span class="toc-text">Research</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Requirements"><span class="toc-text">Requirements</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Learning"><span class="toc-text">Learning</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Themes"><span class="toc-text">Themes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#My-Setup"><span class="toc-text">My Setup</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Testing"><span class="toc-text">Testing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Deploying"><span class="toc-text">Deploying</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Testing-1"><span class="toc-text">Testing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Settings-for-social-media"><span class="toc-text">Settings for social media</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Updating-the-website-config"><span class="toc-text">Updating the website config</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Create-an-About-Page"><span class="toc-text">Create an About Page</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Create-the-First-Post"><span class="toc-text">Create the First Post</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Create-a-README-md"><span class="toc-text">Create a README.md</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Delete-Hello-World"><span class="toc-text">Delete Hello World</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Time-to-Go-Live"><span class="toc-text">Time to Go Live</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Research"><span class="toc-text">Research</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Requirements"><span class="toc-text">Requirements</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Learning"><span class="toc-text">Learning</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Themes"><span class="toc-text">Themes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#My-Setup"><span class="toc-text">My Setup</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Testing"><span class="toc-text">Testing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Deploying"><span class="toc-text">Deploying</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Testing-1"><span class="toc-text">Testing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Settings-for-social-media"><span class="toc-text">Settings for social media</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Updating-the-website-config"><span class="toc-text">Updating the website config</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Create-an-About-Page"><span class="toc-text">Create an About Page</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Create-the-First-Post"><span class="toc-text">Create the First Post</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Create-a-README-md"><span class="toc-text">Create a README.md</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Delete-Hello-World"><span class="toc-text">Delete Hello World</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Time-to-Go-Live"><span class="toc-text">Time to Go Live</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-text">Conclusion</span></a></li></ol>
   </div>
 </div>
 
