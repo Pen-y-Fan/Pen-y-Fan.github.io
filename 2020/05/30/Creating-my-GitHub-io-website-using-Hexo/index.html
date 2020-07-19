@@ -128,7 +128,7 @@
     <p class="page-title-sub">
       <span id = "post-title-date">Created at 2020-05-30</span>
       
-        <span id = "post-title-updated">Updated at 2020-05-30</span>
+        <span id = "post-title-updated">Updated at 2020-06-01</span>
       
       
       <span id = "post-title-categories">Category
@@ -210,7 +210,7 @@
 <p>I configured the <strong>theme/random/_config.yml</strong> as instructed and ran the commands to generate <strong>tags</strong> and <strong>categories</strong>, modifying the <strong>index.md</strong> of each as required.</p>
 <h2 id="Testing"><a href="#Testing" class="headerlink" title="Testing"></a>Testing</h2><p>It was now time to test! The created site comes with a <strong>Hello world</strong> blog. The website can be spun up locally using <code>hexo server</code>. This generates a local server running on post 4000 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a>. Clicking the linking launches Google Chrome, and the website was brought to life.</p>
 <h2 id="Deploying"><a href="#Deploying" class="headerlink" title="Deploying"></a>Deploying</h2><p>The documentation for deploying <a href="https://hexo.io/docs/github-pages" target="_blank" rel="noopener">Hexo to Github pages</a> include signing up for <strong>Travis CI</strong>, I don’t have an account and thought of a slightly different way to do this using windows batch script, </p>
-<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br><span class="line">xcopy .\public\*.* ..\Pen-y-Fan.github.io\ /s /d /y</span><br><span class="line">cd ..\Pen-y-Fan.github.io\</span><br><span class="line">git status</span><br><span class="line">git add .</span><br><span class="line">git commit -m "Added first blog"</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br><span class="line">xcopy .\public\*.* ..\Pen-y-Fan.github.io\ /s /d /y</span><br><span class="line">cd ..\Pen-y-Fan.github.io\</span><br><span class="line">git status</span><br><span class="line">git add .</span><br><span class="line">git commit -m "Added git blog"</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
 
 <p>Explanation:</p>
 <ol>
