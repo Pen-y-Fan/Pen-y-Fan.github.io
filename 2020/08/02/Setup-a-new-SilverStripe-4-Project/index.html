@@ -1,0 +1,487 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Pen y Fan">
+  
+  
+  <meta name="keywords" content="PHP, Learning, resource, HTML, CSS, Git, Github">
+  
+  
+  
+    <meta name="description" content="I have recently started a new job as a software developer, the tech stack includes a content management system (CMS) called Silverstripe. I therefore wanted to learn the Silverstripe CMS. The inita...">
+  
+  <title>Setup a new SilverStripe 4 Project [ Pen y Fan ]</title>
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+  
+<link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+
+  
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+  
+    <div class="item next">
+      <a href="/2020/07/02/Running-Docker-on-Windows-10-Home/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        Running Docker on Windows 10 Home
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onClick="openUserCard()">
+          <img id="avatar" src="https://avatars3.githubusercontent.com/u/40126936?s=400&amp;u=957f8c1cbfeeb61a853b9e28eb2968352a77cc79&amp;v=4"/>
+          <div id="homelink">Pen y Fan</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/index.html">Home</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">Posts</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">Tags</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">Categories</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/about">About</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="https://github.com/pen-y-fan" target="_blank" rel="noopener">Github</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  
+
+  <article id="post">
+    <h1>Setup a new SilverStripe 4 Project</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">Created at 2020-08-02</span>
+      
+        <span id = "post-title-updated">Updated at 2020-08-02</span>
+      
+      
+      <span id = "post-title-categories">Category
+      
+      
+        
+        
+        <a href="/categories/Silverstripe/">Silverstripe</a>
+      
+      </span>
+      
+      
+      <span id = "post-title-tags">
+      Tag
+      
+      
+        
+        
+        <a href="/tags/CMS/">CMS</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/Tutorial/">Tutorial</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/PHP/">PHP</a>
+      
+      </span>
+      
+    </p>
+    
+    <p>I have recently started a new job as a software developer, the tech stack includes a content management system (CMS) called Silverstripe. I therefore wanted to learn the Silverstripe CMS. The inital process of creating a project should be straight forward, there are supposed to be beginner lessons.</p>
+<p>The first three lessons on how to set up a silverstripe project are confusing, as there is intermixed talk about upgrading from silverstripe v3. this is a simple guide to configure a new silverstripe v4 project from scratch, without the confusion of upgrading.</p>
+<p>The guide from the official lessons:</p>
+<ul>
+<li>The original guide: <a href="https://www.silverstripe.org/learn/lessons/v4/" target="_blank" rel="noopener">silverstripe lessons v4</a></li>
+</ul>
+<p>Sometimes it was useful to view the original video series:</p>
+<ul>
+<li>The original v3 guide, including videos: <a href="https://www.silverstripe.org/learn/lessons/v3/" target="_blank" rel="noopener">silverstripe lessons v3</a></li>
+</ul>
+<h2 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h2><p>Setup a local development environment. On Windows I recommend <a href="https://laragon.org/" target="_blank" rel="noopener">laragon.org</a>, which has all the required components:</p>
+<ul>
+<li>Apache</li>
+<li>MySQL</li>
+<li>PHP</li>
+<li>Composer</li>
+<li>Git</li>
+</ul>
+<h2 id="Up-and-Running"><a href="#Up-and-Running" class="headerlink" title="Up and Running"></a>Up and Running</h2><p>See lesson 0 for full details on a LAMP, MAMP or WAMP stack:</p>
+<ul>
+<li><a href="https://www.silverstripe.org/learn/lessons/v4/up-and-running-setting-up-a-local-silverstripe-dev-environment-1" target="_blank" rel="noopener">Up and Running: Setting up a local SilverStripe dev environment</a></li>
+</ul>
+<p>Use composer to create the silverstripe project using the silverstripe installer</p>
+<h3 id="simplified-setup"><a href="#simplified-setup" class="headerlink" title="simplified setup"></a>simplified setup</h3><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer create-project silverstripe/installer silverstrip4-example</span><br></pre></td></tr></table></figure>
+
+<p>Copy the <code>.env.example</code> file to make <code>.env</code></p>
+<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">copy .env.example .env</span><br></pre></td></tr></table></figure>
+
+<p>Configure the <code>.env</code> file with the local settings (change the values of names and passwords as required):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># DB credentials</span><br><span class="line">SS_DATABASE_CLASS&#x3D;&quot;MySQLDatabase&quot;</span><br><span class="line">SS_DATABASE_SERVER&#x3D;&quot;localhost&quot;</span><br><span class="line">SS_DATABASE_USERNAME&#x3D;&quot;root&quot;</span><br><span class="line">SS_DATABASE_PASSWORD&#x3D;&quot;&quot;</span><br><span class="line">SS_DATABASE_NAME&#x3D;&quot;silverstripe4-example&quot;</span><br><span class="line"></span><br><span class="line">SS_ENVIRONMENT_TYPE&#x3D;&#39;dev&#39;</span><br><span class="line"></span><br><span class="line">SS_DEFAULT_ADMIN_USERNAME&#x3D;&#39;root&#39;</span><br><span class="line">SS_DEFAULT_ADMIN_PASSWORD&#x3D;&#39;password&#39;</span><br></pre></td></tr></table></figure>
+
+<p>Launch Laragon, start Apache and MySQL, the pretty url will automatically be created for the project <code>silverstripe4-example</code>. For other dev environments configure Apache as required.</p>
+<p>Open the browser to <a href="http://silverstripe4-example.test" target="_blank" rel="noopener">http://silverstripe4-example.test</a> to populate the database</p>
+<h2 id="Creating-your-first-project"><a href="#Creating-your-first-project" class="headerlink" title="Creating your first project"></a>Creating your first project</h2><p>Based on lesson 1 <a href="https://www.silverstripe.org/learn/lessons/v4/creating-your-first-project" target="_blank" rel="noopener">Creating your first project</a></p>
+<h3 id="Quick-run-through-of-first-project"><a href="#Quick-run-through-of-first-project" class="headerlink" title="Quick run through of first project"></a>Quick run through of first project</h3><p>In your <code>\silverstripe4-example\app</code> directory, create a <code>templates</code> directory. </p>
+<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">md app\templates</span><br></pre></td></tr></table></figure>
+
+<p>Navigate to <code>app\templates</code> and create a file called <code>Page.ss</code>. Open that file, create a basic HTML document.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, world<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Activating-the-theme"><a href="#Activating-the-theme" class="headerlink" title="Activating the theme"></a>Activating the theme</h3><p>To activate the theme, we’ll have to dig into the project directory. Open the file <code>theme.yml</code> in the <code>\silverstripe4-example\app\_config</code> directory.</p>
+<p>Add the <code>app</code> theme and comment out <code>simple</code></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">Name:</span> <span class="string">mytheme</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="string">SilverStripe\View\SSViewer:</span></span><br><span class="line">  <span class="attr">themes:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">'app'</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">'$public'</span></span><br><span class="line"><span class="comment">#    - 'simple'</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">'$default'</span></span><br></pre></td></tr></table></figure>
+
+<p>Rename <code>\silverstripe4-example\app\_config\mysite.yml</code> to <code>app.yml</code></p>
+<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd silverstripe4-example\app\_config</span><br><span class="line">rename mysite.yml app.yml</span><br></pre></td></tr></table></figure>
+
+<p>Edit <code>app.yml</code> and change the project name to app.</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">Name:</span> <span class="string">myproject</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="string">SilverStripe\Core\Manifest\ModuleManifest:</span></span><br><span class="line">  <span class="attr">project:</span> <span class="string">app</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ....</span></span><br></pre></td></tr></table></figure>
+
+<p>To clear the cache, simply access any page on your site and append ?flush to the URL, e.g. <a href="http://silverstripe4-example.test?flush" target="_blank" rel="noopener">http://silverstripe4-example.test?flush</a></p>
+<p>The website will display <strong>Hello, world</strong></p>
+<p>Next configure PSR-4 autoloading. Open <code>\silverstripe4-example\composer.json</code>. In particular the <strong>“autoload”:</strong> and <strong>app.yml</strong></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"name"</span>: <span class="string">"silverstripe/installer"</span>,</span><br><span class="line">    <span class="attr">"type"</span>: <span class="string">"silverstripe-recipe"</span>,</span><br><span class="line">    <span class="attr">"description"</span>: <span class="string">"The SilverStripe Framework Installer"</span>,</span><br><span class="line">    <span class="attr">"require"</span>: &#123;</span><br><span class="line">        <span class="attr">"php"</span>: <span class="string">"&gt;=7.1.0"</span>,</span><br><span class="line">        <span class="attr">"silverstripe/recipe-plugin"</span>: <span class="string">"^1.2"</span>,</span><br><span class="line">        <span class="attr">"silverstripe/recipe-cms"</span>: <span class="string">"4.5.2@stable"</span>,</span><br><span class="line">        <span class="attr">"silverstripe-themes/simple"</span>: <span class="string">"~3.2.0"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"require-dev"</span>: &#123;</span><br><span class="line">        <span class="attr">"phpunit/phpunit"</span>: <span class="string">"^5.7"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"extra"</span>: &#123;</span><br><span class="line">        <span class="attr">"resources-dir"</span>: <span class="string">"_resources"</span>,</span><br><span class="line">        <span class="attr">"project-files-installed"</span>: [</span><br><span class="line">            <span class="string">"app/.htaccess"</span>,</span><br><span class="line">            <span class="string">"app/_config.php"</span>,</span><br><span class="line">            <span class="string">"app/_config/app.yml"</span>,</span><br><span class="line">            <span class="string">"app/src/Page.php"</span>,</span><br><span class="line">            <span class="string">"app/src/PageController.php"</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="attr">"public-files-installed"</span>: [</span><br><span class="line">            <span class="string">".htaccess"</span>,</span><br><span class="line">            <span class="string">"index.php"</span>,</span><br><span class="line">            <span class="string">"web.config"</span></span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"autoload"</span>: &#123;</span><br><span class="line">        <span class="attr">"psr-4"</span>: &#123;</span><br><span class="line">            <span class="attr">"SilverStripe\\Lessons\\"</span>: <span class="string">"app/src/"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"config"</span>: &#123;</span><br><span class="line">        <span class="attr">"process-timeout"</span>: <span class="number">600</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"prefer-stable"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"minimum-stability"</span>: <span class="string">"dev"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Migrating-static-templates-into-your-theme"><a href="#Migrating-static-templates-into-your-theme" class="headerlink" title="Migrating static templates into your theme"></a>Migrating static templates into your theme</h2><ul>
+<li>Based on lesson 2 <a href="https://www.silverstripe.org/learn/lessons/v4/migrating-static-templates-into-your-theme-1" target="_blank" rel="noopener">Migrating static templates into your theme</a></li>
+</ul>
+<p>Download the zip file from <a href="https://github.com/silverstripe/one-ring-rentals" target="_blank" rel="noopener">https://github.com/silverstripe/one-ring-rentals</a></p>
+<p>Create a folder <code>static</code> in <code>\silverstripe4-example\public</code></p>
+<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">md public\static</span><br></pre></td></tr></table></figure>
+
+<p>Unzip the <code>one-ring-rentals.zip</code>, in a temp directory, and copy the <code>static</code> folder into the newly created <code>static</code> folder.</p>
+<p>Open the browser to <a href="http://silverstripe4-example.test/static/default.html" target="_blank" rel="noopener">http://silverstripe4-example.test/static/default.html</a> to view the content.</p>
+<p>Open <code>silverstripe4-example\app\templates\Page.ss</code></p>
+<p>Copy the contents of <code>public\static\default.html</code> into <code>app\templates\Page.ss</code> (the file created in lesson one with “hello world”)</p>
+<p>Copy the folders <code>css</code>, <code>fonts</code>, <code>images</code> and <code>js</code> from <code>public\static</code> to <code>public</code>, rename <code>js</code> to <code>javascript</code></p>
+<p>Open <a href="http://silverstripe4-example.test/" target="_blank" rel="noopener">http://silverstripe4-example.test/</a> and the default page will be the same as the static page.</p>
+<h2 id="Add-dynamic-content"><a href="#Add-dynamic-content" class="headerlink" title="Add dynamic content"></a>Add dynamic content</h2><p>Some code snippets were hard to follow, I have expanded the scope of these snippets to make the code block easier to identify.</p>
+<ul>
+<li>Based on lesson 3 <a href="https://www.silverstripe.org/learn/lessons/v4/migrating-static-templates-into-your-theme-1" target="_blank" rel="noopener">Migrating static templates into your theme</a></li>
+</ul>
+<p>Update the nav menu with Dynamic content from Silverstripe. </p>
+<ul>
+<li><strong>&lt;% loop $Menu(1) %&gt;</strong> Begins a loop through all the menu items, repeating all the HTML that is in the loop for each one. By passing (1) as an argument, we are asking the CMS to give us all the pages at level 1 of the hierarchy. Changing that to (2) would give us all the pages at the second level of the hierarchy in the current section, and so on.</li>
+<li><strong>$Link</strong> The link to the page in the current iteration of the loop. </li>
+<li><strong>$Title</strong> The title of the page in the current iteration of the loop</li>
+<li><strong>$MenuTitle</strong> SilverStripe distinguishes between the title of a page (i.e. in your <code>&lt;h1&gt;</code> tag) and the title that should appear in the context of navigation. Often times these are the same, but since the user is given the option to customise the title in menus, we use the <code>$MenuTitle</code> variable here.</li>
+<li><strong>$LinkingMode</strong> A helper method that indicates the state of our menu. For each item in the list, this method will return one of three strings:<ul>
+<li><strong>link</strong>: the page is not active</li>
+<li><strong>current</strong>: this is the current page</li>
+<li><strong>section</strong>: the current page is a descendant of this page (i.e. on the URL /about-us/company, the “company” page is current, and the “about-us” page is “section.”</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- BEGIN MAIN MENU --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">nav</span> <span class="attr">class</span>=<span class="string">"navbar"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"nav-mobile-btn"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-bars"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"nav navbar-nav"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">%</span> <span class="attr">loop</span> $<span class="attr">Menu</span>(<span class="attr">1</span>) %&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"$LinkingMode"</span> <span class="attr">href</span>=<span class="string">"$Link"</span> <span class="attr">title</span>=<span class="string">"Go to the $Title page"</span>&gt;</span>$MenuTitle<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">%</span> <span class="attr">end_loop</span> %&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- END MAIN MENU --&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>Refresh the page. You should now see the three default pages SilverStripe creates for you in the primary navigation: Home, About Us, and Contact Us.</p>
+<p>Add <code>&lt;% base_tag %&gt;</code> to the top of the html, under the <code>&lt;head&gt;</code> tag.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- Page Title --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>One Ring Rentals - Home<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">%</span> <span class="attr">base_tag</span> %&gt;</span></span><br><span class="line">    $MetaTags</span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1, maximum-scale=1"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>We can update our <code>&lt;h1&gt;</code> tag to use the $Title variable.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">"page-title"</span>&gt;</span>$Title<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>Replace the contents of <code>&lt;div class=&quot;breadcrumb&quot;&gt;</code> with <code>$Breadcrumbs</code>.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"breadcrumb"</span>&gt;</span></span><br><span class="line">    $Breadcrumbs</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>Replace the contents of <code>&lt;div class=&quot;main col-sm-8&quot;&gt;</code> with <code>$Content</code>.</p>
+<p>Let’s look quickly at the login page to the CMS by accessing the <code>/admin/</code> URL. Notice that we’re not presented with any login form. In order to get the form to show, we’ll need to add a <code>$Form</code> variable, which primarily serves as a placeholder for the login form. </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main col-sm-8"</span>&gt;</span></span><br><span class="line">    $Content</span><br><span class="line">    $Form</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>Earlier in this tutorial we created a loop for primary navigation using $Menu(1). Similarly, we can create subnavigation using $Menu(2). We don’t want to include this block of content unless subnavigation exists, so we’ll wrap the whole thing in an &lt;% if $Menu(2) %&gt; block.</p>
+<p>Replace the contents of the sidebar as follows:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"sidebar gray col-sm-4"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">%</span> <span class="attr">if</span> $<span class="attr">Menu</span>(<span class="attr">2</span>) %&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h3</span>&gt;</span>In this section<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"subnav"</span>&gt;</span>  </span><br><span class="line">          <span class="tag">&lt;<span class="name">%</span> <span class="attr">loop</span> $<span class="attr">Menu</span>(<span class="attr">2</span>) %&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"$LinkingMode"</span> <span class="attr">href</span>=<span class="string">"$Link"</span>&gt;</span>$MenuTitle<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">%</span> <span class="attr">end_loop</span> %&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">%</span> <span class="attr">end_if</span> %&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>We want to make sure this links to the base URL of our website. Let’s use the <code>$AbsoluteBaseURL</code> variable in the link around the logo.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"block col-sm-3"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/logo.png"</span> <span class="attr">alt</span>=<span class="string">"One Ring Rentals"</span> /&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"$AbsoluteBaseURL"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/logo.png"</span> <span class="attr">alt</span>=<span class="string">"One Ring Rentals"</span> /&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam commodo eros nibh, et dictum elit tincidunt eget.</span><br><span class="line">        Pellentesque volutpat quam dignissim, convallis elit id, efficitur sem. Vivamus ac scelerisque sem. Aliquam sed</span><br><span class="line">        enim rutrum nibh gravida pellentesque nec at metus. In hac habitasse platea dictumst. Etiam in rhoncus mi. In</span><br><span class="line">        hac habitasse platea dictumst. Mauris congue blandit venenatis.</span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Continue-Learning"><a href="#Continue-Learning" class="headerlink" title="Continue Learning"></a>Continue Learning</h2><p>The remaining lessons could be followed without too much problem, the main gotchas were:</p>
+<ul>
+<li>Importing images:<ul>
+<li>I couldn’t find the source of the original images</li>
+<li>The work around was to use my own, however, they had to be uploaded one by one.</li>
+</ul>
+</li>
+<li>Importing records e.g. to have data for filtering or pagination. (i.e. using SQL import): <ul>
+<li>This didn’t work, I suspect the table names or versioning were different.</li>
+<li>The work around was to manually type in some records.</li>
+</ul>
+</li>
+<li>Some code snippets weren’t always clear which files was being editing.<ul>
+<li>I viewed the v3 videos to confirm.</li>
+</ul>
+</li>
+</ul>
+<p>I hope this setup helps new learners to set up Silverstripe and following the remaining lessons.</p>
+
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">Show TOC</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
+  <div class="random-toc">
+    <h2>Table of Content</h2>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Prerequisites"><span class="toc-text">Prerequisites</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Up-and-Running"><span class="toc-text">Up and Running</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#simplified-setup"><span class="toc-text">simplified setup</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Creating-your-first-project"><span class="toc-text">Creating your first project</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Quick-run-through-of-first-project"><span class="toc-text">Quick run through of first project</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Activating-the-theme"><span class="toc-text">Activating the theme</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Migrating-static-templates-into-your-theme"><span class="toc-text">Migrating static templates into your theme</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Add-dynamic-content"><span class="toc-text">Add dynamic content</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Continue-Learning"><span class="toc-text">Continue Learning</span></a></li></ol>
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+
+  
+
+  
+    <a href="/2020/07/02/Running-Docker-on-Windows-10-Home/" class="next">Next post Running Docker on Windows 10 Home &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by Pen y Fan using
+      <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random" target="_blank" rel="noopener">Random</a>
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="https://avatars3.githubusercontent.com/u/40126936?s=400&amp;u=957f8c1cbfeeb61a853b9e28eb2968352a77cc79&amp;v=4">
+    <p id="description">Posts about my coding experiences, primarily for my learning path with PHP, good clean professional code.</p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://twitter.com/MikeAPritch" target="_blank" rel="noopener">
+        
+          <i class="icon iconfont twitter">&#xe600;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.linkedin.com/in/michael-pritchard-340b4520/" target="_blank" rel="noopener">
+        
+          <i class="icon iconfont linkedin">&#xe601;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.reddit.com/user/Pen-y-Fan" target="_blank" rel="noopener">
+        
+          R
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://github.com/pen-y-fan" target="_blank" rel="noopener">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<div id="btn-view">Hide</div>
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-3.5.1.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["flash"],"timer":true,"delay":30000,"shuffle":true,"count":12};
+var unsplashConfig = {"gravity":"center"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+
+var backgroundColor = "34495E";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+</body>
+</html>
+
