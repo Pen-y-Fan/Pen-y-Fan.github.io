@@ -20,7 +20,7 @@
   
     <meta name="description" content="I have recently configured my windows 10 laptop with an additional SSD, so I could experiment with Linux. I have already installed Pop!_OS Git, PhpStorm and Docker. I haven’t installed PHP or Compo...">
   
-  <title>Set up PhpStorm to use PHP with PhpUnit and xDebug in Docker [ Pen y Fan ]</title>
+  <title>Set up PhpStorm to use PHP with PHPUnit and xDebug in Docker [ Pen y Fan ]</title>
   
   
     <link rel="shortcut icon" href="/favicon.ico">
@@ -124,11 +124,11 @@
   
 
   <article id="post">
-    <h1>Set up PhpStorm to use PHP with PhpUnit and xDebug in Docker</h1>
+    <h1>Set up PhpStorm to use PHP with PHPUnit and xDebug in Docker</h1>
     <p class="page-title-sub">
       <span id = "post-title-date">Created at 2020-10-10</span>
       
-        <span id = "post-title-updated">Updated at 2020-10-10</span>
+        <span id = "post-title-updated">Updated at 2020-10-11</span>
       
       
       <span id = "post-title-categories">Category
@@ -183,11 +183,11 @@
       
     </p>
     
-    <p>I have recently configured my windows 10 laptop with an additional SSD, so I could experiment with Linux. I have already installed Pop!_OS Git, PhpStorm and Docker. I haven’t installed PHP or Composer locally. Next I want to learn how to use this new environment. This is what I have found out so far.</p>
+    <p>I have recently configured my windows 10 laptop with an additional SSD, so I could experiment with Linux. I have already <a href="/2020/10/05/Pop-OS-new-install/">installed Pop!_OS Git, PhpStorm and Docker</a>. I haven’t installed PHP or Composer locally. Next I want to learn how to use this new environment. This is what I have found out so far.</p>
 <h2 id="Start-with-a-Project"><a href="#Start-with-a-Project" class="headerlink" title="Start with a Project"></a>Start with a Project</h2><p>One of my favorite projects is the Gilded Rose Kata. I can clone that from github as follows:</p>
 <figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~/PhpstormProjects/</span><br><span class="line">git clone git@github.com:emilybache/GildedRose-Refactoring-Kata.git</span><br><span class="line">cd GildedRose-Refactoring-Kata/php/</span><br></pre></td></tr></table></figure>
 
-<h2 id="Create-docker-compose-yml"><a href="#Create-docker-compose-yml" class="headerlink" title="Create docker-compose.yml"></a>Create docker-compose.yml</h2><p>It is possible to run Php cli without a docker-compose file, I have found it is easier to set up PhpStorm using this intermediate step.</p>
+<h2 id="Create-docker-compose-yml"><a href="#Create-docker-compose-yml" class="headerlink" title="Create docker-compose.yml"></a>Create docker-compose.yml</h2><p>It is possible to run PHP cli without a docker-compose file, I have found it is easier to set up PhpStorm using this intermediate step.</p>
 <p>PhpStorm has several preconfigured Docker containers, source:</p>
 <ul>
 <li><a href="https://github.com/JetBrains/phpstorm-docker-images" target="_blank" rel="noopener">Github - JetBrains / phpstorm-docker-images</a></li>
@@ -195,11 +195,18 @@
 </ul>
 <p>They can be used as follows:</p>
 <h3 id="Php-7-3-CLI-and-XDebug-2-7"><a href="#Php-7-3-CLI-and-XDebug-2-7" class="headerlink" title="Php 7.3 CLI and XDebug 2.7"></a>Php 7.3 CLI and XDebug 2.7</h3><p><code>docker-compose.yml</code></p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">'2'</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">php-cli:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">phpstorm/php-73-cli-xdebug-27</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./:/app</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="comment">#For Linux, replace the line below with your hostname, which you can obtain by executing `hostname` in Terminal.</span></span><br><span class="line">      <span class="attr">XDEBUG_CONFIG:</span> <span class="string">remote_host=pop-os</span></span><br><span class="line">    <span class="attr">working_dir:</span> <span class="string">"/app"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">'2'</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">php-cli:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">phpstorm/php-73-cli-xdebug-27</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./:/app</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="comment"># For Linux, replace the line below with your hostname, </span></span><br><span class="line">      <span class="comment"># which you can obtain by executing `hostname` in Terminal.</span></span><br><span class="line">      <span class="attr">XDEBUG_CONFIG:</span> <span class="string">remote_host=pop-os</span></span><br><span class="line">    <span class="attr">working_dir:</span> <span class="string">"/app"</span></span><br></pre></td></tr></table></figure>
+
+<p>The above will work for Linux, for Windows and MacOS the <code>XDEBUG_CONFIG:</code> will need the changed as follows:</p>
+<h3 id="Windows-and-MacOS"><a href="#Windows-and-MacOS" class="headerlink" title="Windows and MacOS"></a>Windows and MacOS</h3><p>Windows and MacOS replace with <code>XDEBUG_CONFIG:host.docker.internal</code>, which will automatically resolve to the internal address of the host Docker is running on.</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">environment:</span></span><br><span class="line">  <span class="attr">XDEBUG_CONFIG:</span> <span class="string">remote_host=host.docker.internal</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="MacOS-with-local-Homebrew-php-fpm"><a href="#MacOS-with-local-Homebrew-php-fpm" class="headerlink" title="MacOS with local Homebrew php-fpm"></a>MacOS with local Homebrew php-fpm</h3><p>If you use a local Homebrew php-fpm installation, port 9000 (which is the default debugging port) may become occupied. PhpStorm will remain silent on starting listening for incoming connections. If this is the case, in the Settings | Languages &amp; Frameworks | PHP | Debug, set the Debug port to 9001, and use the following configuration line instead.</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">environment:</span></span><br><span class="line">  <span class="attr">XDEBUG_CONFIG:</span> <span class="string">remote_host=host.docker.internal,</span> <span class="string">remote_port=9001</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="Apache-PHP-7-3-XDebug-2-7-and-MySQL"><a href="#Apache-PHP-7-3-XDebug-2-7-and-MySQL" class="headerlink" title="Apache, PHP 7.3, XDebug 2.7 and MySQL"></a>Apache, PHP 7.3, XDebug 2.7 and MySQL</h3><p>For information this is the LAMP version (based on the phpstorm-workshop).</p>
 <p><code>docker-compose.yml</code></p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">'2'</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">debug:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">phpstorm/php-73-apache-xdebug-27</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">"8081:80"</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./:/var/www/html</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="comment">#For Windows and macOS, replace the line below with `host.docker.internal`, which will automatically resolve to the internal address of the host Docker is running on.</span></span><br><span class="line">      <span class="comment">#For Linux, replace the line below with your hostname, which you can obtain by executing `hostname` in Terminal.</span></span><br><span class="line">      <span class="attr">XDEBUG_CONFIG:</span> <span class="string">remote_host=pop-os</span></span><br><span class="line">    <span class="attr">working_dir:</span> <span class="string">"/var/www/html"</span></span><br><span class="line">      <span class="comment">#For macOS, if you use a local Homebrew php-fpm installation, port `9000` (which is the default debugging port) may become occupied. PhpStorm will remain silent on starting listening for incoming connections. If this is the case, in the Settings | Languages &amp; Frameworks | PHP | Debug, set the Debug port to 9001, and use the following configuration line instead.</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">#XDEBUG_CONFIG: remote_host=host.docker.internal, remote_port=9001</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">mysql:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">phpstorm/mysql</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">"33056:3306"</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./data:/var/lib/mysql</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">'2'</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">debug:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">phpstorm/php-73-apache-xdebug-27</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">"8081:80"</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./:/var/www/html</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="comment">#For Windows and macOS, replace the line below with `host.docker.internal`,</span></span><br><span class="line">      <span class="comment"># which will automatically resolve to the internal address of the host</span></span><br><span class="line">      <span class="comment"># Docker is running on.</span></span><br><span class="line">      <span class="comment">#For Linux, replace the line below with your hostname, </span></span><br><span class="line">      <span class="comment"># which you can obtain by executing `hostname` in Terminal.</span></span><br><span class="line">      <span class="attr">XDEBUG_CONFIG:</span> <span class="string">remote_host=pop-os</span></span><br><span class="line">      <span class="comment">#For macOS, if you use a local Homebrew php-fpm installation, port `9000`</span></span><br><span class="line">      <span class="comment"># (which is the default debugging port) may become occupied. PhpStorm will</span></span><br><span class="line">      <span class="comment"># remain silent on starting listening for incoming connections. If this is</span></span><br><span class="line">      <span class="comment"># the case, in the Settings | Languages &amp; Frameworks | PHP | Debug, set the</span></span><br><span class="line">      <span class="comment"># Debug port to 9001, and use the following configuration line instead.</span></span><br><span class="line">      </span><br><span class="line">      <span class="comment">#XDEBUG_CONFIG: remote_host=host.docker.internal, remote_port=9001</span></span><br><span class="line">    <span class="attr">working_dir:</span> <span class="string">"/var/www/html"</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">mysql:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">phpstorm/mysql</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">"33056:3306"</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./data:/var/lib/mysql</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="Install-dependencies-using-composer"><a href="#Install-dependencies-using-composer" class="headerlink" title="Install dependencies using composer"></a>Install dependencies using composer</h2><p>To keep things simple the composer Docker container can be used to install the dependencies.</p>
 <p>This is the script recommended on the <a href="https://hub.docker.com/_/composer" target="_blank" rel="noopener">docker hub composer</a> page to avoid filesystem permissions problems</p>
@@ -208,14 +215,17 @@
 </blockquote>
 <figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm --interactive --tty \</span><br><span class="line">  --volume $PWD:/app \</span><br><span class="line">  --user $(id -u):$(id -g) \</span><br><span class="line">  composer install</span><br></pre></td></tr></table></figure>
 
-<p>Alternativly, more complex projects will need specific PHP extensions to be installed, which are not included in the Composer Docker container. The following method could be used to install Composer, inside the container and install the dependencies.</p>
+<p>On windows change <code>$PWD</code> for the full path to the project (note: forward slash / as separator), remove the line end <strong>\</strong> and run the command as one line: </p>
+<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm -it -v c:/project-path/project-name:/app composer install</span><br></pre></td></tr></table></figure>
+
+<p>Alternatively, more complex projects will need specific PHP extensions to be installed, which are not included in the Composer Docker container. The following method could be used to install Composer, inside the container and install the dependencies.</p>
 <ol>
 <li>Access <strong>bash</strong> in the <strong>php-cli</strong> container: <code>docker-compose run --rm php-cli /bin/bash</code></li>
-<li>Install Composer, by <a href="https://getcomposer.org/download/" target="_blank" rel="noopener">following the download instructions</a></li>
+<li>Install Composer, by <a href="https://getcomposer.org/download/" target="_blank" rel="noopener">following the download instructions for Linux</a></li>
 <li>Still, inside the container, install dependencies: <code>php composer.phar install</code></li>
 <li>Exit the container <code>exit</code></li>
 </ol>
-<p>Note: Using the second method Composer will create the vendor folder as root!</p>
+<p>Note: In Linux, using the second method Composer will create the vendor folder as root!</p>
 <figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">drwxrwxr-x  3 michael michael   4096 Oct  3 19:46 tests</span><br><span class="line">drwxr-xr-x 27 root    root      4096 Sep 30 21:36 vendor</span><br></pre></td></tr></table></figure>
@@ -225,7 +235,8 @@
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">drwxr-xr-x 27 michael michael   4096 Sep 30 21:36 vendor</span><br></pre></td></tr></table></figure>
 
-<p>There is a detailed description about <a href="https://jtreminio.com/blog/running-docker-containers-as-current-host-user/" target="_blank" rel="noopener">running Docker containers as current host user</a>.</p>
+<h3 id="Further-information"><a href="#Further-information" class="headerlink" title="Further information"></a>Further information</h3><p>There is a detailed description about <a href="https://jtreminio.com/blog/running-docker-containers-as-current-host-user/" target="_blank" rel="noopener">running Docker containers as current host user</a>.</p>
+<p>The official documentation on <a href="https://docs.docker.com/engine/reference/run/" target="_blank" rel="noopener">Docker run</a> and <a href="https://docs.docker.com/compose/reference/overview/" target="_blank" rel="noopener">docker-compose cli reference</a>.</p>
 <h2 id="Configure-PhpStorm"><a href="#Configure-PhpStorm" class="headerlink" title="Configure PhpStorm"></a>Configure PhpStorm</h2><p>Now the project has been cloned from GitHub and the dependencies have been installed. PhpStorm can be setup to use Docker. Thanks to Gary Hockin’s excellent YouTube video <a href="https://www.youtube.com/watch?v=I7aGWO6K3Ho&list=RDCMUCGp4UBwpTNegd_4nCpuBcow" target="_blank" rel="noopener">Running PHPUnit Tests in PhpStorm with Docker</a>, the setup process can be easily replicated.</p>
 <p>There is a four stage process:</p>
 <ol>
@@ -246,7 +257,7 @@
 </ul>
 </li>
 </ul>
-<p><img src="/2020/10/10/Set-up-PhpStorm-to-use-PHP-with-PhpUnit-and-xDebug-in-Docker/docker-settings.png" alt="Docker settings" title="Docker settings"></p>
+<p><img src="/2020/10/10/Set-up-PhpStorm-to-use-PHP-with-PHPUnit-and-xDebug-in-Docker/docker-settings.png" alt="Docker settings" title="Docker settings"></p>
 <h3 id="2-Configure-the-default-CLI-interpreter"><a href="#2-Configure-the-default-CLI-interpreter" class="headerlink" title="2. Configure the default CLI interpreter"></a>2. Configure the default CLI interpreter</h3><ul>
 <li>Settings (Ctrl + Alt  + S)</li>
 <li>Search for CLI interpreter<ul>
@@ -259,12 +270,12 @@
 <li>Choose <strong>Docker Compose</strong></li>
 <li>Choose the Service from the drop down list (e.g. php-cli)</li>
 </ul>
-<p><img src="/2020/10/10/Set-up-PhpStorm-to-use-PHP-with-PhpUnit-and-xDebug-in-Docker/configure-cli-interpreters.png" alt="Configure the CLI Interpreter" title="Configure the CLI Interpreter"></p>
+<p><img src="/2020/10/10/Set-up-PhpStorm-to-use-PHP-with-PHPUnit-and-xDebug-in-Docker/configure-cli-interpreters.png" alt="Configure the CLI Interpreter" title="Configure the CLI Interpreter"></p>
 <ul>
 <li>Select OK</li>
 <li>Change the name e.g. Docker PHP</li>
 </ul>
-<p><img src="/2020/10/10/Set-up-PhpStorm-to-use-PHP-with-PhpUnit-and-xDebug-in-Docker/cli-interpreters.png" alt="CLI Interpreters" title="CLI Interpreters"></p>
+<p><img src="/2020/10/10/Set-up-PhpStorm-to-use-PHP-with-PHPUnit-and-xDebug-in-Docker/cli-interpreters.png" alt="CLI Interpreters" title="CLI Interpreters"></p>
 <ul>
 <li>Apply and OK</li>
 <li>Check the mapping<ul>
@@ -273,7 +284,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="3-Configure-PhpUnit"><a href="#3-Configure-PhpUnit" class="headerlink" title="3. Configure PhpUnit"></a>3. Configure PhpUnit</h2><ul>
+<h3 id="3-Configure-PhpUnit"><a href="#3-Configure-PhpUnit" class="headerlink" title="3. Configure PhpUnit"></a>3. Configure PhpUnit</h3><ul>
 <li>Settings (Ctrl + Alt  + S)</li>
 <li>Search for Test Frameworks<ul>
 <li>Under Language &amp; Frameworks &gt; PHP</li>
@@ -288,22 +299,23 @@
 </ul>
 </li>
 </ul>
-<p><img src="/2020/10/10/Set-up-PhpStorm-to-use-PHP-with-PhpUnit-and-xDebug-in-Docker/phpunit-settings.png" alt="PHPUnit settings" title="PHPUnit settings"></p>
-<h2 id="4-Create-the-test-runner"><a href="#4-Create-the-test-runner" class="headerlink" title="4. Create the test runner"></a>4. Create the test runner</h2><ul>
+<p><img src="/2020/10/10/Set-up-PhpStorm-to-use-PHP-with-PHPUnit-and-xDebug-in-Docker/phpunit-settings.png" alt="PHPUnit settings" title="PHPUnit settings"></p>
+<h3 id="4-Create-the-test-runner"><a href="#4-Create-the-test-runner" class="headerlink" title="4. Create the test runner"></a>4. Create the test runner</h3><ul>
 <li>Click Edit Configuration (next to run test button)</li>
 <li>Click + to add</li>
 <li>Select PHPUnit</li>
 <li>Under Test Runner choose Defined in the configuration file</li>
 <li>Name - e.g. Docker PHPUnit</li>
 </ul>
-<p><img src="/2020/10/10/Set-up-PhpStorm-to-use-PHP-with-PhpUnit-and-xDebug-in-Docker/run-debug-config.png" alt="PHPUnit settings" title="PHPUnit settings"></p>
+<p><img src="/2020/10/10/Set-up-PhpStorm-to-use-PHP-with-PHPUnit-and-xDebug-in-Docker/run-debug-config.png" alt="PHPUnit settings" title="PHPUnit settings"></p>
 <ul>
 <li>Click Play to run all the tests!</li>
 </ul>
-<p><img src="/2020/10/10/Set-up-PhpStorm-to-use-PHP-with-PhpUnit-and-xDebug-in-Docker/run-tests.png" alt="Run the tests" title="Run the tests"></p>
+<p><img src="/2020/10/10/Set-up-PhpStorm-to-use-PHP-with-PHPUnit-and-xDebug-in-Docker/run-tests.png" alt="Run the tests" title="Run the tests"></p>
 <h2 id="What-about-configuring-xDebug"><a href="#What-about-configuring-xDebug" class="headerlink" title="What about configuring xDebug?"></a>What about configuring xDebug?</h2><p>Thanks to this setup, xDebug has been automatically configured! It will use the default PHP Interpreter, which was configured in step 2. A breakpoint can be set in the app or tests can be run with coverage :)</p>
-<p><img src="/2020/10/10/Set-up-PhpStorm-to-use-PHP-with-PhpUnit-and-xDebug-in-Docker/debug.png" alt="Debug" title="Debug as required"></p>
+<p><img src="/2020/10/10/Set-up-PhpStorm-to-use-PHP-with-PHPUnit-and-xDebug-in-Docker/debug.png" alt="Debug" title="Debug as required"></p>
 <p>Enjoy the kata!</p>
+<p>Edit:  Added details on running commands on MacOS and Windows and small tweaks.</p>
 
   </article>
   <div class="random-toc-area">
@@ -311,7 +323,7 @@
   <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
   <div class="random-toc">
     <h2>Table of Content</h2>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Start-with-a-Project"><span class="toc-text">Start with a Project</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Create-docker-compose-yml"><span class="toc-text">Create docker-compose.yml</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Php-7-3-CLI-and-XDebug-2-7"><span class="toc-text">Php 7.3 CLI and XDebug 2.7</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Apache-PHP-7-3-XDebug-2-7-and-MySQL"><span class="toc-text">Apache, PHP 7.3, XDebug 2.7 and MySQL</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Install-dependencies-using-composer"><span class="toc-text">Install dependencies using composer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Configure-PhpStorm"><span class="toc-text">Configure PhpStorm</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Configure-PhpStorm-to-use-Docker"><span class="toc-text">1. Configure PhpStorm to use Docker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Configure-the-default-CLI-interpreter"><span class="toc-text">2. Configure the default CLI interpreter</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Configure-PhpUnit"><span class="toc-text">3. Configure PhpUnit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Create-the-test-runner"><span class="toc-text">4. Create the test runner</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-about-configuring-xDebug"><span class="toc-text">What about configuring xDebug?</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Start-with-a-Project"><span class="toc-text">Start with a Project</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Create-docker-compose-yml"><span class="toc-text">Create docker-compose.yml</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Php-7-3-CLI-and-XDebug-2-7"><span class="toc-text">Php 7.3 CLI and XDebug 2.7</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows-and-MacOS"><span class="toc-text">Windows and MacOS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MacOS-with-local-Homebrew-php-fpm"><span class="toc-text">MacOS with local Homebrew php-fpm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Apache-PHP-7-3-XDebug-2-7-and-MySQL"><span class="toc-text">Apache, PHP 7.3, XDebug 2.7 and MySQL</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Install-dependencies-using-composer"><span class="toc-text">Install dependencies using composer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Further-information"><span class="toc-text">Further information</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Configure-PhpStorm"><span class="toc-text">Configure PhpStorm</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Configure-PhpStorm-to-use-Docker"><span class="toc-text">1. Configure PhpStorm to use Docker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Configure-the-default-CLI-interpreter"><span class="toc-text">2. Configure the default CLI interpreter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Configure-PhpUnit"><span class="toc-text">3. Configure PhpUnit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Create-the-test-runner"><span class="toc-text">4. Create the test runner</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-about-configuring-xDebug"><span class="toc-text">What about configuring xDebug?</span></a></li></ol>
   </div>
 </div>
 
