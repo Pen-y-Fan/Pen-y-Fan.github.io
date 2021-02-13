@@ -1,0 +1,478 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Pen y Fan">
+  
+  
+  <meta name="keywords" content="PHP, Learning, resource, HTML, CSS, Git, Github">
+  
+  
+  
+    <meta name="description" content="I have been using Docker since I installed Pop!_OS On my laptop Oct 2020. I deliberately have not installed PHP, MySQL or Apache on my laptop, which has forced me to learn to use Docker!
+The first ...">
+  
+  <title>Troubleshooting Docker [ Pen y Fan ]</title>
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+  
+<link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+
+  
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+  
+    <div class="item next">
+      <a href="/2020/10/10/Set-up-PhpStorm-to-use-PHP-with-PHPUnit-and-xDebug-in-Docker/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        Set up PhpStorm to use PHP with PHPUnit and xDebug in Docker
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onClick="openUserCard()">
+          <img id="avatar" src="https://avatars3.githubusercontent.com/u/40126936?s=400&amp;u=957f8c1cbfeeb61a853b9e28eb2968352a77cc79&amp;v=4"/>
+          <div id="homelink">Pen y Fan</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/index.html">Home</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">Posts</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">Tags</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">Categories</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/about">About</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="https://github.com/pen-y-fan" target="_blank" rel="noopener">Github</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  
+
+  <article id="post">
+    <h1>Troubleshooting Docker</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">Created at 2021-02-12</span>
+      
+        <span id = "post-title-updated">Updated at 2021-02-13</span>
+      
+      
+      <span id = "post-title-categories">Category
+      
+      
+        
+        
+        <a href="/categories/Docker/">Docker</a>
+      
+      </span>
+      
+      
+      <span id = "post-title-tags">
+      Tag
+      
+      
+        
+        
+        <a href="/tags/Docker/">Docker</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/Tutorial/">Tutorial</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/Linux/">Linux</a>
+      
+      </span>
+      
+    </p>
+    
+    <p>I have been using Docker since I installed <a href="./Pop-OS-new-install.md">Pop!_OS On my laptop Oct 2020</a>. I deliberately have not installed PHP, MySQL or Apache on my laptop, which has forced me to learn to use Docker!</p>
+<p>The first tutorial I followed was the Docker docs <a href="https://docs.docker.com/get-started/" target="_blank" rel="noopener">get started</a> after I installed Docker. I found this to be a useful introduction, even though I wanted a PHP environment, the guide still explained the basics of Docker. I will not cover the basics here, as these are already well covered in the getting started documentation, there are many youtube channels, some I have watched are:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=YFl2mCHdv24" target="_blank" rel="noopener">Learn Docker in 12 Minutes 🐳</a> by Jake Wright </li>
+<li><a href="https://www.youtube.com/watch?v=fqMOX6JJhGo" target="_blank" rel="noopener">Docker Tutorial for Beginners - A Full DevOps Course on How to Run Applications in Containers</a> by freeCodeCamp.org</li>
+<li><a href="https://www.youtube.com/watch?v=Kyx2PsuwomE" target="_blank" rel="noopener">Exploring Docker [1] - Getting Started</a> and </li>
+<li><a href="https://www.youtube.com/watch?v=hP77Rua1E0c" target="_blank" rel="noopener">Exploring Docker [2] - Docker Compose With Node &amp; MongoDB</a> by Traversy Media.</li>
+</ul>
+<p>Brad Travery has also published an excellent gist:</p>
+<ul>
+<li><a href="https://gist.github.com/bradtraversy/89fad226dc058a41b596d586022a9bd3" target="_blank" rel="noopener">Docker Commands, Help &amp; Tips</a> with all the basic commands!</li>
+</ul>
+<h2 id="So-what-is-the-blog-about"><a href="#So-what-is-the-blog-about" class="headerlink" title="So what is the blog about?"></a>So what is the blog about?</h2><p>What I want to cover are the parts beyond the basics. </p>
+<ul>
+<li>file permissions is one of my biggest problems</li>
+<li>creating a development environment, with the tooling I want at my fingertips.</li>
+</ul>
+<h2 id="File-permissions"><a href="#File-permissions" class="headerlink" title="File permissions"></a>File permissions</h2><p>One of the first hurdles I came across was to do with file permissions. This seams to be particularly on Linux. When the container is launched, the default user is root, if any files are changed, the file system on the OS will be assigned to root!</p>
+<p>For example, if we pull down a repository and want to spin up a docker container for composer <code>docker run composer install</code>, however the vendor folder will be created as root, along with all the files and subfolders.</p>
+<p>The initial workaround is to run <code>chown</code> from the host machine, e.g.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R michael:michael ./vendor</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">sudo chown -R $(id -u):$(id -g) ./vendor</span><br></pre></td></tr></table></figure>
+
+<p><code>$(id -u):$(id -g)</code> is a way of getting the username and group of signed-in user. e.g.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">whoami</span><br><span class="line"><span class="meta">#</span><span class="bash"> michael</span></span><br><span class="line">id -u</span><br><span class="line"><span class="meta">#</span><span class="bash"> 1000</span></span><br><span class="line">id -g</span><br><span class="line"><span class="meta">#</span><span class="bash"> 1000</span></span><br><span class="line">id $(whoami)</span><br><span class="line"><span class="meta">#</span><span class="bash"> uid=1000(michael) gid=1000(michael) groups=1000(michael),...</span></span><br></pre></td></tr></table></figure>
+
+<p>Examples of options are uid:gid, this is normally 1000:1000 or user:group in my case michael:michael, further reading <a href="https://kb.iu.edu/d/adwf" target="_blank" rel="noopener">Find a user’s UID or GID in Unix</a>. Further details on <a href="https://jtreminio.com/blog/running-docker-containers-as-current-host-user/" target="_blank" rel="noopener">Running Docker Containers as Current Host User</a>.</p>
+<h2 id="Composer-Docker-Image"><a href="#Composer-Docker-Image" class="headerlink" title="Composer Docker Image"></a>Composer Docker Image</h2><p>Composer is the dependency manager for PHP.</p>
+<ul>
+<li><a href="https://hub.docker.com/_/composer" target="_blank" rel="noopener">Docker hub composer images</a></li>
+</ul>
+<h3 id="Basic-usage"><a href="#Basic-usage" class="headerlink" title="Basic usage"></a>Basic usage</h3><p>The documentation has the following basic usage:</p>
+<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm --interactive --tty \</span><br><span class="line">  --volume $PWD:/app \</span><br><span class="line">  composer install</span><br></pre></td></tr></table></figure>
+
+<p>The same command, can be converted to the shorter syntax. By making it into one line, copying and pasting is easier.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm -it -v $PWD:/app composer install</span><br></pre></td></tr></table></figure>
+
+<p>Explanation for the command line:</p>
+<ul>
+<li><code>docker run</code> runs a new instance of a docker image creating a container</li>
+<li><a href="https://docs.docker.com/engine/reference/run/#clean-up---rm" target="_blank" rel="noopener">Clean up (–rm)</a> automatically clean up the container<br>and remove the file system when the container exits, <strong>Note</strong> the <strong>double</strong> minus in <code>--rm</code>!</li>
+<li><a href="https://docs.docker.com/engine/reference/run/#foreground" target="_blank" rel="noopener">–interactive –tty / -i -t / -it</a> For interactive<br>processes (like a shell), you must use -i -t together in order to allocate a tty for the container process. -i -t is<br>often written -it</li>
+<li><a href="https://docs.docker.com/engine/reference/run/#volume-shared-filesystems" target="_blank" rel="noopener">–volume / -v $PWD:/app</a> Bind the host file<br>system to the destination, $PWD is the current working directory, /app is the destination directory. On Windows it<br>should be the full path name e.g. c:/laragon/www/php-project</li>
+<li><code>composer</code> the image to be run</li>
+<li><code>install</code> is the command to run inside the docker container. This can be any composer command!</li>
+</ul>
+<p>For more details please see the <a href="https://docs.docker.com/engine/reference/run/" target="_blank" rel="noopener">Docker run reference</a>.</p>
+<h3 id="Fixing-filesystem-permissions"><a href="#Fixing-filesystem-permissions" class="headerlink" title="Fixing filesystem permissions"></a>Fixing filesystem permissions</h3><p>By default, Composer runs as root inside the container. This can lead to permission issues on your host filesystem. You can work around this by running the container under the signed-in user:</p>
+<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm --interactive --tty \</span><br><span class="line">  --volume $PWD:/app \</span><br><span class="line">  --user $(id -u):$(id -g) \</span><br><span class="line">  composer install</span><br></pre></td></tr></table></figure>
+
+<p>Again the short, but slightly less readably syntax, can be used to make one line version, with some example commands:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm -it -v $PWD:/app -u $(id -u):$(id -g) composer install</span><br><span class="line">docker run --rm -it -v $PWD:/app -u $(id -u):$(id -g) composer update</span><br><span class="line">docker run --rm -v $PWD:/app -u $(id -u):$(id -g) composer test</span><br><span class="line">docker run --rm -v $PWD:/app -u $(id -u):$(id -g) composer check-cs</span><br><span class="line">docker run --rm -v $PWD:/app -u $(id -u):$(id -g) composer phpstan</span><br></pre></td></tr></table></figure>
+
+<p>You may notice, install and update have an interactive terminal -it. The test, check-cs and phpstan do not. Sometimes Composer asks questions, which need user input, to run tests and lint code this is not required.</p>
+<p>The composer config file <strong>composer.json</strong> would contain the scripts for <strong>test</strong>, <strong>check-cs</strong> and <strong>phpstan</strong> e.g.:</p>
+<p><strong>composer.json</strong></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="comment">//  other json</span></span><br><span class="line">  <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">    <span class="attr">"test"</span>: <span class="string">"phpunit"</span>,</span><br><span class="line">    <span class="attr">"check-cs"</span>: <span class="string">"ecs check --ansi"</span>,</span><br><span class="line">    <span class="attr">"phpstan"</span>: <span class="string">"phpstan analyse --ansi"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>The command is the similar, as explained above, with -u or –user added:</p>
+<ul>
+<li><a href="https://docs.docker.com/engine/reference/run/#user" target="_blank" rel="noopener">–user or -u</a> Sets the username or UID used and optionally the groupname or GID for the specified command</li>
+<li><code>$(id -u):$(id -g)</code> is a way of getting the username and group of signed-in user. e.g.</li>
+</ul>
+<p>This is required on Linux. The OS and docker container share the same file system. The docker container will normally run under user 0, root user, meaning any files written to the shared volume by the container, will be created by the root user.</p>
+<h3 id="Install-composer-programmatically"><a href="#Install-composer-programmatically" class="headerlink" title="Install composer programmatically"></a>Install composer programmatically</h3><p>Sometimes Composer will not run the <strong>install</strong> command:</p>
+<ul>
+<li>Composer doesn’t have the correct dependencies </li>
+<li>Composer isn’t the correct version of PHP.</li>
+</ul>
+<p>For example, if I try to install Silverstripe, which needs the PHP <strong>intl</strong> extension:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:Pen-y-Fan/silverstripe-lessons.git</span><br><span class="line"><span class="built_in">cd</span> silverstripe-lessons</span><br><span class="line">docker run --rm -it -v <span class="variable">$PWD</span>:/app -u $(id -u):$(id -g) composer install</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Your requirements could not be resolved to an installable set of packages.</span><br><span class="line"></span><br><span class="line">  Problem 1</span><br><span class="line">    - Installation request for silverstripe&#x2F;framework 4.5.2 -&gt; satisfiable by silverstripe&#x2F;framework[4.5.2].</span><br><span class="line">    - silverstripe&#x2F;framework 4.5.2 requires ext-intl * -&gt; the requested PHP extension intl is missing from your system.</span><br><span class="line">  Problem 2</span><br><span class="line">    - silverstripe&#x2F;framework 4.5.2 requires ext-intl * -&gt; the requested PHP extension intl is missing from your system.</span><br><span class="line">    - silverstripe&#x2F;versioned-admin 1.3.1 requires silverstripe&#x2F;framework ^4.5 -&gt; satisfiable by silverstripe&#x2F;framework[4.5.2].</span><br><span class="line">    - Installation request for silverstripe&#x2F;versioned-admin 1.3.1 -&gt; satisfiable by silverstripe&#x2F;versioned-admin[1.3.1].</span><br><span class="line"></span><br><span class="line">  To enable extensions, verify that they are enabled in your .ini files:</span><br><span class="line">    - &#x2F;usr&#x2F;local&#x2F;etc&#x2F;php&#x2F;php-cli.ini</span><br><span class="line">    - &#x2F;usr&#x2F;local&#x2F;etc&#x2F;php&#x2F;conf.d&#x2F;docker-php-ext-sodium.ini</span><br><span class="line">    - &#x2F;usr&#x2F;local&#x2F;etc&#x2F;php&#x2F;conf.d&#x2F;docker-php-ext-zip.ini</span><br><span class="line">  You can also run &#96;php --ini&#96; inside terminal to see which files are used by PHP in CLI mode.</span><br></pre></td></tr></table></figure>
+
+<p>Liekwise as more project become php8 only, for example:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:Pen-y-Fan/hello-world-php8.git</span><br><span class="line"><span class="built_in">cd</span> hello-world-php8</span><br><span class="line">docker run --rm -it -v <span class="variable">$PWD</span>:/app -u $(id -u):$(id -g) composer install</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Fatal error: Uncaught ParseError: syntax error, unexpected &#39;:&#39;, expecting &#39;)&#39; in &#x2F;app&#x2F;tests&#x2F;HelloWorldTest.php:14</span><br><span class="line"></span><br><span class="line">Or</span><br><span class="line"></span><br><span class="line">Fatal error: Composer detected issues in your platform: Your Composer dependencies require a PHP version &quot;&gt;&#x3D; 8.0.0&quot;. You are running 7.4.14. in &#x2F;app&#x2F;vendor&#x2F;composer&#x2F;platform_check.php on line 24</span><br></pre></td></tr></table></figure>
+
+<h3 id="Possible-workarounds"><a href="#Possible-workarounds" class="headerlink" title="Possible workarounds"></a>Possible workarounds</h3><p>One workaround is to spin-up the version of PHP required, with the extensions and programmatically add Composer.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line">DOCKER_HOME=~/tmp</span><br><span class="line">EXPECTED_CHECKSUM="$(wget -q -O - https://composer.github.io/installer.sig)"</span><br><span class="line">php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"</span><br><span class="line">ACTUAL_CHECKSUM="$(php -r "echo hash_file('sha384', 'composer-setup.php');")"</span><br><span class="line"></span><br><span class="line">if [ "$EXPECTED_CHECKSUM" != "$ACTUAL_CHECKSUM" ]</span><br><span class="line">then</span><br><span class="line">    &gt;&amp;2 echo 'ERROR: Invalid installer checksum'</span><br><span class="line">    rm composer-setup.php</span><br><span class="line">    exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">php composer-setup.php --quiet --install-dir=/usr/local/bin/ --filename=composer</span><br><span class="line">RESULT=$?</span><br><span class="line">rm composer-setup.php</span><br><span class="line"><span class="meta">#</span><span class="bash"> smoke <span class="built_in">test</span></span></span><br><span class="line">composer --version</span><br><span class="line">exit $RESULT</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Source: <a href="https://getcomposer.org/doc/faqs/how-to-install-composer-programmatically.md" target="_blank" rel="noopener">How do I install Composer programmatically?</a></li>
+</ul>
+<h3 id="Troubleshooting-Composer"><a href="#Troubleshooting-Composer" class="headerlink" title="Troubleshooting Composer"></a>Troubleshooting Composer</h3><p>The Composer docker documentation also has the following suggestions:</p>
+<ul>
+<li><strong>optimal</strong> create your own build image and install Composer inside it.</li>
+</ul>
+<p><strong>Note:</strong> Docker 17.05 introduced multi-stage builds, simplifying this enormously:</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">COPY</span><span class="bash"> --from=composer /usr/bin/composer /usr/bin/composer</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>alternatively</strong> specify the target platform / extension(s) in your composer.json:</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"config"</span>: &#123;</span><br><span class="line">    <span class="attr">"platform"</span>: &#123;</span><br><span class="line">      <span class="attr">"php"</span>: <span class="string">"MAJOR.MINOR.PATCH"</span>,</span><br><span class="line">      <span class="attr">"ext-something"</span>: <span class="string">"MAJOR.MINOR.PATCH"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>discouraged</strong> pass the –ignore-platform-reqs and / or –no-scripts flags to install or update:</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm --interactive --tty \</span><br><span class="line">--volume <span class="variable">$PWD</span>:/app \</span><br><span class="line">composer install --ignore-platform-reqs --no-scripts</span><br></pre></td></tr></table></figure>
+
+<h2 id="Example-Dockerfile"><a href="#Example-Dockerfile" class="headerlink" title="Example Dockerfile"></a>Example Dockerfile</h2><p>The docker image for Silverstripe has extensions like <strong>tidy</strong> and <strong>intl</strong> enabled. The Composer image doesn’t! This<br>Dockerfile will copy Composer into the Silverstrip image.</p>
+<p><strong>Dockerfile</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">FROM brettt89/silverstripe-web:7.4-apache</span><br><span class="line">COPY --from=composer /usr/bin/composer /usr/bin/composer</span><br></pre></td></tr></table></figure>
+
+<p>The <strong>docker-compose.yml</strong> file would something like:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">"3.3"</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">silverstripe:</span></span><br><span class="line">    <span class="attr">dockerfile:</span> <span class="string">Dockerfile</span></span><br><span class="line">    <span class="comment"># image: brettt89/silverstripe-web:7.4-apache</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">"8081:80"</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">.:/var/www/html</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">database</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">DOCUMENT_ROOT=/var/www/html/public</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SS_TRUSTED_PROXY_IPS=*</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SS_ENVIRONMENT_TYPE=dev</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SS_DATABASE_SERVER=database</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SS_DATABASE_NAME=SS_mysite</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SS_DATABASE_USERNAME=root</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SS_DATABASE_PASSWORD=</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SS_DEFAULT_ADMIN_USERNAME=admin</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SS_DEFAULT_ADMIN_PASSWORD=password</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">database:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">mysql:5.7</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">"33060:3306"</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">MYSQL_ALLOW_EMPTY_PASSWORD=yes</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">db-data:/var/lib/mysql</span></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line">  <span class="attr">db-data:</span></span><br></pre></td></tr></table></figure>
+
+<p>Once the <code>docker-compose up -d</code> is run, to spin up the containers. The <strong>silverstripe</strong> container will have Composer<br>installed. This can be accessed from the terminal within the running container:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose <span class="built_in">exec</span> -u $(id -u):$(id -g) silverstripe composer install</span><br></pre></td></tr></table></figure>
+
+<h2 id="How-to-create-a-project-from-within-a-Docker-container"><a href="#How-to-create-a-project-from-within-a-Docker-container" class="headerlink" title="How to create a project from within a Docker container"></a>How to create a project from within a Docker container</h2><p>Sometimes new projects need to be created from the command line, before <strong>docker-compose.yml</strong> can be created, in the project root.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Navigate to your normal project root e.g.:</span></span><br><span class="line">cd ~/PhpstormProjects/</span><br><span class="line"><span class="meta">#</span><span class="bash"> Spin-up a docker container <span class="built_in">which</span> has the required extensions installed:</span></span><br><span class="line">docker run --rm -u $(id -u):$(id -g) -v $(pwd):/app -w /app -it brettt89/silverstripe-web:7.4-apache /bin/bash</span><br><span class="line"><span class="meta">#</span><span class="bash"> from within the docker container, the composer.phar, <span class="built_in">which</span> has already been downloaded is now available.</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> normally this would be: composer create-project silverstripe/installer ./silverstripe-demo</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> composer.phar needs to be called by php:</span></span><br><span class="line">php composer.phar create-project silverstripe/installer ./silverstripe-demo</span><br><span class="line">exit</span><br><span class="line"><span class="meta">#</span><span class="bash"> back at the host<span class="string">'s command line:</span></span></span><br><span class="line">cd silverstripe-demo</span><br></pre></td></tr></table></figure>
+
+<p>Create a <code>dcocker-composer.yml</code> and copy in this file</p>
+
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">Show TOC</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
+  <div class="random-toc">
+    <h2>Table of Content</h2>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#So-what-is-the-blog-about"><span class="toc-text">So what is the blog about?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#File-permissions"><span class="toc-text">File permissions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Composer-Docker-Image"><span class="toc-text">Composer Docker Image</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Basic-usage"><span class="toc-text">Basic usage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fixing-filesystem-permissions"><span class="toc-text">Fixing filesystem permissions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Install-composer-programmatically"><span class="toc-text">Install composer programmatically</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Possible-workarounds"><span class="toc-text">Possible workarounds</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Troubleshooting-Composer"><span class="toc-text">Troubleshooting Composer</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Example-Dockerfile"><span class="toc-text">Example Dockerfile</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-to-create-a-project-from-within-a-Docker-container"><span class="toc-text">How to create a project from within a Docker container</span></a></li></ol>
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+
+  
+
+  
+    <a href="/2020/10/10/Set-up-PhpStorm-to-use-PHP-with-PHPUnit-and-xDebug-in-Docker/" class="next">Next post Set up PhpStorm to use PHP with PHPUnit and xDebug in Docker &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by Pen y Fan using
+      <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random" target="_blank" rel="noopener">Random</a>
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="https://avatars3.githubusercontent.com/u/40126936?s=400&amp;u=957f8c1cbfeeb61a853b9e28eb2968352a77cc79&amp;v=4">
+    <p id="description">Posts about my coding experiences, primarily for my learning path with PHP, good clean professional code.</p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://twitter.com/MikeAPritch" target="_blank" rel="noopener">
+        
+          <i class="icon iconfont twitter">&#xe600;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.linkedin.com/in/michael-pritchard-340b4520/" target="_blank" rel="noopener">
+        
+          <i class="icon iconfont linkedin">&#xe601;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.reddit.com/user/Pen-y-Fan" target="_blank" rel="noopener">
+        
+          R
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://github.com/pen-y-fan" target="_blank" rel="noopener">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<div id="btn-view">Hide</div>
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-3.5.1.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["flash"],"timer":true,"delay":30000,"shuffle":true,"count":12};
+var unsplashConfig = {"gravity":"center"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+
+var backgroundColor = "34495E";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+</body>
+</html>
+
