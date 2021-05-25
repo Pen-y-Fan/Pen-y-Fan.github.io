@@ -1,0 +1,680 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Pen y Fan">
+  
+  
+  <meta name="keywords" content="PHP, Learning, resource, HTML, CSS, Git, Github">
+  
+  
+  
+    <meta name="description" content="The focus of this blog is to help set up PHP Projects in PhpStorm, in particular a Silverstripe project. I have also included snippets from my side-projects. I hope the information will be useful f...">
+  
+  <title>Standard setup for PHP projects 2021 [ Pen y Fan ]</title>
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+  
+<link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+
+  
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+  
+    <div class="item next">
+      <a href="/2021/02/12/Troubleshooting-Docker/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        Troubleshooting Docker
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onClick="openUserCard()">
+          <img id="avatar" src="https://avatars3.githubusercontent.com/u/40126936?s=400&amp;u=957f8c1cbfeeb61a853b9e28eb2968352a77cc79&amp;v=4" alt="Pen y Fan"/>
+          <div id="homelink">Pen y Fan</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/index.html">Home</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">Posts</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">Tags</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">Categories</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/about">About</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="https://github.com/pen-y-fan" target="_blank" rel="noopener">Github</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  
+
+  <article id="post">
+    <h1>Standard setup for PHP projects 2021</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">Created at 2021-05-23</span>
+      
+        <span id = "post-title-updated">Updated at 2021-05-25</span>
+      
+      
+      <span id = "post-title-categories">Category
+      
+      
+        
+        
+        <a href="/categories/Standard-Setup/">Standard Setup</a>
+      
+      </span>
+      
+      
+      <span id = "post-title-tags">
+      Tag
+      
+      
+        
+        
+        <a href="/tags/Docker/">Docker</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/PHP/">PHP</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/PhpStorm/">PhpStorm</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/Easy-Coding-Standard-ECS/">Easy Coding Standard (ECS)</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/Composer/">Composer</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/PHPStan/">PHPStan</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/PHPUnit/">PHPUnit</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/Silverstripe/">Silverstripe</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/Xdebug/">Xdebug</a>
+      
+      </span>
+      
+    </p>
+    
+    <p>The focus of this blog is to help set up PHP Projects in PhpStorm, in particular a <a href="https://www.silverstripe.org/" target="_blank" rel="noopener">Silverstripe</a> project. I have also included snippets from my side-projects. I hope the information will be useful for other PHP projects.</p>
+<p>This is a follow-up to my blog <a href="Standard-Setup-for-PHP-Projects.md">Standard Setup for PHP projects</a> from 2020. There have been several changes, to config files in particular, easy coding standard yml files to php files, which now allow code completion, amongst other benefits. Xdebug is now version 3, which has different configuration. I Have also being using Docker since July 2020, so have some useful docker containers, which include many of the standards I’m looking for.</p>
+<h2 id="Developer-environments"><a href="#Developer-environments" class="headerlink" title="Developer environments"></a>Developer environments</h2><h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p>On my works windows laptop I primarily use <a href="https://laragon.org/" target="_blank" rel="noopener">Laragon</a>. I find it has a good set of development tools, including: PHP, MySQL, Apache, Node, Git, Composer, automatic host file updating, pretty urls, and many other good reasons.</p>
+<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p>On my personal laptop I have a duel boot configuration. Windows has Laragon, Linux Pop_OS! Has <a href="https://www.docker.com/" target="_blank" rel="noopener">Docker</a>. When I upgraded my laptop, last year, I fitted additional RAM and an additional SSD, which <a href="Pop-OS-new-install.md">I installed Pop_OS!</a>. I never installed PHP, MySQL or Apache. I installed Docker instead. I mostly use the Laptop with Linux Pop_OS! I find its quicker, easy to use, and it uses less RAM.</p>
+<h3 id="Integrated-Developer-Environment-IDE"><a href="#Integrated-Developer-Environment-IDE" class="headerlink" title="Integrated Developer Environment (IDE)"></a>Integrated Developer Environment (IDE)</h3><p>My go to Integrated Developer Environment (IDE), for the last two years is <a href="https://www.jetbrains.com/phpstorm/" target="_blank" rel="noopener">PhpStorm</a>. The learning curve to get the best out of it, is well worth the effort. After all it is not only a code editor, but has Git, Database, terminal and debugging built in. The stand out tools are the code completion and refactoring.</p>
+<p>I have many plugins, to many to name. Here are some I find particularly useful:</p>
+<ul>
+<li><a href="https://plugins.jetbrains.com/plugin/7622-php-inspections-ea-extended-" target="_blank" rel="noopener">Php Inspections (EA Extended)</a>, open-source Static Code Analyzer.</li>
+<li><a href="https://plugins.jetbrains.com/plugin/12798-tabnine-ai-autocomplete-javascript-c-python-ruby-rust-go-php--" target="_blank" rel="noopener">Tabnine AI Autocomplete: JavaScript .. PHP</a>, the free version offers two autocompletion options.</li>
+</ul>
+<p>I make all my notes using Markdown and store them in Scratches, this is one of the most underrated features of PhpStorm, these notes are available across all my projects.</p>
+<p>I still have <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VS Code</a> as a backup, on Windows I also have <a href="https://notepad-plus-plus.org/" target="_blank" rel="noopener">Notepad++</a>, if for some unusual reason I don’t have PhpStorm open and want to take a quick peek at a file then the lightweight and speed of Notepad++ is useful.</p>
+<h2 id="Composer"><a href="#Composer" class="headerlink" title="Composer"></a>Composer</h2><p><a href="https://getcomposer.org/" target="_blank" rel="noopener">Composer</a> is the dependency manager for PHP. It also provides PSR-4 PHP autoloader.</p>
+<h3 id="Switching-versions"><a href="#Switching-versions" class="headerlink" title="Switching versions"></a>Switching versions</h3><p>Composer is now in version 2, however some code bases will require version 1. To swap between the versions use the following commands:</p>
+<ul>
+<li>Switch to version 1:</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer self-update --1</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Switch to version 2:</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer self-update --2</span><br></pre></td></tr></table></figure>
+
+<h3 id="Composer-Docker-image"><a href="#Composer-Docker-image" class="headerlink" title="Composer Docker image"></a>Composer Docker image</h3><p>Composer has several images available on <a href="https://hub.docker.com/r/composer/composer" target="_blank" rel="noopener">docker hub</a>.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker pull composer/composer</span><br><span class="line">docker run --rm -it -v <span class="string">"<span class="variable">$(pwd)</span>:/app"</span> composer/composer -V</span><br><span class="line">Composer version 2.0.14 2021-05-21 17:03:37</span><br></pre></td></tr></table></figure>
+
+<p>To add Composer to an existing <strong>Dockerfile</strong>:</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">COPY</span><span class="bash"> --from=composer/composer /usr/bin/composer /usr/bin/composer</span></span><br></pre></td></tr></table></figure>
+
+<p>Read the docker <a href="https://hub.docker.com/r/composer/composer" target="_blank" rel="noopener">description</a> for further information.</p>
+<p>Example snippet fo a <strong>composer.json</strong>:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"emilybache/yatzy-refactoring-kata"</span>,</span><br><span class="line">  <span class="attr">"description"</span>: <span class="string">"Kata to practice refactoring"</span>,</span><br><span class="line">  <span class="attr">"license"</span>: <span class="string">"MIT"</span>,</span><br><span class="line">  <span class="attr">"require"</span>: &#123;</span><br><span class="line">    <span class="attr">"php"</span>: <span class="string">"^7.4|^8.0"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"require-dev"</span>: &#123;</span><br><span class="line">    <span class="attr">"phpunit/phpunit"</span>: <span class="string">"^9.5"</span>,</span><br><span class="line">    <span class="attr">"phpstan/phpstan"</span>: <span class="string">"^0.12.74"</span>,</span><br><span class="line">    <span class="attr">"phpstan/phpstan-phpunit"</span>: <span class="string">"^0.12.17"</span>,</span><br><span class="line">    <span class="attr">"symplify/easy-coding-standard"</span>: <span class="string">"^9.0"</span>,</span><br><span class="line">    <span class="attr">"symplify/phpstan-extensions"</span>: <span class="string">"^9.0"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"autoload"</span>: &#123;</span><br><span class="line">    <span class="attr">"psr-4"</span>: &#123;</span><br><span class="line">      <span class="attr">"Yatzy\\"</span>: <span class="string">"src/"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"autoload-dev"</span>: &#123;</span><br><span class="line">    <span class="attr">"psr-4"</span>: &#123;</span><br><span class="line">      <span class="attr">"Yatzy\\Tests\\"</span>: <span class="string">"tests/"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">    <span class="attr">"checkcode"</span>: <span class="string">"phpcs src tests --standard=PSR12"</span>,</span><br><span class="line">    <span class="attr">"fixcode"</span>: <span class="string">"phpcbf src tests --standard=PSR12"</span>,</span><br><span class="line">    <span class="attr">"test"</span>: <span class="string">"phpunit"</span>,</span><br><span class="line">    <span class="attr">"tests"</span>: <span class="string">"phpunit"</span>,</span><br><span class="line">    <span class="attr">"test-coverage"</span>: <span class="string">"phpunit --coverage-html build/coverage"</span>,</span><br><span class="line">    <span class="attr">"check-cs"</span>: <span class="string">"ecs check --ansi"</span>,</span><br><span class="line">    <span class="attr">"fix-cs"</span>: <span class="string">"ecs check --fix --ansi"</span>,</span><br><span class="line">    <span class="attr">"phpstan"</span>: <span class="string">"phpstan analyse --ansi"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="editorconfig"><a href="#editorconfig" class="headerlink" title=".editorconfig"></a>.editorconfig</h2><p>Example <strong>.editorconfig</strong> file. Normally found in the root of a project.</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># For more information about the properties used in</span></span><br><span class="line"><span class="comment"># this file, please see the EditorConfig documentation:</span></span><br><span class="line"><span class="comment"># http://editorconfig.org/</span></span><br><span class="line"></span><br><span class="line"><span class="attr">root</span> = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="section">[*]</span></span><br><span class="line"><span class="attr">charset</span> = utf-<span class="number">8</span></span><br><span class="line"><span class="attr">end_of_line</span> = lf</span><br><span class="line"><span class="attr">indent_size</span> = <span class="number">4</span></span><br><span class="line"><span class="attr">indent_style</span> = space</span><br><span class="line"><span class="attr">insert_final_newline</span> = <span class="literal">true</span></span><br><span class="line"><span class="attr">trim_trailing_whitespace</span> = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="section">[*.md]</span></span><br><span class="line"><span class="attr">trim_trailing_whitespace</span> = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="section">[*.&#123;yml,json,ss&#125;]</span></span><br><span class="line"><span class="attr">indent_size</span> = <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The indent size used in the `package.json` file cannot be changed</span></span><br><span class="line"><span class="comment"># https://github.com/npm/npm/pull/3180#issuecomment-16336516</span></span><br><span class="line"><span class="section">[composer.json]</span></span><br><span class="line"><span class="attr">indent_size</span> = <span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="section">[*.ss]</span></span><br><span class="line"><span class="attr">max_line_length</span> = <span class="number">999</span></span><br></pre></td></tr></table></figure>
+
+<p>The above is a good example of how file can have a global config, then more granular configs can be applied. PhpStorm will read the config and automatically apply the settings.</p>
+<h2 id="Xdebug"><a href="#Xdebug" class="headerlink" title="Xdebug"></a>Xdebug</h2><p><a href="https://xdebug.org/docs/" target="_blank" rel="noopener">Xdebug</a> has been changed from version 2 to 3. It can be used to <a href="https://xdebug.org/docs/step_debug" target="_blank" rel="noopener">step-debug</a> PHP scripts, report <a href="https://xdebug.org/docs/code_coverage" target="_blank" rel="noopener">code coverage</a> and now provides <a href="https://xdebug.org/docs/develop" target="_blank" rel="noopener">development aids</a>. However, due to how it analyses the script it can make PHP slow! Xdebug’s set-debugging and code coverage should only be enabled when they are required.</p>
+<p>Follow the <a href="https://xdebug.org/docs/install" target="_blank" rel="noopener">installation</a> instructions and add the following to your <strong>php.ini</strong>:</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[Xdebug]</span></span><br><span class="line"><span class="comment">; zend_extension=/wherever/you/put/it/xdebug</span></span><br><span class="line"><span class="comment">; e.g.</span></span><br><span class="line"><span class="comment">; Windows using Laragon:</span></span><br><span class="line"><span class="attr">zend_extension</span> = C:\laragon\bin\php\php-<span class="number">7.4</span>.<span class="number">4</span>-Win32-vc15-x64\ext\php_xdebug-<span class="number">3.0</span>.<span class="number">4</span>-<span class="number">7.4</span>-vc15-x<span class="number">86_64</span>.dll</span><br><span class="line"><span class="comment">; Linux with PHP 8:</span></span><br><span class="line"><span class="comment">; zend_extension = /usr/lib/php8/modules/xdebug.so</span></span><br><span class="line"></span><br><span class="line"><span class="attr">xdebug.mode</span> = coverage,debug,develop</span><br><span class="line"><span class="comment">; Linux: change 'pop-os' to your host name</span></span><br><span class="line"><span class="attr">xdebug.client_host</span> = pop-os</span><br><span class="line"><span class="comment">; windows and mac:</span></span><br><span class="line"><span class="comment">; xdebug.client_host=localhost</span></span><br><span class="line"><span class="attr">xdebug.client_port</span> = <span class="number">9003</span></span><br><span class="line"><span class="attr">xdebug.start_with_request</span> = <span class="literal">yes</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Xdebug-with-Docker"><a href="#Xdebug-with-Docker" class="headerlink" title="Xdebug with Docker"></a>Xdebug with Docker</h3><p>PHP docker containers can have Xdebug installed as follows:</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Buster (FROM brettt89/silverstripe-web:7.4-apache):</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> install-php-extensions xdebug</span></span><br><span class="line"><span class="comment"># Alpine (FROM php:8.0-cli-alpine3.13):</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> apk add --no-cache php8-pecl-xdebug \</span></span><br><span class="line"><span class="bash">    &amp;&amp; docker-php-ext-enable /usr/lib/php8/modules/xdebug.so</span></span><br></pre></td></tr></table></figure>
+
+<p>The extension can be enabled using environment variables:</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ENV</span> XDEBUG_CONFIG=<span class="string">"client_host=pop-os"</span> \</span><br><span class="line">  <span class="comment">#      windows &amp; mac:</span></span><br><span class="line">  <span class="comment">#      XDEBUG_CONFIG= "client_host=host.docker.internal"</span></span><br><span class="line">    XDEBUG_MODE=<span class="string">"develop"</span></span><br><span class="line"><span class="comment">#    XDEBUG_MODE="coverage,debug,develop"</span></span><br></pre></td></tr></table></figure>
+
+<p>Alternatively, the extension can be enabled using environment variables:</p>
+<p><strong>docker-compose.yml</strong></p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">"3.3"</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">silverstripe:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">brettt89/silverstripe-web:7.4-apache</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">"80:80"</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">.:/var/www/html</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">database</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">DOCUMENT_ROOT=/var/www/html/public</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SS_TRUSTED_PROXY_IPS=*</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SS_ENVIRONMENT_TYPE=dev</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SS_DATABASE_SERVER=database</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SS_DATABASE_NAME=SS_mysite</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SS_DATABASE_USERNAME=root</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SS_DATABASE_PASSWORD=</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SS_DEFAULT_ADMIN_USERNAME=admin</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SS_DEFAULT_ADMIN_PASSWORD=password</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">XDEBUG_CONFIG="client_host=pop-os"</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">XDEBUG_MODE="develop"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># database...</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Setup-PhpStorm"><a href="#Setup-PhpStorm" class="headerlink" title="Setup PhpStorm"></a>Setup PhpStorm</h3><p>PhpStorm is my IDE of choice for PHP development. Here are some tips for configuring it per project.</p>
+<h4 id="Configuring-Xdebug"><a href="#Configuring-Xdebug" class="headerlink" title="Configuring Xdebug"></a>Configuring Xdebug</h4><p><strong>TL;DR</strong> (parts copied from PhpStorm Tutorials, link to the full version below)</p>
+<ol>
+<li><p>In the <strong>Settings/Preferences</strong> dialog Ctrl+Alt+S, select <strong>Languages &amp; Frameworks | PHP</strong>.</p>
+</li>
+<li><p>Check the Xdebug installation associated with the selected PHP interpreter:</p>
+<p>a. On the <strong>PHP</strong> page, choose the relevant PHP installation from the <strong>CLI Interpreter</strong> list and click the Browse button next to the field.</p>
+<p>b. The <strong>CLI Interpreters</strong> dialog that opens shows the following:</p>
+<p>i. The version of the selected PHP installation. (e.g. <strong>C:\laragon\bin\php\php-7.4.4-Win32-vc15-x64\php.exe</strong>)</p>
+<p>ii. The name and version of the debugging engine associated with the selected PHP installation (Xdebug). (e.g. <strong>C:\laragon\bin\php\php-7.4.4-Win32-vc15-x64\ext\php_xdebug.dll</strong>)</p>
+<p>iii Once set click <strong>OK</strong>.</p>
+</li>
+<li><p>Define the Xdebug behaviour. Click Debug under the PHP node (<strong>Languages &amp; Frameworks | PHP | Debug</strong>.). On the Debug page that opens, specify the following settings in the Xdebug area:</p>
+</li>
+</ol>
+<ul>
+<li>Check the Pre-configuration has been complete (Xdebug ins installed, Install browser toolbar, Enable listening for PHP Debug connections and Start debug session)</li>
+<li>Under the XDebug heading, Choose the Debug Port field (<strong>default is 9000,9003</strong>). This must be exactly the same port number specified in the php.ini file: <strong>xdebug.remote_port =9003</strong></li>
+<li>To accept any incoming connections, select the <strong>Can accept external connections checkbox.</strong> (<strong>Default</strong>)</li>
+<li>Select the <strong>Force break at the first line when no path mapping is specified</strong> checkbox to have the debugger stop as soon as it reaches and opens a file that is not mapped to any file in the project on the Servers page. (<strong>Default</strong>)</li>
+<li>Click <strong>OK</strong></li>
+</ul>
+<h4 id="Using-debug-mode"><a href="#Using-debug-mode" class="headerlink" title="Using debug mode"></a>Using debug mode</h4><p>Set a breakpoint in the file to be inspected.</p>
+<p>Open your php file, e.g. <strong>public/index.php</strong>, wait for the file to open, then in to top right there will be a floating bar with a list of browsers. Click Chrome (<strong>Alt+F2</strong> + Choose Chrome)</p>
+<p>Chrome browser will launch and open the projects webpage. If the Debug icon isn’t already green, click the <strong>Debug</strong> icon for <strong>Xdebug helper</strong> extension. From the drop down list click <strong>Debug</strong> option, the icon will then display green.</p>
+<p>Navigate the project’s website, to the page which uses the file that has the breakpoint set. As soon as the page is hit PhpStorm will open (it may be behind the browser).</p>
+<p>In PhpStorm, accept the connection (this warning normally only displays the first hit and accepted once).</p>
+<p>Debug information will display in the console, including the option to inspect variables and evaluate.</p>
+<h4 id="Further-details-How-to-Debug"><a href="#Further-details-How-to-Debug" class="headerlink" title="Further details: How to Debug"></a>Further details: How to Debug</h4><p>For the full version of the above see:</p>
+<ul>
+<li><a href="https://www.jetbrains.com/help/phpstorm/configuring-xdebug.html" target="_blank" rel="noopener">Configuring Xdebug in PhpStorm</a> </li>
+<li><a href="https://www.jetbrains.com/help/phpstorm/browser-debugging-extensions.html" target="_blank" rel="noopener">Browser Debugging Extensions</a>, click the link for Xdebug for Chrome and install <strong>Xdebug Helper</strong>.</li>
+<li><a href="https://www.youtube.com/watch?v=GokeXqI93x8" target="_blank" rel="noopener">Youtube: Step Into Debugging with PhpStorm</a> by Gary Hockin, 58 min video on Debugging with Xdebug 2.</li>
+</ul>
+<h4 id="Strict-mode"><a href="#Strict-mode" class="headerlink" title="Strict mode"></a>Strict mode</h4><p>PHPStorm has an inspection to set strict mode.</p>
+<ul>
+<li><a href="https://blog.jetbrains.com/phpstorm/2016/11/project-wide-php-7-strict-types-in-phpstorm-2016-3/" target="_blank" rel="noopener">Full article Project Wide PHP 7 Strict Types in PhpStorm 2016.3</a> by Gary Hockin</li>
+</ul>
+<p><strong>TL&DR;</strong></p>
+<p><strong>Strict types declaration</strong> setting can be found under <strong>Type compatibility</strong> in the <strong>Inspections</strong> pane of the <strong>Preferences</strong> window.</p>
+<p><strong>Or</strong> double shift search for <strong>Missing Strict types declaration</strong> tick the inspection.</p>
+<p>To run the inspection against whole project (code base): <strong>CTRL + ALT + SHIFT + I</strong> or double shift search for <strong>run inspection by name</strong>. Search for <strong>missing strict type declaration</strong>, <strong>Enter</strong> for whole project. The inspection will run, click on each file and click <strong>Add strict types declaration</strong></p>
+<h2 id="Easy-Coding-Standard-ECS"><a href="#Easy-Coding-Standard-ECS" class="headerlink" title="Easy Coding Standard (ECS)"></a>Easy Coding Standard (ECS)</h2><blockquote>
+<p>The easiest way to start using PHP CS Fixer and PHP_CodeSniffer with 0-knowledge</p>
+</blockquote>
+<p>Github: <a href="https://github.com/Symplify/EasyCodingStandard" target="_blank" rel="noopener">symplify/easy-coding-standard</a></p>
+<p>ECS is my goto coding standard tool, it includes PHP CS Fixer and PHP_CodeSniffer, meaning I can use existing standards. I use it on every project!</p>
+<h3 id="Install-ECS-using-Composer"><a href="#Install-ECS-using-Composer" class="headerlink" title="Install ECS using Composer"></a>Install ECS using Composer</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer require --dev symplify/easy-coding-standard</span><br></pre></td></tr></table></figure>
+
+<h3 id="Docker-image-with-ECS"><a href="#Docker-image-with-ECS" class="headerlink" title="Docker image with ECS"></a>Docker image with ECS</h3><p>My favourite Docker PHP tool, packed with useful tools, including ECS is <a href="https://hub.docker.com/r/jakzal/phpqa/" target="_blank" rel="noopener">Docker hub jakzal/phpqa</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker pull jakzal/phpqa:php7.4-alpine</span><br><span class="line">docker run -it --rm -v "$(pwd):/project" -v "$(pwd)/tmp-phpqa:/tmp" \</span><br><span class="line">      -w /project jakzal/phpqa:php7.4-alpine ecs --version</span><br></pre></td></tr></table></figure>
+
+<h3 id="Example-ecs-php-file"><a href="#Example-ecs-php-file" class="headerlink" title="Example ecs.php file"></a>Example <code>ecs.php</code> file</h3><p><strong>Note:</strong> ECS has changed from a <strong>yml</strong> file to a <strong>php</strong> file, which allows code completion, amongst other things.</p>
+<p><strong>ecs.php</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">declare</span>(strict_types=<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">PhpCsFixer</span>\<span class="title">Fixer</span>\<span class="title">ArrayNotation</span>\<span class="title">ArraySyntaxFixer</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">PhpCsFixer</span>\<span class="title">Fixer</span>\<span class="title">Operator</span>\<span class="title">BinaryOperatorSpacesFixer</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Symfony</span>\<span class="title">Component</span>\<span class="title">DependencyInjection</span>\<span class="title">Loader</span>\<span class="title">Configurator</span>\<span class="title">ContainerConfigurator</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Symplify</span>\<span class="title">EasyCodingStandard</span>\<span class="title">ValueObject</span>\<span class="title">Option</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Symplify</span>\<span class="title">EasyCodingStandard</span>\<span class="title">ValueObject</span>\<span class="title">Set</span>\<span class="title">SetList</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="params">(ContainerConfigurator $containerConfigurator)</span>: <span class="title">void</span> </span>&#123;</span><br><span class="line">    $services = $containerConfigurator-&gt;services();</span><br><span class="line"></span><br><span class="line">    $services-&gt;set(ArraySyntaxFixer::class)</span><br><span class="line">        -&gt;call(<span class="string">'configure'</span>, [[</span><br><span class="line">            <span class="string">'syntax'</span> =&gt; <span class="string">'short'</span>,</span><br><span class="line">        ]]);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// align key value pairs (mostly)</span></span><br><span class="line">    $services-&gt;set(BinaryOperatorSpacesFixer::class)</span><br><span class="line">        -&gt;call(<span class="string">'configure'</span>, [[        </span><br><span class="line">            <span class="comment">// Likely problems are pipe operators</span></span><br><span class="line">            <span class="comment">// if this is a problem change 'default' =&gt; 'single'</span></span><br><span class="line">            <span class="comment">// and uncomment this lines:</span></span><br><span class="line">            <span class="comment">// 'operators' =&gt; [</span></span><br><span class="line">            <span class="comment">//                  '|' =&gt; 'none',</span></span><br><span class="line">            <span class="comment">//                  '=&gt;' =&gt; 'align_single_space_minimal'</span></span><br><span class="line">            <span class="comment">//               ],</span></span><br><span class="line">            <span class="string">'default'</span> =&gt;<span class="string">'align_single_space_minimal'</span>,</span><br><span class="line">        ]]);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// add declare(strict_types=1); to all php files:</span></span><br><span class="line">    $services-&gt;set(DeclareStrictTypesFixer::class);</span><br><span class="line">    </span><br><span class="line">    $parameters = $containerConfigurator-&gt;parameters();</span><br><span class="line">    $parameters-&gt;set(Option::PATHS, [</span><br><span class="line">        <span class="keyword">__DIR__</span> . <span class="string">'/src'</span>,</span><br><span class="line">        <span class="keyword">__DIR__</span> . <span class="string">'/tests'</span>,</span><br><span class="line">    ]);</span><br><span class="line"></span><br><span class="line">    $parameters-&gt;set(Option::SETS, [</span><br><span class="line">        <span class="comment">// run and fix, one by one</span></span><br><span class="line">        SetList::SPACES,</span><br><span class="line"><span class="comment">//        SetList::ARRAY,</span></span><br><span class="line"><span class="comment">//        SetList::DOCBLOCK,</span></span><br><span class="line"><span class="comment">//        SetList::NAMESPACES,</span></span><br><span class="line"><span class="comment">//        SetList::CONTROL_STRUCTURES,</span></span><br><span class="line"><span class="comment">//        SetList::CLEAN_CODE,</span></span><br><span class="line"><span class="comment">//        SetList::STRICT,</span></span><br><span class="line"><span class="comment">//        SetList::PSR_12,</span></span><br><span class="line"><span class="comment">//        SetList::PHPUNIT,</span></span><br><span class="line">    ]);</span><br><span class="line"></span><br><span class="line">    $parameters-&gt;set(Option::INDENTATION, <span class="string">"spaces"</span>);</span><br><span class="line"></span><br><span class="line">    $parameters-&gt;set(Option::LINE_ENDING, <span class="string">"\n"</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Example-projects-with-ECS-included"><a href="#Example-projects-with-ECS-included" class="headerlink" title="Example projects with ECS included"></a>Example projects with ECS included</h3><p>I always find it useful to look at existing projects with working code, see some examples from GitHub:</p>
+<ul>
+<li>Personal project:<ul>
+<li><a href="https://github.com/Pen-y-Fan/lumen-api-using-tdd" target="_blank" rel="noopener">Lumen API using TDD</a></li>
+</ul>
+</li>
+<li>Kata:<ul>
+<li><a href="https://github.com/emilybache/GildedRose-Refactoring-Kata/blob/main/php/ecs.php" target="_blank" rel="noopener">Emily Bache - GildedRose Refactoring Kata</a></li>
+</ul>
+</li>
+<li>LMC:<ul>
+<li><a href="https://github.com/lmc-eu/php-coding-standard/blob/main/ecs.php" target="_blank" rel="noopener">lmc eu/php coding standard</a> - heavily commented!</li>
+</ul>
+</li>
+</ul>
+<h3 id="Run-ECS"><a href="#Run-ECS" class="headerlink" title="Run ECS"></a>Run ECS</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vendor/bin/ecs check</span><br><span class="line">vendor/bin/ecs check --fix</span><br></pre></td></tr></table></figure>
+
+<p>If <strong>composer.json</strong> has been configured with scripts, as above:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">composer check-cs</span><br><span class="line">composer fix-cs</span><br></pre></td></tr></table></figure>
+
+<p>Alias:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alias cc="composer check-cs"</span><br><span class="line">alias fc="composer fix-cs"</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Mac and Linux: add the alias to <strong>~/.bash_aliases</strong>.</li>
+<li>Windows: create files <strong>cc.bat</strong> and <strong>fc.bat</strong> and add the composer calls.</li>
+</ul>
+<p>Then run with <strong>cc</strong> and <strong>fc</strong>!</p>
+<h2 id="PHPStan"><a href="#PHPStan" class="headerlink" title="PHPStan"></a>PHPStan</h2><blockquote>
+<p>PHPStan focuses on finding errors in your code without actually running it. It catches whole classes of bugs even before you write tests for the code. It moves PHP closer to compiled languages in the sense that the correctness of each line of the code can be checked before you run the actual line.</p>
+</blockquote>
+<ul>
+<li>Github: <a href="https://github.com/phpstan/phpstan" target="_blank" rel="noopener">phpstan/phpstan</a></li>
+</ul>
+<h3 id="Install-PHPStan-using-Composer"><a href="#Install-PHPStan-using-Composer" class="headerlink" title="Install PHPStan using Composer"></a>Install PHPStan using Composer</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">composer require phpstan/phpstan --dev</span><br><span class="line"><span class="comment"># phpunit analysis:</span></span><br><span class="line">composer require phpstan/phpstan-phpunit --dev</span><br><span class="line"><span class="comment"># additional extensions:</span></span><br><span class="line">composer require symplify/phpstan-extensions --dev</span><br></pre></td></tr></table></figure>
+
+<h3 id="Docker-image-with-PHPStan"><a href="#Docker-image-with-PHPStan" class="headerlink" title="Docker image with PHPStan"></a>Docker image with PHPStan</h3><p>My favourite Docker PHP tool, packed with useful tools, including PHPStan is <a href="https://hub.docker.com/r/jakzal/phpqa/" target="_blank" rel="noopener">Docker hub jakzal/phpqa</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker pull jakzal/phpqa:php7.4-alpine</span><br><span class="line">docker run -it --rm -v "$(pwd):/project" -v "$(pwd)/tmp-phpqa:/tmp" \</span><br><span class="line">      -w /project jakzal/phpqa:php7.4-alpine phpstan --version</span><br></pre></td></tr></table></figure>
+
+<p>One of the benefits of using the docker image is PHPStan doesn’t need to be installed as a dev dependency. Less to install and no dependency clashes!</p>
+<h3 id="Example-phpstan-neon-file"><a href="#Example-phpstan-neon-file" class="headerlink" title="Example phpstan.neon file"></a>Example <code>phpstan.neon</code> file</h3><p>PHPStan expects a <strong>phpstan.neon</strong> file in the root of the project.</p>
+<p><strong>phpstan.neon</strong></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">includes:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">vendor/symplify/phpstan-extensions/config/config.neon</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">vendor/phpstan/phpstan-phpunit/extension.neon</span></span><br><span class="line"></span><br><span class="line"><span class="attr">parameters:</span></span><br><span class="line">  <span class="attr">paths:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">src</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">tests</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># The level 8 is the highest level</span></span><br><span class="line">  <span class="attr">level:</span> <span class="number">8</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Larstan recommendation:</span></span><br><span class="line">  <span class="attr">checkMissingIterableValueType:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Ignore generic class Ds\Map</span></span><br><span class="line">  <span class="attr">checkGenericClassInNonGenericObjectType:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">ignoreErrors:</span></span><br><span class="line">    <span class="comment"># Magic method is used is simulate enum</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">'#Call to an undefined static method#'</span></span><br><span class="line">    <span class="bullet">-</span></span><br><span class="line">      <span class="attr">message:</span> <span class="string">'#PHPDoc tag @method has invalid value#'</span></span><br><span class="line">      <span class="attr">paths:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">src\Model\SpecialOfferType.php</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">src\Model\ProductUnit.php</span></span><br><span class="line">  <span class="comment"># buggy</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># mixed</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># cache buggy</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># tests</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># iterable</span></span><br></pre></td></tr></table></figure>
+
+<p>The above includes placeholders (buggy/mixed etc) for ignored files or rules. See the documentation for how to add.</p>
+<h3 id="Example-projects-with-PHPStan-included"><a href="#Example-projects-with-PHPStan-included" class="headerlink" title="Example projects with PHPStan included"></a>Example projects with PHPStan included</h3><p>I always find it useful to look at existing projects with working code, see some examples from GitHub:</p>
+<ul>
+<li>Personal project:<ul>
+<li><a href="https://github.com/Pen-y-Fan/watson-text-to-speech-php/blob/master/phpstan.neon" target="_blank" rel="noopener">Watson Text To Speech using PHP</a></li>
+</ul>
+</li>
+<li>Kata:<ul>
+<li><a href="https://github.com/emilybache/SupermarketReceipt-Refactoring-Kata/blob/main/php/phpstan.neon" target="_blank" rel="noopener">Emily Bache - SupermarketReceipt Refactoring Kata</a></li>
+</ul>
+</li>
+<li>Others:<ul>
+<li><a href="https://github.com/lmc-eu/php-coding-standard/blob/main/phpstan.neon" target="_blank" rel="noopener">lmc eu/php coding standard</a></li>
+<li><a href="https://raw.githubusercontent.com/KnpLabs/DoctrineBehaviors/master/phpstan.neon" target="_blank" rel="noopener">KnpLabs/DoctrineBehaviors</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="Run-PHPStan"><a href="#Run-PHPStan" class="headerlink" title="Run PHPStan"></a>Run PHPStan</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vendor/bin/phpstan analyse --error-format symplify</span><br></pre></td></tr></table></figure>
+
+<p>If <strong>composer.json</strong> has been configured with scripts, as above:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer phpstan</span><br></pre></td></tr></table></figure>
+
+<p>Alias:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias ps="composer phpstan"</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Mac and Linux: add the alias to <strong>~/.bash_aliases</strong>.</li>
+<li>Windows: create files <strong>ps.bat</strong> and add the composer calls.</li>
+</ul>
+<p>Then run with <code>ps</code>!</p>
+<h2 id="PHPUnit"><a href="#PHPUnit" class="headerlink" title="PHPUnit"></a>PHPUnit</h2><blockquote>
+<p>PHPUnit is a programmer-oriented testing framework for PHP. It is an instance of the xUnit architecture for unit testing frameworks.</p>
+</blockquote>
+<ul>
+<li><a href="https://phpunit.readthedocs.io/en/9.5/index.html" target="_blank" rel="noopener">phpunit/phpunit</a></li>
+</ul>
+<h3 id="Installation-of-PHPUnit-using-Composer"><a href="#Installation-of-PHPUnit-using-Composer" class="headerlink" title="Installation of PHPUnit using Composer"></a>Installation of PHPUnit using Composer</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer require --dev phpunit/phpunit ^9.5</span><br></pre></td></tr></table></figure>
+
+<h3 id="Docker-image-with-PHPUnit"><a href="#Docker-image-with-PHPUnit" class="headerlink" title="Docker image with PHPUnit"></a>Docker image with PHPUnit</h3><p>My favourite Docker PHP tool, packed with useful tools, including several versions of PHPUnit is <a href="https://hub.docker.com/r/jakzal/phpqa/" target="_blank" rel="noopener">Docker hub jakzal/phpqa</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker pull jakzal/phpqa:php7.4-alpine</span><br><span class="line">docker run -it --rm -v "$(pwd):/project" -v "$(pwd)/tmp-phpqa:/tmp" \ </span><br><span class="line">      -w /project jakzal/phpqa:php7.4-alpine phpunit --version</span><br></pre></td></tr></table></figure>
+
+<p>One of the benefits of using the docker image is less dev dependencies.</p>
+<h3 id="Example-phpunit-xml-or-phpunit-xml-dist-file"><a href="#Example-phpunit-xml-or-phpunit-xml-dist-file" class="headerlink" title="Example phpunit.xml or phpunit.xml.dist file"></a>Example <code>phpunit.xml</code> or <code>phpunit.xml.dist</code> file</h3><p>Example <strong>phpunit.xml</strong> from <a href="https://github.com/emilybache/Theatrical-Players-Refactoring-Kata/blob/main/php/phpunit.xml" target="_blank" rel="noopener">emilybache/Theatrical-Players-Refactoring-Kata</a>.</p>
+<p><strong>phpunit.xml</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">phpunit</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:noNamespaceSchemaLocation</span>=<span class="string">"https://schema.phpunit.de/9.3/phpunit.xsd"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">bootstrap</span>=<span class="string">"vendor/autoload.php"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">colors</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">coverage</span> <span class="attr">processUncoveredFiles</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">include</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">directory</span> <span class="attr">suffix</span>=<span class="string">".php"</span>&gt;</span>./src<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">coverage</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">testsuites</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">testsuite</span> <span class="attr">name</span>=<span class="string">"AllTests"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">directory</span>&gt;</span>./tests<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">testsuite</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">testsuites</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">phpunit</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Add <code>/build/</code> to <strong>.gitignore</strong></li>
+</ul>
+<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo /build/ &gt;&gt; .gitignore</span><br></pre></td></tr></table></figure>
+
+<h3 id="Example-projects-with-PHPUnit-included"><a href="#Example-projects-with-PHPUnit-included" class="headerlink" title="Example projects with PHPUnit included"></a>Example projects with PHPUnit included</h3><p>I always find it useful to look at existing projects with working code, see some examples from GitHub:</p>
+<ul>
+<li>Personal project:<ul>
+<li><a href="https://github.com/Pen-y-Fan/watson-text-to-speech-php/blob/master/phpunit.xml" target="_blank" rel="noopener">Watson Text To Speech using PHP</a></li>
+</ul>
+</li>
+<li>Kata:<ul>
+<li><a href="https://github.com/emilybache/SupermarketReceipt-Refactoring-Kata/blob/main/php/phpunit.xml" target="_blank" rel="noopener">Emily Bache - SupermarketReceipt Refactoring Kata</a></li>
+</ul>
+</li>
+<li>Others:<ul>
+<li><a href="https://github.com/lmc-eu/php-coding-standard/blob/main/phpunit.xml.dist" target="_blank" rel="noopener">lmc eu/php coding standard</a></li>
+<li><a href="https://github.com/laravel/cashier-mollie/blob/develop/phpunit.xml.dist" target="_blank" rel="noopener">laravel/cashier-mollie</a> - includes how to run with SQLite in memory database</li>
+</ul>
+</li>
+</ul>
+<h3 id="Run-PHPUnit"><a href="#Run-PHPUnit" class="headerlink" title="Run PHPUnit"></a>Run PHPUnit</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vendor/bin/phpunit</span><br></pre></td></tr></table></figure>
+
+<p>If <strong>composer.json</strong> has been configured with scripts, as above:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer phpunit</span><br></pre></td></tr></table></figure>
+
+<p>Alias:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias pu="composer phpunit"</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Mac and Linux: add the alias to <strong>~/.bash_aliases</strong>.</li>
+<li>Windows: create files <strong>pu.bat</strong> and add the composer calls.</li>
+</ul>
+<p>Then run with <code>pu</code>!</p>
+<h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><p>I wrote at the start, Docker is my only development environment on my Linux Pop_OS! Laptop. This layer of complexity is sometimes frustrating. Especially when Laragon makes my Windows development environment so easy. I have persisted, primarily to challenge myself to learn Docker.</p>
+<h3 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h3><p>There are many flavours of Dockerfiles, the smallest, most lightweight are generally Alpine images. Here are some <strong>Dockerfiles</strong> I have curated.</p>
+<h4 id="PHP-8-Alpine-CLI-with-xdebug-and-intl"><a href="#PHP-8-Alpine-CLI-with-xdebug-and-intl" class="headerlink" title="PHP 8 Alpine CLI with xdebug and intl"></a>PHP 8 Alpine CLI with xdebug and intl</h4><p>Dockerfile for PHP 8 Alpine with xdebug and intl, useful for Kata. See <a href="https://github.com/Pen-y-Fan/Yatzy-Refactoring-Kata-php/blob/php/php/Dockerfile" target="_blank" rel="noopener">Yatzy Refactoring Kata php</a></p>
+<p><strong>Dockerfile</strong></p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> php:<span class="number">8.0</span>-cli-alpine3.<span class="number">13</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># user, uid and gid are the same as my Linix. This has no effect on windows</span></span><br><span class="line"><span class="keyword">ARG</span> <span class="keyword">USER</span>=michael</span><br><span class="line"><span class="keyword">ARG</span> UID=<span class="number">1000</span></span><br><span class="line"><span class="keyword">ARG</span> GID=<span class="number">1000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 'pop-os' is my Linux host name, on your Linux change to your host name! On Windows and Mac change to:</span></span><br><span class="line">    <span class="comment"># xdebug.client_host=host.docker.internal</span></span><br><span class="line"><span class="keyword">ENV</span> xdebug.mode=coverage,debug,develop \</span><br><span class="line">    xdebug.client_host=pop-os \</span><br><span class="line">    xdebug.client_port=<span class="number">9003</span> \</span><br><span class="line">    xdebug.start_with_request=yes</span><br><span class="line"></span><br><span class="line"><span class="comment"># create a system user with home folder, uid:gid 1000:1000, no password called michael</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> addgroup -g <span class="variable">$GID</span> <span class="variable">$USER</span> \</span></span><br><span class="line"><span class="bash">    &amp;&amp; adduser \</span></span><br><span class="line"><span class="bash">    --system \</span></span><br><span class="line"><span class="bash">    --disabled-password \</span></span><br><span class="line"><span class="bash">    --gecos <span class="string">""</span> \</span></span><br><span class="line"><span class="bash">    --home <span class="string">"/home/<span class="variable">$USER</span>"</span> \</span></span><br><span class="line"><span class="bash">    --ingroup <span class="string">"<span class="variable">$USER</span>"</span> \</span></span><br><span class="line"><span class="bash">    --no-create-home \</span></span><br><span class="line"><span class="bash">    --uid <span class="string">"<span class="variable">$UID</span>"</span> \</span></span><br><span class="line"><span class="bash">    <span class="string">"<span class="variable">$USER</span>"</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> apk add --no-cache php8-pecl-xdebug php8-intl \</span></span><br><span class="line"><span class="bash">    &amp;&amp; docker-php-ext-enable /usr/lib/php8/modules/xdebug.so /usr/lib/php8/modules/intl.so</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># smoke test</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> php -v \</span></span><br><span class="line"><span class="bash">    &amp;&amp; php -m</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> /app</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>docker build -t php8-cli-alpine:local .</code></li>
+<li><code>docker run -it --rm -v $(pwd):/app -u 1000:1000 -w /app php8-cli-alpine:local /bin/sh</code></li>
+<li>PhpStorm: Add php8-cli-alpine:local as the CLI Interpreter</li>
+<li>Configure tests to use this as the PHP Interpreter. </li>
+</ul>
+<h4 id="PHP-7-4-Alpine-with-Apache-PDO-and-intl"><a href="#PHP-7-4-Alpine-with-Apache-PDO-and-intl" class="headerlink" title="PHP 7.4 Alpine with Apache, PDO and intl"></a>PHP 7.4 Alpine with Apache, PDO and intl</h4><p>Used on <a href="https://github.com/Pen-y-Fan/php-ajax-crud-using-jquery-ui-demo" target="_blank" rel="noopener">PHP AJAX CRUD using jQuery UI Demo</a>, see the repo for the docker-compose, which includes MySQL 5.7.0. <strong>Note</strong> the <strong>start.sh</strong> file is also needed to run!</p>
+<p><strong>Dockerfile</strong></p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> alpine:edge</span><br><span class="line"><span class="keyword">MAINTAINER</span> Paul Smith &lt;pa.ulsmith.net&gt;</span><br><span class="line"><span class="comment"># Original docker iamge source: https://github.com/ulsmith/alpine-apache-php7</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Add repos</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> <span class="built_in">echo</span> <span class="string">"http://dl-cdn.alpinelinux.org/alpine/edge/testing"</span> &gt;&gt; /etc/apk/repositories</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Add basics first</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> apk update &amp;&amp; apk upgrade &amp;&amp; apk add \</span></span><br><span class="line"><span class="bash">	bash apache2 php7-apache2 curl ca-certificates openssl openssh git php7 php7-phar php7-json php7-iconv php7-openssl tzdata openntpd nano</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Add Composer</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> curl -sS https://getcomposer.org/installer | php &amp;&amp; mv composer.phar /usr/<span class="built_in">local</span>/bin/composer</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Setup apache and php</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> apk add \</span></span><br><span class="line"><span class="bash">	php7-ftp \</span></span><br><span class="line"><span class="bash">	php7-xdebug \</span></span><br><span class="line"><span class="bash">	php7-mcrypt \</span></span><br><span class="line"><span class="bash">	php7-mbstring \</span></span><br><span class="line"><span class="bash">	php7-soap \</span></span><br><span class="line"><span class="bash">	php7-gmp \</span></span><br><span class="line"><span class="bash">	php7-pdo_odbc \</span></span><br><span class="line"><span class="bash">	php7-dom \</span></span><br><span class="line"><span class="bash">	php7-pdo \</span></span><br><span class="line"><span class="bash">	php7-zip \</span></span><br><span class="line"><span class="bash">	php7-mysqli \</span></span><br><span class="line"><span class="bash">	php7-sqlite3 \</span></span><br><span class="line"><span class="bash">	php7-pdo_pgsql \</span></span><br><span class="line"><span class="bash">	php7-bcmath \</span></span><br><span class="line"><span class="bash">	php7-gd \</span></span><br><span class="line"><span class="bash">	php7-odbc \</span></span><br><span class="line"><span class="bash">	php7-pdo_mysql \</span></span><br><span class="line"><span class="bash">	php7-pdo_sqlite \</span></span><br><span class="line"><span class="bash">	php7-gettext \</span></span><br><span class="line"><span class="bash">	php7-xml \</span></span><br><span class="line"><span class="bash">	php7-xmlreader \</span></span><br><span class="line"><span class="bash">	php7-xmlwriter \</span></span><br><span class="line"><span class="bash">	php7-tokenizer \</span></span><br><span class="line"><span class="bash">	php7-xmlrpc \</span></span><br><span class="line"><span class="bash">	php7-bz2 \</span></span><br><span class="line"><span class="bash">	php7-pdo_dblib \</span></span><br><span class="line"><span class="bash">	php7-curl \</span></span><br><span class="line"><span class="bash">	php7-ctype \</span></span><br><span class="line"><span class="bash">	php7-session \</span></span><br><span class="line"><span class="bash">	php7-redis \</span></span><br><span class="line"><span class="bash">	php7-exif \</span></span><br><span class="line"><span class="bash">	php7-intl \</span></span><br><span class="line"><span class="bash">	php7-fileinfo \</span></span><br><span class="line"><span class="bash">	php7-ldap \</span></span><br><span class="line"><span class="bash">	php7-apcu</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Problems installing in above stack</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> apk add php7-simplexml</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> cp /usr/bin/php7 /usr/bin/php \</span></span><br><span class="line"><span class="bash">    &amp;&amp; rm -f /var/cache/apk/*</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Add apache to run and configure</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> sed -i <span class="string">"s/#LoadModule\ rewrite_module/LoadModule\ rewrite_module/"</span> /etc/apache2/httpd.conf \</span></span><br><span class="line"><span class="bash">    &amp;&amp; sed -i <span class="string">"s/#LoadModule\ session_module/LoadModule\ session_module/"</span> /etc/apache2/httpd.conf \</span></span><br><span class="line"><span class="bash">    &amp;&amp; sed -i <span class="string">"s/#LoadModule\ session_cookie_module/LoadModule\ session_cookie_module/"</span> /etc/apache2/httpd.conf \</span></span><br><span class="line"><span class="bash">    &amp;&amp; sed -i <span class="string">"s/#LoadModule\ session_crypto_module/LoadModule\ session_crypto_module/"</span> /etc/apache2/httpd.conf \</span></span><br><span class="line"><span class="bash">    &amp;&amp; sed -i <span class="string">"s/#LoadModule\ deflate_module/LoadModule\ deflate_module/"</span> /etc/apache2/httpd.conf \</span></span><br><span class="line"><span class="bash">    &amp;&amp; sed -i <span class="string">"s#^DocumentRoot \".*#DocumentRoot \"/app/public\"#g"</span> /etc/apache2/httpd.conf \</span></span><br><span class="line"><span class="bash">    &amp;&amp; sed -i <span class="string">"s#/var/www/localhost/htdocs#/app/public#"</span> /etc/apache2/httpd.conf \</span></span><br><span class="line"><span class="bash">    &amp;&amp; <span class="built_in">printf</span> <span class="string">"\n&lt;Directory \"/app/public\"&gt;\n\tAllowOverride All\n&lt;/Directory&gt;\n"</span> &gt;&gt; /etc/apache2/httpd.conf</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> mkdir /app &amp;&amp; mkdir /app/public &amp;&amp; chown -R apache:apache /app &amp;&amp; chmod -R 755 /app &amp;&amp; mkdir bootstrap</span></span><br><span class="line"><span class="keyword">ADD</span><span class="bash"> start.sh /bootstrap/</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> chmod +x /bootstrap/start.sh</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">ADD</span><span class="bash"> /public /app/public</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> chown -R apache:apache /app</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> /app</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">80</span></span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="bash"> [<span class="string">"/bootstrap/start.sh"</span>]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="docker-compose-yml"><a href="#docker-compose-yml" class="headerlink" title="docker-compose.yml"></a>docker-compose.yml</h3><p>To get the most out of a development environment. It should be easy to “spin up”, docker-compose files take the lengthy Docker run commands, The lay them out into easy to read files, which are easy to edit.</p>
+<p>Example from <a href="https://github.com/Pen-y-Fan/php-ajax-crud-using-jquery-ui-demo" target="_blank" rel="noopener">Pen-y-Fan / php-ajax-crud-using-jquery-ui-demo</a></p>
+<p>You can see two Apache servers, sharing the same database. One has XDebug enabled, which makes it slow, but easy to run step debugging. I only need to switch from <strong>localhost:8080</strong> to <strong>localhost:8081</strong> to start debugging.</p>
+<p><strong>docker-compose.yml</strong></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">"3"</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">ajaxcrud:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">apachephp:local</span></span><br><span class="line"><span class="comment"># build: ./</span></span><br><span class="line">    <span class="attr">labels:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">"traefik.backend=ajaxcrud"</span></span><br><span class="line">  <span class="comment">#    - "traefik.frontend.rule=Host:ajaxcrud.docker.localhost"</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">MYSQL_HOST=database</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">APACHE_SERVER_NAME=ajaxcrud.docker.localhost</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">PHP_SHORT_OPEN_TAG=On</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">PHP_ERROR_REPORTING=E_ALL</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">PHP_DISPLAY_ERRORS=On</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">PHP_HTML_ERRORS=On</span></span><br><span class="line">      <span class="comment"># Xdebug is disabled use ajaxcrudx for debugging</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">default</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">"8080:80"</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./:/app</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./tmp-phpqa:/tmp</span></span><br><span class="line">    <span class="attr">working_dir:</span> <span class="string">/app</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">database</span></span><br><span class="line">    <span class="comment"># ADD in permission for setting system time to host system time</span></span><br><span class="line">    <span class="attr">cap_add:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SYS_TIME</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SYS_NICE</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Enable Xdebug and use port 8081</span></span><br><span class="line">  <span class="attr">ajaxcrudx:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">apachephp:local</span></span><br><span class="line">    <span class="attr">labels:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">"traefik.backend=ajaxcrudx"</span></span><br><span class="line">    <span class="comment">#    - "traefik.frontend.rule=Host:ajaxcrud.docker.localhost"</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">MYSQL_HOST=database</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">APACHE_SERVER_NAME=ajaxcrudx.docker.localhost</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">PHP_SHORT_OPEN_TAG=On</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">PHP_ERROR_REPORTING=E_ALL</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">PHP_DISPLAY_ERRORS=On</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">PHP_HTML_ERRORS=On</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">PHP_XDEBUG_ENABLED=On</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">default</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">"8081:80"</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./:/app</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./tmp-phpqa:/tmp</span></span><br><span class="line">    <span class="attr">working_dir:</span> <span class="string">/app</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">database</span></span><br><span class="line">    <span class="comment"># ADD in permission for setting system time to host system time</span></span><br><span class="line">    <span class="attr">cap_add:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SYS_TIME</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SYS_NICE</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">database:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">mysql:5.7</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">"33060:3306"</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">MYSQL_ALLOW_EMPTY_PASSWORD=yes</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">db-data:/var/lib/mysql</span></span><br><span class="line"></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line">  <span class="attr">db-data:</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#networks:</span></span><br><span class="line"><span class="comment">#  default:</span></span><br><span class="line"><span class="comment">#    external:</span></span><br><span class="line"><span class="comment">#      name: docker_docker-localhost</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Makefile"><a href="#Makefile" class="headerlink" title="Makefile"></a>Makefile</h3><p><strong>Makefile</strong> allow a consistent and easy way for me to “spin up” the different environments. It doesn’t matter if it is a LAMP stack or Node, I can run <code>make up</code> to start things off. </p>
+<p>Example used on <a href="https://github.com/Pen-y-Fan/php-ajax-crud-using-jquery-ui-demo" target="_blank" rel="noopener">PHP AJAX CRUD using jQuery UI Demo</a></p>
+<p>Usage:</p>
+<ul>
+<li><strong>build-image</strong> - build the local image ready for docker-compose</li>
+<li><strong>make up</strong> - starts the docker-compose in the same directory in demon (background)</li>
+<li><strong>make down</strong> - stops the docker-compose</li>
+<li><strong>make seed</strong> - Create the table and seed the database with three records</li>
+<li><strong>make shell</strong> - opens a sh terminal in the running ajaxcrud container as a standard user</li>
+<li><strong>make shell-root</strong> -  opens a sh in ajaxcrud container as root user</li>
+<li><strong>make shell-web</strong> -  opens a sh in ajaxcrud container as www user</li>
+<li><strong>make up-f</strong> - start the docker-compose in foreground (useful for error messages)</li>
+<li><strong>make tests</strong> - run phpunit tests</li>
+<li><strong>make test-coverage</strong> - phpunit coverage html report will be created in build/coverage</li>
+<li><strong>make phpstan</strong> - static analysis using phpstan</li>
+<li><strong>make checkcode</strong> - check code using php_code sniffer (phpcbf)</li>
+<li><strong>make fixcode</strong> - fix code using php_code sniffer (phpcbf)</li>
+<li><strong>make check-cs</strong> - check code using easy coding standards (ecs)</li>
+<li><strong>make fix-cs</strong> - fix code using easy coding standards (ecs)</li>
+<li><strong>grumphp</strong> - manually run grumphp (runs: phpunit, ecs and phpstan)</li>
+<li><strong>toolbox</strong> - shell access to the toolbox</li>
+<li><strong>cypress-register</strong> - register Cypress with xhost to allow Docker to display GUI app on the host’s monitor</li>
+<li><strong>cypress</strong> - run Cypress end to end testing</li>
+</ul>
+<p><strong>Makefile</strong></p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Duster: www-data:www-data is 33:33</span></span><br><span class="line"><span class="comment"># Alpine: apache:apache is 100:101</span></span><br><span class="line">APACHE_UID = 100</span><br><span class="line">APACHE_GID = 101</span><br><span class="line"></span><br><span class="line"><span class="section">build-image:</span></span><br><span class="line">	docker build -t apachephp:local .</span><br><span class="line"></span><br><span class="line"><span class="section">up:</span></span><br><span class="line">	docker-compose up --remove-orphans -d</span><br><span class="line"><span class="section">up-f:</span></span><br><span class="line">	docker-compose up --remove-orphans</span><br><span class="line"><span class="section">down:</span></span><br><span class="line">	docker-compose down --remove-orphans</span><br><span class="line"><span class="section">seed:</span></span><br><span class="line">	 docker-compose exec -u $&#123;APACHE_UID&#125;:$&#123;APACHE_GID&#125; ajaxcrud php /app/build_db.php</span><br><span class="line"><span class="section">shell:</span></span><br><span class="line">	docker-compose exec -u $&#123;shell id -u&#125;:$&#123;shell id -g&#125; ajaxcrud sh</span><br><span class="line"><span class="section">shell-root:</span></span><br><span class="line">	docker-compose exec -u 0:0 ajaxcrud sh</span><br><span class="line"><span class="section">shell-web:</span></span><br><span class="line">	docker-compose exec -u $&#123;APACHE_UID&#125;:$&#123;APACHE_GID&#125; ajaxcrud sh</span><br><span class="line"></span><br><span class="line"><span class="section">chown:</span></span><br><span class="line">	docker-compose exec -u 0:0 ajaxcrud chown -R $&#123;shell id -u&#125;:$&#123;shell id -g&#125; ./</span><br><span class="line"></span><br><span class="line">.PHONY : tests</span><br><span class="line"><span class="section">tests:</span></span><br><span class="line">	docker-compose exec -u $&#123;shell id -u&#125;:$&#123;shell id -g&#125; ajaxcrud ./vendor/bin/phpunit</span><br><span class="line"></span><br><span class="line"><span class="section">test-coverage:</span></span><br><span class="line">	docker-compose exec -u $&#123;shell id -u&#125;:$&#123;shell id -g&#125; \</span><br><span class="line">		ajaxcrudx ./vendor/bin/phpunit --coverage-html build/coverage</span><br><span class="line"></span><br><span class="line"><span class="section">phpstan:</span></span><br><span class="line">	docker run --init -it --rm  -w /project \</span><br><span class="line">		-v <span class="variable">$(<span class="built_in">shell</span> pwd)</span>:/project \</span><br><span class="line">		-v <span class="variable">$(<span class="built_in">shell</span> pwd)</span>/tmp-phpqa:/tmp \</span><br><span class="line">		jakzal/phpqa:1.52-php7.4-alpine phpstan analyse</span><br><span class="line"></span><br><span class="line"><span class="section">checkcode:</span></span><br><span class="line">	docker run --init -it --rm -w /project \</span><br><span class="line">		-v <span class="variable">$(<span class="built_in">shell</span> pwd)</span>:/project \</span><br><span class="line">		-v <span class="variable">$(<span class="built_in">shell</span> pwd)</span>/tmp-phpqa:/tmp \</span><br><span class="line">    	jakzal/phpqa:1.52-php7.4-alpine phpcs public tests src  --standard=phpcs.xml</span><br><span class="line"></span><br><span class="line"><span class="section">fixcode:</span></span><br><span class="line">	docker run --init -it --rm  -w /project \</span><br><span class="line">	 		-v <span class="variable">$(<span class="built_in">shell</span> pwd)</span>:/project \</span><br><span class="line">	 		-v <span class="variable">$(<span class="built_in">shell</span> pwd)</span>/tmp-phpqa:/tmp \</span><br><span class="line">    		jakzal/phpqa:1.52-php7.4-alpine phpcbf public tests src --standard=phpcs.xml</span><br><span class="line"></span><br><span class="line"><span class="section">check-cs:</span></span><br><span class="line">	docker run --init -it --rm -w /project \</span><br><span class="line">			-v <span class="variable">$(<span class="built_in">shell</span> pwd)</span>:/project \</span><br><span class="line">			-v <span class="variable">$(<span class="built_in">shell</span> pwd)</span>/tmp-phpqa:/tmp \</span><br><span class="line">    		jakzal/phpqa:1.52-php7.4-alpine ecs check</span><br><span class="line"></span><br><span class="line"><span class="section">fix-cs:</span></span><br><span class="line">	docker run --init -it --rm  -w /project \</span><br><span class="line">			-v <span class="variable">$(<span class="built_in">shell</span> pwd)</span>:/project \</span><br><span class="line">			-v <span class="variable">$(<span class="built_in">shell</span> pwd)</span>/tmp-phpqa:/tmp \</span><br><span class="line">    		jakzal/phpqa:1.52-php7.4-alpine ecs check --fix</span><br><span class="line"></span><br><span class="line"><span class="section">grumphp:</span></span><br><span class="line">	docker run --init -it --rm -w /project \</span><br><span class="line">			-v <span class="variable">$(<span class="built_in">shell</span> pwd)</span>:/project \</span><br><span class="line">			-v <span class="variable">$(<span class="built_in">shell</span> pwd)</span>/tmp-phpqa:/tmp \</span><br><span class="line">			jakzal/phpqa:1.52-php7.4-alpine ./vendor/bin/grumphp run</span><br><span class="line"></span><br><span class="line"><span class="section">toolbox:</span></span><br><span class="line">	docker run --init -it --rm  -w /project \</span><br><span class="line">		-v <span class="variable">$(<span class="built_in">shell</span> pwd)</span>:/project \</span><br><span class="line">		-v <span class="variable">$(<span class="built_in">shell</span> pwd)</span>/tmp-phpqa:/tmp \</span><br><span class="line">		jakzal/phpqa:1.52-php7.4-alpine sh</span><br><span class="line"></span><br><span class="line"><span class="section">cypress-register:</span></span><br><span class="line">	xhost +local:`docker inspect --format='&#123;&#123; .ContainerConfig.Hostname &#125;&#125;' cypress/included:6.6.0`</span><br><span class="line"></span><br><span class="line">.PHONY : cypress</span><br><span class="line"><span class="section">cypress:</span></span><br><span class="line">	docker run -it --rm -d -e DISPLAY \</span><br><span class="line">		-v <span class="variable">$(<span class="built_in">shell</span> pwd)</span>:/e2e \</span><br><span class="line">	 	-v /tmp/.X11-unix:/tmp/.X11-unix --net=host -w /e2e \</span><br><span class="line">		--entrypoint cypress cypress/included:6.6.0 open --project .</span><br><span class="line"></span><br><span class="line"><span class="section">cypress-run:</span></span><br><span class="line">	docker run -it --rm -w /e2e \</span><br><span class="line">		-v <span class="variable">$(<span class="built_in">shell</span> pwd)</span>:/e2e \</span><br><span class="line">		cypress/included:6.6.0</span><br></pre></td></tr></table></figure>
+
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>I hope you find this curated list useful, I hope to continue my development and update a new list next year!</p>
+
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">Show TOC</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
+  <div class="random-toc">
+    <h2>Table of Content</h2>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Developer-environments"><span class="toc-text">Developer environments</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows"><span class="toc-text">Windows</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux"><span class="toc-text">Linux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Integrated-Developer-Environment-IDE"><span class="toc-text">Integrated Developer Environment (IDE)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Composer"><span class="toc-text">Composer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Switching-versions"><span class="toc-text">Switching versions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Composer-Docker-image"><span class="toc-text">Composer Docker image</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#editorconfig"><span class="toc-text">.editorconfig</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Xdebug"><span class="toc-text">Xdebug</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Xdebug-with-Docker"><span class="toc-text">Xdebug with Docker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Setup-PhpStorm"><span class="toc-text">Setup PhpStorm</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Configuring-Xdebug"><span class="toc-text">Configuring Xdebug</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Using-debug-mode"><span class="toc-text">Using debug mode</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Further-details-How-to-Debug"><span class="toc-text">Further details: How to Debug</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Strict-mode"><span class="toc-text">Strict mode</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Easy-Coding-Standard-ECS"><span class="toc-text">Easy Coding Standard (ECS)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Install-ECS-using-Composer"><span class="toc-text">Install ECS using Composer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-image-with-ECS"><span class="toc-text">Docker image with ECS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Example-ecs-php-file"><span class="toc-text">Example ecs.php file</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Example-projects-with-ECS-included"><span class="toc-text">Example projects with ECS included</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-ECS"><span class="toc-text">Run ECS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PHPStan"><span class="toc-text">PHPStan</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Install-PHPStan-using-Composer"><span class="toc-text">Install PHPStan using Composer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-image-with-PHPStan"><span class="toc-text">Docker image with PHPStan</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Example-phpstan-neon-file"><span class="toc-text">Example phpstan.neon file</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Example-projects-with-PHPStan-included"><span class="toc-text">Example projects with PHPStan included</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-PHPStan"><span class="toc-text">Run PHPStan</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PHPUnit"><span class="toc-text">PHPUnit</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Installation-of-PHPUnit-using-Composer"><span class="toc-text">Installation of PHPUnit using Composer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-image-with-PHPUnit"><span class="toc-text">Docker image with PHPUnit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Example-phpunit-xml-or-phpunit-xml-dist-file"><span class="toc-text">Example phpunit.xml or phpunit.xml.dist file</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Example-projects-with-PHPUnit-included"><span class="toc-text">Example projects with PHPUnit included</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-PHPUnit"><span class="toc-text">Run PHPUnit</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker"><span class="toc-text">Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Dockerfile"><span class="toc-text">Dockerfile</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#PHP-8-Alpine-CLI-with-xdebug-and-intl"><span class="toc-text">PHP 8 Alpine CLI with xdebug and intl</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PHP-7-4-Alpine-with-Apache-PDO-and-intl"><span class="toc-text">PHP 7.4 Alpine with Apache, PDO and intl</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-compose-yml"><span class="toc-text">docker-compose.yml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Makefile"><span class="toc-text">Makefile</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-text">Conclusion</span></a></li></ol>
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+
+  
+
+  
+    <a href="/2021/02/12/Troubleshooting-Docker/" class="next">Next post Troubleshooting Docker &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by Pen y Fan using
+      <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random" target="_blank" rel="noopener">Random</a>
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="https://avatars3.githubusercontent.com/u/40126936?s=400&amp;u=957f8c1cbfeeb61a853b9e28eb2968352a77cc79&amp;v=4" alt="Pen y Fan">
+    <p id="description">Posts about my coding experiences, primarily for my learning path with PHP, good clean professional code.</p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://twitter.com/MikeAPritch" target="_blank" rel="noopener">
+        
+          <i class="icon iconfont twitter">&#xe600;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.linkedin.com/in/michael-pritchard-340b4520/" target="_blank" rel="noopener">
+        
+          <i class="icon iconfont linkedin">&#xe601;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.reddit.com/user/Pen-y-Fan" target="_blank" rel="noopener">
+        
+          R
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://github.com/pen-y-fan" target="_blank" rel="noopener">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<div id="btn-view">Hide</div>
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-3.5.1.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["flash"],"timer":true,"delay":60000,"shuffle":true,"count":12};
+var unsplashConfig = {"gravity":"center"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+
+var backgroundColor = "34495E";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+</body>
+</html>
+
