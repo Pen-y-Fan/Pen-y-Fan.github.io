@@ -1,0 +1,541 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Pen y Fan">
+  
+  
+  <meta name="keywords" content="PHP, Learning, resource, HTML, CSS, Git, Github">
+  
+  
+  
+    <meta name="description" content="This is my method to set up VS Code to use PHP with Xdebug on Windows using Laragon.
+Install Laragon for Windows
+Laragon is a portable, isolated, fast &amp; powerful universal development environme...">
+  
+  <title>How to Set up VS Code to use PHP with Xdebug 3 on Windows [ Pen y Fan ]</title>
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+  
+<link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+
+  
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+  
+    <div class="item next">
+      <a href="/2021/05/23/Standard-setup-for-PHP-projects-2021/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        Standard setup for PHP projects 2021
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onClick="openUserCard()">
+          <img id="avatar" src="https://avatars3.githubusercontent.com/u/40126936?s=400&amp;u=957f8c1cbfeeb61a853b9e28eb2968352a77cc79&amp;v=4" alt="Pen y Fan"/>
+          <div id="homelink">Pen y Fan</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/index.html">Home</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">Posts</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">Tags</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">Categories</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/about">About</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="https://github.com/pen-y-fan" target="_blank" rel="noopener">Github</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  
+
+  <article id="post">
+    <h1>How to Set up VS Code to use PHP with Xdebug 3 on Windows</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">Created at 2021-08-03</span>
+      
+        <span id = "post-title-updated">Updated at 2021-08-08</span>
+      
+      
+      <span id = "post-title-categories">Category
+      
+      
+        
+        
+        <a href="/categories/Standard-Setup/">Standard Setup</a>
+      
+      </span>
+      
+      
+      <span id = "post-title-tags">
+      Tag
+      
+      
+        
+        
+        <a href="/tags/Resource/">Resource</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/Windows/">Windows</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/PHP/">PHP</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/Xdebug/">Xdebug</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/VS-Code/">VS Code</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/Laragon/">Laragon</a>
+      
+      </span>
+      
+    </p>
+    
+    <p><img src="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/vs-code-with-php-and-xdebug-3.png" alt="VS Code with PHP and Xdebug 3" title="VS Code with PHP and Xdebug 3"></p>
+<p>This is my method to set up <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VS Code</a> to use PHP with <a href="https://xdebug.org/docs/" target="_blank" rel="noopener">Xdebug</a> on Windows using <a href="https://laragon.org/" target="_blank" rel="noopener">Laragon</a>.</p>
+<h2 id="Install-Laragon-for-Windows"><a href="#Install-Laragon-for-Windows" class="headerlink" title="Install Laragon for Windows"></a>Install Laragon for Windows</h2><blockquote>
+<p>Laragon is a portable, isolated, fast &amp; powerful universal development environment for PHP, Node.js, Python, Java, Go, Ruby. It is fast, lightweight, easy-to-use and easy-to-extend.<br>Laragon is great for building and managing modern web applications. It is focused on performance - designed around stability, simplicity, flexibility and freedom.</p>
+</blockquote>
+<p><a href="https://laragon.org/docs/install.html" target="_blank" rel="noopener">Download and Install</a>, the <strong>Laragon Full (64-bit)</strong> version. Run the installation, next&gt;, next&gt;, next&gt;. You now have a fully working WAMP stack, plus Node/NPM, git, Composer and many more tools.</p>
+<p>Once installed <strong>Add Laragon to Path</strong>: Menu &gt; Tools &gt; Path &gt; Add Laragon to Path</p>
+<p><img src="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/add-laragon-to-path.png" alt="Add Laragon to Path" title="Add Laragon to Path"></p>
+<p>You then need to <strong>Sign out</strong> and back <strong>in</strong> for the path to be added to your user profile for all terminals and programs (CMD / PowerShell / Terminal / VS Code etc.)</p>
+<h2 id="Add-Xdebug-to-PHP"><a href="#Add-Xdebug-to-PHP" class="headerlink" title="Add Xdebug to PHP"></a>Add Xdebug to PHP</h2><p>Xdebug can be downloaded from <a href="https://xdebug.org/download" target="_blank" rel="noopener">xdebug.org</a>, there are currently 16 versions to choose!</p>
+<p>PHP has 4 versions, from PHP 7.2 to PHP 8.0, each version can be 32-bit (x86) or 64-bit (x64), Thread Safe (TS) or Non Thread Safe (NTS). For Laragon v5 you would use 64 bit. Apache requires the Thread Safe (TS) version, Internet Information Services (IIS) requires the Non-Thread Safe version (NTS). The version of Xdebug needs to match the version of PHP. Look at the version installed to match the version required.</p>
+<p><img src="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/download-xdebug-for-windows.png" alt="Download Xdebug for Windows" title="Download Xdebug for Windows"></p>
+<ul>
+<li>Laragon ships with: <strong>php-7.4</strong>.19-Win32-vc15-<strong>x64</strong> <strong>[TS]</strong> -&gt; download <strong>PHP 7.4 VC15 TS 64 bit</strong></li>
+<li>If you install:  <strong>php-8.0</strong>.8-Win32-vs16-<strong>x64</strong> <strong>[TS]</strong> -&gt; download <strong>PHP 8.0 VS16 TS 64 bit</strong></li>
+</ul>
+<p>Once the correct <strong>dll</strong> is downloaded (e.g. ) copy it from your <strong>download folder</strong> to the <strong>php ext folder</strong>. Tip: Use Laragon to open this folder using: Menu &gt; PHP &gt; dir:ext</p>
+<p><img src="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/open-php-ext-directory.png" alt="Open PHP ext folder" title="Open PHP ext folder"></p>
+<p>Back in Laragon enable the Xdebug extension:</p>
+<p>Menu &gt; PHP &gt; Quick settings &gt; ☑ xdebug</p>
+<p><img src="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/enable-xdebug-using-quick-settings.png" alt="Enable Xdebug using quick settings" title="Enable Xdebug using quick settings"></p>
+<p>Next add Xdebug configuration to <strong>php.ini</strong></p>
+<p>Laragon Menu &gt; PHP &gt; php.ini</p>
+<p>Wait for <strong>php.ini</strong> to open with Notepad++, scroll to the bottom of the file and add:</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[xdebug]</span></span><br><span class="line"><span class="attr">xdebug.mode</span> = coverage,debug,develop</span><br></pre></td></tr></table></figure>
+
+<p>Save and close the php.ini file.</p>
+<p>This is the minimum required for debugging and code coverage, Xdebug default setting for xdebug.client_port is now <strong>9003</strong> and xdebug.client_host <strong>localhost</strong>, these no longer need to be specified in the php.ini.</p>
+<h2 id="Check-Xdebug-using-Laragon-Web"><a href="#Check-Xdebug-using-Laragon-Web" class="headerlink" title="Check Xdebug using Laragon Web"></a>Check Xdebug using Laragon Web</h2><ol>
+<li>Click the start button (it changes to Stop when running)</li>
+<li>Click Web</li>
+<li>Check the information on the Laragon webpage and next to the PHP version click info</li>
+</ol>
+<p>The <strong>phpinfo()</strong> page will display, check Xdebug is displayed</p>
+<p><img src="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/check-xdebug-is-working.png" alt="Check Xdebug is working" title="Check Xdebug is working"></p>
+<p>Scroll down and see the section on Xdebug, check coverage, debug and develop features are ticked.</p>
+<p><img src="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/check-xdebug-features.png" alt="Check Xdebug features" title="Check Xdebug features"></p>
+<h2 id="Install-VS-Code"><a href="#Install-VS-Code" class="headerlink" title="Install VS Code"></a>Install VS Code</h2><blockquote>
+<p>Code editing. Redefined. Free. Built on open source. Runs everywhere.</p>
+</blockquote>
+<p><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Download for Windows</a></p>
+<p>The installer is straightforward, run, next, next finish.</p>
+<h3 id="Add-Xdebug-extension-for-VS-Code"><a href="#Add-Xdebug-extension-for-VS-Code" class="headerlink" title="Add Xdebug extension for VS Code"></a>Add Xdebug extension for VS Code</h3><p>Open VS Code and install the extension: Press <strong>F1</strong>, press Backspace to delete the <strong>&gt;</strong> and type <code>ext install php-debug</code></p>
+<p><img src="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/debug-support-for-php-with-xdebug.png" alt="Debug support for PHP with Xdebug" title="Debug support for PHP with Xdebug"></p>
+<p>There are several extensions with the same name, install the one with 5M downloads.</p>
+<h3 id="Configure-VS-Code"><a href="#Configure-VS-Code" class="headerlink" title="Configure VS Code"></a>Configure VS Code</h3><p>Next VS Code needs to have a launch script created, select <strong>Run</strong> from the menu and click <strong>Add Configuration…</strong></p>
+<p><img src="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/add-configuration.png" alt="Add configuration" title="Add configuration"></p>
+<p>This will auto generate a <strong>launch.json</strong> file. If you are prompted for a language select <strong>PHP</strong>. The file can be closed.</p>
+<h2 id="Run-test-code-from-CLI"><a href="#Run-test-code-from-CLI" class="headerlink" title="Run test code from CLI"></a>Run test code from CLI</h2><p>Create a basic script to test the setup. Create a directory in the Laragon www directory, i.e. C:\laragon\www\ <strong>xdebug-test</strong>, call the file <strong>example.php</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line">$message = <span class="string">"&lt;h1&gt;Hello, world&lt;/h1&gt;"</span>;</span><br><span class="line">$xdebugBreak = xdebug_break();</span><br><span class="line"><span class="keyword">echo</span> $message;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>Click the Run and Debug menu</li>
+<li>Change the drop-down options to <strong>Launch currently open script</strong></li>
+<li>Click the Run icon</li>
+</ol>
+<p><img src="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/debug-basic-cli-script.png" alt="Debug basic CLI script" title="Debug basic CLI script"></p>
+<p>Notice although no debug point was created the script has triggered debugging after the <code>xdebug_break()</code> line. You can also see the local variables.</p>
+<p>The <code>xdebug_break()</code> function is useful when setting up Xdebug, if Xdebug isn’t loaded an exception will be thrown instead! If you get this error re-check Xdebug has been enabled and the <strong>php.ini</strong> has <strong>xdebug.mode</strong> line as above. It is also possible to set a different version of PHP to run from the command line. See troubleshooting below.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Fatal error: Uncaught Error: Call to undefined function xdebug_break() in </span><br><span class="line">C:\laragon\www\xdebug-test\index.php:3 Stack trace: #0 &#123;main&#125; thrown in </span><br><span class="line">C:\laragon\www\xdebug-test\example.php on line 3</span><br></pre></td></tr></table></figure>
+
+<h2 id="Install-Xdebug-helper-on-Chrome"><a href="#Install-Xdebug-helper-on-Chrome" class="headerlink" title="Install Xdebug helper on Chrome"></a>Install Xdebug helper on Chrome</h2><p>For debugging on a web page a helper extension can be installed for Google Chrome browser (it is also available on other browsers).</p>
+<ul>
+<li><a href="https://chrome.google.com/webstore/detail/xdebug-helper/eadndfjplgieldjbigjakmdgkmoaaaoc" target="_blank" rel="noopener">Xdebug helper Offered by: Wrep</a></li>
+</ul>
+<p><img src="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/install-xdebug-helper-on-chrome.png" alt="Install Xdebug helper on Chrome" title="Install Xdebug helper on Chrome"></p>
+<p>Click <strong>Add to Chrome</strong> (if you get a notification to add to Chrome click that too). Then find the grey xdebug helper icon in your list of icons (it maybe under the jigsaw icon), click it and select debug, I find it is useful to click the pin too, which will display the icon in the main icon it will turn green.</p>
+<h2 id="Debug-code-in-a-browser"><a href="#Debug-code-in-a-browser" class="headerlink" title="Debug code in a browser"></a>Debug code in a browser</h2><p>In VS Code:</p>
+<ul>
+<li>Click the Run and Debug menu</li>
+<li>Change the drop-down options to <strong>Listen for Xdebug</strong></li>
+<li>Click the Run icon</li>
+</ul>
+<p>The bar on the bottom of VS Code will display orange with the text <strong>Listen for Xdebug (xdebug-test)</strong></p>
+<p>Rename the file <strong>index.php</strong></p>
+<p>In Laragon:</p>
+<ol>
+<li>Click Menu</li>
+<li>Click www</li>
+<li>Select the xdebug-test folder</li>
+</ol>
+<p><img src="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/launch-website.png" alt="Launch website" title="Launch website"></p>
+<p>Your web browser will launch, switch to VS Code and you will see the debug session has stopped as before.</p>
+<p>If it doesn’t automatically stop check the debug icon is green, if it is grey click it and select debug, then refresh the page.</p>
+<p>The <code>xdebug_break()</code> function has now served its purpose, you can continue to use that function, however when the Xdebug is disabled the code will throw an exception. Delete the line with the Xdebug function, press F9 to toggle a breakpoint, a red dot will display to the right of the selected line.</p>
+<p>If you are still debugging press F5 to continue. Refresh the webpage page and debugging will trigger at the breakpoint.</p>
+<p>Refresh the webpage and the debugging will stop at the breakpoint.</p>
+<h3 id="Debug-actions"><a href="#Debug-actions" class="headerlink" title="Debug actions"></a>Debug actions</h3><p>Once a debug session starts, the <strong>Debug toolbar</strong> will appear on the top of the editor.</p>
+<p><img src="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/debug-actions.png" alt="Debug Actions" title="Debug Actions"></p>
+<ul>
+<li>Continue / Pause <code>F5</code></li>
+<li>Step Over <code>F10</code></li>
+<li>Step Into <code>F11</code></li>
+<li>Step Out <code>Shift+F11</code></li>
+<li>Restart <code>Ctrl+Shift+F5</code></li>
+<li>Stop <code>Shift+F5</code></li>
+</ul>
+<p>For more information on how to use debug see the links in Further information, which link to official documentation and official YouTube video. </p>
+<h2 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h2><h3 id="Port-9003-is-in-use"><a href="#Port-9003-is-in-use" class="headerlink" title="Port 9003 is in use"></a>Port 9003 is in use</h3><p>If there are any problems with port 9003 being used by another application run <strong>netstat</strong></p>
+<p>From Laragon:</p>
+<ol>
+<li>Menu</li>
+<li>Tools</li>
+<li>netstat</li>
+</ol>
+<p><img src="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/run-netstat.png" alt="Run netstat" title="Run netstat"></p>
+<p>Wait a few seconds and Notepad++ will open with the stats.</p>
+<p><img src="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/view-netstat-results.png" alt="View netstat results" title="View netstat results"></p>
+<p>The important line is for port <strong>9003</strong>, this is required for Xdebug to work, this example is correct, I have set VS Code to listen for Xdebug. If another program is using this port then change the port Xdebug uses and VS Code listens on:</p>
+<ul>
+<li><strong>php.ini</strong>, e.g. add the line for Xdebug to use port <strong>9004</strong></li>
+</ul>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[xdebug]</span></span><br><span class="line"><span class="attr">xdebug.mode</span> = coverage,debug,develop</span><br><span class="line"><span class="attr">xdebug.client_port</span> = <span class="number">9004</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>VS Code open <strong>launch.json</strong> (in the <strong>.vscode</strong> directory), change the two locations from <strong>“port”: 9003</strong> to <strong>“port”: 9004</strong></li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"0.2.0"</span>,</span><br><span class="line">  <span class="attr">"configurations"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"Listen for Xdebug"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"php"</span>,</span><br><span class="line">      <span class="attr">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">      <span class="attr">"port"</span>: <span class="number">9004</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"Launch currently open script"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"php"</span>,</span><br><span class="line">      <span class="attr">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">      <span class="attr">"program"</span>: <span class="string">"$&#123;file&#125;"</span>,</span><br><span class="line">      <span class="attr">"cwd"</span>: <span class="string">"$&#123;fileDirname&#125;"</span>,</span><br><span class="line">      <span class="attr">"port"</span>: <span class="number">0</span>,</span><br><span class="line">      <span class="attr">"runtimeArgs"</span>: [</span><br><span class="line">        <span class="string">"-dxdebug.start_with_request=yes"</span></span><br><span class="line">      ],</span><br><span class="line">      <span class="attr">"env"</span>: &#123;</span><br><span class="line">        <span class="attr">"XDEBUG_MODE"</span>: <span class="string">"debug,develop"</span>,</span><br><span class="line">        <span class="attr">"XDEBUG_CONFIG"</span>: <span class="string">"client_port=$&#123;port&#125;"</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"Launch Built-in web server"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"php"</span>,</span><br><span class="line">      <span class="attr">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">      <span class="attr">"runtimeArgs"</span>: [</span><br><span class="line">        <span class="string">"-dxdebug.mode=debug"</span>,</span><br><span class="line">        <span class="string">"-dxdebug.start_with_request=yes"</span>,</span><br><span class="line">        <span class="string">"-S"</span>,</span><br><span class="line">        <span class="string">"localhost:0"</span></span><br><span class="line">      ],</span><br><span class="line">      <span class="attr">"program"</span>: <span class="string">""</span>,</span><br><span class="line">      <span class="attr">"cwd"</span>: <span class="string">"$&#123;workspaceRoot&#125;"</span>,</span><br><span class="line">      <span class="attr">"port"</span>: <span class="number">9004</span>,</span><br><span class="line">      <span class="attr">"serverReadyAction"</span>: &#123;</span><br><span class="line">        <span class="attr">"pattern"</span>: <span class="string">"Development Server \\(http://localhost:([0-9]+)\\) started"</span>,</span><br><span class="line">        <span class="attr">"uriFormat"</span>: <span class="string">"http://localhost:%s"</span>,</span><br><span class="line">        <span class="attr">"action"</span>: <span class="string">"openExternally"</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>In Laragon, next to Apache click <strong>Reload</strong>. Click <strong>web</strong> button and <strong>info</strong>, as previously, scroll down to Xdebug and look for <strong>xdebug.client_port</strong>:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Directive</th>
+<th align="left">Local Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">….</td>
+<td align="left">….</td>
+</tr>
+<tr>
+<td align="left">xdebug.client_port</td>
+<td align="left">9004</td>
+</tr>
+<tr>
+<td align="left">….</td>
+<td align="left">….</td>
+</tr>
+</tbody></table>
+<p>Refresh the webpage created earlier and Xdebug will now work on port 9004.</p>
+<p>Check the Xdebug helper icon is green, if it was grey click it and select DEbug, wait for it to turn green and refresh the page once more.</p>
+<h3 id="PHP-CLI-is-different-from-the-PHP-used-by-Apache"><a href="#PHP-CLI-is-different-from-the-PHP-used-by-Apache" class="headerlink" title="PHP CLI is different from the PHP used by Apache"></a>PHP CLI is different from the PHP used by Apache</h3><p>Laragon makes is easy to switch versions of PHP, this can lead to the version used by Apache being different from the one used by VS Code or the command line.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php -v</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PHP 7.4.19 (cli) (built: May  4 2021 14:24:38) ( ZTS Visual C++ 2017 x64 )</span><br><span class="line">Copyright (c) The PHP Group</span><br><span class="line">Zend Engine v3.4.0, Copyright (c) Zend Technologies</span><br><span class="line">    with Xdebug v3.0.4, Copyright (c) 2002-2021, by Derick Rethans</span><br></pre></td></tr></table></figure>
+
+<p>The output for PHP is slightly different, the important lines are <strong>PHP 7.4.19</strong> should be the same as used by Apache and <strong>with Xdebug v3…</strong>, if the PHP version is different see Add Laragon to all terminals below. If they are the same PHP version, but Xdebug doesn’t display check the <strong>php.ini</strong> and Xdebug is enabled, see <strong>Add Xdebug to PHP</strong> above.</p>
+<h3 id="Add-Laragon-to-all-terminals"><a href="#Add-Laragon-to-all-terminals" class="headerlink" title="Add Laragon to all terminals"></a>Add Laragon to all terminals</h3><p>Just click <strong>Menu &gt; Tools &gt; PATH environment variable &gt; Add Laragon to Path</strong></p>
+<p><img src="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/add-laragon-to-path.png" alt="Add Laragon to Path" title="Add Laragon to Path"></p>
+<p>You then need to <strong>Sign out</strong> and back <strong>in</strong> for the path to be added to your user profile for all terminals and programs (CMD / PowerShell / Terminal / VS Code etc.)</p>
+<p>One point to note: if you change PHP version, you need to run <strong>Remove Laragon from Path</strong>, log off and back on. Then <strong>Add Laragon to Path</strong> log off and back on to update the path set in user profile!</p>
+<p>PHP and  all the other Laragon applications will then be available in all terminals and applications, including VS Code.</p>
+<h2 id="Further-information"><a href="#Further-information" class="headerlink" title="Further information"></a>Further information</h2><ul>
+<li><a href="https://xdebug.org/docs/" target="_blank" rel="noopener">Xdebug 3 — Documentation</a> - full documentation for Xdebug 3</li>
+<li><a href="https://www.youtube.com/playlist?list=PLg9Kjjye-m1g_eXpdaifUqLqALLqZqKd4" target="_blank" rel="noopener">Youtube Xdebug 3 Documentation</a> - by Derick Rethans - A series of videos to explain how Xdebug 3 and all of its features work.</li>
+<li><a href="https://code.visualstudio.com/docs/editor/debugging" target="_blank" rel="noopener">Debugging in VS Code</a> - official VS Code documentation.</li>
+<li><a href="https://forum.laragon.org/" target="_blank" rel="noopener">Laragon’s forum</a> - useful forum for anything Laragon related, you may see some answers from me too 😃</li>
+</ul>
+
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">Show TOC</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
+  <div class="random-toc">
+    <h2>Table of Content</h2>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Install-Laragon-for-Windows"><span class="toc-text">Install Laragon for Windows</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Add-Xdebug-to-PHP"><span class="toc-text">Add Xdebug to PHP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Check-Xdebug-using-Laragon-Web"><span class="toc-text">Check Xdebug using Laragon Web</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Install-VS-Code"><span class="toc-text">Install VS Code</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Add-Xdebug-extension-for-VS-Code"><span class="toc-text">Add Xdebug extension for VS Code</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Configure-VS-Code"><span class="toc-text">Configure VS Code</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Run-test-code-from-CLI"><span class="toc-text">Run test code from CLI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Install-Xdebug-helper-on-Chrome"><span class="toc-text">Install Xdebug helper on Chrome</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Debug-code-in-a-browser"><span class="toc-text">Debug code in a browser</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Debug-actions"><span class="toc-text">Debug actions</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Troubleshooting"><span class="toc-text">Troubleshooting</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Port-9003-is-in-use"><span class="toc-text">Port 9003 is in use</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PHP-CLI-is-different-from-the-PHP-used-by-Apache"><span class="toc-text">PHP CLI is different from the PHP used by Apache</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Add-Laragon-to-all-terminals"><span class="toc-text">Add Laragon to all terminals</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Further-information"><span class="toc-text">Further information</span></a></li></ol>
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+
+  
+
+  
+    <a href="/2021/05/23/Standard-setup-for-PHP-projects-2021/" class="next">Next post Standard setup for PHP projects 2021 &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by Pen y Fan using
+      <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random" target="_blank" rel="noopener">Random</a>
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="https://avatars3.githubusercontent.com/u/40126936?s=400&amp;u=957f8c1cbfeeb61a853b9e28eb2968352a77cc79&amp;v=4" alt="Pen y Fan">
+    <p id="description">Posts about my coding experiences, primarily for my learning path with PHP, good clean professional code.</p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://twitter.com/MikeAPritch" target="_blank" rel="noopener">
+        
+          <i class="icon iconfont twitter">&#xe600;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.linkedin.com/in/michael-pritchard-340b4520/" target="_blank" rel="noopener">
+        
+          <i class="icon iconfont linkedin">&#xe601;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.reddit.com/user/Pen-y-Fan" target="_blank" rel="noopener">
+        
+          R
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://github.com/pen-y-fan" target="_blank" rel="noopener">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<div id="btn-view">Hide</div>
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-3.5.1.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["flash"],"timer":true,"delay":60000,"shuffle":true,"count":12};
+var unsplashConfig = {"gravity":"center"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+
+var backgroundColor = "34495E";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+</body>
+</html>
+
