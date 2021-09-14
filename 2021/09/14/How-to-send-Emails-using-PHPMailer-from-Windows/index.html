@@ -1,0 +1,409 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Pen y Fan">
+  
+  
+  <meta name="keywords" content="PHP, Learning, resource, HTML, CSS, Git, Github">
+  
+  
+  
+    <meta name="description" content="This is a basic tutorial on how to send emails from Windows using PHPMailer. I’m using Laragon as my Windows development environment.
+Find your Email settingYou need your SMTP or IMAP settings from...">
+  
+  <title>How to send Emails using PHPMailer from Windows [ Pen y Fan ]</title>
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+  
+<link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+
+  
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+  
+    <div class="item next">
+      <a href="/2021/08/08/How-to-install-MySQL-on-WSL-2-Ubuntu/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        How to install MySQL on WSL 2 (Ubuntu)
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onClick="openUserCard()">
+          <img id="avatar" src="https://avatars3.githubusercontent.com/u/40126936?s=400&amp;u=957f8c1cbfeeb61a853b9e28eb2968352a77cc79&amp;v=4" alt="Pen y Fan"/>
+          <div id="homelink">Pen y Fan</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/index.html">Home</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">Posts</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">Tags</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">Categories</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/about">About</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="https://github.com/pen-y-fan" target="_blank" rel="noopener">Github</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  
+
+  <article id="post">
+    <h1>How to send Emails using PHPMailer from Windows</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">Created at 2021-09-14</span>
+      
+        <span id = "post-title-updated">Updated at 2021-09-14</span>
+      
+      
+      <span id = "post-title-categories">Category
+      
+      
+        
+        
+        <a href="/categories/Email/">Email</a>
+      
+      </span>
+      
+      
+      <span id = "post-title-tags">
+      Tag
+      
+      
+        
+        
+        <a href="/tags/Windows/">Windows</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/Resource/">Resource</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/PHP/">PHP</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/Laragon/">Laragon</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/Email/">Email</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/PHPMailer/">PHPMailer</a>
+      
+      </span>
+      
+    </p>
+    
+    <p>This is a basic tutorial on how to send emails from Windows using PHPMailer. I’m using <a href="https://laragon.org/" target="_blank" rel="noopener">Laragon</a> as my Windows development environment.</p>
+<h2 id="Find-your-Email-setting"><a href="#Find-your-Email-setting" class="headerlink" title="Find your Email setting"></a>Find your Email setting</h2><p>You need your SMTP or IMAP settings from your ISP. It should look like this:</p>
+<p><img src="https://i.imgur.com/t0DdGYU.png" alt="Plusnet SMTP and IMAP settings"></p>
+<h2 id="In-your-project-require-PHPMailer"><a href="#In-your-project-require-PHPMailer" class="headerlink" title="In your project require PHPMailer"></a>In your project require PHPMailer</h2><p>Create an empty project folder and require phpmailer</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer require phpmailer/phpmailer</span><br></pre></td></tr></table></figure>
+
+<h2 id="Use-an-example-script"><a href="#Use-an-example-script" class="headerlink" title="Use an example script"></a>Use an example script</h2><p>Phpmailer has many <a href="https://github.com/PHPMailer/PHPMailer/tree/master/examples" target="_blank" rel="noopener">example scripts</a>. You will need to choose the best one based on your settings from your ISP.</p>
+<p>My ISP only requires the outgoing mail server and port (STARTTLS is Yes based on the port 587), I therefore used the <a href="https://github.com/PHPMailer/PHPMailer/blob/master/examples/smtp_no_auth.phps" target="_blank" rel="noopener">smtp_no_auth.phps</a> script as my starting point. Save it in <em>src</em> directory as <strong>smtp_no_auth.php</strong>, then I modified the script with setting with my ISP:</p>
+<ul>
+<li>In my case:<ul>
+<li>Outgoing server: relay.plus.net = <code>$mail-&gt;Host = &#39;relay.plus.net&#39;;</code></li>
+<li>Outgoing port: 587 = <code>$mail-&gt;Port = 587;</code></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// Import PHPMailer classes into the global namespace</span></span><br><span class="line"><span class="comment">// These must be at the top of your script, not inside a function</span></span><br><span class="line"><span class="keyword">use</span> <span class="title">PHPMailer</span>\<span class="title">PHPMailer</span>\<span class="title">PHPMailer</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">PHPMailer</span>\<span class="title">PHPMailer</span>\<span class="title">SMTP</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">PHPMailer</span>\<span class="title">PHPMailer</span>\<span class="title">Exception</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Load Composer's autoloader</span></span><br><span class="line"><span class="keyword">require</span> <span class="keyword">__DIR__</span> . <span class="string">'/../vendor/autoload.php'</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Create an instance; passing `true` enables exceptions</span></span><br><span class="line">    $mail = <span class="keyword">new</span> PHPMailer(<span class="keyword">true</span>);</span><br><span class="line">    <span class="comment">// Tell PHPMailer to use SMTP</span></span><br><span class="line">    $mail-&gt;isSMTP();</span><br><span class="line">    <span class="comment">// Enable SMTP debugging</span></span><br><span class="line">    <span class="comment">// SMTP::DEBUG_OFF = off (for production use)</span></span><br><span class="line">    <span class="comment">// SMTP::DEBUG_CLIENT = client messages</span></span><br><span class="line">    <span class="comment">// SMTP::DEBUG_SERVER = client and server messages</span></span><br><span class="line">    $mail-&gt;SMTPDebug = SMTP::DEBUG_SERVER;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Set the hostname of the mail server</span></span><br><span class="line">    $mail-&gt;Host = <span class="string">'relay.plus.net'</span>;</span><br><span class="line">    <span class="comment">// Set the SMTP port number - likely to be 25, 465 or 587</span></span><br><span class="line">    $mail-&gt;Port = <span class="number">587</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// We don't need to set this as it's the default value</span></span><br><span class="line">    <span class="comment">// $mail-&gt;SMTPAuth = false;</span></span><br><span class="line">    <span class="comment">// Set who the message is to be sent from</span></span><br><span class="line">    $mail-&gt;setFrom(<span class="string">'from@example.com'</span>, <span class="string">'Pen-y-Fan'</span>);</span><br><span class="line">    <span class="comment">// Set an alternative reply-to address</span></span><br><span class="line">    <span class="comment">//     $mail-&gt;addReplyTo('replyto@example.com', 'First Last');</span></span><br><span class="line">    <span class="comment">// Set who the message is to be sent to</span></span><br><span class="line">    $mail-&gt;addAddress(<span class="string">'my-email@my-isp.com'</span>, <span class="string">'Pen-y-Fan'</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Content</span></span><br><span class="line">    $mail-&gt;isHTML(<span class="keyword">true</span>);                                  <span class="comment">// Set email format to HTML</span></span><br><span class="line">    $mail-&gt;Subject = <span class="string">'Here is the subject'</span>;</span><br><span class="line">    $mail-&gt;Body = <span class="string">'This is the HTML message body &lt;b&gt;in bold!&lt;/b&gt;'</span>;</span><br><span class="line">    $mail-&gt;AltBody = <span class="string">'This is the body in plain text for non-HTML mail clients'</span>;</span><br><span class="line"></span><br><span class="line">    $mail-&gt;send();</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'Message has been sent'</span>;</span><br><span class="line">&#125; <span class="keyword">catch</span> (<span class="keyword">Exception</span> $e) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"Message could not be sent. Mailer Error: &#123;$mail-&gt;ErrorInfo&#125;"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Send-it"><a href="#Send-it" class="headerlink" title="Send it!"></a>Send it!</h2><p>Then you can run the script:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php -f src/smtp_no_auth.php</span><br></pre></td></tr></table></figure>
+
+<p>You will see the debug message in your console:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">2021-08-24 23:01:05	SERVER -&gt; CLIENT: 250 IfPhmrsuy6wwFIfPim0eEe mail accepted for delivery</span><br><span class="line">2021-08-24 23:01:05	CLIENT -&gt; SERVER: QUIT</span><br><span class="line">2021-08-24 23:01:05	SERVER -&gt; CLIENT: 221 avasout07 smtp closing connection</span><br><span class="line">Message has been sent</span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure>
+
+<h2 id="Check-your-email-client"><a href="#Check-your-email-client" class="headerlink" title="Check your email client"></a>Check your email client</h2><p>Wait a few seconds and the email will be delivered to your inbox.</p>
+<p><img src="https://i.imgur.com/QHUK0gQ.png" alt="Email Successfully sent" title="Email Successfully sent"></p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>You will need to adjust the script you use based on your authentication and setting from your ISP.</p>
+<p>Laragon automatically added a self-signed certificate to <strong>php.ini</strong> to allow secure transmission.</p>
+<p>I hope this helps.</p>
+
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">Show TOC</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
+  <div class="random-toc">
+    <h2>Table of Content</h2>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Find-your-Email-setting"><span class="toc-text">Find your Email setting</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#In-your-project-require-PHPMailer"><span class="toc-text">In your project require PHPMailer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Use-an-example-script"><span class="toc-text">Use an example script</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Send-it"><span class="toc-text">Send it!</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Check-your-email-client"><span class="toc-text">Check your email client</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-text">Conclusion</span></a></li></ol>
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+
+  
+
+  
+    <a href="/2021/08/08/How-to-install-MySQL-on-WSL-2-Ubuntu/" class="next">Next post How to install MySQL on WSL 2 (Ubuntu) &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by Pen y Fan using
+      <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random" target="_blank" rel="noopener">Random</a>
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="https://avatars3.githubusercontent.com/u/40126936?s=400&amp;u=957f8c1cbfeeb61a853b9e28eb2968352a77cc79&amp;v=4" alt="Pen y Fan">
+    <p id="description">Posts about my coding experiences, primarily for my learning path with PHP, good clean professional code.</p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://twitter.com/MikeAPritch" target="_blank" rel="noopener">
+        
+          <i class="icon iconfont twitter">&#xe600;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.linkedin.com/in/michael-pritchard-340b4520/" target="_blank" rel="noopener">
+        
+          <i class="icon iconfont linkedin">&#xe601;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.reddit.com/user/Pen-y-Fan" target="_blank" rel="noopener">
+        
+          R
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://github.com/pen-y-fan" target="_blank" rel="noopener">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<div id="btn-view">Hide</div>
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-3.5.1.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["flash"],"timer":true,"delay":60000,"shuffle":true,"count":12};
+var unsplashConfig = {"gravity":"center"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+
+var backgroundColor = "34495E";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+</body>
+</html>
+
