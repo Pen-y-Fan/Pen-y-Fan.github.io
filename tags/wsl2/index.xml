@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>WSL2 on Pen-y-Fan</title>
+    <link>https://pen-y-fan.github.io/tags/wsl2/</link>
+    <description>Recent content in WSL2 on Pen-y-Fan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>:copyright: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</copyright>
+    <lastBuildDate>Sun, 08 Aug 2021 16:45:48 +0000</lastBuildDate><atom:link href="https://pen-y-fan.github.io/tags/wsl2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to install MySQL on WSL 2 (Ubuntu)</title>
+      <link>https://pen-y-fan.github.io/2021/08/08/How-to-install-MySQL-on-WSL-2-Ubuntu/</link>
+      <pubDate>Sun, 08 Aug 2021 16:45:48 +0000</pubDate>
+      
+      <guid>https://pen-y-fan.github.io/2021/08/08/How-to-install-MySQL-on-WSL-2-Ubuntu/</guid>
+      <description>How to install and configure MySQL 8.0 on WSL 2 (Ubuntu), this guide assumes WSL 2 is already installed with Ubuntu.</description>
+    </item>
+    
+  </channel>
+</rss>

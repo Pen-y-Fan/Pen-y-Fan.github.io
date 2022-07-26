@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kata on Pen-y-Fan</title>
+    <link>https://pen-y-fan.github.io/tags/kata/</link>
+    <description>Recent content in Kata on Pen-y-Fan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>:copyright: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</copyright>
+    <lastBuildDate>Wed, 05 Aug 2020 21:30:41 +0000</lastBuildDate><atom:link href="https://pen-y-fan.github.io/tags/kata/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Why I enjoy coding Kata&#39;s</title>
+      <link>https://pen-y-fan.github.io/2020/08/05/Why-I-enjoy-coding-Katas/</link>
+      <pubDate>Wed, 05 Aug 2020 21:30:41 +0000</pubDate>
+      
+      <guid>https://pen-y-fan.github.io/2020/08/05/Why-I-enjoy-coding-Katas/</guid>
+      <description>One of the things that have helped me to learn software development using PHP is coding Katas. I especially enjoyed the Katas by Emily Bache on Github. They offer a safe sandbox environment to play with code and tools. They have good, or should that be not so good, starting code to self-teach techniques for refactoring, testing and object orientated code. In fact, I enjoyed them so much, I have contributed to them!</description>
+    </item>
+    
+  </channel>
+</rss>

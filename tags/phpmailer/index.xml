@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PHPMailer on Pen-y-Fan</title>
+    <link>https://pen-y-fan.github.io/tags/phpmailer/</link>
+    <description>Recent content in PHPMailer on Pen-y-Fan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>:copyright: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</copyright>
+    <lastBuildDate>Tue, 14 Sep 2021 19:44:04 +0000</lastBuildDate><atom:link href="https://pen-y-fan.github.io/tags/phpmailer/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to send Emails using PHPMailer from Windows</title>
+      <link>https://pen-y-fan.github.io/2021/09/14/How-to-send-Emails-using-PHPMailer-from-Windows/</link>
+      <pubDate>Tue, 14 Sep 2021 19:44:04 +0000</pubDate>
+      
+      <guid>https://pen-y-fan.github.io/2021/09/14/How-to-send-Emails-using-PHPMailer-from-Windows/</guid>
+      <description>This is a basic tutorial on how to send emails from Windows using PHPMailer.</description>
+    </item>
+    
+  </channel>
+</rss>

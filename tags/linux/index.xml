@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on Pen-y-Fan</title>
+    <link>https://pen-y-fan.github.io/tags/linux/</link>
+    <description>Recent content in Linux on Pen-y-Fan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>:copyright: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</copyright>
+    <lastBuildDate>Fri, 12 Feb 2021 20:33:57 +0000</lastBuildDate><atom:link href="https://pen-y-fan.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Troubleshooting Docker</title>
+      <link>https://pen-y-fan.github.io/2021/02/12/Troubleshooting-Docker/</link>
+      <pubDate>Fri, 12 Feb 2021 20:33:57 +0000</pubDate>
+      
+      <guid>https://pen-y-fan.github.io/2021/02/12/Troubleshooting-Docker/</guid>
+      <description>I have been using Docker since I installed Pop!_OS On my laptop Oct 2020. I deliberately have not installed PHP, MySQL or Apache on my laptop, which has forced me to learn to use Docker! The first tutorial I followed was the Docker docs get started after I installed Docker. I found this to be a useful introduction, even though I wanted a PHP environment, the guide still explained the basics of Docker.</description>
+    </item>
+    
+    <item>
+      <title>Set up PhpStorm to use PHP with PHPUnit and xDebug in Docker</title>
+      <link>https://pen-y-fan.github.io/2020/10/10/Set-up-PhpStorm-to-use-PHP-with-PHPUnit-and-xDebug-in-Docker/</link>
+      <pubDate>Sat, 10 Oct 2020 17:01:32 +0000</pubDate>
+      
+      <guid>https://pen-y-fan.github.io/2020/10/10/Set-up-PhpStorm-to-use-PHP-with-PHPUnit-and-xDebug-in-Docker/</guid>
+      <description>I have recently configured my windows 10 laptop with an additional SSD, so I could experiment with Linux. I have already installed Pop!_OS Git, PhpStorm and Docker. I haven’t installed PHP or Composer locally. Next I want to learn how to use this new environment. This is what I have found out so far.</description>
+    </item>
+    
+    <item>
+      <title>Pop OS new install</title>
+      <link>https://pen-y-fan.github.io/2020/10/05/Pop-OS-new-install/</link>
+      <pubDate>Mon, 05 Oct 2020 20:14:38 +0000</pubDate>
+      
+      <guid>https://pen-y-fan.github.io/2020/10/05/Pop-OS-new-install/</guid>
+      <description>I wanted to test out Linux after I had purchased a new laptop which came with Windows 10 home. Although I was generally happy with my dev environment, I still wanted to try out Linux as a dev environment. I chose to try Pop OS as it was recommended by several people, especially on the PHPUgly and Syntax podcasts.</description>
+    </item>
+    
+  </channel>
+</rss>
