@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>:copyright: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</copyright>
-    <lastBuildDate>Mon, 25 Jul 2022 18:52:06 +0100</lastBuildDate><atom:link href="https://pen-y-fan.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 26 Jul 2022 22:13:24 +0100</lastBuildDate><atom:link href="https://pen-y-fan.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Install NGINX Unit on WSL 2 (Ubuntu)</title>
+      <link>https://pen-y-fan.github.io/2022/07/26/how-to-install-nginx-unit-on-wsl-2-ubuntu/</link>
+      <pubDate>Tue, 26 Jul 2022 22:13:24 +0100</pubDate>
+      
+      <guid>https://pen-y-fan.github.io/2022/07/26/how-to-install-nginx-unit-on-wsl-2-ubuntu/</guid>
+      <description>I wanted to experiment with NGINX unit as it offers the ability to specify the runtime for the project, this will be particularly useful when some projects are PHP 7.4, some PHP 8.0 and others PHP 8.1. This guide explains how to install NGINX unit on Windows WSL 2</description>
+    </item>
+    
     <item>
       <title>About</title>
       <link>https://pen-y-fan.github.io/about/</link>
