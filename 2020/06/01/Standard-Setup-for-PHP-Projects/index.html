@@ -1,0 +1,1554 @@
+
+
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="light"
+  data-auto-appearance="true"
+><head>
+  <meta charset="utf-8" />
+  
+    <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>Standard Setup for PHP projects &middot; Pen-y-Fan</title>
+    <meta name="title" content="Standard Setup for PHP projects &middot; Pen-y-Fan" />
+  
+  
+  
+  
+    <meta name="robots" content="all" />
+  
+  
+  <link rel="canonical" href="https://pen-y-fan.github.io/2020/06/01/Standard-Setup-for-PHP-Projects/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.2a198fa5624ee1e740791878e7603321e05ce274c740ab7814cb3ac05da1f7b3a58f8377c3715cdf3bfb423acd3275b43658698b04fd8f4fe8275ea2c3e8409d.css"
+    integrity="sha512-KhmPpWJO4edAeRh452AzIeBc4nTHQKt4FMs6wF2h97Olj4N3w3Fc3zv7QjrNMnW0NlhpiwT9j0/oJ16iw&#43;hAnQ=="
+  />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.badab316c9287a5a42a843e4eb45da65bb3d194a5a0f5fa4a3e516160e67df0b8c65f4f19a8e146436e29d583699e6cb41d6bbe99e05e1dbaa877763bad9f8e2.js" integrity="sha512-utqzFskoelpCqEPk60XaZbs9GUpaD1&#43;ko&#43;UWFg5n3wuMZfTxmo4UZDbinVg2mebLQda76Z4F4duqh3djutn44g=="></script>
+  
+  
+    
+    
+  
+  
+  
+    
+    <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.9947db70e5b36e741e53f8531bd734741b3fc7a688f7b5d749fc5433c48efc252f47bdf44e471570a550fc051b87712799014040e6349b38d64448b94e84e45a.js" integrity="sha512-mUfbcOWzbnQeU/hTG9c0dBs/x6aI97XXSfxUM8SO/CUvR730TkcVcKVQ/AUbh3EnmQFAQOY0mzjWREi5ToTkWg==" data-copy="Copy" data-copied="Copied"></script>
+  
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="Standard Setup for PHP projects" />
+<meta property="og:description" content="Note: This is my standard setup from 2020, a newer version from 2021 is now available Standard setup for PHP projects 2021. The focus of this post if to setup PHP and PhpStorm in a consistant way for each project, with coding standards, static analysis and tests." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pen-y-fan.github.io/2020/06/01/Standard-Setup-for-PHP-Projects/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-05-31T23:38:00+00:00" />
+<meta property="article:modified_time" content="2020-05-31T23:38:00+00:00" /><meta property="og:site_name" content="Pen-y-Fan" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Standard Setup for PHP projects"/>
+<meta name="twitter:description" content="Note: This is my standard setup from 2020, a newer version from 2021 is now available Standard setup for PHP projects 2021. The focus of this post if to setup PHP and PhpStorm in a consistant way for each project, with coding standards, static analysis and tests."/>
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Posts",
+    "name": "Standard Setup for PHP projects",
+    "headline": "Standard Setup for PHP projects",
+    
+    "abstract": "Note: This is my standard setup from 2020, a newer version from 2021 is now available Standard setup for PHP projects 2021. The focus of this post if to setup PHP and PhpStorm in a consistant way for each project, with coding standards, static analysis and tests.",
+    "inLanguage": "en",
+    "url" : "https:\/\/pen-y-fan.github.io\/2020\/06\/01\/Standard-Setup-for-PHP-Projects\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Michael Pritchard (AKA Pen-y-Fan)"
+    },
+    "copyrightYear": "2020",
+    "dateCreated": "2020-05-31T23:38:00\u002b00:00",
+    "datePublished": "2020-05-31T23:38:00\u002b00:00",
+    
+    "dateModified": "2020-05-31T23:38:00\u002b00:00",
+    
+    "keywords": ["Laravel","PhpStorm","PHPStan","Easy Coding Standard (ECS)","PHPUnit","Rector","PHP","Coding Standards"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "3080"
+  }]
+  </script>
+
+
+  
+  <meta name="author" content="Michael Pritchard (AKA Pen-y-Fan)" />
+  
+    
+      <link href="https://github.com/Pen-y-Fan" rel="me" />
+    
+      <link href="https://www.linkedin.com/in/michael-pritchard-340b4520/" rel="me" />
+    
+      <link href="https://www.reddit.com/user/Pen-y-Fan" rel="me" />
+    
+      <link href="https://twitter.com/MikeAPritch" rel="me" />
+    
+  
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  
+
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 bg-neutral text-neutral-900 sm:px-14 md:px-24 lg:px-32 dark:bg-neutral-800 dark:text-neutral max-w-7xl"
+  >
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 dark:bg-neutral-600 focus:translate-y-0"
+        href="#main-content"
+        ><span class="font-bold ltr:pr-2 rtl:pl-2 text-primary-600 dark:text-primary-400"
+          >&darr;</span
+        >Skip to main content</a
+      >
+    </div>
+    
+    
+      <header class="py-6 font-semibold sm:py-10 text-neutral-900 dark:text-neutral print:hidden">
+  <nav class="flex justify-between">
+    
+    <div>
+      
+        
+          <a href="/">
+            <img
+              src="/img/logo.jpg"
+              width="51"
+              height="64"
+              class="max-w-[10rem] max-h-[10rem] object-scale-down object-left"
+              alt="Pen-y-Fan"
+            />
+          </a>
+        
+      
+      
+
+    </div>
+    
+    
+      <ul class="flex flex-col list-none ltr:text-right rtl:text-left sm:flex-row">
+        
+          
+            <li class="mb-1 sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+              <a
+                class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+                href="/posts/"
+                title="Posts"
+                >Blog</a
+              >
+            </li>
+          
+            <li class="mb-1 sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+              <a
+                class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+                href="/tags/"
+                title="Tags"
+                >Tags</a
+              >
+            </li>
+          
+            <li class="mb-1 sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+              <a
+                class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+                href="/about/"
+                title="About"
+                >About</a
+              >
+            </li>
+          
+            <li class="mb-1 sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+              <a
+                class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+                href="https://github.com/Pen-y-Fan"
+                title=""
+                >GitHub</a
+              >
+            </li>
+          
+        
+        
+      </ul>
+    
+  </nav>
+</header>
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  <article>
+    <header class="max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Standard Setup for PHP projects
+      </h1>
+      <div class="mt-8 mb-12 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2020-05-31 23:38:00 &#43;0000 UTC">31 May 2020</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">15 mins</span>
+    
+
+    
+    
+  </div>
+
+  
+  
+
+
+      </div>
+    </header>
+    <section class="flex flex-col max-w-full mt-0 prose lg:flex-row dark:prose-invert">
+      
+        <div class="order-first px-0 lg:max-w-xs ltr:lg:pl-8 rtl:lg:pr-8 lg:order-last">
+          <div class="ltr:pl-5 rtl:pr-5 toc lg:sticky lg:top-10 print:hidden">
+            <details open class="mt-0 overflow-hidden rounded-lg rtl:pr-5 ltr:pl-5 ltr:-ml-5 rtl:-mr-5">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer rtl:pr-5 ltr:pl-5 ltr:-ml-5 rtl:-mr-5 text-neutral-800 dark:text-neutral-100 lg:hidden bg-neutral-100 dark:bg-neutral-700"
+  >
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted ltr:border-l rtl:border-r rtl:pr-5 ltr:pl-5 ltr:-ml-5 rtl:-mr-5 border-neutral-300 dark:border-neutral-600"
+  >
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#note-this-is-my-standard-setup-from-2020-a-newer-version-from-2021-is-now-available-standard-setup-for-php-projects-202120210523standard-setup-for-php-projects-2021">Note: This is my standard setup from 2020, a newer version from 2021 is now available <a href="/2021/05/23/Standard-setup-for-PHP-projects-2021/">Standard setup for PHP projects 2021</a></a></li>
+    <li><a href="#composer">Composer</a></li>
+    <li><a href="#editorconfig">.editorconfig</a></li>
+    <li><a href="#xdebug">Xdebug</a>
+      <ul>
+        <li><a href="#configuring-xdebug-in-phpstorm">Configuring Xdebug in PhpStorm</a></li>
+        <li><a href="#using-debug-mode">Using debug mode</a></li>
+        <li><a href="#more-details-how-to-debug">More details: How to Debug</a></li>
+        <li><a href="#strict-mode">Strict mode</a>
+          <ul>
+            <li><a href="#tldr">TL&amp;DR;</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#project-specific-standards">Project specific Standards</a>
+      <ul>
+        <li><a href="#laravel">Laravel</a>
+          <ul>
+            <li><a href="#automatic-phpdoc-generation-for-laravel-facades-ide-helper-setup">Automatic phpDoc generation for Laravel Facades (ide helper setup)</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#shortcuts-for-helpers">Shortcuts for Helpers</a></li>
+    <li><a href="#phpstan-setup">PHPStan Setup</a>
+      <ul>
+        <li><a href="#installation-of-phpstan-using-composer">Installation of PHPStan using Composer</a></li>
+        <li><a href="#example-phpstanneon-file">Example <code>phpstan.neon</code> file</a></li>
+        <li><a href="#alternative-phpstan-script-with-level-set-to-max">Alternative PhpStan script with level set to max</a></li>
+      </ul>
+    </li>
+    <li><a href="#phpstorm-setup-of-phpstan">PHPStorm Setup of PHPStan</a>
+      <ul>
+        <li><a href="#phpstan-can-be-used-as-an-external-tool">PHPStan can be used as an External Tool</a></li>
+        <li><a href="#phpstan-can-be-used-as-a-watcher">PHPStan can be used as a watcher</a></li>
+      </ul>
+    </li>
+    <li><a href="#easy-coding-standard-ecs">Easy Coding Standard (ECS)</a>
+      <ul>
+        <li><a href="#installation-of-ecs-using-composer">Installation of ECS using Composer</a></li>
+        <li><a href="#example-ecsyaml-file">Example <code>ecs.yaml</code> file</a></li>
+        <li><a href="#phpstorm-setup-for-easy-coding-standard-ecs">PHPStorm setup for Easy Coding Standard (ECS)</a></li>
+      </ul>
+    </li>
+    <li><a href="#php-codesniffer">PHP CodeSniffer</a>
+      <ul>
+        <li><a href="#installation-of-php-codesniffer-using-composer">Installation of PHP CodeSniffer using Composer</a></li>
+        <li><a href="#example-phpcsxmldist">Example <code>phpcs.xml.dist</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#phpunit">PHPUnit</a>
+      <ul>
+        <li><a href="#installation-of-phpunit-using-composer">Installation of PHPUnit using Composer</a></li>
+        <li><a href="#example-phpunitxml-or-phpunitxmldist">Example <code>phpunit.xml</code> or <code>phpunit.xml.dist</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#php-mess-detector">PHP Mess Detector</a>
+      <ul>
+        <li><a href="#installation-of-php-mess-detector">Installation of PHP Mess Detector</a></li>
+        <li><a href="#example-phpmdxml">Example <code>phpmd.xml</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#phpstorm-setup-for-php-mess-detector">PHPStorm setup for PHP Mess Detector</a>
+      <ul>
+        <li><a href="#configure-a-local-php-mess-detector-script">Configure a local PHP Mess Detector script</a></li>
+        <li><a href="#configure-a-php-mess-detector-script-associated-with-a-php-interpreter">Configure a PHP Mess Detector script associated with a PHP interpreter</a></li>
+      </ul>
+    </li>
+    <li><a href="#psalm">psalm</a>
+      <ul>
+        <li><a href="#install-psalm">Install psalm</a></li>
+        <li><a href="#example-psalmxml">Example <code>psalm.xml</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#rector">Rector</a>
+      <ul>
+        <li><a href="#installation-of-rector-using-composer">Installation of Rector using Composer</a></li>
+        <li><a href="#example-rectoryaml">Example <code>rector.yaml</code></a></li>
+        <li><a href="#demo">Demo</a></li>
+        <li><a href="#example-rector-ciyaml">Example rector-ci.yaml</a></li>
+      </ul>
+    </li>
+    <li><a href="#phan">Phan</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+          </div>
+        </div>
+      
+      <div class="min-w-0 min-h-0 max-w-prose">
+        <h2 id="note-this-is-my-standard-setup-from-2020-a-newer-version-from-2021-is-now-available-standard-setup-for-php-projects-202120210523standard-setup-for-php-projects-2021" class="relative group">Note: This is my standard setup from 2020, a newer version from 2021 is now available <a href="/2021/05/23/Standard-setup-for-PHP-projects-2021/">Standard setup for PHP projects 2021</a> <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#note-this-is-my-standard-setup-from-2020-a-newer-version-from-2021-is-now-available-standard-setup-for-php-projects-202120210523standard-setup-for-php-projects-2021" aria-label="Anchor">#</a></span></h2>
+<p>The focus in setting up PHP Projects in PhpStorm, in particular a Laravel project.</p>
+<p>Composer with PHP with Easy Coding Standard (ECS), PHPUnit, and PhpStan. Also, some <em><strong>simplify</strong></em> projects to allow the
+output to be displayed in PHPStorm.</p>
+<p>Below are some other options, including psalm, Rector and PHP Mess Detector.</p>
+<h2 id="composer" class="relative group">Composer <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#composer" aria-label="Anchor">#</a></span></h2>
+<p>Example snippet of a <strong>composer.json</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;require-dev&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;phpstan/phpstan&#34;</span><span class="p">:</span> <span class="s2">&#34;^0.12&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;phpunit/phpunit&#34;</span><span class="p">:</span> <span class="s2">&#34;^8.5.0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;squizlabs/php_codesniffer&#34;</span><span class="p">:</span> <span class="s2">&#34;^3.5.3&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;symplify/easy-coding-standard&#34;</span><span class="p">:</span> <span class="s2">&#34;^7.1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;symplify/phpstan-extensions&#34;</span><span class="p">:</span> <span class="s2">&#34;^7.1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;nunomaduro/larastan&#34;</span><span class="p">:</span> <span class="s2">&#34;^0.5.0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;phpstan/phpstan-phpunit&#34;</span><span class="p">:</span> <span class="s2">&#34;^0.12.2&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;rector/rector&#34;</span><span class="p">:</span> <span class="s2">&#34;0.7.26&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;scripts&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;checkcode&#34;</span><span class="p">:</span> <span class="s2">&#34;phpcs src tests --standard=PSR12&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;fixcode&#34;</span><span class="p">:</span> <span class="s2">&#34;phpcbf src tests --standard=PSR12&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;test&#34;</span><span class="p">:</span> <span class="s2">&#34;phpunit&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;tests&#34;</span><span class="p">:</span> <span class="s2">&#34;phpunit&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;check-cs&#34;</span><span class="p">:</span> <span class="s2">&#34;ecs check src tests --ansi&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;fix-cs&#34;</span><span class="p">:</span> <span class="s2">&#34;ecs check src tests --fix --ansi&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;phpstan&#34;</span><span class="p">:</span> <span class="s2">&#34;phpstan analyse src tests --ansi --error-format symplify&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;rector&#34;</span><span class="p">:</span> <span class="s2">&#34;rector process -c rector.yaml --ansi&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;rector:dry-run&#34;</span><span class="p">:</span> <span class="s2">&#34;rector process -c rector.yaml --ansi --dry-run&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="editorconfig" class="relative group">.editorconfig <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#editorconfig" aria-label="Anchor">#</a></span></h2>
+<p>Example <code>.editorconfig</code> file, normally found in the root of a project.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">root = true
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[*]
+</span></span><span class="line"><span class="cl">charset = utf-8
+</span></span><span class="line"><span class="cl">end_of_line = lf
+</span></span><span class="line"><span class="cl">insert_final_newline = true
+</span></span><span class="line"><span class="cl">indent_style = space
+</span></span><span class="line"><span class="cl">indent_size = 4
+</span></span><span class="line"><span class="cl">trim_trailing_whitespace = true
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[*.md]
+</span></span><span class="line"><span class="cl">trim_trailing_whitespace = false
+</span></span></code></pre></div><h2 id="xdebug" class="relative group">Xdebug <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#xdebug" aria-label="Anchor">#</a></span></h2>
+<p>Xdebug is used to debug PHP script, however due to how it analyses the script it makes PHP <strong>very</strong> slow, debugging
+should only enable it when debugging is required.</p>
+<p>Add the following to the <strong>php.ini</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">[xdebug]
+</span></span><span class="line"><span class="cl">zend_extension=xdebug
+</span></span><span class="line"><span class="cl">xdebug.remote_enable=1
+</span></span><span class="line"><span class="cl">xdebug.remote_port=9000
+</span></span></code></pre></div><p><strong>Note</strong>: PhpStorm will automatically enable xdebug, when the following is configure and debugging is enable, there is
+no need to leave xdebug enabled in <strong>php.ini</strong>. To temporarily disable xdebug comment out and the line. Using Laragon:
+Menu &gt; PHP &gt; Quick settings &gt; xdebug, click to toggle on and off. This will be the same as manually adding a <strong>;</strong> to
+the <strong>php.ini</strong> file:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">[xdebug]
+</span></span><span class="line"><span class="cl">;zend_extension=xdebug
+</span></span><span class="line"><span class="cl">...
+</span></span></code></pre></div><h3 id="configuring-xdebug-in-phpstorm" class="relative group">Configuring Xdebug in PhpStorm <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#configuring-xdebug-in-phpstorm" aria-label="Anchor">#</a></span></h3>
+<p><strong>TL;DR</strong> (parts copied from above PhpStorm Tutorials, full version below)</p>
+<ol>
+<li>
+<p>In the <strong>Settings/Preferences</strong> dialog Ctrl+Alt+S, select <strong>Languages &amp; Frameworks | PHP</strong>.</p>
+</li>
+<li>
+<p>Check the Xdebug installation associated with the selected PHP interpreter:</p>
+<p>a. On the <strong>PHP</strong> page, choose the relevant PHP installation from the <strong>CLI Interpreter</strong> list and click the Browse
+button next to the field.</p>
+<p>b. The <strong>CLI Interpreters</strong> dialog that opens shows the following:</p>
+<p>i. The version of the selected PHP installation. (e.g. <strong>D:\laragon\bin\php\php-7.4.4-Win32-vc15-x64\php.exe</strong>)</p>
+<p>ii. The name and version of the debugging engine associated with the selected PHP installation (Xdebug). (e.g. <strong>D:
+\laragon\bin\php\php-7.4.4-Win32-vc15-x64\ext\php_xdebug.dll</strong>)</p>
+<p>iii Once set click <strong>OK</strong>.</p>
+</li>
+<li>
+<p>Define the Xdebug behaviour. Click Debug under the PHP node (<strong>Languages &amp; Frameworks | PHP | Debug</strong>.). On the Debug
+page that opens, specify the following settings in the Xdebug area:</p>
+</li>
+</ol>
+<ul>
+<li>Check the Pre-configuration has been complete (Xdebug ins installed, Install browser toolbar, Enable listening for PHP
+Debug connections and Start debug session)</li>
+<li>Under the XDebug heading, Choose the Debug Port field (<strong>default is 9000</strong>). This must be exactly the same port number
+as specified in the php.ini file: <strong>xdebug.remote_port =9000</strong></li>
+<li>To accept any incoming connections, select the <strong>Can accept external connections checkbox.</strong> (<strong>Default</strong>)</li>
+<li>Select the <strong>Force break at the first line when no path mapping is specified</strong> checkbox to have the debugger stop as
+soon as it reaches and opens a file that is not mapped to any file in the project on the Servers page. (<strong>Default</strong>)</li>
+<li>Click <strong>OK</strong></li>
+</ul>
+<h3 id="using-debug-mode" class="relative group">Using debug mode <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#using-debug-mode" aria-label="Anchor">#</a></span></h3>
+<p>Set a breakpoint in the file to be inspected.</p>
+<p>Open <strong>public/index.php</strong>, wait for the file to open, then in to top right there will be a floating bar with a list of
+browsers. Click Chrome (<strong>Alt+F2</strong> + Choose Chrome)</p>
+<p>Chrome browser will launch and open the projects webpage. If the Debug icon isn&rsquo;t already green, click the <strong>Debug</strong>
+icon for <strong>Xdebug helper</strong> extension. From the drop down list click <strong>Debug</strong> option, the icon will then display green.</p>
+<p>Navigate the project&rsquo;s website, to the page which uses the file that has the breakpoint set. As soon as the page is hit
+PhpStorm will open (it may be behind the browser).</p>
+<p>In PhpStorm, accept the connection (this warning normally only displays the first hit and accepted once).</p>
+<p>Debug information will display in the console, including the option to inspect variables and evaluate.</p>
+<h3 id="more-details-how-to-debug" class="relative group">More details: How to Debug <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#more-details-how-to-debug" aria-label="Anchor">#</a></span></h3>
+<p>For the full version of the above
+see <a href="https://www.jetbrains.com/help/phpstorm/configuring-xdebug.html">Configuring Xdebug in PhpStorm</a>
+and <a href="https://www.jetbrains.com/help/phpstorm/2019.3/browser-debugging-extensions.html">Browser Debugging Extensions</a>,
+click the link for Xdebug for Chrome and install <strong>Xdebug Helper</strong>.</p>
+<p><a href="https://www.youtube.com/watch?v=GokeXqI93x8">Youtube: Step Into Debugging with PhpStorm</a> by Gary Hockin, 58 min video
+on Debugging.</p>
+<p><a href="https://www.agileana.com/blog/how-to-debug-from-a-remote-server-using-xdebug-and-phpstorm/">How to Debug using Xdebug and PHPStorm from a Remote Server</a></p>
+<h3 id="strict-mode" class="relative group">Strict mode <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#strict-mode" aria-label="Anchor">#</a></span></h3>
+<p>PHPStorm has an inspection to set strict mode.</p>
+<ul>
+<li><a href="https://blog.jetbrains.com/phpstorm/2016/11/project-wide-php-7-strict-types-in-phpstorm-2016-3/">Full article Project Wide PHP 7 Strict Types in PhpStorm 2016.3</a>
+by Gary Hockin</li>
+</ul>
+<h4 id="tldr" class="relative group">TL&amp;DR; <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#tldr" aria-label="Anchor">#</a></span></h4>
+<p><strong>Strict types declaration</strong> setting can be found under <strong>Type compatibility</strong> in the <strong>Inspections</strong> pane of the
+<strong>Preferences</strong> window.</p>
+<p><strong>Or</strong> double shift search for <strong>Missing Strict types declaration</strong> tick the inspection.</p>
+<p>To run the inspection against the whole project (code base): <strong>CTRL + ALT + SHIFT + I</strong> or double shift search for
+<strong>run inspection by name</strong>. Search for <strong>missing strict type declaration</strong>, <strong>Enter</strong> for whole project. The inspection
+will run, click on each file and click <strong>Add strict types declaration</strong></p>
+<h2 id="project-specific-standards" class="relative group">Project specific Standards <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#project-specific-standards" aria-label="Anchor">#</a></span></h2>
+<h3 id="laravel" class="relative group">Laravel <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#laravel" aria-label="Anchor">#</a></span></h3>
+<p>Add the Laravel code standard for PHP code sniffer, static analysis for PHPStan and PHPStorm helper.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">composer require --dev emielmolenaar/phpcs-laravel
+</span></span><span class="line"><span class="cl">composer require --dev nunomaduro/larastan
+</span></span><span class="line"><span class="cl">composer require --dev barryvdh/laravel-ide-helper
+</span></span></code></pre></div><p>Example script to run phpcs using the phpcs-laravel standard:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">phpcs --standard<span class="o">=</span>phpcs-laravel
+</span></span></code></pre></div><h4 id="automatic-phpdoc-generation-for-laravel-facades-ide-helper-setup" class="relative group">Automatic phpDoc generation for Laravel Facades (ide helper setup) <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#automatic-phpdoc-generation-for-laravel-facades-ide-helper-setup" aria-label="Anchor">#</a></span></h4>
+<ul>
+<li>phpDoc generation for Laravel Facades</li>
+<li>phpDocs for models</li>
+<li>PhpStorm Meta file</li>
+</ul>
+<p>After updating composer, add the service provider to the <code>providers</code> array in <code>config/app.php</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="p">[</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">];</span>
+</span></span></code></pre></div><p>To generate helper files, run the following:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">php artisan ide-helper:generate
+</span></span><span class="line"><span class="cl">php artisan ide-helper:models --write
+</span></span><span class="line"><span class="cl">php artisan ide-helper:meta
+</span></span></code></pre></div><p>It is a good idea to add the generated files to .gitignore</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> /.phpstorm.meta.php &gt;&gt; .gitignore
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> /_ide_helper.php &gt;&gt; .gitignore
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> /_ide_helper_models.php &gt;&gt; .gitignore
+</span></span></code></pre></div><p>In <strong>PhpStorm</strong> enable the Laravel plugin</p>
+<h2 id="shortcuts-for-helpers" class="relative group">Shortcuts for Helpers <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#shortcuts-for-helpers" aria-label="Anchor">#</a></span></h2>
+<p>Create batch files in the root of the project, which work in combination with the composer scripts.</p>
+<ul>
+<li><strong>cc.bat</strong></li>
+</ul>
+<p>Runs the composer script for ECS to check the code.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">composer check-cs 
+</span></span></code></pre></div><ul>
+<li><strong>fc.bat</strong></li>
+</ul>
+<p>Runs the composer script for ECS to fix the code.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">composer fix-cs 
+</span></span></code></pre></div><ul>
+<li><strong>rdr.bat</strong></li>
+</ul>
+<p>Runs the composer script for Rector for dry run. Adjust <strong>rector.yml</strong> as required.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">composer rector:dry-run 
+</span></span></code></pre></div><ul>
+<li><strong>re.bat</strong></li>
+</ul>
+<p>Runs the composer script for Rector to fix the code (run dry run first!). Also adjust <strong>rector.yml</strong> as required.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">composer rector
+</span></span></code></pre></div><p><strong>ps.bat</strong></p>
+<p>Runs the composer script for PhpStan to check the code.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">composer phpstan 
+</span></span></code></pre></div><p><strong>pu.bat</strong></p>
+<p>Runs the composer script for PhpUnit.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">composer test 
+</span></span></code></pre></div><h2 id="phpstan-setup" class="relative group">PHPStan Setup <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#phpstan-setup" aria-label="Anchor">#</a></span></h2>
+<p>PHP Static Analysis Tool - discover bugs in your code without running it!</p>
+<ul>
+<li>Github: <a href="https://github.com/phpstan/phpstan">phpstan/phpstan</a></li>
+</ul>
+<h3 id="installation-of-phpstan-using-composer" class="relative group">Installation of PHPStan using Composer <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#installation-of-phpstan-using-composer" aria-label="Anchor">#</a></span></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">composer require phpstan/phpstan --dev
+</span></span></code></pre></div><h3 id="example-phpstanneon-file" class="relative group">Example <code>phpstan.neon</code> file <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#example-phpstanneon-file" aria-label="Anchor">#</a></span></h3>
+<p>PHPStan needs a <code>phpstan.neon</code> file an example can be
+found <a href="https://raw.githubusercontent.com/KnpLabs/DoctrineBehaviors/master/phpstan.neon">here</a></p>
+<p>Example <strong>phpstan.neon</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">includes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">vendor/nunomaduro/larastan/extension.neon</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">vendor/symplify/phpstan-extensions/config/config.neon</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">vendor/phpstan/phpstan-phpunit/extension.neon</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">parameters</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">paths</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Laravel</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">app</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Source folder, add more folder as required</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">src</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">tests</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># The level 8 is the highest level</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">level</span><span class="p">:</span><span class="w"> </span><span class="m">8</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">checkGenericClassInNonGenericObjectType</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># Larstan recommendation:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">checkMissingIterableValueType</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># to allow installing with various PhpStan versions without reporting old errors here</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">reportUnmatchedIgnoredErrors</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ignoreErrors</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># LaraStan recommendation:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;#Unsafe usage of new static#&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Ignore errors in Laravel&#39;s Middleware classes</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">message</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;#Method App\\Http\\Middleware\\RedirectIfAuthenticated\:\:handle\(\) has no return typehint specified#&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">app\Http\Middleware\RedirectIfAuthenticated.php</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">message</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;#Method App\\Http\\Middleware\\Authenticate\:\:redirectTo\(\) should return string\|null but return statement is missing#&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">app\Http\Middleware\Authenticate.php</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># buggy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># mixed</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># cache buggy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># tests</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># iterable</span><span class="w">
+</span></span></span></code></pre></div><p>The above includes placeholders (buggy/mixed etc) for ignored files or rules. See the documentation for how to add.</p>
+<p>Another <strong>PhpStan.neon</strong> example from LaraStan:</p>
+<pre tabindex="0"><code class="language-neon" data-lang="neon">includes:
+    - ./vendor/nunomaduro/larastan/extension.neon
+
+parameters:
+
+    paths:
+        - app
+
+    # The level 8 is the highest level
+    level: 5
+
+    ignoreErrors:
+        - &#39;#Unsafe usage of new static#&#39;
+
+    excludes_analyse:
+        - ./*/*/FileToBeExcluded.php
+
+    checkMissingIterableValueType: false
+</code></pre><h3 id="alternative-phpstan-script-with-level-set-to-max" class="relative group">Alternative PhpStan script with level set to max <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#alternative-phpstan-script-with-level-set-to-max" aria-label="Anchor">#</a></span></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">phpstan analyse src tests --level max --error-format checkstyle
+</span></span></code></pre></div><h2 id="phpstorm-setup-of-phpstan" class="relative group">PHPStorm Setup of PHPStan <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#phpstorm-setup-of-phpstan" aria-label="Anchor">#</a></span></h2>
+<h3 id="phpstan-can-be-used-as-an-external-tool" class="relative group">PHPStan can be used as an External Tool <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#phpstan-can-be-used-as-an-external-tool" aria-label="Anchor">#</a></span></h3>
+<p>Go to <strong>Preferences &gt; Tools &gt; External Tools</strong> and click <strong>+</strong> to add a new tool.</p>
+<ul>
+<li>Name: <strong>PHPStan</strong> (Can be any value)</li>
+<li>Description: <strong>PHPStan</strong> (Can be any value)</li>
+<li>Program: <strong>$ProjectFileDir$/vendor/bin/phpstan.bat</strong> (Path to <code>phpstan.bat</code> executable; On Windows path separators
+must be a <code>\</code>)</li>
+<li>Parameters: <strong>check $FilePathRelativeToProjectRoot$</strong> (append <strong>&ndash;fix</strong> to auto-fix)</li>
+<li>Working directory: <strong>$ProjectFileDir$</strong></li>
+</ul>
+<p>Press <strong>Cmd/Ctrl + Shift + A</strong> (Find Action), search for <strong>phpstan</strong>, and then hit Enter. It will run <strong>phpstan</strong> for
+all files in the project.</p>
+<p>You can also create a keyboard shortcut
+in <a href="https://www.jetbrains.com/help/webstorm/configuring-keyboard-and-mouse-shortcuts.html">Preferences &gt; Keymap</a> to
+run <strong>phpstan</strong>.</p>
+<h3 id="phpstan-can-be-used-as-a-watcher" class="relative group">PHPStan can be used as a watcher <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#phpstan-can-be-used-as-a-watcher" aria-label="Anchor">#</a></span></h3>
+<p>I have also tried setting up <strong>PHPStan</strong> as
+a <a href="https://www.jetbrains.com/help/phpstorm/using-file-watchers.html">watcher</a> as follows:</p>
+<ul>
+<li>File type: <strong>PHP</strong></li>
+<li>Scope: <strong>All Places</strong></li>
+<li>Program: <strong>$ProjectFileDir$/vendor/bin/phpstan</strong></li>
+<li>Arguments: <strong>analyse</strong></li>
+<li>Working directory: <strong>$ProjectFileDir$</strong></li>
+<li>Show console: <strong>On error</strong></li>
+</ul>
+<p>It runs <strong>PHPStan</strong> on every save, but only opens the console when PHPStan detects an error. Not as good as integrated
+analysis, but a good compromise, until Jetbrains can integrate it.</p>
+<h2 id="easy-coding-standard-ecs" class="relative group">Easy Coding Standard (ECS) <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#easy-coding-standard-ecs" aria-label="Anchor">#</a></span></h2>
+<p>The easiest way to start using PHP CS Fixer and PHP_CodeSniffer with 0-knowledge</p>
+<ul>
+<li><a href="https://github.com/Symplify/EasyCodingStandard">symplify/easy-coding-standard</a></li>
+</ul>
+<h3 id="installation-of-ecs-using-composer" class="relative group">Installation of ECS using Composer <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#installation-of-ecs-using-composer" aria-label="Anchor">#</a></span></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">composer require symplify/easy-coding-standard --dev
+</span></span></code></pre></div><h3 id="example-ecsyaml-file" class="relative group">Example <code>ecs.yaml</code> file <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#example-ecsyaml-file" aria-label="Anchor">#</a></span></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">parameters</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">sets</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;psr12&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;php70&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;php71&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;symplify&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;common&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;clean-code&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">line_ending</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;\n&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># 4 spaces</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">indentation</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;    &#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">skip</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">Symplify\CodingStandard\Sniffs\Architecture\DuplicatedClassShortNameSniff</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Allow snake_case for tests</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">PHP_CodeSniffer\Standards\Generic\Sniffs\NamingConventions\CamelCapsFunctionNameSniff</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">tests/**</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Ignore what is not owned - Laravel&#39;s TestCase class does not start with &#39;Abstract&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">Symplify\CodingStandard\Sniffs\Naming\AbstractClassNameSniff</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">tests/TestCase.php</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Ignore what is not owned - Laravel&#39;s traits do not end with &#39;Trait&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">Symplify\CodingStandard\Sniffs\Naming\TraitNameSniff</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">tests/**</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Ignore what is not owned - CommentedOutCodeSniff</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">Symplify\CodingStandard\Sniffs\Debug\CommentedOutCodeSniff.Found</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">app/Console/Kernel.php</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Ignore what is not owned - @return \Illuminate\Contracts\Validation\Validator</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">SlevomatCodingStandard\Sniffs\Namespaces\ReferenceUsedNamesOnlySniff.ReferenceViaFullyQualifiedName</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">app/Http/Controllers/Auth/RegisterController.php</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Symplify\CodingStandard\Sniffs\CleanCode\CognitiveComplexitySniff</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">max_cognitive_complexity</span><span class="p">:</span><span class="w"> </span><span class="m">8</span><span class="w">
+</span></span></span></code></pre></div><p>Working example from <a href="https://github.com/KnpLabs/DoctrineBehaviors">KnpLabs/DoctrineBehaviors</a></p>
+<p>Example <strong>ecs.yaml</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">parameters</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">sets</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;psr12&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;php70&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;php71&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;symplify&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;common&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;clean-code&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">skip</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">PhpCsFixer\Fixer\Operator\UnaryOperatorSpacesFixer</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">Symplify\CodingStandard\Sniffs\ControlStructure\SprintfOverContactSniff</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">Symplify\CodingStandard\Sniffs\CleanCode\ForbiddenStaticFunctionSniff</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">Symplify\CodingStandard\Sniffs\CleanCode\CognitiveComplexitySniff</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">Symplify\CodingStandard\Sniffs\CleanCode\ForbiddenReferenceSniff</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">Symplify\CodingStandard\Sniffs\Architecture\ExplicitExceptionSniff</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">Symplify\CodingStandard\Sniffs\Architecture\DuplicatedClassShortNameSniff</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># mixed types</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">SlevomatCodingStandard\Sniffs\TypeHints\PropertyTypeHintSniff</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># buggy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">Symplify\CodingStandard\Fixer\ControlStructure\PregDelimiterFixer</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">PhpCsFixer\Fixer\PhpUnit\PhpUnitStrictFixer</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;tests/ORM/TimestampableTest.php&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># weird naming</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">Symplify\CodingStandard\Fixer\Naming\PropertyNameMatchingTypeFixer</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;src/Model/Geocodable/GeocodablePropertiesTrait.php&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># &amp; bug</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;*Repository.php&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">SlevomatCodingStandard\Sniffs\Classes\UnusedPrivateElementsSniff</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;tests/Fixtures/Entity/SluggableWithoutRegenerateEntity.php&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Symplify\CodingStandard\Sniffs\CleanCode\CognitiveComplexitySniff</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">max_cognitive_complexity</span><span class="p">:</span><span class="w"> </span><span class="m">8</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">PhpCsFixer\Fixer\ClassNotation\FinalClassFixer</span><span class="p">:</span><span class="w"> </span><span class="l">~</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># see single LICENSE.txt file in the root directory</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">PhpCsFixer\Fixer\Comment\HeaderCommentFixer</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">header</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">PhpCsFixer\Fixer\Phpdoc\GeneralPhpdocAnnotationRemoveFixer</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">annotations</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s1">&#39;author&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s1">&#39;package&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s1">&#39;license&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s1">&#39;link&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s1">&#39;abstract&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># every property should have @var annotation</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># SlevomatCodingStandard\Sniffs\TypeHints\PropertyTypeHintSniff: ~</span><span class="w">
+</span></span></span></code></pre></div><p>Example from <strong>phpdocumentor\reflection-common\easy-coding-standard.neon</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">includes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">temp/ecs/config/clean-code.neon</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">temp/ecs/config/psr2.neon</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">temp/ecs/config/common.neon</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">parameters</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">exclude_checkers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># from temp/ecs/config/common.neon</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">PhpCsFixer\Fixer\ClassNotation\OrderedClassElementsFixer</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">PhpCsFixer\Fixer\PhpUnit\PhpUnitStrictFixer</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">PhpCsFixer\Fixer\ControlStructure\YodaStyleFixer</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># from temp/ecs/config/spaces.neon</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">PhpCsFixer\Fixer\Operator\NotOperatorWithSuccessorSpaceFixer</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">skip</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">PHP_CodeSniffer\Standards\Generic\Sniffs\NamingConventions\CamelCapsFunctionNameSniff</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">tests/**</span><span class="w">
+</span></span></span></code></pre></div><h3 id="phpstorm-setup-for-easy-coding-standard-ecs" class="relative group">PHPStorm setup for Easy Coding Standard (ECS) <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#phpstorm-setup-for-easy-coding-standard-ecs" aria-label="Anchor">#</a></span></h3>
+<p>EasyCodingStandard can be used as an External Tool</p>
+<p>Go to <code>Preferences</code> &gt; <code>Tools</code> &gt; <code>External Tools</code> and click <code>+</code> to add a new tool.</p>
+<ul>
+<li>Name: <code>ecs</code> (Can be any value)</li>
+<li>Description: <code>easyCodingStandard</code> (Can be any value)</li>
+<li>Program: <code>$ProjectFileDir$/vendor/bin/ecs</code> (Path to <code>ecs</code> executable; On Windows path separators must be a <code>\</code>)</li>
+<li>Parameters: <code>check $FilePathRelativeToProjectRoot$</code> (append <code>--fix</code> to auto-fix)</li>
+<li>Working directory: <code>$ProjectFileDir$</code></li>
+</ul>
+<p>Press <code>Cmd/Ctrl</code> + <code>Shift</code> + <code>A</code> (Find Action), search for <code>ecs</code>, and then hit Enter. It will run <code>ecs</code> for the current
+file.</p>
+<p>To run <code>ecs</code> on a directory, right click on a folder in the project browser go to external tools and select <code>ecs</code>.</p>
+<p>You can also create a keyboard shortcut
+in <a href="https://www.jetbrains.com/help/webstorm/configuring-keyboard-and-mouse-shortcuts.html">Preferences &gt; Keymap</a> to
+run <code>ecs</code>.</p>
+<h2 id="php-codesniffer" class="relative group">PHP CodeSniffer <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#php-codesniffer" aria-label="Anchor">#</a></span></h2>
+<p>PHP_CodeSniffer tokenizes PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.</p>
+<ul>
+<li><a href="https://github.com/squizlabs/PHP_CodeSniffer">squizlabs/php_codesniffer</a></li>
+</ul>
+<h3 id="installation-of-php-codesniffer-using-composer" class="relative group">Installation of PHP CodeSniffer using Composer <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#installation-of-php-codesniffer-using-composer" aria-label="Anchor">#</a></span></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">composer require squizlabs/php_codesniffer --dev
+</span></span></code></pre></div><h3 id="example-phpcsxmldist" class="relative group">Example <code>phpcs.xml.dist</code> <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#example-phpcsxmldist" aria-label="Anchor">#</a></span></h3>
+<p>Example from <strong>phpdocumentor\type-resolver</strong></p>
+<p>Example <strong>phpcs.xml.dist</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;ruleset</span> <span class="na">name=</span><span class="s">&#34;phpDocumentor&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;description&gt;</span>The coding standard for phpDocumentor.<span class="nt">&lt;/description&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;file&gt;</span>src<span class="nt">&lt;/file&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;file&gt;</span>tests/unit<span class="nt">&lt;/file&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;exclude-pattern&gt;</span>*/tests/unit/Types/ContextFactoryTest.php<span class="nt">&lt;/exclude-pattern&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;arg</span> <span class="na">value=</span><span class="s">&#34;p&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;rule</span> <span class="na">ref=</span><span class="s">&#34;PSR2&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;include-pattern&gt;</span>*\.php<span class="nt">&lt;/include-pattern&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/rule&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;rule</span> <span class="na">ref=</span><span class="s">&#34;Doctrine&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;exclude</span> <span class="na">name=</span><span class="s">&#34;SlevomatCodingStandard.TypeHints.UselessConstantTypeHint.UselessDocComment&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/rule&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;rule</span> <span class="na">ref=</span><span class="s">&#34;Squiz.Classes.ValidClassName.NotCamelCaps&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;exclude-pattern&gt;</span>*/src/*_.php<span class="nt">&lt;/exclude-pattern&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/rule&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;rule</span> <span class="na">ref=</span><span class="s">&#34;SlevomatCodingStandard.Classes.SuperfluousAbstractClassNaming.SuperfluousPrefix&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;exclude-pattern&gt;</span>*/src/*/Abstract*.php<span class="nt">&lt;/exclude-pattern&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/rule&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;rule</span> <span class="na">ref=</span><span class="s">&#34;Generic.Formatting.SpaceAfterNot&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;properties&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;spacing&#34;</span> <span class="na">value=</span><span class="s">&#34;0&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/properties&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/rule&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/ruleset&gt;</span>
+</span></span></code></pre></div><h2 id="phpunit" class="relative group">PHPUnit <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#phpunit" aria-label="Anchor">#</a></span></h2>
+<p>The PHP Unit Testing framework.</p>
+<ul>
+<li><a href="https://phpunit.de/getting-started/phpunit-8.html">phpunit/phpunit</a></li>
+</ul>
+<h3 id="installation-of-phpunit-using-composer" class="relative group">Installation of PHPUnit using Composer <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#installation-of-phpunit-using-composer" aria-label="Anchor">#</a></span></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">composer require phpunit/phpunit --dev
+</span></span></code></pre></div><h3 id="example-phpunitxml-or-phpunitxmldist" class="relative group">Example <code>phpunit.xml</code> or <code>phpunit.xml.dist</code> <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#example-phpunitxml-or-phpunitxmldist" aria-label="Anchor">#</a></span></h3>
+<p>Example <strong>phpunit.xml.dist</strong> from <a href="https://laravelpackageboilerplate.com">Laravel Package Boilerplate</a>, very useful for
+coverage reports!</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;phpunit</span> <span class="na">bootstrap=</span><span class="s">&#34;vendor/autoload.php&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="na">backupGlobals=</span><span class="s">&#34;false&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="na">backupStaticAttributes=</span><span class="s">&#34;false&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="na">colors=</span><span class="s">&#34;true&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="na">verbose=</span><span class="s">&#34;true&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="na">convertErrorsToExceptions=</span><span class="s">&#34;true&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="na">convertNoticesToExceptions=</span><span class="s">&#34;true&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="na">convertWarningsToExceptions=</span><span class="s">&#34;true&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="na">processIsolation=</span><span class="s">&#34;false&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="na">stopOnFailure=</span><span class="s">&#34;false&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;testsuites&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;testsuite</span> <span class="na">name=</span><span class="s">&#34;Test Suite&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;directory&gt;</span>tests<span class="nt">&lt;/directory&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/testsuite&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/testsuites&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;filter&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;whitelist&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;directory</span> <span class="na">suffix=</span><span class="s">&#34;.php&#34;</span><span class="nt">&gt;</span>src/<span class="nt">&lt;/directory&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/whitelist&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/filter&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;logging&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;log</span> <span class="na">type=</span><span class="s">&#34;tap&#34;</span> <span class="na">target=</span><span class="s">&#34;build/report.tap&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;log</span> <span class="na">type=</span><span class="s">&#34;junit&#34;</span> <span class="na">target=</span><span class="s">&#34;build/report.junit.xml&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;log</span> <span class="na">type=</span><span class="s">&#34;coverage-html&#34;</span> <span class="na">target=</span><span class="s">&#34;build/coverage&#34;</span> <span class="na">lowUpperBound=</span><span class="s">&#34;35&#34;</span> <span class="na">highLowerBound=</span><span class="s">&#34;70&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;log</span> <span class="na">type=</span><span class="s">&#34;coverage-text&#34;</span> <span class="na">target=</span><span class="s">&#34;build/coverage.txt&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;log</span> <span class="na">type=</span><span class="s">&#34;coverage-clover&#34;</span> <span class="na">target=</span><span class="s">&#34;build/logs/clover.xml&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/logging&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/phpunit&gt;</span>
+</span></span></code></pre></div><ul>
+<li>Add <code>/build/</code> to <strong>.gitignore</strong></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">echo</span> /build/ &gt;&gt; .gitignore
+</span></span></code></pre></div><p>Example <strong>phpunit.xml</strong> from <strong>livewire\livewire</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;phpunit</span> <span class="na">backupGlobals=</span><span class="s">&#34;false&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="na">backupStaticAttributes=</span><span class="s">&#34;false&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="na">bootstrap=</span><span class="s">&#34;vendor/autoload.php&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="na">colors=</span><span class="s">&#34;true&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="na">convertErrorsToExceptions=</span><span class="s">&#34;true&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="na">convertNoticesToExceptions=</span><span class="s">&#34;true&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="na">convertWarningsToExceptions=</span><span class="s">&#34;true&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="na">processIsolation=</span><span class="s">&#34;false&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="na">stopOnFailure=</span><span class="s">&#34;false&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;testsuites&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;testsuite</span> <span class="na">name=</span><span class="s">&#34;Unit&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;directory</span> <span class="na">suffix=</span><span class="s">&#34;Test.php&#34;</span><span class="nt">&gt;</span>./tests<span class="nt">&lt;/directory&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/testsuite&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/testsuites&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;filter&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;whitelist</span> <span class="na">processUncoveredFilesFromWhitelist=</span><span class="s">&#34;true&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;directory</span> <span class="na">suffix=</span><span class="s">&#34;.php&#34;</span><span class="nt">&gt;</span>./src<span class="nt">&lt;/directory&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/whitelist&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/filter&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/phpunit&gt;</span>
+</span></span></code></pre></div><p><strong>phpunit.xml</strong> from KnpLabs/DoctrineBehaviors (minimalist)</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;phpunit</span>
+</span></span><span class="line"><span class="cl">        <span class="na">colors=</span><span class="s">&#34;true&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">bootstrap=</span><span class="s">&#34;tests/bootstrap.php&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;testsuites&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;testsuite</span> <span class="na">name=</span><span class="s">&#34;Knp Doctrine2 Behaviors&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;directory&gt;</span>tests<span class="nt">&lt;/directory&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/testsuite&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/testsuites&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/phpunit&gt;</span>
+</span></span></code></pre></div><h2 id="php-mess-detector" class="relative group">PHP Mess Detector <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#php-mess-detector" aria-label="Anchor">#</a></span></h2>
+<ul>
+<li><a href="https://phpmd.org/">phpmd.org</a></li>
+</ul>
+<h3 id="installation-of-php-mess-detector" class="relative group">Installation of PHP Mess Detector <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#installation-of-php-mess-detector" aria-label="Anchor">#</a></span></h3>
+<p>Follow the link from <a href="https://phpmd.org/">phpmd.org</a> to download the latest version and save the <code>phpmd.phar</code> file in an
+accessible location.</p>
+<h3 id="example-phpmdxml" class="relative group">Example <code>phpmd.xml</code> <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#example-phpmdxml" aria-label="Anchor">#</a></span></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; ?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;ruleset</span>
+</span></span><span class="line"><span class="cl">        <span class="na">name=</span><span class="s">&#34;ProxyManager rules&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">xmlns=</span><span class="s">&#34;http://pmd.sf.net/ruleset/1.0.0&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://pmd.sf.net/ruleset/1.0.0 http://pmd.sf.net/ruleset_xml_schema.xsd&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">xsi:noNamespaceSchemaLocation=</span><span class="s">&#34;http://pmd.sf.net/ruleset_xml_schema.xsd&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;rule</span> <span class="na">ref=</span><span class="s">&#34;rulesets/codesize.xml&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;rule</span> <span class="na">ref=</span><span class="s">&#34;rulesets/unusedcode.xml&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;rule</span> <span class="na">ref=</span><span class="s">&#34;rulesets/design.xml&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="c">&lt;!-- eval is needed to generate runtime classes --&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;exclude</span> <span class="na">name=</span><span class="s">&#34;EvalExpression&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/rule&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;rule</span> <span class="na">ref=</span><span class="s">&#34;rulesets/naming.xml&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;exclude</span> <span class="na">name=</span><span class="s">&#34;LongVariable&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/rule&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;rule</span> <span class="na">ref=</span><span class="s">&#34;rulesets/naming.xml/LongVariable&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;properties&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;minimum&#34;</span><span class="nt">&gt;</span>40<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/properties&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/rule&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/ruleset&gt;</span>
+</span></span></code></pre></div><p>Mess detection rules from <strong>nesbot\Carbon</strong></p>
+<p>Example <code>phpmd.xml</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;ruleset</span> <span class="na">name=</span><span class="s">&#34;Mess detection rules for Carbon&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="na">xmlns=</span><span class="s">&#34;http://pmd.sf.net/ruleset/1.0.0&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://pmd.sf.net/ruleset/1.0.0
+</span></span></span><span class="line"><span class="cl"><span class="s">                     http://pmd.sf.net/ruleset_xml_schema.xsd&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="na">xsi:noNamespaceSchemaLocation=</span><span class="s">&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">                     http://pmd.sf.net/ruleset_xml_schema.xsd&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;description&gt;</span>
+</span></span><span class="line"><span class="cl">        Mess detection rules for Carbon
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/description&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;rule</span> <span class="na">ref=</span><span class="s">&#34;rulesets/codesize.xml&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;exclude</span> <span class="na">name=</span><span class="s">&#34;CyclomaticComplexity&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;exclude</span> <span class="na">name=</span><span class="s">&#34;NPathComplexity&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;exclude</span> <span class="na">name=</span><span class="s">&#34;ExcessiveMethodLength&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;exclude</span> <span class="na">name=</span><span class="s">&#34;ExcessiveClassLength&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;exclude</span> <span class="na">name=</span><span class="s">&#34;ExcessivePublicCount&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;exclude</span> <span class="na">name=</span><span class="s">&#34;TooManyMethods&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;exclude</span> <span class="na">name=</span><span class="s">&#34;TooManyPublicMethods&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;exclude</span> <span class="na">name=</span><span class="s">&#34;ExcessiveClassComplexity&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/rule&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;rule</span> <span class="na">ref=</span><span class="s">&#34;rulesets/cleancode.xml&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;exclude</span> <span class="na">name=</span><span class="s">&#34;BooleanArgumentFlag&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;exclude</span> <span class="na">name=</span><span class="s">&#34;StaticAccess&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;exclude</span> <span class="na">name=</span><span class="s">&#34;IfStatementAssignment&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/rule&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;rule</span> <span class="na">ref=</span><span class="s">&#34;rulesets/controversial.xml&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;rule</span> <span class="na">ref=</span><span class="s">&#34;rulesets/design.xml&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;exclude</span> <span class="na">name=</span><span class="s">&#34;EvalExpression&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;exclude</span> <span class="na">name=</span><span class="s">&#34;CouplingBetweenObjects&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;exclude</span> <span class="na">name=</span><span class="s">&#34;CountInLoopExpression&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/rule&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;rule</span> <span class="na">ref=</span><span class="s">&#34;rulesets/design.xml/CouplingBetweenObjects&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;properties&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;maximum&#34;</span> <span class="na">value=</span><span class="s">&#34;20&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/properties&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/rule&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;rule</span> <span class="na">ref=</span><span class="s">&#34;rulesets/naming.xml/ShortVariable&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;properties&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;exceptions&#34;</span> <span class="na">value=</span><span class="s">&#34;ci,id,to,tz&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/properties&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/rule&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;rule</span> <span class="na">ref=</span><span class="s">&#34;rulesets/unusedcode.xml&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/ruleset&gt;</span>
+</span></span></code></pre></div><h2 id="phpstorm-setup-for-php-mess-detector" class="relative group">PHPStorm setup for PHP Mess Detector <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#phpstorm-setup-for-php-mess-detector" aria-label="Anchor">#</a></span></h2>
+<ul>
+<li><a href="https://www.jetbrains.com/help/phpstorm/using-php-mess-detector.html">https://www.jetbrains.com/help/phpstorm/using-php-mess-detector.html</a></li>
+</ul>
+<h3 id="configure-a-local-php-mess-detector-script" class="relative group">Configure a local PHP Mess Detector script <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#configure-a-local-php-mess-detector-script" aria-label="Anchor">#</a></span></h3>
+<p>1) Download and install the PHP Mess Detector scripts.</p>
+<p>To check the PHP Mess Detector installation, switch to the installation directory and run the following command:</p>
+<p><code>phpmd --version</code></p>
+<p>If the tool is available, you will get a message in the following format:</p>
+<p><code>PHPMD version &lt;version&gt;</code></p>
+<p>To have code checked against your own custom coding standard, create it. Store the rules and the ruleset.xml file that
+points to them in the rulesets root directory.</p>
+<p>2) Register the local PHP Mess Detector script in PhpStorm:</p>
+<p>a. In the <strong>Settings/Preferences</strong> dialog Ctrl+Alt+S, navigate to <strong>Languages &amp; Frameworks | PHP | Quality Tools</strong>.</p>
+<p>b. On the Quality Tools page that opens, expand the <strong>Mess Detector</strong> area and click the Browse button next to the **
+Configuration** list.</p>
+<p>c. In the <strong>PHP Mess Detector</strong> dialog that opens, specify the location of the <code>phpmd.bat</code> or <code>phpmd</code> PHP Mess Detector
+executable in the <strong>PHP Mess Detector path</strong> field. Type the path manually or click the Browse button and select the
+relevant folder in the dialog that opens.</p>
+<p>To check that the specified path to <code>phpmd.bat</code> or <code>phpmd</code> ensures interaction between PhpStorm and PHP Mess Detector,
+that is, the tool can be launched from PhpStorm and PhpStorm will receive problem reports from it, click the **
+Validate** button. This validation is equal to running the <code>phpmd --version</code> command. If validation passes successfully,
+PhpStorm displays the information on the detected PHP Mess Detector version.</p>
+<h3 id="configure-a-php-mess-detector-script-associated-with-a-php-interpreter" class="relative group">Configure a PHP Mess Detector script associated with a PHP interpreter <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#configure-a-php-mess-detector-script-associated-with-a-php-interpreter" aria-label="Anchor">#</a></span></h3>
+<ol>
+<li>
+<p>In the <strong>Settings/Preferences</strong> dialog Ctrl+Alt+S, navigate to <strong>Languages &amp; Frameworks | PHP | Quality Tools</strong>.</p>
+</li>
+<li>
+<p>On the Quality Tools page that opens, expand the <strong>Mess Detector</strong> area and click the &hellip; (Browse button) next to
+the <strong>Configuration</strong> list. <strong>The PHP Mess Detector</strong> dialog opens showing the list of all the configured PHP Mess
+Detector scripts in the left-hand pane, one of them is of the type <em><strong>Local</strong></em> and others are named after the PHP
+interpreters with which the scripts are associated. Click the Add button on the toolbar.</p>
+</li>
+<li>
+<p>In the <strong>PHP Mess Detector by Remote Interpreter</strong> dialog that opens, choose the remote PHP interpreter to use the
+associated script from. If the list does not contain a relevant interpreter, click the Browse button and configure a
+remote interpreter in the <strong>CLI Interpreters</strong> dialog as described in Configuring Remote PHP Interpreters.</p>
+</li>
+</ol>
+<p>When you click <strong>OK</strong>, PhpStorm brings you back to the <strong>PHP Mess Detector</strong> dialog where the new <em><strong>PHP Mess
+Detector</strong></em> configuration is added to the list and the right-hand pane shows the chosen remote PHP interpreter, the path
+to the PHP Mess Detector associated with it, and the advanced PHP Mess Detector options.</p>
+<h2 id="psalm" class="relative group">psalm <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#psalm" aria-label="Anchor">#</a></span></h2>
+<ul>
+<li><a href="https://github.com/vimeo/psalm">vimeo/psalm</a></li>
+</ul>
+<p>A static analysis tool for finding errors in PHP applications <a href="https://psalm.dev">https://psalm.dev</a></p>
+<h3 id="install-psalm" class="relative group">Install psalm <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#install-psalm" aria-label="Anchor">#</a></span></h3>
+<p>Install via Composer:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">composer require --dev vimeo/psalm
+</span></span></code></pre></div><p>Add a config:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./vendor/bin/psalm --init
+</span></span></code></pre></div><p>Then run Psalm:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./vendor/bin/psalm
+</span></span></code></pre></div><h3 id="example-psalmxml" class="relative group">Example <code>psalm.xml</code> <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#example-psalmxml" aria-label="Anchor">#</a></span></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;psalm</span>
+</span></span><span class="line"><span class="cl">        <span class="na">autoloader=</span><span class="s">&#34;psalm-autoload.php&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">stopOnFirstError=</span><span class="s">&#34;false&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">useDocblockTypes=</span><span class="s">&#34;true&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;projectFiles&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;directory</span> <span class="na">name=</span><span class="s">&#34;app&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;directory</span> <span class="na">name=</span><span class="s">&#34;tests&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/projectFiles&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;issueHandlers&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;RedundantConditionGivenDocblockType</span> <span class="na">errorLevel=</span><span class="s">&#34;info&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;UnresolvableInclude</span> <span class="na">errorLevel=</span><span class="s">&#34;info&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;DuplicateClass</span> <span class="na">errorLevel=</span><span class="s">&#34;info&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;InvalidOperand</span> <span class="na">errorLevel=</span><span class="s">&#34;info&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;UndefinedConstant</span> <span class="na">errorLevel=</span><span class="s">&#34;info&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;MissingReturnType</span> <span class="na">errorLevel=</span><span class="s">&#34;info&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;InvalidReturnType</span> <span class="na">errorLevel=</span><span class="s">&#34;info&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/issueHandlers&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/psalm&gt;</span>
+</span></span></code></pre></div><h2 id="rector" class="relative group">Rector <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#rector" aria-label="Anchor">#</a></span></h2>
+<p>Instant Upgrades and Instant Refactoring of any PHP 5.3+ code <a href="https://getrector.org">https://getrector.org</a></p>
+<ul>
+<li><a href="https://github.com/rectorphp/rector">rectorphp/rector</a></li>
+</ul>
+<h3 id="installation-of-rector-using-composer" class="relative group">Installation of Rector using Composer <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#installation-of-rector-using-composer" aria-label="Anchor">#</a></span></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">composer require rector/rector --dev
+</span></span></code></pre></div><h3 id="example-rectoryaml" class="relative group">Example <code>rector.yaml</code> <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#example-rectoryaml" aria-label="Anchor">#</a></span></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">parameters</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">sets</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;code-quality&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;php71&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;php72&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;php73&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">php_version_features</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;7.2&#39;</span><span class="w"> </span><span class="c"># your version is 7.3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">paths</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;src&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;tests&#39;</span><span class="w">
+</span></span></span></code></pre></div><h3 id="demo" class="relative group">Demo <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#demo" aria-label="Anchor">#</a></span></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone &lt;forked&gt; https://github.com/rectorphp/demo.git
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> demo
+</span></span><span class="line"><span class="cl">composer install
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">parameters</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">php_version_features</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;7.2&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># demo</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># 1. php</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># vendor/bin/rector process src/PhpCodeUpgrade/CountOnNullableAndArrayAssign.php --set php71 --dry-run</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># vendor/bin/rector process src/PhpCodeUpgrade/CreateFunction.php --set php72 --dry-run</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># 2. code quality</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># vendor/bin/rector process src/CodeQuality --set code-quality --dry-run</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># vendor/bin/rector process src/PhpCodeUpgrade --set type-declaration --dry-run</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># 3. twig</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># vendor/bin/rector process src --set twig-underscore-to-namespace --dry-run</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># 4. phpunit</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># vendor/bin/rector process src tests --set phpunit70 --dry-run</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># typed properties - @todo change param to the PHP 7.4</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># not only improve, but also fix BC breaks</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># vendor/bin/rector process src --set php74 --dry-run</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># list all available sets:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># vendor\bin\rector sets</span><span class="w">
+</span></span></span></code></pre></div><h3 id="example-rector-ciyaml" class="relative group">Example rector-ci.yaml <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#example-rector-ciyaml" aria-label="Anchor">#</a></span></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">parameters</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">paths</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s2">&#34;src&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s2">&#34;tests&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">sets</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;dead-code&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;code-quality&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;coding-style&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;nette-utils-code-quality&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">exclude_rectors</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;Rector\DeadCode\Rector\Class_\RemoveUnusedDoctrineEntityMethodAndPropertyRector&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;Rector\SOLID\Rector\ClassMethod\UseInterfaceOverImplementationInConstructorRector&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">exclude_paths</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;src/Model/Translatable/TranslatableMethodsTrait.php&#39;</span><span class="w">
+</span></span></span></code></pre></div><p>Example <strong>rector-ci.yaml</strong> from symplify / symplify</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Rector\SOLID\Rector\Property\ChangeReadOnlyPropertyWithDefaultValueToConstantRector</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Rector\SOLID\Rector\ClassMethod\ChangeReadOnlyVariableWithDefaultValueToConstantRector</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">parameters</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">auto_import_names</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">autoload_paths</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;tests/bootstrap.php&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">sets</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;code-quality&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;dead-code&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;coding-style&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;php-70&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;php-71&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;php-72&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">paths</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s2">&#34;packages&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">exclude_paths</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;/vendor/&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;/init/&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;/Source/&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;/ChangedFilesDetectorSource/&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># parameter Symfony autowire hack</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;packages/changelog-linker/src/DependencyInjection/Dummy/ResolveAutowiringExceptionHelper.php&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;packages/monorepo-builder/packages/init/templates/*&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">exclude_rectors</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># too free</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;Rector\SOLID\Rector\ClassMethod\UseInterfaceOverImplementationInConstructorRector&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># needs to skip dev classes</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;Rector\Php55\Rector\String_\StringClassNameToClassConstantRector&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># this should skip preg_match etc. patterns</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;Rector\CodingStyle\Rector\String_\SymplifyQuoteEscapeRector&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># buggy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;Rector\CodingStyle\Rector\Use_\RemoveUnusedAliasRector&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># many edge cases on known array key contents</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;Rector\Php71\Rector\FuncCall\CountOnNullRector&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># fixed in master</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;Rector\Php70\Rector\MethodCall\ThisCallOnStaticMethodToStaticCallRector&#39;</span><span class="w">
+</span></span></span></code></pre></div><h2 id="phan" class="relative group">Phan <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#phan" aria-label="Anchor">#</a></span></h2>
+<p>Phan is a static analyzer for PHP. Phan prefers to avoid false-positives and attempts to prove incorrectness rather than
+correctness. <a href="https://github.com/phan/phan/wiki">https://github.com/phan/phan/wiki</a></p>
+<ul>
+<li><a href="https://github.com/phan/phan">phan/phan</a></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">composer require phan/phan
+</span></span></code></pre></div>
+      </div>
+    </section>
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  <div class="flex">
+    
+      
+      
+        
+        <img
+          class="w-24 h-24 !mt-0 !mb-0 ltr:mr-4 rtl:ml-4 rounded-full"
+          width="96"
+          height="96"
+          alt="Michael Pritchard (AKA Pen-y-Fan)"
+          src="/img/author_hu5893a0bcecd6e8dce34dc674da9c7f56_6794556_192x192_fill_q75_box_smart1.jpg"
+        />
+      
+    
+    <div class="place-self-center">
+      
+        <div class="text-[0.6rem] leading-3 text-neutral-500 dark:text-neutral-400 uppercase">
+          Author
+        </div>
+        <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+          Michael Pritchard (AKA Pen-y-Fan)
+        </div>
+      
+      
+        <div class="text-sm text-neutral-700 dark:text-neutral-400">Posts about my coding experiences, primarily for my learning path with PHP, good clean professional code.</div>
+      
+      <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://github.com/Pen-y-Fan"
+          target="_blank"
+          aria-label="Github"
+          rel="me noopener noreferrer"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+</a
+        >
+      
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://www.linkedin.com/in/michael-pritchard-340b4520/"
+          target="_blank"
+          aria-label="Linkedin"
+          rel="me noopener noreferrer"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+
+  </span>
+
+</a
+        >
+      
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://www.reddit.com/user/Pen-y-Fan"
+          target="_blank"
+          aria-label="Reddit"
+          rel="me noopener noreferrer"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M201.5 305.5c-13.8 0-24.9-11.1-24.9-24.6 0-13.8 11.1-24.9 24.9-24.9 13.6 0 24.6 11.1 24.6 24.9 0 13.6-11.1 24.6-24.6 24.6zM504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-132.3-41.2c-9.4 0-17.7 3.9-23.8 10-22.4-15.5-52.6-25.5-86.1-26.6l17.4-78.3 55.4 12.5c0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.3 24.9-24.9s-11.1-24.9-24.9-24.9c-9.7 0-18 5.8-22.1 13.8l-61.2-13.6c-3-.8-6.1 1.4-6.9 4.4l-19.1 86.4c-33.2 1.4-63.1 11.3-85.5 26.8-6.1-6.4-14.7-10.2-24.1-10.2-34.9 0-46.3 46.9-14.4 62.8-1.1 5-1.7 10.2-1.7 15.5 0 52.6 59.2 95.2 132 95.2 73.1 0 132.3-42.6 132.3-95.2 0-5.3-.6-10.8-1.9-15.8 31.3-16 19.8-62.5-14.9-62.5zM302.8 331c-18.2 18.2-76.1 17.9-93.6 0-2.2-2.2-6.1-2.2-8.3 0-2.5 2.5-2.5 6.4 0 8.6 22.8 22.8 87.3 22.8 110.2 0 2.5-2.2 2.5-6.1 0-8.6-2.2-2.2-6.1-2.2-8.3 0zm7.7-75c-13.6 0-24.6 11.1-24.6 24.9 0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.1 24.9-24.6 0-13.8-11-24.9-24.9-24.9z"/></svg>
+
+  </span>
+
+</a
+        >
+      
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://twitter.com/MikeAPritch"
+          target="_blank"
+          aria-label="Twitter"
+          rel="me noopener noreferrer"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+
+  </span>
+
+</a
+        >
+      
+    
+  </div>
+
+</div>
+    </div>
+  </div>
+
+
+      
+  
+  <section class="flex flex-row flex-wrap justify-center pt-4 text-xl">
+    
+      
+        <a
+          class="bg-neutral-300 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800 m-1 hover:bg-primary-500 hover:text-neutral rounded min-w-[2.4rem] inline-block text-center p-1"
+          href="https://www.facebook.com/sharer/sharer.php?u=https://pen-y-fan.github.io/2020/06/01/Standard-Setup-for-PHP-Projects/&amp;quote=Standard%20Setup%20for%20PHP%20projects"
+          title="Share on Facebook"
+          aria-label="Share on Facebook"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+
+  </span>
+
+</a
+        >
+      
+    
+      
+        <a
+          class="bg-neutral-300 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800 m-1 hover:bg-primary-500 hover:text-neutral rounded min-w-[2.4rem] inline-block text-center p-1"
+          href="https://twitter.com/intent/tweet/?url=https://pen-y-fan.github.io/2020/06/01/Standard-Setup-for-PHP-Projects/&amp;text=Standard%20Setup%20for%20PHP%20projects"
+          title="Tweet on Twitter"
+          aria-label="Tweet on Twitter"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+
+  </span>
+
+</a
+        >
+      
+    
+      
+        <a
+          class="bg-neutral-300 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800 m-1 hover:bg-primary-500 hover:text-neutral rounded min-w-[2.4rem] inline-block text-center p-1"
+          href="https://pinterest.com/pin/create/bookmarklet/?url=https://pen-y-fan.github.io/2020/06/01/Standard-Setup-for-PHP-Projects/&amp;description=Standard%20Setup%20for%20PHP%20projects"
+          title="Pin on Pinterest"
+          aria-label="Pin on Pinterest"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M496 256c0 137-111 248-248 248-25.6 0-50.2-3.9-73.4-11.1 10.1-16.5 25.2-43.5 30.8-65 3-11.6 15.4-59 15.4-59 8.1 15.4 31.7 28.5 56.8 28.5 74.8 0 128.7-68.8 128.7-154.3 0-81.9-66.9-143.2-152.9-143.2-107 0-163.9 71.8-163.9 150.1 0 36.4 19.4 81.7 50.3 96.1 4.7 2.2 7.2 1.2 8.3-3.3.8-3.4 5-20.3 6.9-28.1.6-2.5.3-4.7-1.7-7.1-10.1-12.5-18.3-35.3-18.3-56.6 0-54.7 41.4-107.6 112-107.6 60.9 0 103.6 41.5 103.6 100.9 0 67.1-33.9 113.6-78 113.6-24.3 0-42.6-20.1-36.7-44.8 7-29.5 20.5-61.3 20.5-82.6 0-19-10.2-34.9-31.4-34.9-24.9 0-44.9 25.7-44.9 60.2 0 22 7.4 36.8 7.4 36.8s-24.5 103.8-29 123.2c-5 21.4-3 51.6-.9 71.2C65.4 450.9 0 361.1 0 256 0 119 111 8 248 8s248 111 248 248z"/></svg>
+
+  </span>
+
+</a
+        >
+      
+    
+      
+        <a
+          class="bg-neutral-300 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800 m-1 hover:bg-primary-500 hover:text-neutral rounded min-w-[2.4rem] inline-block text-center p-1"
+          href="https://reddit.com/submit/?url=https://pen-y-fan.github.io/2020/06/01/Standard-Setup-for-PHP-Projects/&amp;resubmit=true&amp;title=Standard%20Setup%20for%20PHP%20projects"
+          title="Submit to Reddit"
+          aria-label="Submit to Reddit"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M201.5 305.5c-13.8 0-24.9-11.1-24.9-24.6 0-13.8 11.1-24.9 24.9-24.9 13.6 0 24.6 11.1 24.6 24.9 0 13.6-11.1 24.6-24.6 24.6zM504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-132.3-41.2c-9.4 0-17.7 3.9-23.8 10-22.4-15.5-52.6-25.5-86.1-26.6l17.4-78.3 55.4 12.5c0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.3 24.9-24.9s-11.1-24.9-24.9-24.9c-9.7 0-18 5.8-22.1 13.8l-61.2-13.6c-3-.8-6.1 1.4-6.9 4.4l-19.1 86.4c-33.2 1.4-63.1 11.3-85.5 26.8-6.1-6.4-14.7-10.2-24.1-10.2-34.9 0-46.3 46.9-14.4 62.8-1.1 5-1.7 10.2-1.7 15.5 0 52.6 59.2 95.2 132 95.2 73.1 0 132.3-42.6 132.3-95.2 0-5.3-.6-10.8-1.9-15.8 31.3-16 19.8-62.5-14.9-62.5zM302.8 331c-18.2 18.2-76.1 17.9-93.6 0-2.2-2.2-6.1-2.2-8.3 0-2.5 2.5-2.5 6.4 0 8.6 22.8 22.8 87.3 22.8 110.2 0 2.5-2.2 2.5-6.1 0-8.6-2.2-2.2-6.1-2.2-8.3 0zm7.7-75c-13.6 0-24.6 11.1-24.6 24.9 0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.1 24.9-24.6 0-13.8-11-24.9-24.9-24.9z"/></svg>
+
+  </span>
+
+</a
+        >
+      
+    
+      
+        <a
+          class="bg-neutral-300 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800 m-1 hover:bg-primary-500 hover:text-neutral rounded min-w-[2.4rem] inline-block text-center p-1"
+          href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://pen-y-fan.github.io/2020/06/01/Standard-Setup-for-PHP-Projects/&amp;title=Standard%20Setup%20for%20PHP%20projects"
+          title="Share on LinkedIn"
+          aria-label="Share on LinkedIn"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+
+  </span>
+
+</a
+        >
+      
+    
+      
+        <a
+          class="bg-neutral-300 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800 m-1 hover:bg-primary-500 hover:text-neutral rounded min-w-[2.4rem] inline-block text-center p-1"
+          href="mailto:?body=https://pen-y-fan.github.io/2020/06/01/Standard-Setup-for-PHP-Projects/&amp;subject=Standard%20Setup%20for%20PHP%20projects"
+          title="Send via email"
+          aria-label="Send via email"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z"/></svg>
+
+  </span>
+
+</a
+        >
+      
+    
+  </section>
+
+
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group" href="/2020/05/30/Creating-my-GitHub-io-website-using-Hexo/">
+              <span
+                class="mr-3 ltr:inline rtl:hidden text-neutral-700 dark:text-neutral group-hover:text-primary-600 dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 ltr:hidden rtl:inline text-neutral-700 dark:text-neutral group-hover:text-primary-600 dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Creating my GitHub.io website using Hexo</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2020-05-30 17:42:31 &#43;0000 UTC">30 May 2020</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group" href="/2020/06/01/List-of-git-Learning-Resources/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >List of Git and GitHub Learning Resources</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2020-06-01 19:21:00 &#43;0000 UTC">1 June 2020</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 ltr:inline rtl:hidden text-neutral-700 dark:text-neutral group-hover:text-primary-600 dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 ltr:hidden rtl:inline text-neutral-700 dark:text-neutral group-hover:text-primary-600 dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+        
+          <div
+            class="absolute top-[100vh] ltr:right-0 rtl:left-0 w-12 pointer-events-none bottom-0"
+          >
+            <a
+              href="#the-top"
+              class="w-12 h-12 sticky pointer-events-auto top-[calc(100vh-5.5rem)] bg-neutral/50 dark:bg-neutral-800/50 backdrop-blur rounded-full text-xl flex items-center justify-center text-neutral-700 dark:text-neutral hover:text-primary-600 dark:hover:text-primary-400"
+              aria-label="Scroll to top"
+              title="Scroll to top"
+            >
+              &uarr;
+            </a>
+          </div>
+        
+      </main><footer class="py-10 print:hidden">
+  
+  
+  <div class="flex items-center justify-between">
+    <div>
+      
+      
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+            ©️ Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+        </p>
+      
+      
+      
+        <p class="text-xs text-neutral-500 dark:text-neutral-400">
+          
+          
+          Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500" href="https://git.io/hugo-congo" target="_blank" rel="noopener noreferrer">Congo</a>
+        </p>
+      
+    </div>
+    
+    
+      <div
+        class="text-sm cursor-pointer text-neutral-700 dark:text-neutral hover:text-primary-600 dark:hover:text-primary-400 ltr:mr-14 rtl:ml-14"
+      >
+        <button
+          id="appearance-switcher"
+          class="w-12 h-12 "
+          type="button"
+          title="Switch to dark appearance"
+        >
+          <span class="inline dark:hidden">
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+</span>
+          <span class="hidden dark:inline">
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+</span>
+        </button>
+      </div>
+    
+  </div>
+  
+  
+</footer>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://pen-y-fan.github.io/sitemap.xml

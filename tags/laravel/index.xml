@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Laravel on Pen-y-Fan</title>
+    <link>https://pen-y-fan.github.io/tags/laravel/</link>
+    <description>Recent content in Laravel on Pen-y-Fan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>:copyright: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</copyright>
+    <lastBuildDate>Sun, 31 May 2020 23:38:00 +0000</lastBuildDate><atom:link href="https://pen-y-fan.github.io/tags/laravel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Standard Setup for PHP projects</title>
+      <link>https://pen-y-fan.github.io/2020/06/01/Standard-Setup-for-PHP-Projects/</link>
+      <pubDate>Sun, 31 May 2020 23:38:00 +0000</pubDate>
+      
+      <guid>https://pen-y-fan.github.io/2020/06/01/Standard-Setup-for-PHP-Projects/</guid>
+      <description>Note: This is my standard setup from 2020, a newer version from 2021 is now available Standard setup for PHP projects 2021. The focus of this post if to setup PHP and PhpStorm in a consistant way for each project, with coding standards, static analysis and tests.</description>
+    </item>
+    
+  </channel>
+</rss>
