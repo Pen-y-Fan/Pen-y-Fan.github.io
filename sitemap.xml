@@ -4,23 +4,40 @@
   
     
       <url>
-            <loc>https://pen-y-fan.github.io/2022/07/26/how-to-install-nginx-unit-on-wsl-2-ubuntu/</loc>
-            <lastmod>2022-07-26T22:13:24+01:00</lastmod>
+            <loc>https://pen-y-fan.github.io/2022/mm/dd/my-developer-content-recommendations/</loc>
+            <lastmod>2022-08-21T19:18:05+01:00</lastmod>
           </url>
     
   
     
       <url>
             <loc>https://pen-y-fan.github.io/</loc>
-            <lastmod>2022-07-26T22:13:24+01:00</lastmod>
+            <lastmod>2022-08-21T19:18:05+01:00</lastmod>
           </url>
+    
+  
     
   
     
       <url>
             <loc>https://pen-y-fan.github.io/posts/</loc>
+            <lastmod>2022-08-21T19:18:05+01:00</lastmod>
+          </url>
+    
+  
+    
+  
+    
+  
+    
+      <url>
+            <loc>https://pen-y-fan.github.io/2022/07/26/how-to-install-nginx-unit-on-wsl-2-ubuntu/</loc>
             <lastmod>2022-07-26T22:13:24+01:00</lastmod>
           </url>
+    
+  
+    
+  
     
   
     
@@ -50,10 +67,6 @@
     
   
     
-  
-    
-  
-    
       <url>
             <loc>https://pen-y-fan.github.io/2021/09/14/How-to-send-Emails-using-PHPMailer-from-Windows/</loc>
             <lastmod>2021-09-14T19:44:04+00:00</lastmod>
@@ -67,14 +80,10 @@
     
   
     
-  
-    
       <url>
             <loc>https://pen-y-fan.github.io/2021/08/08/How-to-install-MySQL-on-WSL-2-Ubuntu/</loc>
             <lastmod>2021-08-08T16:45:48+00:00</lastmod>
           </url>
-    
-  
     
   
     
@@ -152,8 +161,6 @@
             <loc>https://pen-y-fan.github.io/2020/08/02/Setup-a-new-SilverStripe-4-Project/</loc>
             <lastmod>2020-08-02T12:59:16+00:00</lastmod>
           </url>
-    
-  
     
   
     

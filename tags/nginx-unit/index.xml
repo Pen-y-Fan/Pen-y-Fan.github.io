@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>WSL2 on Pen-y-Fan</title>
-    <link>https://pen-y-fan.github.io/tags/wsl2/</link>
-    <description>Recent content in WSL2 on Pen-y-Fan</description>
+    <title>NGINX unit on Pen-y-Fan</title>
+    <link>https://pen-y-fan.github.io/tags/nginx-unit/</link>
+    <description>Recent content in NGINX unit on Pen-y-Fan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>:copyright: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</copyright>
-    <lastBuildDate>Tue, 26 Jul 2022 22:13:24 +0100</lastBuildDate><atom:link href="https://pen-y-fan.github.io/tags/wsl2/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 26 Jul 2022 22:13:24 +0100</lastBuildDate><atom:link href="https://pen-y-fan.github.io/tags/nginx-unit/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to Install NGINX Unit on WSL 2 (Ubuntu)</title>
       <link>https://pen-y-fan.github.io/2022/07/26/how-to-install-nginx-unit-on-wsl-2-ubuntu/</link>
@@ -15,15 +15,6 @@
       
       <guid>https://pen-y-fan.github.io/2022/07/26/how-to-install-nginx-unit-on-wsl-2-ubuntu/</guid>
       <description>I wanted to experiment with NGINX unit as it offers the ability to specify the runtime for the project, this will be particularly useful when some projects are PHP 7.4, some PHP 8.0 and others PHP 8.1. This guide explains how to install NGINX unit on Windows WSL 2</description>
-    </item>
-    
-    <item>
-      <title>How to install MySQL on WSL 2 (Ubuntu)</title>
-      <link>https://pen-y-fan.github.io/2021/08/08/How-to-install-MySQL-on-WSL-2-Ubuntu/</link>
-      <pubDate>Sun, 08 Aug 2021 16:45:48 +0000</pubDate>
-      
-      <guid>https://pen-y-fan.github.io/2021/08/08/How-to-install-MySQL-on-WSL-2-Ubuntu/</guid>
-      <description>How to install and configure MySQL 8.0 on WSL 2 (Ubuntu), this guide assumes WSL 2 is already installed with Ubuntu.</description>
     </item>
     
   </channel>

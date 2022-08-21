@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>:copyright: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</copyright>
-    <lastBuildDate>Tue, 26 Jul 2022 22:13:24 +0100</lastBuildDate><atom:link href="https://pen-y-fan.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 21 Aug 2022 19:18:05 +0100</lastBuildDate><atom:link href="https://pen-y-fan.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My developer content recommendations</title>
+      <link>https://pen-y-fan.github.io/2022/mm/dd/my-developer-content-recommendations/</link>
+      <pubDate>Sun, 21 Aug 2022 19:18:05 +0100</pubDate>
+      
+      <guid>https://pen-y-fan.github.io/2022/mm/dd/my-developer-content-recommendations/</guid>
+      <description>This is my curated and opinionated list on how I try to keep up to date with what&amp;rsquo;s going on in software development and in particular PHP.</description>
+    </item>
+    
     <item>
       <title>How to Install NGINX Unit on WSL 2 (Ubuntu)</title>
       <link>https://pen-y-fan.github.io/2022/07/26/how-to-install-nginx-unit-on-wsl-2-ubuntu/</link>
