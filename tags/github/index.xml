@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>:copyright: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</copyright>
-    <lastBuildDate>Mon, 25 Jul 2022 18:52:06 +0100</lastBuildDate><atom:link href="https://pen-y-fan.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 06 Nov 2022 17:22:22 +0000</lastBuildDate><atom:link href="https://pen-y-fan.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to set up and configure Git for use with GitHub</title>
+      <link>https://pen-y-fan.github.io/2022/11/06/how-to-set-up-and-configure-git-for-use-with-github/</link>
+      <pubDate>Sun, 06 Nov 2022 17:22:22 +0000</pubDate>
+      
+      <guid>https://pen-y-fan.github.io/2022/11/06/how-to-set-up-and-configure-git-for-use-with-github/</guid>
+      <description>I recently had to set up git on a new machine, these are the basic steps required to install and configure Git to work with GitHub</description>
+    </item>
+    
     <item>
       <title>Migrating my Hexo blog to Hugo</title>
       <link>https://pen-y-fan.github.io/2022/07/25/migrating-my-hexo-blog-to-hugo/</link>

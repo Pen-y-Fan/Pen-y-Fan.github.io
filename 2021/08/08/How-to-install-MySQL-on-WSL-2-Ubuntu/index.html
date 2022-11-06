@@ -104,7 +104,7 @@
     "keywords": ["Windows","WSL2","MySQL","Resource"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "1348"
+    "wordCount": "1414"
   }]
   </script>
 
@@ -357,9 +357,8 @@ on the Linux server will rename the lower case table names generated on Windows 
 not support this feature. I therefore have to manually rename the lower case table names for Fluent to Pascal case. By
 using MySQL on WSL 2 I get around this problem. I still get the benefit of Laragon for Apache, PHP, Node, HeidiSQL etc.</p>
 <h2 id="update-wsl-2-ubuntu" class="relative group">Update WSL 2 Ubuntu <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#update-wsl-2-ubuntu" aria-label="Anchor">#</a></span></h2>
-<ul>
-<li></li>
-</ul>
+<p>-
+Source: <a href="https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-database">Get started with databases on Windows Subsystem for Linux</a></p>
 <p>Open your WSL terminal (ie. Ubuntu).</p>
 <p>Fetch the latest updates and upgrade</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo apt update <span class="o">&amp;&amp;</span> sudo apt upgrade
@@ -446,9 +445,8 @@ strong password and no external access allowed.</p>
 </blockquote>
 <h2 id="allow-remote-access" class="relative group">Allow remote access <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#allow-remote-access" aria-label="Anchor">#</a></span></h2>
 <p>Allow the root user to assess the database using basic username and password authentication (no certificate required).</p>
-<ul>
-<li></li>
-</ul>
+<p>-
+Source <a href="https://stackoverflow.com/questions/58905555/cannot-connect-to-mysql-database-running-on-wsl2-from-windows-desktop-applicat">SO - Cannot connect to MySQL database (running on WSL2) from Windows Desktop Application “MySQL Workbench”</a></p>
 <p>From the MySQL prompt run:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">ALTER</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">USER</span><span class="w"> </span><span class="s1">&#39;root&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span><span class="w"> </span><span class="n">IDENTIFIED</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="n">mysql_native_password</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;root&#39;</span><span class="p">;</span><span class="w">
@@ -491,9 +489,8 @@ strong password and no external access allowed.</p>
 <h2 id="change-the-default-port" class="relative group">Change the default port <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#change-the-default-port" aria-label="Anchor">#</a></span></h2>
 <p>MySQL running in Windows (installed by Laragon) and MySQL WSL Ubuntu can not run at the same time using the same port (
 default 3306), one will need to be changed to avoid conflicts.</p>
-<ul>
-<li></li>
-</ul>
+<p>-
+source <a href="https://askubuntu.com/questions/1120540/how-to-change-mysql8-0-default-port">AskUbuntu - How to change mysql8.0 default port</a></p>
 <p>Open your WSL terminal (ie. Ubuntu).</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo nano /etc/mysql/my.cnf
 </span></span></code></pre></div><p>Add these lines to use post 33061:</p>
@@ -650,9 +647,8 @@ directory                                                                       
 </ul>
 </blockquote>
 <p>To fix the error with <strong>/nonexistent</strong> directory:</p>
-<ul>
-<li></li>
-</ul>
+<p>-
+Source <a href="https://serverfault.com/questions/755763/mysql-nonexistent-home-vs-no-directory-logging-in-with-home/942422">serverfault.com - MySQL /nonexistent home vs “No directory, logging in with HOME=/”</a></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo service mysql stop
 </span></span><span class="line"><span class="cl">sudo usermod -d /var/lib/mysql/ mysql
 </span></span><span class="line"><span class="cl">sudo service mysql start
@@ -666,9 +662,8 @@ directory                                                                       
 </blockquote>
 <p>This error happened when I tried to set port=33060, the MySQL server failed to restart, which I way I used 33061 😉</p>
 <h3 id="check-the-port" class="relative group">Check the port <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#check-the-port" aria-label="Anchor">#</a></span></h3>
-<ul>
-<li></li>
-</ul>
+<p>-
+source: <a href="https://serverfault.com/questions/116100/how-to-check-what-port-mysql-is-running-on">ServerFault - How to check what port mysql is running on</a></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">mysql -u root -p
 </span></span></code></pre></div><p>Enter the root password set earlier (e.g. <strong>root</strong>)</p>
 <p>From the <code>mysql&gt;</code> prompt:</p>

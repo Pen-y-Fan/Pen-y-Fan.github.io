@@ -15,8 +15,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>My developer content recommendations &middot; Pen-y-Fan</title>
-    <meta name="title" content="My developer content recommendations &middot; Pen-y-Fan" />
+  <title>How to set up and configure Git for use with GitHub &middot; Pen-y-Fan</title>
+    <meta name="title" content="How to set up and configure Git for use with GitHub &middot; Pen-y-Fan" />
   
   
   
@@ -24,7 +24,7 @@
     <meta name="robots" content="all" />
   
   
-  <link rel="canonical" href="https://pen-y-fan.github.io/2022/08/21/my-developer-content-recommendations/" />
+  <link rel="canonical" href="https://pen-y-fan.github.io/2022/11/06/how-to-set-up-and-configure-git-for-use-with-github/" />
   
   
   
@@ -67,17 +67,17 @@
   
   
   
-  <meta property="og:title" content="My developer content recommendations" />
-<meta property="og:description" content="This is my curated and opinionated list on how I try to keep up to date with what&rsquo;s going on in software development and in particular PHP." />
+  <meta property="og:title" content="How to set up and configure Git for use with GitHub" />
+<meta property="og:description" content="I recently had to set up git on a new machine, these are the basic steps required to install and configure Git to work with GitHub" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://pen-y-fan.github.io/2022/08/21/my-developer-content-recommendations/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-08-21T19:18:05+01:00" />
-<meta property="article:modified_time" content="2022-08-21T19:18:05+01:00" /><meta property="og:site_name" content="Pen-y-Fan" />
+<meta property="og:url" content="https://pen-y-fan.github.io/2022/11/06/how-to-set-up-and-configure-git-for-use-with-github/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-11-06T17:22:22+00:00" />
+<meta property="article:modified_time" content="2022-11-06T17:22:22+00:00" /><meta property="og:site_name" content="Pen-y-Fan" />
 
 
   <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="My developer content recommendations"/>
-<meta name="twitter:description" content="This is my curated and opinionated list on how I try to keep up to date with what&rsquo;s going on in software development and in particular PHP."/>
+<meta name="twitter:title" content="How to set up and configure Git for use with GitHub"/>
+<meta name="twitter:description" content="I recently had to set up git on a new machine, these are the basic steps required to install and configure Git to work with GitHub"/>
 
   
   <script type="application/ld+json">
@@ -85,26 +85,26 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "My developer content recommendations",
-    "headline": "My developer content recommendations",
+    "name": "How to set up and configure Git for use with GitHub",
+    "headline": "How to set up and configure Git for use with GitHub",
     
-    "abstract": "This is my curated and opinionated list on how I try to keep up to date with what\u0026rsquo;s going on in software development and in particular PHP.",
+    "abstract": "I recently had to set up git on a new machine, these are the basic steps required to install and configure Git to work with GitHub",
     "inLanguage": "en",
-    "url" : "https:\/\/pen-y-fan.github.io\/2022\/08\/21\/my-developer-content-recommendations\/",
+    "url" : "https:\/\/pen-y-fan.github.io\/2022\/11\/06\/how-to-set-up-and-configure-git-for-use-with-github\/",
     "author" : {
       "@type": "Person",
       "name": "Michael Pritchard (AKA Pen-y-Fan)"
     },
     "copyrightYear": "2022",
-    "dateCreated": "2022-08-21T19:18:05\u002b01:00",
-    "datePublished": "2022-08-21T19:18:05\u002b01:00",
+    "dateCreated": "2022-11-06T17:22:22\u002b00:00",
+    "datePublished": "2022-11-06T17:22:22\u002b00:00",
     
-    "dateModified": "2022-08-21T19:18:05\u002b01:00",
+    "dateModified": "2022-11-06T17:22:22\u002b00:00",
     
-    "keywords": ["PHP","Resource"],
+    "keywords": ["Git","GitHub","SSH","resource"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "714"
+    "wordCount": "809"
   }]
   </script>
 
@@ -229,7 +229,7 @@
     <header class="max-w-prose">
       
       <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        My developer content recommendations
+        How to set up and configure Git for use with GitHub
       </h1>
       <div class="mt-8 mb-12 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
         
@@ -264,7 +264,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2022-08-21 19:18:05 &#43;0100 BST">21 August 2022</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">4 mins</span>
+      <time datetime="2022-11-06 17:22:22 &#43;0000 UTC">6 November 2022</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">4 mins</span>
     
 
     
@@ -292,18 +292,14 @@
   >
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#podcasts">Podcasts</a></li>
-    <li><a href="#newsletters">Newsletters</a></li>
-    <li><a href="#youtube">YouTube</a>
-      <ul>
-        <li><a href="#regularly-watched">Regularly watched</a></li>
-        <li><a href="#periodically-watched">Periodically watched</a></li>
-      </ul>
-    </li>
-    <li><a href="#streaming">Streaming</a></li>
-    <li><a href="#learning">Learning</a></li>
-    <li><a href="#documentation">Documentation</a></li>
-    <li><a href="#summary">Summary</a></li>
+    <li><a href="#install-git">Install git</a></li>
+    <li><a href="#configure-your-user-account">Configure your user account</a></li>
+    <li><a href="#set-the-default-branch-name">Set the default branch name</a></li>
+    <li><a href="#add-an-ssh-key">Add an SSH key</a></li>
+    <li><a href="#setup-a-global-gitignore">Setup a global .gitignore</a></li>
+    <li><a href="#set-the-default-editor">Set the default editor</a></li>
+    <li><a href="#mac-and-linux">Mac and Linux</a></li>
+    <li><a href="#further-options">Further options</a></li>
   </ul>
 </nav>
   </div>
@@ -326,106 +322,136 @@
       <img
         class="my-0 rounded-md"
         srcset="
-          /2022/08/21/my-developer-content-recommendations/images/alexander-schimmeck-Aohf8gqa7Zc-unsplash_hu34afc00c9c36b56b9c5dac8a04fefd67_1411975_330x0_resize_q75_box.jpg 330w,
-          /2022/08/21/my-developer-content-recommendations/images/alexander-schimmeck-Aohf8gqa7Zc-unsplash_hu34afc00c9c36b56b9c5dac8a04fefd67_1411975_660x0_resize_q75_box.jpg 660w,
-          /2022/08/21/my-developer-content-recommendations/images/alexander-schimmeck-Aohf8gqa7Zc-unsplash_hu34afc00c9c36b56b9c5dac8a04fefd67_1411975_1024x0_resize_q75_box.jpg 1024w,
-          /2022/08/21/my-developer-content-recommendations/images/alexander-schimmeck-Aohf8gqa7Zc-unsplash_hu34afc00c9c36b56b9c5dac8a04fefd67_1411975_1320x0_resize_q75_box.jpg 2x"
-        src="/2022/08/21/my-developer-content-recommendations/images/alexander-schimmeck-Aohf8gqa7Zc-unsplash_hu34afc00c9c36b56b9c5dac8a04fefd67_1411975_660x0_resize_q75_box.jpg"
-        alt="Ecuador Provinz Pichincha"
+          /2022/11/06/how-to-set-up-and-configure-git-for-use-with-github/images/roman-synkevych-wX2L8L-fGeA-unsplash_hu05bbc713fbac683e943f7daf5a88f075_1208353_330x0_resize_q75_box.jpg 330w,
+          /2022/11/06/how-to-set-up-and-configure-git-for-use-with-github/images/roman-synkevych-wX2L8L-fGeA-unsplash_hu05bbc713fbac683e943f7daf5a88f075_1208353_660x0_resize_q75_box.jpg 660w,
+          /2022/11/06/how-to-set-up-and-configure-git-for-use-with-github/images/roman-synkevych-wX2L8L-fGeA-unsplash_hu05bbc713fbac683e943f7daf5a88f075_1208353_1024x0_resize_q75_box.jpg 1024w,
+          /2022/11/06/how-to-set-up-and-configure-git-for-use-with-github/images/roman-synkevych-wX2L8L-fGeA-unsplash_hu05bbc713fbac683e943f7daf5a88f075_1208353_1320x0_resize_q75_box.jpg 2x"
+        src="/2022/11/06/how-to-set-up-and-configure-git-for-use-with-github/images/roman-synkevych-wX2L8L-fGeA-unsplash_hu05bbc713fbac683e943f7daf5a88f075_1208353_660x0_resize_q75_box.jpg"
+        alt="white and black concrete building"
       />
-      <figcaption>Ecuador Provinz Pichincha</figcaption>
+      <figcaption>3d octocat</figcaption>
     </figure>
   
 
 
 Photo
-by <a href="https://unsplash.com/@alschim?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Alexander Schimmeck</a>
-on <a href="https://unsplash.com/s/photos/hugo?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>.</p>
-<p>This is my curated and opinionated list of what works for me, on how I try to keep up to date with what&rsquo;s going on in
-software development and in particular PHP.</p>
-<h2 id="podcasts" class="relative group">Podcasts <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#podcasts" aria-label="Anchor">#</a></span></h2>
-<p>I listen to a podcast every breakfast, I use the <a href="https://pocketcasts.com/">Pocket Casts</a> Android app, which does an
-excellent job downloading and playing my podcast selection. According to the stats I&rsquo;ve listened to 13 days and 17 hours
-of podcasts!</p>
+by <a href="https://unsplash.com/@synkevych?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Roman Synkevych 🇺🇦</a>
+on <a href="https://unsplash.com/s/photos/octocat?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>.</p>
+<div class="!mb-9 text-xl lead">
+  I recently installed <strong>git</strong> on a new machine, the basic installation is painless, especially
+with <a href="https://laragon.org">Laragon</a>. however, there are some additional steps required to configure git to work with
+GitHub. Notably adding an <strong>ssh</strong> key, setting the default branch to <strong>main</strong>, setting your <strong>no-reply email</strong>, code
+editor to <strong>VS Code</strong> and adding a global <strong>.gitignore</strong>.
+</div>
+
+<h2 id="install-git" class="relative group">Install git <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#install-git" aria-label="Anchor">#</a></span></h2>
 <ul>
-<li><a href="https://lists.pocketcasts.com/cae268b6-19f9-4c9a-a15c-7eaca12a8b3c">Pocket cast - Dev and F1 podcasts 2022</a> - my list
-of 20 podcasts.</li>
+<li><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">install git manual</a></li>
 </ul>
-<h2 id="newsletters" class="relative group">Newsletters <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#newsletters" aria-label="Anchor">#</a></span></h2>
-<p>I subscribe to three newsletters, as you would expect many of the news is the same across the three, but each does have
-a different slant. It doesn&rsquo;t take long to skim the similar content, they all have news, articles and tips.</p>
+<p>On Windows, my local development of choice is <a href="https://laragon.org">Laragon</a>. Once Laragon is installed git is
+available from the command line using <strong>cmdr</strong>. To use other terminals
+simply <a href="https://laragon.org/docs/isolated.html">Add Laragon to PATH</a>.</p>
+<h2 id="configure-your-user-account" class="relative group">Configure your user account <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#configure-your-user-account" aria-label="Anchor">#</a></span></h2>
+<p>Before any commits can be pushed you need to set your user account. Normally this would be your account and email
+address. When you push a project your email is public! This can lead to <em><strong>spam</strong></em> 😔. GitHub gives us a no-reply
+email address, which prevents our email from being exposed publicly.</p>
+<p>To find your ID and USERNAME open <a href="https://github.com/settings/emails">GitHub &gt; settings &gt; emails</a>, tick the option:</p>
 <ul>
-<li><a href="https://laravel-news.com/newsletter">Laravelnews newsletter</a> is well worth Laravel developers subscribing</li>
-<li><a href="https://laraveldaily.com/weekly-laravel-newsletter/">Laraveldaily weekly Laravel newsletter</a> is also worthy for
-Laravel developers</li>
-<li><a href="https://www.phpweekly.com/">PHP Weekly</a> is another good newsletter to sign up for more PHP news too.</li>
+<li>☑️ Keep my email addresses private&hellip;.</li>
 </ul>
-<h2 id="youtube" class="relative group">YouTube <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#youtube" aria-label="Anchor">#</a></span></h2>
-<p>I have over 100 subscriptions, here are some noteworthy dev-related ones.</p>
-<h3 id="regularly-watched" class="relative group">Regularly watched <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#regularly-watched" aria-label="Anchor">#</a></span></h3>
-<p>These are channels I have the <strong>bell</strong> icon notification and try to watch soon after receiving:</p>
+<p>Under this tick box is a paragraph:</p>
+<p>We’ll remove your public profile email and use <strong>ID+NAME@ users.noreply.github.com</strong> when performing web-based Git
+operations&hellip;</p>
+<p>Copy the email (e.g. <a href="mailto:12345678+Pen-y-Fan@users.noreply.github.com">12345678+Pen-y-Fan@users.noreply.github.com</a>) from your id number.</p>
+<p>Your USERNAME should be exactly as it is displayed on GitHub, including any capitalisation.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git config --global user.name <span class="s2">&#34;USERNAME&#34;</span>
+</span></span><span class="line"><span class="cl">git config --global user.email <span class="s2">&#34;ID+NAME@users.noreply.github.com&#34;</span>
+</span></span></code></pre></div><p>Once you set your config you can verify the settings using:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git config --global -l
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">user.name=USERNAME
+</span></span><span class="line"><span class="cl">user.email=ID+USERNAME@users.noreply.github.com
+</span></span></code></pre></div><p>Remember to tick the option ☑️ Keep my email addresses private.</p>
+<p>More
+details: <a href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address">Setting your commit email address</a></p>
+<h2 id="set-the-default-branch-name" class="relative group">Set the default branch name <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#set-the-default-branch-name" aria-label="Anchor">#</a></span></h2>
+<p>When you <code>git init</code> a new repo, the default branch should be <strong>main</strong> or <strong>trunk</strong>, this can be set in git:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git config --global init.defaultBranch main
+</span></span></code></pre></div><p>You can check the global config:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git config --global -l
+</span></span></code></pre></div><p>You should see:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">init.defaultbranch=main
+</span></span></code></pre></div><p>Background
+information <a href="https://www.bbc.co.uk/news/technology-53050955">GitHub abandons &lsquo;master&rsquo; term to avoid slavery row</a>.</p>
+<h2 id="add-an-ssh-key" class="relative group">Add an SSH key <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#add-an-ssh-key" aria-label="Anchor">#</a></span></h2>
+<p>An SSH key allows you to pull and push code using an ssh key generated by your computer and the public key uploaded to
+GitHub. It is much easier, especially if you use two-factor authentication.</p>
+<p>If you are using Laragon, SSH is installed, otherwise, it will be installed with git.</p>
+<p>Create an SSH key:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ssh-keygen -t ed25519 -C <span class="s2">&#34;your_email@example.com&#34;</span>
+</span></span></code></pre></div><p>If you wish to enter a <strong>passphrases</strong> enter your phrase twice, otherwise press enter for no phrase.
+Details: <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases">Working with SSH key passphrases</a></p>
+<p>The key will generate several files and save them to a .ssh directory under in your profile. Change directory to the
+folder:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">cd</span> %USERPROFILE%<span class="se">\.</span>ssh
+</span></span></code></pre></div><p>Copy the <strong>id_ed25519.pub</strong> to clipboard:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">clip &lt; id_ed25519.pub
+</span></span></code></pre></div><p>Open GitHub and navigate
+to <a href="https://github.com/settings/keys">GitHub &gt; settings &gt; SSH keys, New SSH key</a>, give it a title,
+normally your computer name and paste in the key.</p>
+<p>Back to your command line:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ssh -T git@github.com
+</span></span></code></pre></div><p>If all is successfully you should get a message like:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Hi your-username! You&#39;ve successfully authenticated, but GitHub 
+</span></span><span class="line"><span class="cl">does not provide shell access.
+</span></span></code></pre></div><p>More information and troubleshooting SSH:
+<a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">Generating a new SSH key and adding it to the ssh-agent</a>
+and <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account">Adding a new SSH key to your GitHub account</a></p>
+<h2 id="setup-a-global-gitignore" class="relative group">Setup a global .gitignore <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#setup-a-global-gitignore" aria-label="Anchor">#</a></span></h2>
 <ul>
-<li><a href="https://www.youtube.com/c/LaravelDaily/videos">Laraveldaily</a> with over 100k subscribers, with short daily tips and
-posts about Laravel. The daily videos are on my notifications and I watch them every day!</li>
-<li><a href="https://www.youtube.com/c/StefanMischook/videos">Stefan Mischook</a>, over 200k subscribers, good tips for new
-developers wanting to learn how to start, he has his own <a href="https://www.studioweb.com/">Studio web</a> site which is
-promoted</li>
-<li><a href="https://www.youtube.com/user/BrenDtRoose/videos">Brent Roose</a>, Brent used to work for Spatie, now a developer
-advocate for PhpStorm, I&rsquo;ve enjoyed the recent series on Generics</li>
+<li>Source: <a href="https://sebastiandedeyne.com/setting-up-a-global-gitignore-file/">Setting up a global .gitignore file</a></li>
 </ul>
-<h3 id="periodically-watched" class="relative group">Periodically watched <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#periodically-watched" aria-label="Anchor">#</a></span></h3>
-<p>These are channels I periodically monitor, when I want to cheery pick something interesting to watch I have so many
-choices (alphabetical)</p>
+<p>TL&amp;DR;</p>
+<p>When editing other projects your IDE config should not pollute the other project. It could also leak sensitive
+information! That project&rsquo;s .gitignore should not care about your IDE.</p>
+<p>First create a .gitignore file. Your profile is a good place, it could also be in the laragon user setting e.g.
+C:\laragon\usr\bin\.gitignore</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">notepad %USERPROFILE%<span class="se">\.</span>gitignore
+</span></span></code></pre></div><p>To ignore a Jet Brains IDE (such as PhpStorm), VSCode and any picture thumbs, add the following to the .gitignore:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="na">.idea</span>
+</span></span><span class="line"><span class="cl"><span class="na">.vscode</span>
+</span></span><span class="line"><span class="cl"><span class="na">Thumbs.db</span>
+</span></span></code></pre></div><p>Add any other files, as per your local environment. e.g. <code>.DS_Store</code> on a mac.</p>
+<p>Save the file, then add it to your global git config:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git config --global core.excludesfile %USERPROFILE%<span class="se">\.</span>gitignore
+</span></span></code></pre></div><p>From now on when you open any project, with your IDE or code editor, your IDE config folder will be ignored by git
+version control.</p>
+<p>You can check the global config:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git config --global -l
+</span></span></code></pre></div><p>The output should include this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">core.excludesfile=C:\Users\WINDOWS-USERNAME\.gitignore
+</span></span></code></pre></div><h2 id="set-the-default-editor" class="relative group">Set the default editor <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#set-the-default-editor" aria-label="Anchor">#</a></span></h2>
 <ul>
-<li><a href="https://www.youtube.com/c/AndySterkowitz/videos">Andy Sterkowitz</a> has some great information and tips</li>
-<li><a href="https://www.youtube.com/c/derekbanas">Derek Banas</a>, over 1.1M subscribers, there are some detailed beginner courses
-on many languages, including the source code! I&rsquo;ve just started watching the 3h 49m Golang course, out of interest</li>
-<li><a href="https://www.youtube.com/c/DerickRethansXdebug/videos">Derick Rethans</a> is the author of Xdebug, if you want to know
-about Xdebug then these videos are a must-watch</li>
-<li><a href="https://www.youtube.com/user/freekspatie">Freek Van der Herten</a> of <a href="https://spatie.be/open-source">spatie.be</a> used to
-host a monthly Laravel Worldwide Meetup, they are some great videos!</li>
-<li><a href="https://www.youtube.com/channel/UC8butISFwT-Wl7EV0hUK0BQ">freeCodeCamp.org </a> over 6m subs! This site has courses on
-just about anything software related</li>
-<li><a href="https://www.youtube.com/c/LaraconOnline/videos">Laracon Online</a> from 2017 to now the Laracon online talks</li>
-<li><a href="https://www.youtube.com/c/LaraconEU/videos">Laracon EU</a> from 2013 to now all the Laracon EU conference</li>
-<li><a href="https://www.youtube.com/c/LaraconAU/videos">LaraconAU</a> some videos from 2020 Laracon AU conference</li>
-<li><a href="https://www.youtube.com/c/NomadPHP/videos">NomadPHP</a> includes the Midwest PHP 2021 conference talks</li>
-<li><a href="https://www.youtube.com/channel/UCzQRSSaIV2Ajvl81BxPQDZA/videos">PHP South Wales</a> my local meetup even includes some
-talks by me 😀</li>
-<li><a href="https://www.youtube.com/c/PHPSouthWestUK/videos">PHP South West UK</a> meetup group from Bristol talks going back to
-2015.</li>
-<li><a href="https://www.youtube.com/c/phpukconference/videos">PHP UK Conference</a> talks from PHP UK London going back to 2012.</li>
-<li><a href="https://www.youtube.com/c/SiliconBrighton/videos">Silicon Brighton</a>, only 0.5k subs, but some great talks! I&rsquo;ve been
-recently enjoying it. This channel included the PHP Sussex meetup group&rsquo;s online videos</li>
-<li><a href="https://www.youtube.com/c/SteveGriffith-Prof3ssorSt3v3/videos">Steve Griffith - Prof3ssorSt3v3</a> I&rsquo;ve found the videos
-on CSS and Javascript to be well explained</li>
-<li><a href="https://www.youtube.com/c/TraversyMedia/videos">TraversyMedia</a> over 1.9M subs, the videos are well explained in a
-variety of software languages</li>
+<li>Source: <a href="https://dev.to/deadlybyte/make-vs-code-your-default-git-editor-j6d">Make VS Code Your Default Git Editor</a></li>
 </ul>
-<h2 id="streaming" class="relative group">Streaming <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#streaming" aria-label="Anchor">#</a></span></h2>
-<ul>
-<li><a href="https://larastreamers.com/archive">larastreamers archive</a> has links to many recently streamed channels, the home page
-displays upcoming streams</li>
-</ul>
-<h2 id="learning" class="relative group">Learning <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#learning" aria-label="Anchor">#</a></span></h2>
-<p>I have found <a href="https://laracasts.com/">Laracasts</a> to be one of the best Laravel and PHP tutorial sites around, I now
-understand the reason many people recommend it! The quality to top draw. I have not only watched over 400 episodes in
-the last 8 months. I have put much of the information into practice!</p>
-<h2 id="documentation" class="relative group">Documentation <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#documentation" aria-label="Anchor">#</a></span></h2>
-<ul>
-<li><a href="https://www.php.net/manual">PHP manual</a>, even after using PHP for years, the docs are frequently checked</li>
-<li><a href="https://laravel.com/docs">Laravel documentation</a> if you are doing anything with Laravel review and bookmark the docs,
-they are invaluable</li>
-<li><a href="https://filamentphp.com/docs">Filament</a> I&rsquo;ve found filament admin, tables and forms to be brilliant to work with,
-the documentation is superb</li>
-<li><a href="https://laravel-livewire.com/docs">Livewire</a> is well worth a review before starting any Laravel-Livewire projects</li>
-<li><a href="https://alpinejs.dev">Alpinejs</a> for all the sprinkles that modern websites need take a look at Alpine docs</li>
-<li><a href="https://tailwindcss.com/docs">Tailwindcss</a> docs for the utility-first CSS framework, a must-read and bookmark</li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web">Mozilla Developer Network MDN</a> this guide and documentation is
-first class for all things web, HTML, CSS, Javascript and many more</li>
-</ul>
-<h2 id="summary" class="relative group">Summary <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#summary" aria-label="Anchor">#</a></span></h2>
-<p>I hope others find this curated and opinionated list useful</p>
+<p>By default, git uses the <strong>vim</strong> editor, if you ever get stuck in vim type <code>:q!</code>.</p>
+<p>You can choose any default editor, to change to VS code:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git config --global core.editor <span class="s2">&#34;code --wait&#34;</span>
+</span></span></code></pre></div><p>You can check the global config:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git config --global -l
+</span></span></code></pre></div><p>The full output should look similar to this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">init.defaultbranch=main
+</span></span><span class="line"><span class="cl">user.name=Pen-y-Fan
+</span></span><span class="line"><span class="cl">user.email=12345678+Pen-y-Fan@users.noreply.github.com
+</span></span><span class="line"><span class="cl">core.excludesfile=C:\Users\michal\.gitignore
+</span></span><span class="line"><span class="cl">core.editor=code --wait
+</span></span></code></pre></div><h2 id="mac-and-linux" class="relative group">Mac and Linux <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#mac-and-linux" aria-label="Anchor">#</a></span></h2>
+<p>For Mac and Linux users most of the commands are the same, the profile directories will be different (e.g. ~/.ssh/
+and ~/.gitignore), see the links for further information, many have the exact commends per OS.</p>
+<h2 id="further-options" class="relative group">Further options <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#further-options" aria-label="Anchor">#</a></span></h2>
+<p>You may also
+consider <a href="https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication">enabling 2FA</a>
+or
+even <a href="https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification">commit signature verification</a>.</p>
 
       </div>
     </section>
@@ -546,7 +572,7 @@ first class for all things web, HTML, CSS, Javascript and many more</li>
       
         <a
           class="bg-neutral-300 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800 m-1 hover:bg-primary-500 hover:text-neutral rounded min-w-[2.4rem] inline-block text-center p-1"
-          href="https://www.facebook.com/sharer/sharer.php?u=https://pen-y-fan.github.io/2022/08/21/my-developer-content-recommendations/&amp;quote=My%20developer%20content%20recommendations"
+          href="https://www.facebook.com/sharer/sharer.php?u=https://pen-y-fan.github.io/2022/11/06/how-to-set-up-and-configure-git-for-use-with-github/&amp;quote=How%20to%20set%20up%20and%20configure%20Git%20for%20use%20with%20GitHub"
           title="Share on Facebook"
           aria-label="Share on Facebook"
           >
@@ -563,7 +589,7 @@ first class for all things web, HTML, CSS, Javascript and many more</li>
       
         <a
           class="bg-neutral-300 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800 m-1 hover:bg-primary-500 hover:text-neutral rounded min-w-[2.4rem] inline-block text-center p-1"
-          href="https://twitter.com/intent/tweet/?url=https://pen-y-fan.github.io/2022/08/21/my-developer-content-recommendations/&amp;text=My%20developer%20content%20recommendations"
+          href="https://twitter.com/intent/tweet/?url=https://pen-y-fan.github.io/2022/11/06/how-to-set-up-and-configure-git-for-use-with-github/&amp;text=How%20to%20set%20up%20and%20configure%20Git%20for%20use%20with%20GitHub"
           title="Tweet on Twitter"
           aria-label="Tweet on Twitter"
           >
@@ -580,7 +606,7 @@ first class for all things web, HTML, CSS, Javascript and many more</li>
       
         <a
           class="bg-neutral-300 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800 m-1 hover:bg-primary-500 hover:text-neutral rounded min-w-[2.4rem] inline-block text-center p-1"
-          href="https://pinterest.com/pin/create/bookmarklet/?url=https://pen-y-fan.github.io/2022/08/21/my-developer-content-recommendations/&amp;description=My%20developer%20content%20recommendations"
+          href="https://pinterest.com/pin/create/bookmarklet/?url=https://pen-y-fan.github.io/2022/11/06/how-to-set-up-and-configure-git-for-use-with-github/&amp;description=How%20to%20set%20up%20and%20configure%20Git%20for%20use%20with%20GitHub"
           title="Pin on Pinterest"
           aria-label="Pin on Pinterest"
           >
@@ -597,7 +623,7 @@ first class for all things web, HTML, CSS, Javascript and many more</li>
       
         <a
           class="bg-neutral-300 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800 m-1 hover:bg-primary-500 hover:text-neutral rounded min-w-[2.4rem] inline-block text-center p-1"
-          href="https://reddit.com/submit/?url=https://pen-y-fan.github.io/2022/08/21/my-developer-content-recommendations/&amp;resubmit=true&amp;title=My%20developer%20content%20recommendations"
+          href="https://reddit.com/submit/?url=https://pen-y-fan.github.io/2022/11/06/how-to-set-up-and-configure-git-for-use-with-github/&amp;resubmit=true&amp;title=How%20to%20set%20up%20and%20configure%20Git%20for%20use%20with%20GitHub"
           title="Submit to Reddit"
           aria-label="Submit to Reddit"
           >
@@ -614,7 +640,7 @@ first class for all things web, HTML, CSS, Javascript and many more</li>
       
         <a
           class="bg-neutral-300 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800 m-1 hover:bg-primary-500 hover:text-neutral rounded min-w-[2.4rem] inline-block text-center p-1"
-          href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://pen-y-fan.github.io/2022/08/21/my-developer-content-recommendations/&amp;title=My%20developer%20content%20recommendations"
+          href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://pen-y-fan.github.io/2022/11/06/how-to-set-up-and-configure-git-for-use-with-github/&amp;title=How%20to%20set%20up%20and%20configure%20Git%20for%20use%20with%20GitHub"
           title="Share on LinkedIn"
           aria-label="Share on LinkedIn"
           >
@@ -631,7 +657,7 @@ first class for all things web, HTML, CSS, Javascript and many more</li>
       
         <a
           class="bg-neutral-300 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800 m-1 hover:bg-primary-500 hover:text-neutral rounded min-w-[2.4rem] inline-block text-center p-1"
-          href="mailto:?body=https://pen-y-fan.github.io/2022/08/21/my-developer-content-recommendations/&amp;subject=My%20developer%20content%20recommendations"
+          href="mailto:?body=https://pen-y-fan.github.io/2022/11/06/how-to-set-up-and-configure-git-for-use-with-github/&amp;subject=How%20to%20set%20up%20and%20configure%20Git%20for%20use%20with%20GitHub"
           title="Send via email"
           aria-label="Send via email"
           >
@@ -658,7 +684,7 @@ first class for all things web, HTML, CSS, Javascript and many more</li>
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group" href="/2022/07/26/how-to-install-nginx-unit-on-wsl-2-ubuntu/">
+            <a class="flex group" href="/2022/08/21/my-developer-content-recommendations/">
               <span
                 class="mr-3 ltr:inline rtl:hidden text-neutral-700 dark:text-neutral group-hover:text-primary-600 dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -670,11 +696,11 @@ first class for all things web, HTML, CSS, Javascript and many more</li>
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >How to Install NGINX Unit on WSL 2 (Ubuntu)</span
+                  >My developer content recommendations</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2022-07-26 22:13:24 &#43;0100 BST">26 July 2022</time>
+                    <time datetime="2022-08-21 19:18:05 &#43;0100 BST">21 August 2022</time>
                   
                 </span>
               </span>
@@ -682,28 +708,6 @@ first class for all things web, HTML, CSS, Javascript and many more</li>
           
         </span>
         <span>
-          
-            <a class="flex text-right group" href="/2022/11/06/how-to-set-up-and-configure-git-for-use-with-github/">
-              <span class="flex flex-col">
-                <span
-                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >How to set up and configure Git for use with GitHub</span
-                >
-                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
-                  
-                    <time datetime="2022-11-06 17:22:22 &#43;0000 UTC">6 November 2022</time>
-                  
-                </span>
-              </span>
-              <span
-                class="ml-3 ltr:inline rtl:hidden text-neutral-700 dark:text-neutral group-hover:text-primary-600 dark:group-hover:text-primary-400"
-                >&rarr;</span
-              >
-              <span
-                class="mr-3 ltr:hidden rtl:inline text-neutral-700 dark:text-neutral group-hover:text-primary-600 dark:group-hover:text-primary-400"
-                >&larr;</span
-              >
-            </a>
           
         </span>
       </div>
