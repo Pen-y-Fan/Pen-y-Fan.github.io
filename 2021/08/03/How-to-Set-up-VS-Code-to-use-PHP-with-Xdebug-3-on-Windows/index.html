@@ -1,1351 +1,168 @@
-
-
-<!DOCTYPE html>
-<html
-  lang="en"
-  dir="ltr"
-  class="scroll-smooth"
-  data-default-appearance="light"
-  data-auto-appearance="true"
-><head>
-  <meta charset="utf-8" />
-  
-    <meta http-equiv="content-language" content="en" />
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  
-  <title>How to Set up VS Code to use PHP with Xdebug 3 on Windows &middot; Pen-y-Fan</title>
-    <meta name="title" content="How to Set up VS Code to use PHP with Xdebug 3 on Windows &middot; Pen-y-Fan" />
-  
-  
-  
-  
-    <meta name="robots" content="all" />
-  
-  
-  <link rel="canonical" href="https://pen-y-fan.github.io/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/" />
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <link
-    type="text/css"
-    rel="stylesheet"
-    href="/css/main.bundle.min.2a198fa5624ee1e740791878e7603321e05ce274c740ab7814cb3ac05da1f7b3a58f8377c3715cdf3bfb423acd3275b43658698b04fd8f4fe8275ea2c3e8409d.css"
-    integrity="sha512-KhmPpWJO4edAeRh452AzIeBc4nTHQKt4FMs6wF2h97Olj4N3w3Fc3zv7QjrNMnW0NlhpiwT9j0/oJ16iw&#43;hAnQ=="
-  />
-  
-  
-  <script type="text/javascript" src="/js/appearance.min.badab316c9287a5a42a843e4eb45da65bb3d194a5a0f5fa4a3e516160e67df0b8c65f4f19a8e146436e29d583699e6cb41d6bbe99e05e1dbaa877763bad9f8e2.js" integrity="sha512-utqzFskoelpCqEPk60XaZbs9GUpaD1&#43;ko&#43;UWFg5n3wuMZfTxmo4UZDbinVg2mebLQda76Z4F4duqh3djutn44g=="></script>
-  
-  
-    
-    
-  
-  
-  
-    
-    <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.9947db70e5b36e741e53f8531bd734741b3fc7a688f7b5d749fc5433c48efc252f47bdf44e471570a550fc051b87712799014040e6349b38d64448b94e84e45a.js" integrity="sha512-mUfbcOWzbnQeU/hTG9c0dBs/x6aI97XXSfxUM8SO/CUvR730TkcVcKVQ/AUbh3EnmQFAQOY0mzjWREi5ToTkWg==" data-copy="Copy" data-copied="Copied"></script>
-  
-  
-  
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
-  
-  
-  
-  
-  
-  
-  
-  <meta property="og:title" content="How to Set up VS Code to use PHP with Xdebug 3 on Windows" />
-<meta property="og:description" content="VS Code with PHP and Xdebug 3 Xdebug 3 is an extremely powerful debugging tool for PHP. Although print_r(), var_dump() and dd() have their uses, Xdebug gives more powerful debugging options: step debugging allows the ability to view execution of each line of code, including the ability to view all variables and their values. Code coverage is useful to identify untested code, or code which is never executed (dead code)." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://pen-y-fan.github.io/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-08-03T22:57:39+00:00" />
-<meta property="article:modified_time" content="2021-08-03T22:57:39+00:00" /><meta property="og:site_name" content="Pen-y-Fan" />
-
-
-  <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="How to Set up VS Code to use PHP with Xdebug 3 on Windows"/>
-<meta name="twitter:description" content="VS Code with PHP and Xdebug 3 Xdebug 3 is an extremely powerful debugging tool for PHP. Although print_r(), var_dump() and dd() have their uses, Xdebug gives more powerful debugging options: step debugging allows the ability to view execution of each line of code, including the ability to view all variables and their values. Code coverage is useful to identify untested code, or code which is never executed (dead code)."/>
-
-  
-  <script type="application/ld+json">
-  [{
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "articleSection": "Posts",
-    "name": "How to Set up VS Code to use PHP with Xdebug 3 on Windows",
-    "headline": "How to Set up VS Code to use PHP with Xdebug 3 on Windows",
-    
-    "abstract": "VS Code with PHP and Xdebug 3 Xdebug 3 is an extremely powerful debugging tool for PHP. Although print_r(), var_dump() and dd() have their uses, Xdebug gives more powerful debugging options: step debugging allows the ability to view execution of each line of code, including the ability to view all variables and their values. Code coverage is useful to identify untested code, or code which is never executed (dead code).",
-    "inLanguage": "en",
-    "url" : "https:\/\/pen-y-fan.github.io\/2021\/08\/03\/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows\/",
-    "author" : {
-      "@type": "Person",
-      "name": "Michael Pritchard (AKA Pen-y-Fan)"
-    },
-    "copyrightYear": "2021",
-    "dateCreated": "2021-08-03T22:57:39\u002b00:00",
-    "datePublished": "2021-08-03T22:57:39\u002b00:00",
-    
-    "dateModified": "2021-08-03T22:57:39\u002b00:00",
-    
-    "keywords": ["Windows","PHP","VS Code","Xdebug","Laragon","Resource","Standard Setup"],
-    
-    "mainEntityOfPage": "true",
-    "wordCount": "1900"
-  }]
-  </script>
-
-
-  
-  <meta name="author" content="Michael Pritchard (AKA Pen-y-Fan)" />
-  
-    
-      <link href="https://github.com/Pen-y-Fan" rel="me" />
-    
-      <link href="https://www.linkedin.com/in/michael-pritchard-340b4520/" rel="me" />
-    
-      <link href="https://www.reddit.com/user/Pen-y-Fan" rel="me" />
-    
-      <link href="https://twitter.com/MikeAPritch" rel="me" />
-    
-  
-  
-  
-
-
-
-
-
-
-  
-  
-  
-  
-
-
-  
-  
-</head>
-<body
-    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 bg-neutral text-neutral-900 sm:px-14 md:px-24 lg:px-32 dark:bg-neutral-800 dark:text-neutral max-w-7xl"
-  >
-    <div id="the-top" class="absolute flex self-center">
-      <a
-        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 dark:bg-neutral-600 focus:translate-y-0"
-        href="#main-content"
-        ><span class="font-bold ltr:pr-2 rtl:pl-2 text-primary-600 dark:text-primary-400"
-          >&darr;</span
-        >Skip to main content</a
-      >
-    </div>
-    
-    
-      <header class="py-6 font-semibold sm:py-10 text-neutral-900 dark:text-neutral print:hidden">
-  <nav class="flex justify-between">
-    
-    <div>
-      
-        
-          <a href="/">
-            <img
-              src="/img/logo-100x100.jpg"
-              width="50"
-              height="50"
-              class="max-w-[10rem] max-h-[10rem] object-scale-down object-left"
-              alt="Pen-y-Fan"
-            />
-          </a>
-        
-      
-      
-
-    </div>
-    
-    
-      <ul class="flex flex-col list-none ltr:text-right rtl:text-left sm:flex-row">
-        
-          
-            <li class="mb-1 sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
-              <a
-                class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
-                href="/posts/"
-                title="Posts"
-                >Blog</a
-              >
-            </li>
-          
-            <li class="mb-1 sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
-              <a
-                class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
-                href="/tags/"
-                title="Tags"
-                >Tags</a
-              >
-            </li>
-          
-            <li class="mb-1 sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
-              <a
-                class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
-                href="/about/"
-                title="About"
-                >About</a
-              >
-            </li>
-          
-            <li class="mb-1 sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
-              <a
-                class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
-                href="https://github.com/Pen-y-Fan"
-                title=""
-                >GitHub</a
-              >
-            </li>
-          
-        
-        
-      </ul>
-    
-  </nav>
-</header>
-
-    
-    <div class="relative flex flex-col grow">
-      <main id="main-content" class="grow">
-        
-  <article>
-    <header class="max-w-prose">
-      
-      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        How to Set up VS Code to use PHP with Xdebug 3 on Windows
-      </h1>
-      <div class="mt-8 mb-12 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
-        
-
-
-
-
-
-  
-  
-
-
-
-  
-
-  
-  
-    
-  
-
-  
-
-  
-
-  
-    
-  
-
-  
-
-
-  <div class="flex flex-row flex-wrap items-center">
-    
-    
-      <time datetime="2021-08-03 22:57:39 &#43;0000 UTC">3 August 2021</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">9 mins</span>
-    
-
-    
-    
-  </div>
-
-  
-  
-
-
-      </div>
-    </header>
-    <section class="flex flex-col max-w-full mt-0 prose lg:flex-row dark:prose-invert">
-      
-        <div class="order-first px-0 lg:max-w-xs ltr:lg:pl-8 rtl:lg:pr-8 lg:order-last">
-          <div class="ltr:pl-5 rtl:pr-5 toc lg:sticky lg:top-10 print:hidden">
-            <details open class="mt-0 overflow-hidden rounded-lg rtl:pr-5 ltr:pl-5 ltr:-ml-5 rtl:-mr-5">
-  <summary
-    class="block py-1 text-lg font-semibold cursor-pointer rtl:pr-5 ltr:pl-5 ltr:-ml-5 rtl:-mr-5 text-neutral-800 dark:text-neutral-100 lg:hidden bg-neutral-100 dark:bg-neutral-700"
-  >
-    Table of Contents
-  </summary>
-  <div
-    class="py-2 border-dotted ltr:border-l rtl:border-r rtl:pr-5 ltr:pl-5 ltr:-ml-5 rtl:-mr-5 border-neutral-300 dark:border-neutral-600"
-  >
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#install-laragon-for-windows">Install Laragon for Windows</a></li>
-    <li><a href="#add-xdebug-to-php">Add Xdebug to PHP</a></li>
-    <li><a href="#check-xdebug-using-laragon-web">Check Xdebug using Laragon Web</a></li>
-    <li><a href="#install-vs-code">Install VS Code</a>
-      <ul>
-        <li><a href="#add-xdebug-extension-for-vs-code">Add Xdebug extension for VS Code</a></li>
-        <li><a href="#configure-vs-code">Configure VS Code</a></li>
-      </ul>
-    </li>
-    <li><a href="#run-test-code-from-cli">Run test code from CLI</a></li>
-    <li><a href="#install-xdebug-helper-on-chrome">Install Xdebug helper on Chrome</a></li>
-    <li><a href="#debug-code-in-a-browser">Debug code in a browser</a>
-      <ul>
-        <li><a href="#debug-actions">Debug actions</a></li>
-      </ul>
-    </li>
-    <li><a href="#troubleshooting">Troubleshooting</a>
-      <ul>
-        <li><a href="#port-9003-is-in-use">Port 9003 is in use</a></li>
-        <li><a href="#php-cli-is-different-from-the-php-used-by-apache">PHP CLI is different from the PHP used by Apache</a></li>
-        <li><a href="#add-laragon-to-all-terminals">Add Laragon to all terminals</a></li>
-      </ul>
-    </li>
-    <li><a href="#further-information">Further information</a></li>
-  </ul>
-</nav>
-  </div>
-</details>
-
-          </div>
-        </div>
-      
-      <div class="min-w-0 min-h-0 max-w-prose">
-        <p>
-
-
-
-  
-  
-    
-  
-  
-    <figure>
-      <img
-        class="my-0 rounded-md"
-        srcset="
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/vs-code-with-php-and-xdebug-3_hub37676ac27d227d81a24cae73f0dfc72_315183_330x0_resize_box_3.png 330w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/vs-code-with-php-and-xdebug-3_hub37676ac27d227d81a24cae73f0dfc72_315183_660x0_resize_box_3.png 660w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/vs-code-with-php-and-xdebug-3_hub37676ac27d227d81a24cae73f0dfc72_315183_1024x0_resize_box_3.png 1024w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/vs-code-with-php-and-xdebug-3_hub37676ac27d227d81a24cae73f0dfc72_315183_1320x0_resize_box_3.png 2x"
-        src="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/vs-code-with-php-and-xdebug-3_hub37676ac27d227d81a24cae73f0dfc72_315183_660x0_resize_box_3.png"
-        alt="VS Code with PHP and Xdebug 3"
-      />
-      <figcaption>VS Code with PHP and Xdebug 3</figcaption>
-    </figure>
-  
-
-</p>
-<p>Xdebug 3 is an extremely powerful debugging tool for PHP. Although <code>print_r()</code>, <code>var_dump()</code> and <code>dd()</code> have their uses,
-Xdebug gives more powerful debugging options: <a href="https://xdebug.org/docs/step_debug">step debugging</a> allows the ability to
+<!doctype html><html lang=en dir=ltr class=scroll-smooth data-default-appearance=light data-auto-appearance=true><head><meta charset=utf-8><meta http-equiv=content-language content="en"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="rgb(255,255,255)"><meta http-equiv=x-ua-compatible content="ie=edge"><title>How to Set up VS Code to use PHP with Xdebug 3 on Windows &#183; Pen-y-Fan</title><meta name=title content="How to Set up VS Code to use PHP with Xdebug 3 on Windows &#183; Pen-y-Fan"><meta name=description content="VS Code with PHP and Xdebug 3 Xdebug 3 is an extremely powerful debugging tool for PHP. Although print_r(), var_dump() and dd() have their uses, Xdebug gives more powerful debugging options: step debugging allows the ability to view execution of each line of code, including the ability to view all variables and their values. Code coverage is useful to identify untested code, or code which is never executed (dead code)."><meta name=robots content="all"><link rel=canonical href=https://pen-y-fan.github.io/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/><link type=text/css rel=stylesheet href=/css/main.bundle.min.b15bed9c75c13ca3a738d365165ea777e34f367687cb02db8605dcf7786b76165f84c3f19f2c5d126d63d5597fe5ea155750bc6b0d4b822e90a9a8641b628437.css integrity="sha512-sVvtnHXBPKOnONNlFl6nd+NPNnaHywLbhgXc93hrdhZfhMPxnyxdEm1j1Vl/5eoVV1C8aw1Lgi6QqahkG2KENw=="><script type=text/javascript src=/js/appearance.min.1e44157c1e51b46341ce2c94716dd3dd1ef30c28e7d1c9f3b9db80877bfe72bc66b00d8a662f317840016acbed93c5f18c3d9268c8b957021ee74d0b04adf6c5.js integrity="sha512-HkQVfB5RtGNBziyUcW3T3R7zDCjn0cnzuduAh3v+crxmsA2KZi8xeEABasvtk8XxjD2SaMi5VwIe500LBK32xQ=="></script>
+<script defer type=text/javascript id=script-bundle src=/js/main.bundle.min.9947db70e5b36e741e53f8531bd734741b3fc7a688f7b5d749fc5433c48efc252f47bdf44e471570a550fc051b87712799014040e6349b38d64448b94e84e45a.js integrity="sha512-mUfbcOWzbnQeU/hTG9c0dBs/x6aI97XXSfxUM8SO/CUvR730TkcVcKVQ/AUbh3EnmQFAQOY0mzjWREi5ToTkWg==" data-copy=Copy data-copied=Copied></script>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><meta property="og:title" content="How to Set up VS Code to use PHP with Xdebug 3 on Windows"><meta property="og:description" content="VS Code with PHP and Xdebug 3 Xdebug 3 is an extremely powerful debugging tool for PHP. Although print_r(), var_dump() and dd() have their uses, Xdebug gives more powerful debugging options: step debugging allows the ability to view execution of each line of code, including the ability to view all variables and their values. Code coverage is useful to identify untested code, or code which is never executed (dead code)."><meta property="og:type" content="article"><meta property="og:url" content="https://pen-y-fan.github.io/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-08-03T22:57:39+00:00"><meta property="article:modified_time" content="2021-08-03T22:57:39+00:00"><meta property="og:site_name" content="Pen-y-Fan"><meta name=twitter:card content="summary"><meta name=twitter:title content="How to Set up VS Code to use PHP with Xdebug 3 on Windows"><meta name=twitter:description content="VS Code with PHP and Xdebug 3 Xdebug 3 is an extremely powerful debugging tool for PHP. Although print_r(), var_dump() and dd() have their uses, Xdebug gives more powerful debugging options: step debugging allows the ability to view execution of each line of code, including the ability to view all variables and their values. Code coverage is useful to identify untested code, or code which is never executed (dead code)."><script type=application/ld+json>[{"@context":"https://schema.org","@type":"Article","articleSection":"Posts","name":"How to Set up VS Code to use PHP with Xdebug 3 on Windows","headline":"How to Set up VS Code to use PHP with Xdebug 3 on Windows","abstract":"VS Code with PHP and Xdebug 3 Xdebug 3 is an extremely powerful debugging tool for PHP. Although print_r(), var_dump() and dd() have their uses, Xdebug gives more powerful debugging options: step debugging allows the ability to view execution of each line of code, including the ability to view all variables and their values. Code coverage is useful to identify untested code, or code which is never executed (dead code).","inLanguage":"en","url":"https:\/\/pen-y-fan.github.io\/2021\/08\/03\/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows\/","author":{"@type":"Person","name":"Michael Pritchard (AKA Pen-y-Fan)"},"copyrightYear":"2021","dateCreated":"2021-08-03T22:57:39\u002b00:00","datePublished":"2021-08-03T22:57:39\u002b00:00","dateModified":"2021-08-03T22:57:39\u002b00:00","keywords":["Windows","PHP","VS Code","Xdebug","Laragon","Resource","Standard Setup"],"mainEntityOfPage":"true","wordCount":"1900"}]</script><meta name=author content="Michael Pritchard (AKA Pen-y-Fan)"><link href=https://github.com/Pen-y-Fan rel=me><link href=https://www.linkedin.com/in/michael-pritchard-340b4520/ rel=me><link href=https://www.reddit.com/user/Pen-y-Fan rel=me><link href=https://twitter.com/MikeAPritch rel=me></head><body class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32"><div id=the-top class="absolute flex self-center"><a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600" href=#main-content><span class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a></div><header class="py-6 font-semibold text-neutral-900 dark:text-neutral print:hidden sm:py-10"><nav class="flex items-start justify-between sm:items-center"><div class="flex flex-row items-center"><a href=/ class=mr-2><img src=/img/logo-100x100.jpg width=50 height=50 class="max-h-[10rem] max-w-[10rem] object-scale-down object-left" alt=Pen-y-Fan></a>
+<a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2" rel=me href=/>Pen-y-Fan</a></div><ul class="flex list-none flex-col ltr:text-right rtl:text-left sm:flex-row"><li class="mb-1 sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0"><a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2" href=/posts/ title=Posts>Blog</a></li><li class="mb-1 sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0"><a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2" href=/tags/ title=Tags>Tags</a></li><li class="mb-1 sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0"><a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2" href=/about/ title=About>About</a></li><li class="mb-1 sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0"><a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2" href=https://github.com/Pen-y-Fan title>GitHub</a></li></ul></nav></header><div class="relative flex flex-col grow"><main id=main-content class=grow><article><header class=max-w-prose><h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">How to Set up VS Code to use PHP with Xdebug 3 on Windows</h1><div class="mt-8 mb-12 text-base text-neutral-500 dark:text-neutral-400 print:hidden"><div class="flex flex-row flex-wrap items-center"><time datetime="2021-08-03 22:57:39 +0000 UTC">3 August 2021</time><span class="px-2 text-primary-500">&#183;</span><span title="Reading time">9 mins</span></div></div></header><section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row"><div class="order-first px-0 lg:order-last lg:max-w-xs ltr:lg:pl-8 rtl:lg:pr-8"><div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-10"><details open class="mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5"><summary class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">Table of Contents</summary><div class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600"><nav id=TableOfContents><ul><li><a href=#install-laragon-for-windows>Install Laragon for Windows</a></li><li><a href=#add-xdebug-to-php>Add Xdebug to PHP</a></li><li><a href=#check-xdebug-using-laragon-web>Check Xdebug using Laragon Web</a></li><li><a href=#install-vs-code>Install VS Code</a><ul><li><a href=#add-xdebug-extension-for-vs-code>Add Xdebug extension for VS Code</a></li><li><a href=#configure-vs-code>Configure VS Code</a></li></ul></li><li><a href=#run-test-code-from-cli>Run test code from CLI</a></li><li><a href=#install-xdebug-helper-on-chrome>Install Xdebug helper on Chrome</a></li><li><a href=#debug-code-in-a-browser>Debug code in a browser</a><ul><li><a href=#debug-actions>Debug actions</a></li></ul></li><li><a href=#troubleshooting>Troubleshooting</a><ul><li><a href=#port-9003-is-in-use>Port 9003 is in use</a></li><li><a href=#php-cli-is-different-from-the-php-used-by-apache>PHP CLI is different from the PHP used by Apache</a></li><li><a href=#add-laragon-to-all-terminals>Add Laragon to all terminals</a></li></ul></li><li><a href=#further-information>Further information</a></li></ul></nav></div></details></div></div><div class="min-w-0 min-h-0 max-w-prose grow"><p><figure><img class="my-0 rounded-md" srcset="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/vs-code-with-php-and-xdebug-3_hub37676ac27d227d81a24cae73f0dfc72_315183_330x0_resize_box_3.png 330w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/vs-code-with-php-and-xdebug-3_hub37676ac27d227d81a24cae73f0dfc72_315183_660x0_resize_box_3.png 660w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/vs-code-with-php-and-xdebug-3_hub37676ac27d227d81a24cae73f0dfc72_315183_1024x0_resize_box_3.png 1024w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/vs-code-with-php-and-xdebug-3_hub37676ac27d227d81a24cae73f0dfc72_315183_1320x0_resize_box_3.png 2x" src=/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/vs-code-with-php-and-xdebug-3_hub37676ac27d227d81a24cae73f0dfc72_315183_660x0_resize_box_3.png alt="VS Code with PHP and Xdebug 3"><figcaption>VS Code with PHP and Xdebug 3</figcaption></figure></p><p>Xdebug 3 is an extremely powerful debugging tool for PHP. Although <code>print_r()</code>, <code>var_dump()</code> and <code>dd()</code> have their uses,
+Xdebug gives more powerful debugging options: <a href=https://xdebug.org/docs/step_debug target=_blank>step debugging</a> allows the ability to
 view execution of each line of code, including the ability to view all variables and their
-values. <a href="https://xdebug.org/docs/code_coverage">Code coverage</a> is useful to identify untested code, or code which is
-never executed (dead code). <a href="https://xdebug.org/docs/develop">Development helpers</a> improve the built-in <code>var_dump()</code>
+values. <a href=https://xdebug.org/docs/code_coverage target=_blank>Code coverage</a> is useful to identify untested code, or code which is
+never executed (dead code). <a href=https://xdebug.org/docs/develop target=_blank>Development helpers</a> improve the built-in <code>var_dump()</code>
 function, providing stack traces etc. VS Code can also change the variable, which is useful when testing manually
-particular functions while stepping through your code.</p>
-<blockquote>
-<p>Xdebug&rsquo;s step debugger allows you to interactively walk through your code to debug control flow and examine data
-structures</p>
-<p>Code coverage tells you which lines of script (or set of scripts) have been executed during a request. With this
-information you can for example find out how good your unit tests are.</p>
-<p>Xdebug&rsquo;s development helpers allow you to get better error messages and obtain more information from PHP&rsquo;s built-in
+particular functions while stepping through your code.</p><blockquote><p>Xdebug&rsquo;s step debugger allows you to interactively walk through your code to debug control flow and examine data
+structures</p><p>Code coverage tells you which lines of script (or set of scripts) have been executed during a request. With this
+information you can for example find out how good your unit tests are.</p><p>Xdebug&rsquo;s development helpers allow you to get better error messages and obtain more information from PHP&rsquo;s built-in
 functions. The helpers include an upgraded var_dump() function; location, stack, and argument information upon Notices,
-Warnings and Exceptions; and numerous functions and settings to tweak PHP&rsquo;s behaviour.</p>
-</blockquote>
-<p>This is how I set up  <a href="https://code.visualstudio.com/">VS Code</a> to use PHP with <a href="https://xdebug.org/docs/">Xdebug</a> on
-Windows using <a href="https://laragon.org/">Laragon</a>.</p>
-<h2 id="install-laragon-for-windows" class="relative group">Install Laragon for Windows <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#install-laragon-for-windows" aria-label="Anchor">#</a></span></h2>
-<blockquote>
-<p>Laragon is a portable, isolated, fast &amp; powerful universal development environment for PHP, Node.js, Python, Java, Go,
-Ruby. It is fast, lightweight, easy-to-use and easy-to-extend.</p>
-<p>Laragon is great for building and managing modern web applications. It is focused on performance - designed around
-stability, simplicity, flexibility and freedom.</p>
-</blockquote>
-<p><a href="https://laragon.org/docs/install.html">Download and Install</a>, the <strong>Laragon Full (64-bit)</strong> version. Run the
-installation, next&gt;, next&gt;, next&gt;. You now have a fully working WAMP stack, plus Node/NPM, git, Composer and many more
-tools.</p>
-<p>Once installed <strong>Add Laragon to Path</strong>: Menu &gt; Tools &gt; Path &gt; Add Laragon to Path</p>
-<p>
-
-
-
-  
-  
-    
-  
-  
-    <figure>
-      <img
-        class="my-0 rounded-md"
-        srcset="
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/add-laragon-to-path_hu95354c2884726631d36952f0b2258be7_24256_330x0_resize_box_3.png 330w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/add-laragon-to-path_hu95354c2884726631d36952f0b2258be7_24256_660x0_resize_box_3.png 660w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/add-laragon-to-path_hu95354c2884726631d36952f0b2258be7_24256_1024x0_resize_box_3.png 1024w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/add-laragon-to-path_hu95354c2884726631d36952f0b2258be7_24256_1320x0_resize_box_3.png 2x"
-        src="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/add-laragon-to-path_hu95354c2884726631d36952f0b2258be7_24256_660x0_resize_box_3.png"
-        alt="Add Laragon to Path"
-      />
-      <figcaption>Add Laragon to Path</figcaption>
-    </figure>
-  
-
-</p>
-<p>You then need to <strong>Sign out</strong> and back <strong>in</strong> for the path to be added to your user profile for all terminals and
-programs (CMD / PowerShell / Terminal / VS Code etc.)</p>
-<h2 id="add-xdebug-to-php" class="relative group">Add Xdebug to PHP <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#add-xdebug-to-php" aria-label="Anchor">#</a></span></h2>
-<p>Xdebug can be downloaded from <a href="https://xdebug.org/download">xdebug.org</a>, there are currently 16 versions to choose!</p>
-<p>PHP has 4 versions, from PHP 7.2 to PHP 8.0, each version can be 32-bit (x86) or 64-bit (x64), Thread Safe (TS) or Non
+Warnings and Exceptions; and numerous functions and settings to tweak PHP&rsquo;s behaviour.</p></blockquote><p>This is how I set up <a href=https://code.visualstudio.com/ target=_blank>VS Code</a> to use PHP with <a href=https://xdebug.org/docs/ target=_blank>Xdebug</a> on
+Windows using <a href=https://laragon.org/ target=_blank>Laragon</a>.</p><h2 id=install-laragon-for-windows class="relative group">Install Laragon for Windows <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style=text-decoration-line:none!important href=#install-laragon-for-windows aria-label=Anchor>#</a></span></h2><blockquote><p>Laragon is a portable, isolated, fast & powerful universal development environment for PHP, Node.js, Python, Java, Go,
+Ruby. It is fast, lightweight, easy-to-use and easy-to-extend.</p><p>Laragon is great for building and managing modern web applications. It is focused on performance - designed around
+stability, simplicity, flexibility and freedom.</p></blockquote><p><a href=https://laragon.org/docs/install.html target=_blank>Download and Install</a>, the <strong>Laragon Full (64-bit)</strong> version. Run the
+installation, next>, next>, next>. You now have a fully working WAMP stack, plus Node/NPM, git, Composer and many more
+tools.</p><p>Once installed <strong>Add Laragon to Path</strong>: Menu > Tools > Path > Add Laragon to Path</p><p><figure><img class="my-0 rounded-md" srcset="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/add-laragon-to-path_hu95354c2884726631d36952f0b2258be7_24256_330x0_resize_box_3.png 330w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/add-laragon-to-path_hu95354c2884726631d36952f0b2258be7_24256_660x0_resize_box_3.png 660w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/add-laragon-to-path_hu95354c2884726631d36952f0b2258be7_24256_1024x0_resize_box_3.png 1024w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/add-laragon-to-path_hu95354c2884726631d36952f0b2258be7_24256_1320x0_resize_box_3.png 2x" src=/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/add-laragon-to-path_hu95354c2884726631d36952f0b2258be7_24256_660x0_resize_box_3.png alt="Add Laragon to Path"><figcaption>Add Laragon to Path</figcaption></figure></p><p>You then need to <strong>Sign out</strong> and back <strong>in</strong> for the path to be added to your user profile for all terminals and
+programs (CMD / PowerShell / Terminal / VS Code etc.)</p><h2 id=add-xdebug-to-php class="relative group">Add Xdebug to PHP <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style=text-decoration-line:none!important href=#add-xdebug-to-php aria-label=Anchor>#</a></span></h2><p>Xdebug can be downloaded from <a href=https://xdebug.org/download target=_blank>xdebug.org</a>, there are currently 16 versions to choose!</p><p>PHP has 4 versions, from PHP 7.2 to PHP 8.0, each version can be 32-bit (x86) or 64-bit (x64), Thread Safe (TS) or Non
 Thread Safe (NTS). For Laragon v5 you would use 64 bit. Apache requires the Thread Safe (TS) version, Internet
 Information Services (IIS) requires the Non-Thread Safe version (NTS). The version of Xdebug needs to match the version
-of PHP. Look at the version installed to match the version required.</p>
-<p>
-
-
-
-  
-  
-    
-  
-  
-    <figure>
-      <img
-        class="my-0 rounded-md"
-        srcset="
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/download-xdebug-for-windows_huc614b5630a0c2bddf590786a94878de7_13907_330x0_resize_box_3.png 330w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/download-xdebug-for-windows_huc614b5630a0c2bddf590786a94878de7_13907_660x0_resize_box_3.png 660w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/download-xdebug-for-windows_huc614b5630a0c2bddf590786a94878de7_13907_1024x0_resize_box_3.png 1024w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/download-xdebug-for-windows_huc614b5630a0c2bddf590786a94878de7_13907_1320x0_resize_box_3.png 2x"
-        src="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/download-xdebug-for-windows_huc614b5630a0c2bddf590786a94878de7_13907_660x0_resize_box_3.png"
-        alt="Download Xdebug for Windows"
-      />
-      <figcaption>Download Xdebug for Windows</figcaption>
-    </figure>
-  
-
-</p>
-<ul>
-<li>Laragon ships with: <strong>php-7.4</strong>.19-Win32-vc15-<strong>x64</strong> <strong>[TS]</strong> -&gt; download <strong>PHP 7.4 VC15 TS 64 bit</strong></li>
-<li>If you install:  <strong>php-8.0</strong>.8-Win32-vs16-<strong>x64</strong> <strong>[TS]</strong> -&gt; download <strong>PHP 8.0 VS16 TS 64 bit</strong></li>
-</ul>
-<p>Once the correct <strong>dll</strong> is downloaded (e.g. ) copy it from your <strong>download folder</strong> to the <strong>php ext folder</strong>. Tip: Use
-Laragon to open this folder using: Menu &gt; PHP &gt; dir:ext</p>
-<p>
-
-
-
-  
-  
-    
-  
-  
-    <figure>
-      <img
-        class="my-0 rounded-md"
-        srcset="
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/open-php-ext-directory_hu7aa2de2352c5f85050c769fd539eab3e_25498_330x0_resize_box_3.png 330w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/open-php-ext-directory_hu7aa2de2352c5f85050c769fd539eab3e_25498_660x0_resize_box_3.png 660w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/open-php-ext-directory_hu7aa2de2352c5f85050c769fd539eab3e_25498_1024x0_resize_box_3.png 1024w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/open-php-ext-directory_hu7aa2de2352c5f85050c769fd539eab3e_25498_1320x0_resize_box_3.png 2x"
-        src="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/open-php-ext-directory_hu7aa2de2352c5f85050c769fd539eab3e_25498_660x0_resize_box_3.png"
-        alt="Open PHP ext folder"
-      />
-      <figcaption>Open PHP ext folder</figcaption>
-    </figure>
-  
-
-</p>
-<p>Back in Laragon enable the Xdebug extension:</p>
-<p>Menu &gt; PHP &gt; Quick settings &gt; ☑ xdebug</p>
-<p>
-
-
-
-  
-  
-    
-  
-  
-    <figure>
-      <img
-        class="my-0 rounded-md"
-        srcset="
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/enable-xdebug-using-quick-settings_hu392d8865ebe8318849ad9fddab21c93c_27852_330x0_resize_box_3.png 330w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/enable-xdebug-using-quick-settings_hu392d8865ebe8318849ad9fddab21c93c_27852_660x0_resize_box_3.png 660w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/enable-xdebug-using-quick-settings_hu392d8865ebe8318849ad9fddab21c93c_27852_1024x0_resize_box_3.png 1024w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/enable-xdebug-using-quick-settings_hu392d8865ebe8318849ad9fddab21c93c_27852_1320x0_resize_box_3.png 2x"
-        src="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/enable-xdebug-using-quick-settings_hu392d8865ebe8318849ad9fddab21c93c_27852_660x0_resize_box_3.png"
-        alt="Enable Xdebug using quick settings"
-      />
-      <figcaption>Enable Xdebug using quick settings</figcaption>
-    </figure>
-  
-
-</p>
-<p>Next add Xdebug configuration to <strong>php.ini</strong></p>
-<p>Laragon Menu &gt; PHP &gt; php.ini</p>
-<p>Wait for <strong>php.ini</strong> to open with Notepad++, scroll to the bottom of the file and add:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="k">[xdebug]</span>
-</span></span><span class="line"><span class="cl"><span class="na">xdebug.mode</span> <span class="o">=</span> <span class="s">coverage,debug,develop</span>
-</span></span></code></pre></div><p>Save and close the php.ini file.</p>
-<p>This is the minimum required for debugging and code coverage, Xdebug default setting for xdebug.client_port is now **
-9003** and xdebug.client_host <strong>localhost</strong>, these no longer need to be specified in the php.ini.</p>
-<h2 id="check-xdebug-using-laragon-web" class="relative group">Check Xdebug using Laragon Web <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#check-xdebug-using-laragon-web" aria-label="Anchor">#</a></span></h2>
-<ol>
-<li>Click the start button (it changes to Stop when running)</li>
-<li>Click Web</li>
-<li>Check the information on the Laragon webpage and next to the PHP version click info</li>
-</ol>
-<p>The <strong>phpinfo()</strong> page will display, check Xdebug is displayed</p>
-<p>
-
-
-
-  
-  
-    
-  
-  
-    <figure>
-      <img
-        class="my-0 rounded-md"
-        srcset="
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/check-xdebug-is-working_hu263634b95b9bfab6662c8bc931945a8f_133791_330x0_resize_box_3.png 330w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/check-xdebug-is-working_hu263634b95b9bfab6662c8bc931945a8f_133791_660x0_resize_box_3.png 660w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/check-xdebug-is-working_hu263634b95b9bfab6662c8bc931945a8f_133791_1024x0_resize_box_3.png 1024w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/check-xdebug-is-working_hu263634b95b9bfab6662c8bc931945a8f_133791_1320x0_resize_box_3.png 2x"
-        src="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/check-xdebug-is-working_hu263634b95b9bfab6662c8bc931945a8f_133791_660x0_resize_box_3.png"
-        alt="Check Xdebug is working"
-      />
-      <figcaption>Check Xdebug is working</figcaption>
-    </figure>
-  
-
-</p>
-<p>Scroll down and see the section on Xdebug, check coverage, debug and develop features are ticked.</p>
-<p>
-
-
-
-  
-  
-    
-  
-  
-    <figure>
-      <img
-        class="my-0 rounded-md"
-        srcset="
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/check-xdebug-features_hu9cff4ed0a7cff3668c89d2d3b51f7ae9_24644_330x0_resize_box_3.png 330w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/check-xdebug-features_hu9cff4ed0a7cff3668c89d2d3b51f7ae9_24644_660x0_resize_box_3.png 660w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/check-xdebug-features_hu9cff4ed0a7cff3668c89d2d3b51f7ae9_24644_1024x0_resize_box_3.png 1024w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/check-xdebug-features_hu9cff4ed0a7cff3668c89d2d3b51f7ae9_24644_1320x0_resize_box_3.png 2x"
-        src="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/check-xdebug-features_hu9cff4ed0a7cff3668c89d2d3b51f7ae9_24644_660x0_resize_box_3.png"
-        alt="Check Xdebug features"
-      />
-      <figcaption>Check Xdebug features</figcaption>
-    </figure>
-  
-
-</p>
-<h2 id="install-vs-code" class="relative group">Install VS Code <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#install-vs-code" aria-label="Anchor">#</a></span></h2>
-<blockquote>
-<p>Code editing. Redefined. Free. Built on open source. Runs everywhere.</p>
-</blockquote>
-<p><a href="https://code.visualstudio.com/">Download for Windows</a></p>
-<p>The installer is straightforward, run, next, next finish.</p>
-<h3 id="add-xdebug-extension-for-vs-code" class="relative group">Add Xdebug extension for VS Code <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#add-xdebug-extension-for-vs-code" aria-label="Anchor">#</a></span></h3>
-<p>Open VS Code and install the extension: Press <strong>F1</strong>, press Backspace to delete the <strong>&gt;</strong> and
-type <code>ext install php-debug</code></p>
-<p>
-
-
-
-  
-  
-    
-  
-  
-    <figure>
-      <img
-        class="my-0 rounded-md"
-        srcset="
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/debug-support-for-php-with-xdebug_huf1b5d8a437e8dc67903a9427b28a20e7_8494_330x0_resize_box_3.png 330w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/debug-support-for-php-with-xdebug_huf1b5d8a437e8dc67903a9427b28a20e7_8494_660x0_resize_box_3.png 660w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/debug-support-for-php-with-xdebug_huf1b5d8a437e8dc67903a9427b28a20e7_8494_1024x0_resize_box_3.png 1024w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/debug-support-for-php-with-xdebug_huf1b5d8a437e8dc67903a9427b28a20e7_8494_1320x0_resize_box_3.png 2x"
-        src="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/debug-support-for-php-with-xdebug_huf1b5d8a437e8dc67903a9427b28a20e7_8494_660x0_resize_box_3.png"
-        alt="Debug support for PHP with Xdebug"
-      />
-      <figcaption>Debug support for PHP with Xdebug</figcaption>
-    </figure>
-  
-
-</p>
-<p>There are several extensions with the same name, install the one with 5M downloads.</p>
-<h3 id="configure-vs-code" class="relative group">Configure VS Code <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#configure-vs-code" aria-label="Anchor">#</a></span></h3>
-<p>Next VS Code needs to have a launch script created, select <strong>Run</strong> from the menu and click <strong>Add Configuration&hellip;</strong></p>
-<p>
-
-
-
-  
-  
-    
-  
-  
-    <figure>
-      <img
-        class="my-0 rounded-md"
-        srcset="
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/add-configuration_hu304b030ca4305b8ab1b7668a871471c5_6840_330x0_resize_box_3.png 330w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/add-configuration_hu304b030ca4305b8ab1b7668a871471c5_6840_660x0_resize_box_3.png 660w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/add-configuration_hu304b030ca4305b8ab1b7668a871471c5_6840_1024x0_resize_box_3.png 1024w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/add-configuration_hu304b030ca4305b8ab1b7668a871471c5_6840_1320x0_resize_box_3.png 2x"
-        src="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/add-configuration_hu304b030ca4305b8ab1b7668a871471c5_6840_660x0_resize_box_3.png"
-        alt="Add configuration"
-      />
-      <figcaption>Add configuration</figcaption>
-    </figure>
-  
-
-</p>
-<p>This will auto generate a <strong>launch.json</strong> file. If you are prompted for a language select <strong>PHP</strong>. The file can be
-closed.</p>
-<h2 id="run-test-code-from-cli" class="relative group">Run test code from CLI <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#run-test-code-from-cli" aria-label="Anchor">#</a></span></h2>
-<p>Create a basic script to test the setup. Create a directory in the Laragon www directory, i.e. C:\laragon\www\ **
-xdebug-test**, call the file <strong>example.php</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span> 
-</span></span><span class="line"><span class="cl"><span class="nv">$message</span> <span class="o">=</span> <span class="s2">&#34;&lt;h1&gt;Hello, world&lt;/h1&gt;&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="nv">$xdebugBreak</span> <span class="o">=</span> <span class="nx">xdebug_break</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl"><span class="k">echo</span> <span class="nv">$message</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="cp">?&gt;</span><span class="err">
-</span></span></span></code></pre></div><ol>
-<li>Click the Run and Debug menu</li>
-<li>Change the drop-down options to <strong>Launch currently open script</strong></li>
-<li>Click the Run icon</li>
-</ol>
-<p>
-
-
-
-  
-  
-    
-  
-  
-    <figure>
-      <img
-        class="my-0 rounded-md"
-        srcset="
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/debug-basic-cli-script_hu03764f66ed0638bf9a21f6ffce6fbb76_31566_330x0_resize_box_3.png 330w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/debug-basic-cli-script_hu03764f66ed0638bf9a21f6ffce6fbb76_31566_660x0_resize_box_3.png 660w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/debug-basic-cli-script_hu03764f66ed0638bf9a21f6ffce6fbb76_31566_1024x0_resize_box_3.png 1024w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/debug-basic-cli-script_hu03764f66ed0638bf9a21f6ffce6fbb76_31566_1320x0_resize_box_3.png 2x"
-        src="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/debug-basic-cli-script_hu03764f66ed0638bf9a21f6ffce6fbb76_31566_660x0_resize_box_3.png"
-        alt="Debug basic CLI script"
-      />
-      <figcaption>Debug basic CLI script</figcaption>
-    </figure>
-  
-
-</p>
-<p>Notice although no debug point was created the script has triggered debugging after the <code>xdebug_break()</code> line. You can
-also see the local variables.</p>
-<p>The <code>xdebug_break()</code> function is useful when setting up Xdebug, if Xdebug isn&rsquo;t loaded an exception will be thrown
+of PHP. Look at the version installed to match the version required.</p><p><figure><img class="my-0 rounded-md" srcset="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/download-xdebug-for-windows_huc614b5630a0c2bddf590786a94878de7_13907_330x0_resize_box_3.png 330w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/download-xdebug-for-windows_huc614b5630a0c2bddf590786a94878de7_13907_660x0_resize_box_3.png 660w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/download-xdebug-for-windows_huc614b5630a0c2bddf590786a94878de7_13907_1024x0_resize_box_3.png 1024w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/download-xdebug-for-windows_huc614b5630a0c2bddf590786a94878de7_13907_1320x0_resize_box_3.png 2x" src=/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/download-xdebug-for-windows_huc614b5630a0c2bddf590786a94878de7_13907_660x0_resize_box_3.png alt="Download Xdebug for Windows"><figcaption>Download Xdebug for Windows</figcaption></figure></p><ul><li>Laragon ships with: <strong>php-7.4</strong>.19-Win32-vc15-<strong>x64</strong> <strong>[TS]</strong> -> download <strong>PHP 7.4 VC15 TS 64 bit</strong></li><li>If you install: <strong>php-8.0</strong>.8-Win32-vs16-<strong>x64</strong> <strong>[TS]</strong> -> download <strong>PHP 8.0 VS16 TS 64 bit</strong></li></ul><p>Once the correct <strong>dll</strong> is downloaded (e.g. ) copy it from your <strong>download folder</strong> to the <strong>php ext folder</strong>. Tip: Use
+Laragon to open this folder using: Menu > PHP > dir:ext</p><p><figure><img class="my-0 rounded-md" srcset="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/open-php-ext-directory_hu7aa2de2352c5f85050c769fd539eab3e_25498_330x0_resize_box_3.png 330w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/open-php-ext-directory_hu7aa2de2352c5f85050c769fd539eab3e_25498_660x0_resize_box_3.png 660w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/open-php-ext-directory_hu7aa2de2352c5f85050c769fd539eab3e_25498_1024x0_resize_box_3.png 1024w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/open-php-ext-directory_hu7aa2de2352c5f85050c769fd539eab3e_25498_1320x0_resize_box_3.png 2x" src=/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/open-php-ext-directory_hu7aa2de2352c5f85050c769fd539eab3e_25498_660x0_resize_box_3.png alt="Open PHP ext folder"><figcaption>Open PHP ext folder</figcaption></figure></p><p>Back in Laragon enable the Xdebug extension:</p><p>Menu > PHP > Quick settings > ☑ xdebug</p><p><figure><img class="my-0 rounded-md" srcset="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/enable-xdebug-using-quick-settings_hu392d8865ebe8318849ad9fddab21c93c_27852_330x0_resize_box_3.png 330w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/enable-xdebug-using-quick-settings_hu392d8865ebe8318849ad9fddab21c93c_27852_660x0_resize_box_3.png 660w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/enable-xdebug-using-quick-settings_hu392d8865ebe8318849ad9fddab21c93c_27852_1024x0_resize_box_3.png 1024w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/enable-xdebug-using-quick-settings_hu392d8865ebe8318849ad9fddab21c93c_27852_1320x0_resize_box_3.png 2x" src=/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/enable-xdebug-using-quick-settings_hu392d8865ebe8318849ad9fddab21c93c_27852_660x0_resize_box_3.png alt="Enable Xdebug using quick settings"><figcaption>Enable Xdebug using quick settings</figcaption></figure></p><p>Next add Xdebug configuration to <strong>php.ini</strong></p><p>Laragon Menu > PHP > php.ini</p><p>Wait for <strong>php.ini</strong> to open with Notepad++, scroll to the bottom of the file and add:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=line><span class=cl><span class=k>[xdebug]</span>
+</span></span><span class=line><span class=cl><span class=na>xdebug.mode</span> <span class=o>=</span> <span class=s>coverage,debug,develop</span>
+</span></span></code></pre></div><p>Save and close the php.ini file.</p><p>This is the minimum required for debugging and code coverage, Xdebug default setting for xdebug.client_port is now **
+9003** and xdebug.client_host <strong>localhost</strong>, these no longer need to be specified in the php.ini.</p><h2 id=check-xdebug-using-laragon-web class="relative group">Check Xdebug using Laragon Web <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style=text-decoration-line:none!important href=#check-xdebug-using-laragon-web aria-label=Anchor>#</a></span></h2><ol><li>Click the start button (it changes to Stop when running)</li><li>Click Web</li><li>Check the information on the Laragon webpage and next to the PHP version click info</li></ol><p>The <strong>phpinfo()</strong> page will display, check Xdebug is displayed</p><p><figure><img class="my-0 rounded-md" srcset="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/check-xdebug-is-working_hu263634b95b9bfab6662c8bc931945a8f_133791_330x0_resize_box_3.png 330w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/check-xdebug-is-working_hu263634b95b9bfab6662c8bc931945a8f_133791_660x0_resize_box_3.png 660w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/check-xdebug-is-working_hu263634b95b9bfab6662c8bc931945a8f_133791_1024x0_resize_box_3.png 1024w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/check-xdebug-is-working_hu263634b95b9bfab6662c8bc931945a8f_133791_1320x0_resize_box_3.png 2x" src=/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/check-xdebug-is-working_hu263634b95b9bfab6662c8bc931945a8f_133791_660x0_resize_box_3.png alt="Check Xdebug is working"><figcaption>Check Xdebug is working</figcaption></figure></p><p>Scroll down and see the section on Xdebug, check coverage, debug and develop features are ticked.</p><p><figure><img class="my-0 rounded-md" srcset="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/check-xdebug-features_hu9cff4ed0a7cff3668c89d2d3b51f7ae9_24644_330x0_resize_box_3.png 330w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/check-xdebug-features_hu9cff4ed0a7cff3668c89d2d3b51f7ae9_24644_660x0_resize_box_3.png 660w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/check-xdebug-features_hu9cff4ed0a7cff3668c89d2d3b51f7ae9_24644_1024x0_resize_box_3.png 1024w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/check-xdebug-features_hu9cff4ed0a7cff3668c89d2d3b51f7ae9_24644_1320x0_resize_box_3.png 2x" src=/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/check-xdebug-features_hu9cff4ed0a7cff3668c89d2d3b51f7ae9_24644_660x0_resize_box_3.png alt="Check Xdebug features"><figcaption>Check Xdebug features</figcaption></figure></p><h2 id=install-vs-code class="relative group">Install VS Code <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style=text-decoration-line:none!important href=#install-vs-code aria-label=Anchor>#</a></span></h2><blockquote><p>Code editing. Redefined. Free. Built on open source. Runs everywhere.</p></blockquote><p><a href=https://code.visualstudio.com/ target=_blank>Download for Windows</a></p><p>The installer is straightforward, run, next, next finish.</p><h3 id=add-xdebug-extension-for-vs-code class="relative group">Add Xdebug extension for VS Code <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style=text-decoration-line:none!important href=#add-xdebug-extension-for-vs-code aria-label=Anchor>#</a></span></h3><p>Open VS Code and install the extension: Press <strong>F1</strong>, press Backspace to delete the <strong>></strong> and
+type <code>ext install php-debug</code></p><p><figure><img class="my-0 rounded-md" srcset="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/debug-support-for-php-with-xdebug_huf1b5d8a437e8dc67903a9427b28a20e7_8494_330x0_resize_box_3.png 330w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/debug-support-for-php-with-xdebug_huf1b5d8a437e8dc67903a9427b28a20e7_8494_660x0_resize_box_3.png 660w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/debug-support-for-php-with-xdebug_huf1b5d8a437e8dc67903a9427b28a20e7_8494_1024x0_resize_box_3.png 1024w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/debug-support-for-php-with-xdebug_huf1b5d8a437e8dc67903a9427b28a20e7_8494_1320x0_resize_box_3.png 2x" src=/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/debug-support-for-php-with-xdebug_huf1b5d8a437e8dc67903a9427b28a20e7_8494_660x0_resize_box_3.png alt="Debug support for PHP with Xdebug"><figcaption>Debug support for PHP with Xdebug</figcaption></figure></p><p>There are several extensions with the same name, install the one with 5M downloads.</p><h3 id=configure-vs-code class="relative group">Configure VS Code <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style=text-decoration-line:none!important href=#configure-vs-code aria-label=Anchor>#</a></span></h3><p>Next VS Code needs to have a launch script created, select <strong>Run</strong> from the menu and click <strong>Add Configuration&mldr;</strong></p><p><figure><img class="my-0 rounded-md" srcset="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/add-configuration_hu304b030ca4305b8ab1b7668a871471c5_6840_330x0_resize_box_3.png 330w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/add-configuration_hu304b030ca4305b8ab1b7668a871471c5_6840_660x0_resize_box_3.png 660w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/add-configuration_hu304b030ca4305b8ab1b7668a871471c5_6840_1024x0_resize_box_3.png 1024w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/add-configuration_hu304b030ca4305b8ab1b7668a871471c5_6840_1320x0_resize_box_3.png 2x" src=/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/add-configuration_hu304b030ca4305b8ab1b7668a871471c5_6840_660x0_resize_box_3.png alt="Add configuration"><figcaption>Add configuration</figcaption></figure></p><p>This will auto generate a <strong>launch.json</strong> file. If you are prompted for a language select <strong>PHP</strong>. The file can be
+closed.</p><h2 id=run-test-code-from-cli class="relative group">Run test code from CLI <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style=text-decoration-line:none!important href=#run-test-code-from-cli aria-label=Anchor>#</a></span></h2><p>Create a basic script to test the setup. Create a directory in the Laragon www directory, i.e. C:\laragon\www\ **
+xdebug-test**, call the file <strong>example.php</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=line><span class=cl><span class=o>&lt;?</span><span class=nx>php</span> 
+</span></span><span class=line><span class=cl><span class=nv>$message</span> <span class=o>=</span> <span class=s2>&#34;&lt;h1&gt;Hello, world&lt;/h1&gt;&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=nv>$xdebugBreak</span> <span class=o>=</span> <span class=nx>xdebug_break</span><span class=p>();</span>
+</span></span><span class=line><span class=cl><span class=k>echo</span> <span class=nv>$message</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=cp>?&gt;</span><span class=err>
+</span></span></span></code></pre></div><ol><li>Click the Run and Debug menu</li><li>Change the drop-down options to <strong>Launch currently open script</strong></li><li>Click the Run icon</li></ol><p><figure><img class="my-0 rounded-md" srcset="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/debug-basic-cli-script_hu03764f66ed0638bf9a21f6ffce6fbb76_31566_330x0_resize_box_3.png 330w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/debug-basic-cli-script_hu03764f66ed0638bf9a21f6ffce6fbb76_31566_660x0_resize_box_3.png 660w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/debug-basic-cli-script_hu03764f66ed0638bf9a21f6ffce6fbb76_31566_1024x0_resize_box_3.png 1024w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/debug-basic-cli-script_hu03764f66ed0638bf9a21f6ffce6fbb76_31566_1320x0_resize_box_3.png 2x" src=/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/debug-basic-cli-script_hu03764f66ed0638bf9a21f6ffce6fbb76_31566_660x0_resize_box_3.png alt="Debug basic CLI script"><figcaption>Debug basic CLI script</figcaption></figure></p><p>Notice although no debug point was created the script has triggered debugging after the <code>xdebug_break()</code> line. You can
+also see the local variables.</p><p>The <code>xdebug_break()</code> function is useful when setting up Xdebug, if Xdebug isn&rsquo;t loaded an exception will be thrown
 instead! If you get this error re-check Xdebug has been enabled and the <strong>php.ini</strong> has <strong>xdebug.mode</strong> line as above.
-It is also possible to set a different version of PHP to run from the command line. See troubleshooting below.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Fatal error: Uncaught Error: Call to undefined function xdebug_break() in 
-</span></span><span class="line"><span class="cl">C:\laragon\www\xdebug-test\index.php:3 Stack trace: #0 {main} thrown in 
-</span></span><span class="line"><span class="cl">C:\laragon\www\xdebug-test\example.php on line 3
-</span></span></code></pre></div><h2 id="install-xdebug-helper-on-chrome" class="relative group">Install Xdebug helper on Chrome <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#install-xdebug-helper-on-chrome" aria-label="Anchor">#</a></span></h2>
-<p>For debugging on a web page a helper extension can be installed for Google Chrome browser (it is also available on other
-browsers).</p>
-<ul>
-<li><a href="https://chrome.google.com/webstore/detail/xdebug-helper/eadndfjplgieldjbigjakmdgkmoaaaoc">Xdebug helper Offered by: Wrep</a></li>
-</ul>
-<p>
-
-
-
-  
-  
-    
-  
-  
-    <figure>
-      <img
-        class="my-0 rounded-md"
-        srcset="
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/install-xdebug-helper-on-chrome_hu98ea0f626794b42f1b7fd51f5c3ba463_235346_330x0_resize_box_3.png 330w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/install-xdebug-helper-on-chrome_hu98ea0f626794b42f1b7fd51f5c3ba463_235346_660x0_resize_box_3.png 660w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/install-xdebug-helper-on-chrome_hu98ea0f626794b42f1b7fd51f5c3ba463_235346_1024x0_resize_box_3.png 1024w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/install-xdebug-helper-on-chrome_hu98ea0f626794b42f1b7fd51f5c3ba463_235346_1320x0_resize_box_3.png 2x"
-        src="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/install-xdebug-helper-on-chrome_hu98ea0f626794b42f1b7fd51f5c3ba463_235346_660x0_resize_box_3.png"
-        alt="Install Xdebug helper on Chrome"
-      />
-      <figcaption>Install Xdebug helper on Chrome</figcaption>
-    </figure>
-  
-
-</p>
-<p>Click <strong>Add to Chrome</strong> (if you get a notification to add to Chrome click that too). Then find the grey xdebug helper
+It is also possible to set a different version of PHP to run from the command line. See troubleshooting below.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>Fatal error: Uncaught Error: Call to undefined function xdebug_break() in 
+</span></span><span class=line><span class=cl>C:\laragon\www\xdebug-test\index.php:3 Stack trace: #0 {main} thrown in 
+</span></span><span class=line><span class=cl>C:\laragon\www\xdebug-test\example.php on line 3
+</span></span></code></pre></div><h2 id=install-xdebug-helper-on-chrome class="relative group">Install Xdebug helper on Chrome <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style=text-decoration-line:none!important href=#install-xdebug-helper-on-chrome aria-label=Anchor>#</a></span></h2><p>For debugging on a web page a helper extension can be installed for Google Chrome browser (it is also available on other
+browsers).</p><ul><li><a href=https://chrome.google.com/webstore/detail/xdebug-helper/eadndfjplgieldjbigjakmdgkmoaaaoc target=_blank>Xdebug helper Offered by: Wrep</a></li></ul><p><figure><img class="my-0 rounded-md" srcset="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/install-xdebug-helper-on-chrome_hu98ea0f626794b42f1b7fd51f5c3ba463_235346_330x0_resize_box_3.png 330w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/install-xdebug-helper-on-chrome_hu98ea0f626794b42f1b7fd51f5c3ba463_235346_660x0_resize_box_3.png 660w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/install-xdebug-helper-on-chrome_hu98ea0f626794b42f1b7fd51f5c3ba463_235346_1024x0_resize_box_3.png 1024w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/install-xdebug-helper-on-chrome_hu98ea0f626794b42f1b7fd51f5c3ba463_235346_1320x0_resize_box_3.png 2x" src=/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/install-xdebug-helper-on-chrome_hu98ea0f626794b42f1b7fd51f5c3ba463_235346_660x0_resize_box_3.png alt="Install Xdebug helper on Chrome"><figcaption>Install Xdebug helper on Chrome</figcaption></figure></p><p>Click <strong>Add to Chrome</strong> (if you get a notification to add to Chrome click that too). Then find the grey xdebug helper
 icon in your list of icons (it maybe under the jigsaw icon), click it and select debug, I find it is useful to click the
-pin too, which will display the icon in the main icon it will turn green.</p>
-<h2 id="debug-code-in-a-browser" class="relative group">Debug code in a browser <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#debug-code-in-a-browser" aria-label="Anchor">#</a></span></h2>
-<p>In VS Code:</p>
-<ul>
-<li>Click the Run and Debug menu</li>
-<li>Change the drop-down options to <strong>Listen for Xdebug</strong></li>
-<li>Click the Run icon</li>
-</ul>
-<p>The bar on the bottom of VS Code will display orange with the text <strong>Listen for Xdebug (xdebug-test)</strong></p>
-<p>Rename the file <strong>index.php</strong></p>
-<p>In Laragon:</p>
-<ol>
-<li>Click Menu</li>
-<li>Click www</li>
-<li>Select the xdebug-test folder</li>
-</ol>
-<p>
-
-
-
-  
-  
-    
-  
-  
-    <figure>
-      <img
-        class="my-0 rounded-md"
-        srcset="
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/launch-website_hu498dcba4501ec51a41a8be71d69ec573_29509_330x0_resize_box_3.png 330w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/launch-website_hu498dcba4501ec51a41a8be71d69ec573_29509_660x0_resize_box_3.png 660w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/launch-website_hu498dcba4501ec51a41a8be71d69ec573_29509_1024x0_resize_box_3.png 1024w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/launch-website_hu498dcba4501ec51a41a8be71d69ec573_29509_1320x0_resize_box_3.png 2x"
-        src="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/launch-website_hu498dcba4501ec51a41a8be71d69ec573_29509_660x0_resize_box_3.png"
-        alt="Launch website"
-      />
-      <figcaption>Launch website</figcaption>
-    </figure>
-  
-
-</p>
-<p>Your web browser will launch, switch to VS Code and you will see the debug session has stopped as before.</p>
-<p>If it doesn&rsquo;t automatically stop check the debug icon is green, if it is grey click it and select debug, then refresh
-the page.</p>
-<p>The <code>xdebug_break()</code> function has now served its purpose, you can continue to use that function, however when the Xdebug
+pin too, which will display the icon in the main icon it will turn green.</p><h2 id=debug-code-in-a-browser class="relative group">Debug code in a browser <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style=text-decoration-line:none!important href=#debug-code-in-a-browser aria-label=Anchor>#</a></span></h2><p>In VS Code:</p><ul><li>Click the Run and Debug menu</li><li>Change the drop-down options to <strong>Listen for Xdebug</strong></li><li>Click the Run icon</li></ul><p>The bar on the bottom of VS Code will display orange with the text <strong>Listen for Xdebug (xdebug-test)</strong></p><p>Rename the file <strong>index.php</strong></p><p>In Laragon:</p><ol><li>Click Menu</li><li>Click www</li><li>Select the xdebug-test folder</li></ol><p><figure><img class="my-0 rounded-md" srcset="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/launch-website_hu498dcba4501ec51a41a8be71d69ec573_29509_330x0_resize_box_3.png 330w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/launch-website_hu498dcba4501ec51a41a8be71d69ec573_29509_660x0_resize_box_3.png 660w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/launch-website_hu498dcba4501ec51a41a8be71d69ec573_29509_1024x0_resize_box_3.png 1024w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/launch-website_hu498dcba4501ec51a41a8be71d69ec573_29509_1320x0_resize_box_3.png 2x" src=/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/launch-website_hu498dcba4501ec51a41a8be71d69ec573_29509_660x0_resize_box_3.png alt="Launch website"><figcaption>Launch website</figcaption></figure></p><p>Your web browser will launch, switch to VS Code and you will see the debug session has stopped as before.</p><p>If it doesn&rsquo;t automatically stop check the debug icon is green, if it is grey click it and select debug, then refresh
+the page.</p><p>The <code>xdebug_break()</code> function has now served its purpose, you can continue to use that function, however when the Xdebug
 is disabled the code will throw an exception. Delete the line with the Xdebug function, press F9 to toggle a breakpoint,
-a red dot will display to the right of the selected line.</p>
-<p>If you are still debugging press F5 to continue. Refresh the webpage page and debugging will trigger at the breakpoint.</p>
-<p>Refresh the webpage and the debugging will stop at the breakpoint.</p>
-<h3 id="debug-actions" class="relative group">Debug actions <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#debug-actions" aria-label="Anchor">#</a></span></h3>
-<p>Once a debug session starts, the <strong>Debug toolbar</strong> will appear on the top of the editor.</p>
-<p>
-
-
-
-  
-  
-    
-  
-  
-    <figure>
-      <img
-        class="my-0 rounded-md"
-        srcset="
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/debug-actions_huca83b1635c160aab287b130049f7f1e9_919_330x0_resize_box_3.png 330w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/debug-actions_huca83b1635c160aab287b130049f7f1e9_919_660x0_resize_box_3.png 660w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/debug-actions_huca83b1635c160aab287b130049f7f1e9_919_1024x0_resize_box_3.png 1024w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/debug-actions_huca83b1635c160aab287b130049f7f1e9_919_1320x0_resize_box_3.png 2x"
-        src="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/debug-actions_huca83b1635c160aab287b130049f7f1e9_919_660x0_resize_box_3.png"
-        alt="Debug Actions"
-      />
-      <figcaption>Debug Actions</figcaption>
-    </figure>
-  
-
-</p>
-<ul>
-<li>Continue / Pause <code>F5</code></li>
-<li>Step Over <code>F10</code></li>
-<li>Step Into <code>F11</code></li>
-<li>Step Out <code>Shift+F11</code></li>
-<li>Restart <code>Ctrl+Shift+F5</code></li>
-<li>Stop <code>Shift+F5</code></li>
-</ul>
-<p>For more information on how to use debug see the links in Further information, which link to official documentation and
-official YouTube video.</p>
-<h2 id="troubleshooting" class="relative group">Troubleshooting <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#troubleshooting" aria-label="Anchor">#</a></span></h2>
-<h3 id="port-9003-is-in-use" class="relative group">Port 9003 is in use <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#port-9003-is-in-use" aria-label="Anchor">#</a></span></h3>
-<p>If there are any problems with port 9003 being used by another application run <strong>netstat</strong></p>
-<p>From Laragon:</p>
-<ol>
-<li>Menu</li>
-<li>Tools</li>
-<li>netstat</li>
-</ol>
-<p>
-
-
-
-  
-  
-    
-  
-  
-    <figure>
-      <img
-        class="my-0 rounded-md"
-        srcset="
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/run-netstat_hu5d18144a3a7eee0c9f405bcb123cc756_30654_330x0_resize_box_3.png 330w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/run-netstat_hu5d18144a3a7eee0c9f405bcb123cc756_30654_660x0_resize_box_3.png 660w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/run-netstat_hu5d18144a3a7eee0c9f405bcb123cc756_30654_1024x0_resize_box_3.png 1024w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/run-netstat_hu5d18144a3a7eee0c9f405bcb123cc756_30654_1320x0_resize_box_3.png 2x"
-        src="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/run-netstat_hu5d18144a3a7eee0c9f405bcb123cc756_30654_660x0_resize_box_3.png"
-        alt="Run netstat"
-      />
-      <figcaption>Run netstat</figcaption>
-    </figure>
-  
-
-</p>
-<p>Wait a few seconds and Notepad++ will open with the stats.</p>
-<p>
-
-
-
-  
-  
-    
-  
-  
-    <figure>
-      <img
-        class="my-0 rounded-md"
-        srcset="
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/view-netstat-results_huf14a3d66036c0e9603f6fc6d595696b3_127731_330x0_resize_box_3.png 330w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/view-netstat-results_huf14a3d66036c0e9603f6fc6d595696b3_127731_660x0_resize_box_3.png 660w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/view-netstat-results_huf14a3d66036c0e9603f6fc6d595696b3_127731_1024x0_resize_box_3.png 1024w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/view-netstat-results_huf14a3d66036c0e9603f6fc6d595696b3_127731_1320x0_resize_box_3.png 2x"
-        src="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/view-netstat-results_huf14a3d66036c0e9603f6fc6d595696b3_127731_660x0_resize_box_3.png"
-        alt="View netstat results"
-      />
-      <figcaption>View netstat results</figcaption>
-    </figure>
-  
-
-</p>
-<p>The important line is for port <strong>9003</strong>, this is required for Xdebug to work, this example is correct, I have set VS
+a red dot will display to the right of the selected line.</p><p>If you are still debugging press F5 to continue. Refresh the webpage page and debugging will trigger at the breakpoint.</p><p>Refresh the webpage and the debugging will stop at the breakpoint.</p><h3 id=debug-actions class="relative group">Debug actions <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style=text-decoration-line:none!important href=#debug-actions aria-label=Anchor>#</a></span></h3><p>Once a debug session starts, the <strong>Debug toolbar</strong> will appear on the top of the editor.</p><p><figure><img class="my-0 rounded-md" srcset="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/debug-actions_huca83b1635c160aab287b130049f7f1e9_919_330x0_resize_box_3.png 330w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/debug-actions_huca83b1635c160aab287b130049f7f1e9_919_660x0_resize_box_3.png 660w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/debug-actions_huca83b1635c160aab287b130049f7f1e9_919_1024x0_resize_box_3.png 1024w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/debug-actions_huca83b1635c160aab287b130049f7f1e9_919_1320x0_resize_box_3.png 2x" src=/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/debug-actions_huca83b1635c160aab287b130049f7f1e9_919_660x0_resize_box_3.png alt="Debug Actions"><figcaption>Debug Actions</figcaption></figure></p><ul><li>Continue / Pause <code>F5</code></li><li>Step Over <code>F10</code></li><li>Step Into <code>F11</code></li><li>Step Out <code>Shift+F11</code></li><li>Restart <code>Ctrl+Shift+F5</code></li><li>Stop <code>Shift+F5</code></li></ul><p>For more information on how to use debug see the links in Further information, which link to official documentation and
+official YouTube video.</p><h2 id=troubleshooting class="relative group">Troubleshooting <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style=text-decoration-line:none!important href=#troubleshooting aria-label=Anchor>#</a></span></h2><h3 id=port-9003-is-in-use class="relative group">Port 9003 is in use <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style=text-decoration-line:none!important href=#port-9003-is-in-use aria-label=Anchor>#</a></span></h3><p>If there are any problems with port 9003 being used by another application run <strong>netstat</strong></p><p>From Laragon:</p><ol><li>Menu</li><li>Tools</li><li>netstat</li></ol><p><figure><img class="my-0 rounded-md" srcset="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/run-netstat_hu5d18144a3a7eee0c9f405bcb123cc756_30654_330x0_resize_box_3.png 330w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/run-netstat_hu5d18144a3a7eee0c9f405bcb123cc756_30654_660x0_resize_box_3.png 660w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/run-netstat_hu5d18144a3a7eee0c9f405bcb123cc756_30654_1024x0_resize_box_3.png 1024w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/run-netstat_hu5d18144a3a7eee0c9f405bcb123cc756_30654_1320x0_resize_box_3.png 2x" src=/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/run-netstat_hu5d18144a3a7eee0c9f405bcb123cc756_30654_660x0_resize_box_3.png alt="Run netstat"><figcaption>Run netstat</figcaption></figure></p><p>Wait a few seconds and Notepad++ will open with the stats.</p><p><figure><img class="my-0 rounded-md" srcset="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/view-netstat-results_huf14a3d66036c0e9603f6fc6d595696b3_127731_330x0_resize_box_3.png 330w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/view-netstat-results_huf14a3d66036c0e9603f6fc6d595696b3_127731_660x0_resize_box_3.png 660w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/view-netstat-results_huf14a3d66036c0e9603f6fc6d595696b3_127731_1024x0_resize_box_3.png 1024w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/view-netstat-results_huf14a3d66036c0e9603f6fc6d595696b3_127731_1320x0_resize_box_3.png 2x" src=/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/view-netstat-results_huf14a3d66036c0e9603f6fc6d595696b3_127731_660x0_resize_box_3.png alt="View netstat results"><figcaption>View netstat results</figcaption></figure></p><p>The important line is for port <strong>9003</strong>, this is required for Xdebug to work, this example is correct, I have set VS
 Code to listen for Xdebug. If another program is using this port then change the port Xdebug uses and VS Code listens
-on:</p>
-<ul>
-<li><strong>php.ini</strong>, e.g. add the line for Xdebug to use port <strong>9004</strong></li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="k">[xdebug]</span>
-</span></span><span class="line"><span class="cl"><span class="na">xdebug.mode</span> <span class="o">=</span> <span class="s">coverage,debug,develop</span>
-</span></span><span class="line"><span class="cl"><span class="na">xdebug.client_port</span> <span class="o">=</span> <span class="s">9004</span>
-</span></span></code></pre></div><ul>
-<li>VS Code open <strong>launch.json</strong> (in the <strong>.vscode</strong> directory), change the two locations from <strong>&ldquo;port&rdquo;: 9003</strong> to <strong>&quot;
-port&quot;: 9004</strong></li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;version&#34;</span><span class="p">:</span> <span class="s2">&#34;0.2.0&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;configurations&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Listen for Xdebug&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;php&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;request&#34;</span><span class="p">:</span> <span class="s2">&#34;launch&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;port&#34;</span><span class="p">:</span> <span class="mi">9004</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Launch currently open script&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;php&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;request&#34;</span><span class="p">:</span> <span class="s2">&#34;launch&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;program&#34;</span><span class="p">:</span> <span class="s2">&#34;${file}&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;cwd&#34;</span><span class="p">:</span> <span class="s2">&#34;${fileDirname}&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;port&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;runtimeArgs&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="s2">&#34;-dxdebug.start_with_request=yes&#34;</span>
-</span></span><span class="line"><span class="cl">      <span class="p">],</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;env&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;XDEBUG_MODE&#34;</span><span class="p">:</span> <span class="s2">&#34;debug,develop&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;XDEBUG_CONFIG&#34;</span><span class="p">:</span> <span class="s2">&#34;client_port=${port}&#34;</span>
-</span></span><span class="line"><span class="cl">      <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Launch Built-in web server&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;php&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;request&#34;</span><span class="p">:</span> <span class="s2">&#34;launch&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;runtimeArgs&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="s2">&#34;-dxdebug.mode=debug&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="s2">&#34;-dxdebug.start_with_request=yes&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="s2">&#34;-S&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="s2">&#34;localhost:0&#34;</span>
-</span></span><span class="line"><span class="cl">      <span class="p">],</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;program&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;cwd&#34;</span><span class="p">:</span> <span class="s2">&#34;${workspaceRoot}&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;port&#34;</span><span class="p">:</span> <span class="mi">9004</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;serverReadyAction&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;pattern&#34;</span><span class="p">:</span> <span class="s2">&#34;Development Server \\(http://localhost:([0-9]+)\\) started&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;uriFormat&#34;</span><span class="p">:</span> <span class="s2">&#34;http://localhost:%s&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;action&#34;</span><span class="p">:</span> <span class="s2">&#34;openExternally&#34;</span>
-</span></span><span class="line"><span class="cl">      <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">  <span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+on:</p><ul><li><strong>php.ini</strong>, e.g. add the line for Xdebug to use port <strong>9004</strong></li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=line><span class=cl><span class=k>[xdebug]</span>
+</span></span><span class=line><span class=cl><span class=na>xdebug.mode</span> <span class=o>=</span> <span class=s>coverage,debug,develop</span>
+</span></span><span class=line><span class=cl><span class=na>xdebug.client_port</span> <span class=o>=</span> <span class=s>9004</span>
+</span></span></code></pre></div><ul><li>VS Code open <strong>launch.json</strong> (in the <strong>.vscode</strong> directory), change the two locations from <strong>&ldquo;port&rdquo;: 9003</strong> to <strong>"
+port": 9004</strong></li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;version&#34;</span><span class=p>:</span> <span class=s2>&#34;0.2.0&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;configurations&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;Listen for Xdebug&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;php&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;request&#34;</span><span class=p>:</span> <span class=s2>&#34;launch&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;port&#34;</span><span class=p>:</span> <span class=mi>9004</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;Launch currently open script&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;php&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;request&#34;</span><span class=p>:</span> <span class=s2>&#34;launch&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;program&#34;</span><span class=p>:</span> <span class=s2>&#34;${file}&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;cwd&#34;</span><span class=p>:</span> <span class=s2>&#34;${fileDirname}&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;port&#34;</span><span class=p>:</span> <span class=mi>0</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;runtimeArgs&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;-dxdebug.start_with_request=yes&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=p>],</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;env&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;XDEBUG_MODE&#34;</span><span class=p>:</span> <span class=s2>&#34;debug,develop&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;XDEBUG_CONFIG&#34;</span><span class=p>:</span> <span class=s2>&#34;client_port=${port}&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;Launch Built-in web server&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;php&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;request&#34;</span><span class=p>:</span> <span class=s2>&#34;launch&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;runtimeArgs&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;-dxdebug.mode=debug&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;-dxdebug.start_with_request=yes&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;-S&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;localhost:0&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=p>],</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;program&#34;</span><span class=p>:</span> <span class=s2>&#34;&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;cwd&#34;</span><span class=p>:</span> <span class=s2>&#34;${workspaceRoot}&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;port&#34;</span><span class=p>:</span> <span class=mi>9004</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;serverReadyAction&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;pattern&#34;</span><span class=p>:</span> <span class=s2>&#34;Development Server \\(http://localhost:([0-9]+)\\) started&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;uriFormat&#34;</span><span class=p>:</span> <span class=s2>&#34;http://localhost:%s&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;action&#34;</span><span class=p>:</span> <span class=s2>&#34;openExternally&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span></code></pre></div><p>In Laragon, next to Apache click <strong>Reload</strong>. Click <strong>web</strong> button and <strong>info</strong>, as previously, scroll down to Xdebug and
-look for <strong>xdebug.client_port</strong>:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Directive</th>
-<th style="text-align:left">Local Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">&hellip;.</td>
-<td style="text-align:left">&hellip;.</td>
-</tr>
-<tr>
-<td style="text-align:left">xdebug.client_port</td>
-<td style="text-align:left">9004</td>
-</tr>
-<tr>
-<td style="text-align:left">&hellip;.</td>
-<td style="text-align:left">&hellip;.</td>
-</tr>
-</tbody>
-</table>
-<p>Refresh the webpage created earlier and Xdebug will now work on port 9004.</p>
-<p>Check the Xdebug helper icon is green, if it was grey click it and select Debug, wait for it to turn green and refresh
-the page once more.</p>
-<h3 id="php-cli-is-different-from-the-php-used-by-apache" class="relative group">PHP CLI is different from the PHP used by Apache <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#php-cli-is-different-from-the-php-used-by-apache" aria-label="Anchor">#</a></span></h3>
-<p>Laragon makes is easy to switch versions of PHP, this can lead to the version used by Apache being different from the
-one used by VS Code or the command line.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">php -v
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">PHP 7.4.19 (cli) (built: May  4 2021 14:24:38) ( ZTS Visual C++ 2017 x64 )
-</span></span><span class="line"><span class="cl">Copyright (c) The PHP Group
-</span></span><span class="line"><span class="cl">Zend Engine v3.4.0, Copyright (c) Zend Technologies
-</span></span><span class="line"><span class="cl">    with Xdebug v3.0.4, Copyright (c) 2002-2021, by Derick Rethans
+look for <strong>xdebug.client_port</strong>:</p><table><thead><tr><th style=text-align:left>Directive</th><th style=text-align:left>Local Value</th></tr></thead><tbody><tr><td style=text-align:left>&mldr;.</td><td style=text-align:left>&mldr;.</td></tr><tr><td style=text-align:left>xdebug.client_port</td><td style=text-align:left>9004</td></tr><tr><td style=text-align:left>&mldr;.</td><td style=text-align:left>&mldr;.</td></tr></tbody></table><p>Refresh the webpage created earlier and Xdebug will now work on port 9004.</p><p>Check the Xdebug helper icon is green, if it was grey click it and select Debug, wait for it to turn green and refresh
+the page once more.</p><h3 id=php-cli-is-different-from-the-php-used-by-apache class="relative group">PHP CLI is different from the PHP used by Apache <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style=text-decoration-line:none!important href=#php-cli-is-different-from-the-php-used-by-apache aria-label=Anchor>#</a></span></h3><p>Laragon makes is easy to switch versions of PHP, this can lead to the version used by Apache being different from the
+one used by VS Code or the command line.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>php -v
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>PHP 7.4.19 (cli) (built: May  4 2021 14:24:38) ( ZTS Visual C++ 2017 x64 )
+</span></span><span class=line><span class=cl>Copyright (c) The PHP Group
+</span></span><span class=line><span class=cl>Zend Engine v3.4.0, Copyright (c) Zend Technologies
+</span></span><span class=line><span class=cl>    with Xdebug v3.0.4, Copyright (c) 2002-2021, by Derick Rethans
 </span></span></code></pre></div><p>The output for PHP is slightly different, the important lines are <strong>PHP 7.4.19</strong> should be the same as used by Apache
-and <strong>with Xdebug v3&hellip;</strong>, if the PHP version is different see Add Laragon to all terminals below. If they are the same
-PHP version, but Xdebug doesn&rsquo;t display check the <strong>php.ini</strong> and Xdebug is enabled, see <strong>Add Xdebug to PHP</strong> above.</p>
-<h3 id="add-laragon-to-all-terminals" class="relative group">Add Laragon to all terminals <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#add-laragon-to-all-terminals" aria-label="Anchor">#</a></span></h3>
-<p>Just click <strong>Menu &gt; Tools &gt; PATH environment variable &gt; Add Laragon to Path</strong></p>
-<p>
-
-
-
-  
-  
-    
-  
-  
-    <figure>
-      <img
-        class="my-0 rounded-md"
-        srcset="
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/add-laragon-to-path_hu95354c2884726631d36952f0b2258be7_24256_330x0_resize_box_3.png 330w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/add-laragon-to-path_hu95354c2884726631d36952f0b2258be7_24256_660x0_resize_box_3.png 660w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/add-laragon-to-path_hu95354c2884726631d36952f0b2258be7_24256_1024x0_resize_box_3.png 1024w,
-          /2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/add-laragon-to-path_hu95354c2884726631d36952f0b2258be7_24256_1320x0_resize_box_3.png 2x"
-        src="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/add-laragon-to-path_hu95354c2884726631d36952f0b2258be7_24256_660x0_resize_box_3.png"
-        alt="Add Laragon to Path"
-      />
-      <figcaption>Add Laragon to Path</figcaption>
-    </figure>
-  
-
-</p>
-<p>You then need to <strong>Sign out</strong> and back <strong>in</strong> for the path to be added to your user profile for all terminals and
-programs (CMD / PowerShell / Terminal / VS Code etc.)</p>
-<p>One point to note: if you change PHP version, you need to run <strong>Remove Laragon from Path</strong>, log off and back on. Then **
-Add Laragon to Path** log off and back on to update the path set in user profile!</p>
-<p>PHP and all the other Laragon applications will then be available in all terminals and applications, including VS Code.</p>
-<h2 id="further-information" class="relative group">Further information <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#further-information" aria-label="Anchor">#</a></span></h2>
-<ul>
-<li><a href="https://xdebug.org/docs/">Xdebug 3 — Documentation</a> - full documentation for Xdebug 3</li>
-<li><a href="https://www.youtube.com/playlist?list=PLg9Kjjye-m1g_eXpdaifUqLqALLqZqKd4">Youtube Xdebug 3 Documentation</a> - by Derick
-Rethans - A series of videos to explain how Xdebug 3 and all of its features work.</li>
-<li><a href="https://code.visualstudio.com/docs/editor/debugging">Debugging in VS Code</a> - official VS Code documentation.</li>
-<li><a href="https://forum.laragon.org/">Laragon&rsquo;s forum</a> - useful forum for anything Laragon related, you may see some answers
-from me too 😃</li>
-</ul>
-
-      </div>
-    </section>
-    <footer class="pt-8 max-w-prose print:hidden">
-      
-  <div class="flex">
-    
-      
-      
-        
-        <img
-          class="w-24 h-24 !mt-0 !mb-0 ltr:mr-4 rtl:ml-4 rounded-full"
-          width="96"
-          height="96"
-          alt="Michael Pritchard (AKA Pen-y-Fan)"
-          src="/img/author_hu5893a0bcecd6e8dce34dc674da9c7f56_6794556_192x192_fill_q75_box_smart1.jpg"
-        />
-      
-    
-    <div class="place-self-center">
-      
-        <div class="text-[0.6rem] leading-3 text-neutral-500 dark:text-neutral-400 uppercase">
-          Author
-        </div>
-        <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
-          Michael Pritchard (AKA Pen-y-Fan)
-        </div>
-      
-      
-        <div class="text-sm text-neutral-700 dark:text-neutral-400">Posts about my coding experiences, primarily for my learning path with PHP, good clean professional code.</div>
-      
-      <div class="text-2xl sm:text-lg">
-  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
-    
-      
-        <a
-          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
-          href="https://github.com/Pen-y-Fan"
-          target="_blank"
-          aria-label="Github"
-          rel="me noopener noreferrer"
-          >
-
-  <span class="relative inline-block align-text-bottom icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
-
-  </span>
-
-</a
-        >
-      
-    
-      
-        <a
-          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
-          href="https://www.linkedin.com/in/michael-pritchard-340b4520/"
-          target="_blank"
-          aria-label="Linkedin"
-          rel="me noopener noreferrer"
-          >
-
-  <span class="relative inline-block align-text-bottom icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
-
-  </span>
-
-</a
-        >
-      
-    
-      
-        <a
-          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
-          href="https://www.reddit.com/user/Pen-y-Fan"
-          target="_blank"
-          aria-label="Reddit"
-          rel="me noopener noreferrer"
-          >
-
-  <span class="relative inline-block align-text-bottom icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M201.5 305.5c-13.8 0-24.9-11.1-24.9-24.6 0-13.8 11.1-24.9 24.9-24.9 13.6 0 24.6 11.1 24.6 24.9 0 13.6-11.1 24.6-24.6 24.6zM504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-132.3-41.2c-9.4 0-17.7 3.9-23.8 10-22.4-15.5-52.6-25.5-86.1-26.6l17.4-78.3 55.4 12.5c0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.3 24.9-24.9s-11.1-24.9-24.9-24.9c-9.7 0-18 5.8-22.1 13.8l-61.2-13.6c-3-.8-6.1 1.4-6.9 4.4l-19.1 86.4c-33.2 1.4-63.1 11.3-85.5 26.8-6.1-6.4-14.7-10.2-24.1-10.2-34.9 0-46.3 46.9-14.4 62.8-1.1 5-1.7 10.2-1.7 15.5 0 52.6 59.2 95.2 132 95.2 73.1 0 132.3-42.6 132.3-95.2 0-5.3-.6-10.8-1.9-15.8 31.3-16 19.8-62.5-14.9-62.5zM302.8 331c-18.2 18.2-76.1 17.9-93.6 0-2.2-2.2-6.1-2.2-8.3 0-2.5 2.5-2.5 6.4 0 8.6 22.8 22.8 87.3 22.8 110.2 0 2.5-2.2 2.5-6.1 0-8.6-2.2-2.2-6.1-2.2-8.3 0zm7.7-75c-13.6 0-24.6 11.1-24.6 24.9 0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.1 24.9-24.6 0-13.8-11-24.9-24.9-24.9z"/></svg>
-
-  </span>
-
-</a
-        >
-      
-    
-      
-        <a
-          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
-          href="https://twitter.com/MikeAPritch"
-          target="_blank"
-          aria-label="Twitter"
-          rel="me noopener noreferrer"
-          >
-
-  <span class="relative inline-block align-text-bottom icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
-
-  </span>
-
-</a
-        >
-      
-    
-  </div>
-
-</div>
-    </div>
-  </div>
-
-
-      
-  
-  <section class="flex flex-row flex-wrap justify-center pt-4 text-xl">
-    
-      
-        <a
-          class="bg-neutral-300 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800 m-1 hover:bg-primary-500 hover:text-neutral rounded min-w-[2.4rem] inline-block text-center p-1"
-          href="https://www.facebook.com/sharer/sharer.php?u=https://pen-y-fan.github.io/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/&amp;quote=How%20to%20Set%20up%20VS%20Code%20to%20use%20PHP%20with%20Xdebug%203%20on%20Windows"
-          title="Share on Facebook"
-          aria-label="Share on Facebook"
-          >
-
-  <span class="relative inline-block align-text-bottom icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
-
-  </span>
-
-</a
-        >
-      
-    
-      
-        <a
-          class="bg-neutral-300 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800 m-1 hover:bg-primary-500 hover:text-neutral rounded min-w-[2.4rem] inline-block text-center p-1"
-          href="https://twitter.com/intent/tweet/?url=https://pen-y-fan.github.io/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/&amp;text=How%20to%20Set%20up%20VS%20Code%20to%20use%20PHP%20with%20Xdebug%203%20on%20Windows"
-          title="Tweet on Twitter"
-          aria-label="Tweet on Twitter"
-          >
-
-  <span class="relative inline-block align-text-bottom icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
-
-  </span>
-
-</a
-        >
-      
-    
-      
-        <a
-          class="bg-neutral-300 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800 m-1 hover:bg-primary-500 hover:text-neutral rounded min-w-[2.4rem] inline-block text-center p-1"
-          href="https://pinterest.com/pin/create/bookmarklet/?url=https://pen-y-fan.github.io/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/&amp;description=How%20to%20Set%20up%20VS%20Code%20to%20use%20PHP%20with%20Xdebug%203%20on%20Windows"
-          title="Pin on Pinterest"
-          aria-label="Pin on Pinterest"
-          >
-
-  <span class="relative inline-block align-text-bottom icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M496 256c0 137-111 248-248 248-25.6 0-50.2-3.9-73.4-11.1 10.1-16.5 25.2-43.5 30.8-65 3-11.6 15.4-59 15.4-59 8.1 15.4 31.7 28.5 56.8 28.5 74.8 0 128.7-68.8 128.7-154.3 0-81.9-66.9-143.2-152.9-143.2-107 0-163.9 71.8-163.9 150.1 0 36.4 19.4 81.7 50.3 96.1 4.7 2.2 7.2 1.2 8.3-3.3.8-3.4 5-20.3 6.9-28.1.6-2.5.3-4.7-1.7-7.1-10.1-12.5-18.3-35.3-18.3-56.6 0-54.7 41.4-107.6 112-107.6 60.9 0 103.6 41.5 103.6 100.9 0 67.1-33.9 113.6-78 113.6-24.3 0-42.6-20.1-36.7-44.8 7-29.5 20.5-61.3 20.5-82.6 0-19-10.2-34.9-31.4-34.9-24.9 0-44.9 25.7-44.9 60.2 0 22 7.4 36.8 7.4 36.8s-24.5 103.8-29 123.2c-5 21.4-3 51.6-.9 71.2C65.4 450.9 0 361.1 0 256 0 119 111 8 248 8s248 111 248 248z"/></svg>
-
-  </span>
-
-</a
-        >
-      
-    
-      
-        <a
-          class="bg-neutral-300 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800 m-1 hover:bg-primary-500 hover:text-neutral rounded min-w-[2.4rem] inline-block text-center p-1"
-          href="https://reddit.com/submit/?url=https://pen-y-fan.github.io/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/&amp;resubmit=true&amp;title=How%20to%20Set%20up%20VS%20Code%20to%20use%20PHP%20with%20Xdebug%203%20on%20Windows"
-          title="Submit to Reddit"
-          aria-label="Submit to Reddit"
-          >
-
-  <span class="relative inline-block align-text-bottom icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M201.5 305.5c-13.8 0-24.9-11.1-24.9-24.6 0-13.8 11.1-24.9 24.9-24.9 13.6 0 24.6 11.1 24.6 24.9 0 13.6-11.1 24.6-24.6 24.6zM504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-132.3-41.2c-9.4 0-17.7 3.9-23.8 10-22.4-15.5-52.6-25.5-86.1-26.6l17.4-78.3 55.4 12.5c0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.3 24.9-24.9s-11.1-24.9-24.9-24.9c-9.7 0-18 5.8-22.1 13.8l-61.2-13.6c-3-.8-6.1 1.4-6.9 4.4l-19.1 86.4c-33.2 1.4-63.1 11.3-85.5 26.8-6.1-6.4-14.7-10.2-24.1-10.2-34.9 0-46.3 46.9-14.4 62.8-1.1 5-1.7 10.2-1.7 15.5 0 52.6 59.2 95.2 132 95.2 73.1 0 132.3-42.6 132.3-95.2 0-5.3-.6-10.8-1.9-15.8 31.3-16 19.8-62.5-14.9-62.5zM302.8 331c-18.2 18.2-76.1 17.9-93.6 0-2.2-2.2-6.1-2.2-8.3 0-2.5 2.5-2.5 6.4 0 8.6 22.8 22.8 87.3 22.8 110.2 0 2.5-2.2 2.5-6.1 0-8.6-2.2-2.2-6.1-2.2-8.3 0zm7.7-75c-13.6 0-24.6 11.1-24.6 24.9 0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.1 24.9-24.6 0-13.8-11-24.9-24.9-24.9z"/></svg>
-
-  </span>
-
-</a
-        >
-      
-    
-      
-        <a
-          class="bg-neutral-300 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800 m-1 hover:bg-primary-500 hover:text-neutral rounded min-w-[2.4rem] inline-block text-center p-1"
-          href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://pen-y-fan.github.io/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/&amp;title=How%20to%20Set%20up%20VS%20Code%20to%20use%20PHP%20with%20Xdebug%203%20on%20Windows"
-          title="Share on LinkedIn"
-          aria-label="Share on LinkedIn"
-          >
-
-  <span class="relative inline-block align-text-bottom icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
-
-  </span>
-
-</a
-        >
-      
-    
-      
-        <a
-          class="bg-neutral-300 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800 m-1 hover:bg-primary-500 hover:text-neutral rounded min-w-[2.4rem] inline-block text-center p-1"
-          href="mailto:?body=https://pen-y-fan.github.io/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/&amp;subject=How%20to%20Set%20up%20VS%20Code%20to%20use%20PHP%20with%20Xdebug%203%20on%20Windows"
-          title="Send via email"
-          aria-label="Send via email"
-          >
-
-  <span class="relative inline-block align-text-bottom icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z"/></svg>
-
-  </span>
-
-</a
-        >
-      
-    
-  </section>
-
-
-      
-  
-    
-    
-    
-    <div class="pt-8">
-      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
-      <div class="flex justify-between pt-3">
-        <span>
-          
-            <a class="flex group" href="/2021/05/23/Standard-setup-for-PHP-projects-2021/">
-              <span
-                class="mr-3 ltr:inline rtl:hidden text-neutral-700 dark:text-neutral group-hover:text-primary-600 dark:group-hover:text-primary-400"
-                >&larr;</span
-              >
-              <span
-                class="ml-3 ltr:hidden rtl:inline text-neutral-700 dark:text-neutral group-hover:text-primary-600 dark:group-hover:text-primary-400"
-                >&rarr;</span
-              >
-              <span class="flex flex-col">
-                <span
-                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Standard setup for PHP projects 2021</span
-                >
-                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
-                  
-                    <time datetime="2021-05-23 08:52:27 &#43;0000 UTC">23 May 2021</time>
-                  
-                </span>
-              </span>
-            </a>
-          
-        </span>
-        <span>
-          
-            <a class="flex text-right group" href="/2021/08/08/How-to-install-MySQL-on-WSL-2-Ubuntu/">
-              <span class="flex flex-col">
-                <span
-                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >How to install MySQL on WSL 2 (Ubuntu)</span
-                >
-                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
-                  
-                    <time datetime="2021-08-08 16:45:48 &#43;0000 UTC">8 August 2021</time>
-                  
-                </span>
-              </span>
-              <span
-                class="ml-3 ltr:inline rtl:hidden text-neutral-700 dark:text-neutral group-hover:text-primary-600 dark:group-hover:text-primary-400"
-                >&rarr;</span
-              >
-              <span
-                class="mr-3 ltr:hidden rtl:inline text-neutral-700 dark:text-neutral group-hover:text-primary-600 dark:group-hover:text-primary-400"
-                >&larr;</span
-              >
-            </a>
-          
-        </span>
-      </div>
-    </div>
-  
-
-
-      
-    </footer>
-  </article>
-
-        
-          <div
-            class="absolute top-[100vh] ltr:right-0 rtl:left-0 w-12 pointer-events-none bottom-0"
-          >
-            <a
-              href="#the-top"
-              class="w-12 h-12 sticky pointer-events-auto top-[calc(100vh-5.5rem)] bg-neutral/50 dark:bg-neutral-800/50 backdrop-blur rounded-full text-xl flex items-center justify-center text-neutral-700 dark:text-neutral hover:text-primary-600 dark:hover:text-primary-400"
-              aria-label="Scroll to top"
-              title="Scroll to top"
-            >
-              &uarr;
-            </a>
-          </div>
-        
-      </main><footer class="py-10 print:hidden">
-  
-  
-  <div class="flex items-center justify-between">
-    <div>
-      
-      
-        <p class="text-sm text-neutral-500 dark:text-neutral-400">
-            ©️ Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
-        </p>
-      
-      
-      
-        <p class="text-xs text-neutral-500 dark:text-neutral-400">
-          
-          
-          Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
-            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500" href="https://git.io/hugo-congo" target="_blank" rel="noopener noreferrer">Congo</a>
-        </p>
-      
-    </div>
-    
-    
-      <div
-        class="text-sm cursor-pointer text-neutral-700 dark:text-neutral hover:text-primary-600 dark:hover:text-primary-400 ltr:mr-14 rtl:ml-14"
-      >
-        <button
-          id="appearance-switcher"
-          class="w-12 h-12 "
-          type="button"
-          title="Switch to dark appearance"
-        >
-          <span class="inline dark:hidden">
-
-  <span class="relative inline-block align-text-bottom icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
-
-  </span>
-
-</span>
-          <span class="hidden dark:inline">
-
-  <span class="relative inline-block align-text-bottom icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
-
-  </span>
-
-</span>
-        </button>
-      </div>
-    
-  </div>
-  
-  
-</footer>
-
-    </div>
-  </body>
-</html>
+and <strong>with Xdebug v3&mldr;</strong>, if the PHP version is different see Add Laragon to all terminals below. If they are the same
+PHP version, but Xdebug doesn&rsquo;t display check the <strong>php.ini</strong> and Xdebug is enabled, see <strong>Add Xdebug to PHP</strong> above.</p><h3 id=add-laragon-to-all-terminals class="relative group">Add Laragon to all terminals <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style=text-decoration-line:none!important href=#add-laragon-to-all-terminals aria-label=Anchor>#</a></span></h3><p>Just click <strong>Menu > Tools > PATH environment variable > Add Laragon to Path</strong></p><p><figure><img class="my-0 rounded-md" srcset="/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/add-laragon-to-path_hu95354c2884726631d36952f0b2258be7_24256_330x0_resize_box_3.png 330w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/add-laragon-to-path_hu95354c2884726631d36952f0b2258be7_24256_660x0_resize_box_3.png 660w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/add-laragon-to-path_hu95354c2884726631d36952f0b2258be7_24256_1024x0_resize_box_3.png 1024w,
+/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/add-laragon-to-path_hu95354c2884726631d36952f0b2258be7_24256_1320x0_resize_box_3.png 2x" src=/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/images/add-laragon-to-path_hu95354c2884726631d36952f0b2258be7_24256_660x0_resize_box_3.png alt="Add Laragon to Path"><figcaption>Add Laragon to Path</figcaption></figure></p><p>You then need to <strong>Sign out</strong> and back <strong>in</strong> for the path to be added to your user profile for all terminals and
+programs (CMD / PowerShell / Terminal / VS Code etc.)</p><p>One point to note: if you change PHP version, you need to run <strong>Remove Laragon from Path</strong>, log off and back on. Then **
+Add Laragon to Path** log off and back on to update the path set in user profile!</p><p>PHP and all the other Laragon applications will then be available in all terminals and applications, including VS Code.</p><h2 id=further-information class="relative group">Further information <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style=text-decoration-line:none!important href=#further-information aria-label=Anchor>#</a></span></h2><ul><li><a href=https://xdebug.org/docs/ target=_blank>Xdebug 3 — Documentation</a> - full documentation for Xdebug 3</li><li><a href="https://www.youtube.com/playlist?list=PLg9Kjjye-m1g_eXpdaifUqLqALLqZqKd4" target=_blank>Youtube Xdebug 3 Documentation</a> - by Derick
+Rethans - A series of videos to explain how Xdebug 3 and all of its features work.</li><li><a href=https://code.visualstudio.com/docs/editor/debugging target=_blank>Debugging in VS Code</a> - official VS Code documentation.</li><li><a href=https://forum.laragon.org/ target=_blank>Laragon&rsquo;s forum</a> - useful forum for anything Laragon related, you may see some answers
+from me too 😃</li></ul></div></section><footer class="pt-8 max-w-prose print:hidden"><div class=flex><img class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4" width=96 height=96 alt="Michael Pritchard (AKA Pen-y-Fan)" src=/img/author_hu5893a0bcecd6e8dce34dc674da9c7f56_6794556_192x192_fill_q75_box_smart1.jpg><div class=place-self-center><div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">Author</div><div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">Michael Pritchard (AKA Pen-y-Fan)</div><div class="text-sm text-neutral-700 dark:text-neutral-400">Posts about my coding experiences, primarily for my learning path with PHP, good clean professional code.</div><div class="text-2xl sm:text-lg"><div class="flex flex-wrap text-neutral-400 dark:text-neutral-500"><a class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400" href=https://github.com/Pen-y-Fan target=_blank aria-label=Github rel="me noopener noreferrer"><span class="relative inline-block align-text-bottom icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentcolor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6.0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6.0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3.0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1.0-6.2-.3-40.4-.3-61.4.0.0-70 15-84.7-29.8.0.0-11.4-29.1-27.8-36.6.0.0-22.9-15.7 1.6-15.4.0.0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5.0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9.0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4.0 33.7-.3 75.4-.3 83.6.0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6.0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9.0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span></a><a class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400" href=https://www.linkedin.com/in/michael-pritchard-340b4520/ target=_blank aria-label=Linkedin rel="me noopener noreferrer"><span class="relative inline-block align-text-bottom icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentcolor" d="M416 32H31.9C14.3 32 0 46.5.0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6.0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3.0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2.0 38.5 17.3 38.5 38.5.0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6.0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2.0 79.7 44.3 79.7 101.9V416z"/></svg></span></a><a class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400" href=https://www.reddit.com/user/Pen-y-Fan target=_blank aria-label=Reddit rel="me noopener noreferrer"><span class="relative inline-block align-text-bottom icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentcolor" d="M201.5 305.5c-13.8.0-24.9-11.1-24.9-24.6.0-13.8 11.1-24.9 24.9-24.9 13.6.0 24.6 11.1 24.6 24.9.0 13.6-11.1 24.6-24.6 24.6zM504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-132.3-41.2c-9.4.0-17.7 3.9-23.8 10-22.4-15.5-52.6-25.5-86.1-26.6l17.4-78.3 55.4 12.5c0 13.6 11.1 24.6 24.6 24.6 13.8.0 24.9-11.3 24.9-24.9s-11.1-24.9-24.9-24.9c-9.7.0-18 5.8-22.1 13.8l-61.2-13.6c-3-.8-6.1 1.4-6.9 4.4l-19.1 86.4c-33.2 1.4-63.1 11.3-85.5 26.8-6.1-6.4-14.7-10.2-24.1-10.2-34.9.0-46.3 46.9-14.4 62.8-1.1 5-1.7 10.2-1.7 15.5.0 52.6 59.2 95.2 132 95.2 73.1.0 132.3-42.6 132.3-95.2.0-5.3-.6-10.8-1.9-15.8 31.3-16 19.8-62.5-14.9-62.5zM302.8 331c-18.2 18.2-76.1 17.9-93.6.0-2.2-2.2-6.1-2.2-8.3.0-2.5 2.5-2.5 6.4.0 8.6 22.8 22.8 87.3 22.8 110.2.0 2.5-2.2 2.5-6.1.0-8.6-2.2-2.2-6.1-2.2-8.3.0zm7.7-75c-13.6.0-24.6 11.1-24.6 24.9.0 13.6 11.1 24.6 24.6 24.6 13.8.0 24.9-11.1 24.9-24.6.0-13.8-11-24.9-24.9-24.9z"/></svg></span></a><a class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400" href=https://twitter.com/MikeAPritch target=_blank aria-label=Twitter rel="me noopener noreferrer"><span class="relative inline-block align-text-bottom icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentcolor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645.0 138.72-105.583 298.558-298.558 298.558-59.452.0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055.0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421.0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391.0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04.0-57.828 46.782-104.934 104.934-104.934 30.213.0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg></span></a></div></div></div></div><section class="flex flex-row flex-wrap justify-center pt-4 text-xl"><a class="m-1 inline-block min-w-[2.4rem] rounded bg-neutral-300 p-1 text-center text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800" href="https://www.facebook.com/sharer/sharer.php?u=https://pen-y-fan.github.io/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/&quote=How%20to%20Set%20up%20VS%20Code%20to%20use%20PHP%20with%20Xdebug%203%20on%20Windows" title="Share on Facebook" aria-label="Share on Facebook"><span class="relative inline-block align-text-bottom icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentcolor" d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14.0 55.52 4.84 55.52 4.84v61h-31.28c-30.8.0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg></span></a><a class="m-1 inline-block min-w-[2.4rem] rounded bg-neutral-300 p-1 text-center text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800" href="https://twitter.com/intent/tweet/?url=https://pen-y-fan.github.io/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/&text=How%20to%20Set%20up%20VS%20Code%20to%20use%20PHP%20with%20Xdebug%203%20on%20Windows" title="Tweet on Twitter" aria-label="Tweet on Twitter"><span class="relative inline-block align-text-bottom icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentcolor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645.0 138.72-105.583 298.558-298.558 298.558-59.452.0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055.0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421.0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391.0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04.0-57.828 46.782-104.934 104.934-104.934 30.213.0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg></span></a><a class="m-1 inline-block min-w-[2.4rem] rounded bg-neutral-300 p-1 text-center text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800" href="https://pinterest.com/pin/create/bookmarklet/?url=https://pen-y-fan.github.io/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/&description=How%20to%20Set%20up%20VS%20Code%20to%20use%20PHP%20with%20Xdebug%203%20on%20Windows" title="Pin on Pinterest" aria-label="Pin on Pinterest"><span class="relative inline-block align-text-bottom icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentcolor" d="M496 256c0 137-111 248-248 248-25.6.0-50.2-3.9-73.4-11.1 10.1-16.5 25.2-43.5 30.8-65 3-11.6 15.4-59 15.4-59 8.1 15.4 31.7 28.5 56.8 28.5 74.8.0 128.7-68.8 128.7-154.3.0-81.9-66.9-143.2-152.9-143.2-107 0-163.9 71.8-163.9 150.1.0 36.4 19.4 81.7 50.3 96.1 4.7 2.2 7.2 1.2 8.3-3.3.8-3.4 5-20.3 6.9-28.1.6-2.5.3-4.7-1.7-7.1-10.1-12.5-18.3-35.3-18.3-56.6.0-54.7 41.4-107.6 112-107.6 60.9.0 103.6 41.5 103.6 100.9.0 67.1-33.9 113.6-78 113.6-24.3.0-42.6-20.1-36.7-44.8 7-29.5 20.5-61.3 20.5-82.6.0-19-10.2-34.9-31.4-34.9-24.9.0-44.9 25.7-44.9 60.2.0 22 7.4 36.8 7.4 36.8s-24.5 103.8-29 123.2c-5 21.4-3 51.6-.9 71.2C65.4 450.9.0 361.1.0 256 0 119 111 8 248 8s248 111 248 248z"/></svg></span></a><a class="m-1 inline-block min-w-[2.4rem] rounded bg-neutral-300 p-1 text-center text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800" href="https://reddit.com/submit/?url=https://pen-y-fan.github.io/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/&resubmit=true&title=How%20to%20Set%20up%20VS%20Code%20to%20use%20PHP%20with%20Xdebug%203%20on%20Windows" title="Submit to Reddit" aria-label="Submit to Reddit"><span class="relative inline-block align-text-bottom icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentcolor" d="M201.5 305.5c-13.8.0-24.9-11.1-24.9-24.6.0-13.8 11.1-24.9 24.9-24.9 13.6.0 24.6 11.1 24.6 24.9.0 13.6-11.1 24.6-24.6 24.6zM504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-132.3-41.2c-9.4.0-17.7 3.9-23.8 10-22.4-15.5-52.6-25.5-86.1-26.6l17.4-78.3 55.4 12.5c0 13.6 11.1 24.6 24.6 24.6 13.8.0 24.9-11.3 24.9-24.9s-11.1-24.9-24.9-24.9c-9.7.0-18 5.8-22.1 13.8l-61.2-13.6c-3-.8-6.1 1.4-6.9 4.4l-19.1 86.4c-33.2 1.4-63.1 11.3-85.5 26.8-6.1-6.4-14.7-10.2-24.1-10.2-34.9.0-46.3 46.9-14.4 62.8-1.1 5-1.7 10.2-1.7 15.5.0 52.6 59.2 95.2 132 95.2 73.1.0 132.3-42.6 132.3-95.2.0-5.3-.6-10.8-1.9-15.8 31.3-16 19.8-62.5-14.9-62.5zM302.8 331c-18.2 18.2-76.1 17.9-93.6.0-2.2-2.2-6.1-2.2-8.3.0-2.5 2.5-2.5 6.4.0 8.6 22.8 22.8 87.3 22.8 110.2.0 2.5-2.2 2.5-6.1.0-8.6-2.2-2.2-6.1-2.2-8.3.0zm7.7-75c-13.6.0-24.6 11.1-24.6 24.9.0 13.6 11.1 24.6 24.6 24.6 13.8.0 24.9-11.1 24.9-24.6.0-13.8-11-24.9-24.9-24.9z"/></svg></span></a><a class="m-1 inline-block min-w-[2.4rem] rounded bg-neutral-300 p-1 text-center text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800" href="https://www.linkedin.com/shareArticle?mini=true&url=https://pen-y-fan.github.io/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/&title=How%20to%20Set%20up%20VS%20Code%20to%20use%20PHP%20with%20Xdebug%203%20on%20Windows" title="Share on LinkedIn" aria-label="Share on LinkedIn"><span class="relative inline-block align-text-bottom icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentcolor" d="M416 32H31.9C14.3 32 0 46.5.0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6.0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3.0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2.0 38.5 17.3 38.5 38.5.0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6.0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2.0 79.7 44.3 79.7 101.9V416z"/></svg></span></a><a class="m-1 inline-block min-w-[2.4rem] rounded bg-neutral-300 p-1 text-center text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800" href="mailto:?body=https://pen-y-fan.github.io/2021/08/03/How-to-Set-up-VS-Code-to-use-PHP-with-Xdebug-3-on-Windows/&subject=How%20to%20Set%20up%20VS%20Code%20to%20use%20PHP%20with%20Xdebug%203%20on%20Windows" title="Send via email" aria-label="Send via email"><span class="relative inline-block align-text-bottom icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentcolor" d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1-27.64 140.9 68.65 266.2 199.1 285.1 19.01 2.888 36.17-12.26 36.17-31.49l1e-4-.6631c0-15.74-11.44-28.88-26.84-31.24-84.35-12.98-149.2-86.13-149.2-174.2.0-102.9 88.61-185.5 193.4-175.4 91.54 8.869 158.6 91.25 158.6 183.2v16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98.0036c-7.299.0-13.2 4.992-15.12 11.68-24.85-12.15-54.24-16.38-86.06-5.106-38.75 13.73-68.12 48.91-73.72 89.64-9.483 69.01 43.81 128 110.9 128 26.44.0 50.43-9.544 69.59-24.88 24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3c0-149.2-133.9-265.632-287.3-235.57zM239.1 304.3c-26.47.0-48-21.56-48-48.05s21.53-48.05 48-48.05 48 21.56 48 48.05-20.6 48.05-48 48.05z"/></svg></span></a></section><div class=pt-8><hr class="border-dotted border-neutral-300 dark:border-neutral-600"><div class="flex justify-between pt-3"><span><a class="group flex" href=/2021/05/23/Standard-setup-for-PHP-projects-2021/><span class="mr-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400">&larr;</span>
+<span class="ml-2 text-neutral-700 transition-transform group-hover:translate-x-[2px] group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400">&rarr;</span>
+<span class="flex flex-col"><span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500">Standard setup for PHP projects 2021</span>
+<span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400"><time datetime="2021-05-23 08:52:27 +0000 UTC">23 May 2021</time></span></span></a></span>
+<span><a class="group flex text-right" href=/2021/08/08/How-to-install-MySQL-on-WSL-2-Ubuntu/><span class="flex flex-col"><span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500">How to install MySQL on WSL 2 (Ubuntu)</span>
+<span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400"><time datetime="2021-08-08 16:45:48 +0000 UTC">8 August 2021</time></span></span>
+<span class="ml-2 text-neutral-700 transition-transform group-hover:translate-x-[2px] group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400">&rarr;</span>
+<span class="mr-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400">&larr;</span></a></span></div></div></footer></article><div class="pointer-events-none absolute top-[100vh] bottom-0 w-12 ltr:right-0 rtl:left-0"><a href=#the-top class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 backdrop-blur hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400" aria-label="Scroll to top" title="Scroll to top">&uarr;</a></div></main><footer class="py-10 print:hidden"><div class="flex items-center justify-between"><div><p class="text-sm text-neutral-500 dark:text-neutral-400">©️ Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</p><p class="text-xs text-neutral-500 dark:text-neutral-400">Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500" href=https://gohugo.io/ target=_blank rel="noopener noreferrer">Hugo</a> & <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500" href=https://git.io/hugo-congo target=_blank rel="noopener noreferrer">Congo</a></p></div><div class="ltr:mr-14 rtl:ml-14 cursor-pointer text-sm text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"><button id=appearance-switcher type=button><div class="flex items-center justify-center w-12 h-12 dark:hidden" title="Switch to dark appearance"><span class="relative inline-block align-text-bottom icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentcolor" d="M32 256C32 132.2 132.3 32 255.8 32c11.36.0 29.7 1.668 40.9 3.746 9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3 9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480 132.1 480 32 379.6 32 256z"/></svg></span></div><div class="items-center justify-center hidden w-12 h-12 dark:flex" title="Switch to light appearance"><span class="relative inline-block align-text-bottom icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 159.1c-53.02.0-95.1 42.98-95.1 95.1s41.2 96.9 95.1 96.9 95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347l-63.2-91.9 63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89 164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6 12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256 2.74 347.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7 19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109 109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69.0-127.1-57.31-127.1-127.1.0-70.69 57.31-127.1 127.1-127.1S383.1 186.2 383.1 256c0 70.7-56.4 127.1-127.1 127.1z"/></svg></span></div></button></div></div></footer></div></body></html>
